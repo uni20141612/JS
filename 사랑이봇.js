@@ -37,20 +37,22 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!갱신 (캐릭터이름) : 메이플gg 갱신 \n\n";
       help += "!방무 (몬스터 방어율) (현재 방어율) (추가 방어율1) (추가방어율2) ... : 총 방어율과 딜량을 계산함\n\n";
       help += "!데굴데굴, !데굴, !주사위 : 추억의 주사위 돌리기\n\n";
-      help += "!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.";
+      help += "!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.\n\n";
+      help += "!경스토리/!겸스토리 (캐릭터이름) : 캐릭터의 경험치 히스토리를 보여줍니다."
       replier.reply(help);
     }
     if(msg == "!업데이트" || msg == "!업뎃"){
-      var update = "";
+      var update = "봇 업데이트 내역\n";
       update += "21/07/08 - ver 1.0 Release\n";
       update += "21/07/09 - !한강 업데이트 \n"
       update += "21/07/10 - !캐릭터,!무릉,!시드,!유니온,!업적 업데이트 \n";
       update += "(!보스 목록) 추가 \n";
       update += "21/07/13 - !갱신, !코디 추가\n";
       update += "!방무, !데굴데굴 추가\n";
-      update += "21/07/16 - !강환,!영환 추가\n"
-      update += "!강환,영환 정수 오류 수정\n"
-      update += "보스 레벨, 방어율, 포스 정보 추가"
+      update += "21/07/16 - !강환,!영환 추가\n";
+      update += "!강환,영환 정수 오류 수정\n";
+      update += "21/07/20 - 보스 레벨, 방어율, 포스 정보 추가\n";
+      update += "!경스토리 추가";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -453,6 +455,66 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
         else{
           replier.reply("횟수가 5를 초과하거나 올바른 숫자가 아닙니다.");
+        }
+      }
+    }
+    if(msg.startsWith("!경스토리") || msg.startsWith("!겸스토리")){
+      var nickname = msg.split(" ")[1];
+      if(nickname == undefined){
+        replier.reply("캐릭터 이름을 입력해주세용");
+      }
+      else{
+        var maplegg = "https://maple.gg/u/" + nickname;
+        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        dataC1 = dataC1.toString();
+
+        if(dataC1.indexOf("검색결과 없음") != -1){
+          replier.reply("그런 캐릭터는 없습니다.");
+        }
+        else{ 
+          try{
+          var dataHis1 = dataC1.split("expHistoryLabels = [{\"")[1];
+          var dataHis2 = dataHis1.split("c3.generate")[0];
+
+          var dataHisLevel = [];
+          for(var i = 0; i < 7; ++i){
+            var tempHisLevel = dataHis2.split("level\":\"")[i+1];
+            dataHisLevel[i] = tempHisLevel.split("\",")[0];
+          }
+
+          var dataHisExp = [];
+          for(var i = 0; i < 7; ++i){
+            var tempHisExp = dataHis2.split("exp\":")[i+1];
+            dataHisExp[i] = tempHisExp.split("}")[0];
+          }
+
+          var dataHis3 = dataHis1.split("columns: [[")[1];
+          var dataHis4 = dataHis3.split("exp")[0];
+
+          var dataHisMonth = [];
+          for(var i = 0; i < 7; ++i){
+            var tempHisMonth = dataHis4.split(",\"")[i+1];
+            dataHisMonth[i] = tempHisMonth.split("\\")[0];
+          }
+
+          var dataHisDay = [];
+          for(var i = 0; i < 7; ++i){
+            var tempHisDay = dataHis4.split("uc6d4 ")[i+1];
+            dataHisDay[i] = tempHisDay.split("\\")[0];
+          }
+          var history = "";
+          history += "[";  history += nickname; history += "]\n";
+          for(var i = 0; i < 7; ++i){
+            history += dataHisMonth[i]; history += "월 ";
+            history += dataHisDay[i]; history += "일: Lv.";
+            history += dataHisLevel[i]; history += " (";
+            history += dataHisExp[i]; history += "%)\n";
+          }
+          history = history.slice(0, history.length - 1);
+          replier.reply(history);
+          } catch(error) {
+            replier.reply("캐릭터의 경험치 히스토리가 충분하지 않거나 읽는 도중 오류가 발생하였습니다.");
+          }
         }
       }
     }
