@@ -38,7 +38,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!방무 (몬스터 방어율) (현재 방어율) (추가 방어율1) (추가방어율2) ... : 총 방어율과 딜량을 계산함\n\n";
       help += "!데굴데굴, !데굴, !주사위 : 추억의 주사위 돌리기\n\n";
       help += "!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.\n\n";
-      help += "!경스토리/!겸스토리 (캐릭터이름) : 캐릭터의 경험치 히스토리를 보여줍니다."
+      help += "!경스토리/!겸스토리 (캐릭터이름) : 캐릭터의 경험치 히스토리를 보여줍니다.\n\n";
+      help += "!렙스토리/!레벨스토리 (캐릭터이름) : 캐릭터의 레벨 히스토리를 보여줍니다.";
       replier.reply(help);
     }
     if(msg == "!업데이트" || msg == "!업뎃"){
@@ -52,7 +53,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/16 - !강환,!영환 추가\n";
       update += "!강환,영환 정수 오류 수정\n";
       update += "21/07/20 - 보스 레벨, 방어율, 포스 정보 추가\n";
-      update += "!경스토리 추가";
+      update += "!경스토리,!렙스토리 추가";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -514,6 +515,58 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           replier.reply(history);
           } catch(error) {
             replier.reply("캐릭터의 경험치 히스토리가 충분하지 않거나 읽는 도중 오류가 발생하였습니다.");
+          }
+        }
+      }
+    }
+    if(msg.startsWith("!렙스토리") || msg.startsWith("!레벨스토리")){
+      var nickname = msg.split(" ")[1];
+      if(nickname == undefined){
+        replier.reply("캐릭터 이름을 입력해주세용");
+      }
+      else{
+        var maplegg = "https://maple.gg/u/" + nickname;
+        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        dataC1 = dataC1.toString();
+
+        if(dataC1.indexOf("검색결과 없음") != -1){
+          replier.reply("그런 캐릭터는 없습니다.");
+        }
+        else{ 
+          try{
+            var dataLvHis = dataC1.split("columns: [[\"x\"")[2];
+            dataLvHis = dataLvHis.split("]]")[0];
+
+            var dataLvHisMonth = [];
+            for(var i = 0; i < 7; ++i){
+              var tempLvMonth = dataLvHis.split(",\"")[i+1];
+              dataLvHisMonth[i] = tempLvMonth.split("\\")[0];
+            }
+
+            var dataLvHisDay = [];
+            for(var i = 0; i < 7; ++i){
+              var tempLvDay = dataLvHis.split("uc6d4 ")[i+1];
+              dataLvHisDay[i] = tempLvDay.split("\\")[0];
+            }
+
+            var dataLvHisLv = dataLvHis.split("level")[1];
+            var dataLvHisLevel = [];
+            for(var i = 0; i < 7; ++i){
+              var tempLv = dataLvHisLv.split(",\"")[i+1];
+              dataLvHisLevel[i] = tempLv.split("\"")[0];
+            }
+
+            var hisLv = "";
+            hisLv += "[";  hisLv += nickname; hisLv += "]\n";
+            for(var i = 0; i < 7; ++i){
+              hisLv += dataLvHisMonth[i]; hisLv += "월 ";
+              hisLv += dataLvHisDay[i]; hisLv += "일: Lv.";
+              hisLv += dataLvHisLevel[i]; hisLv += "\n";
+            }
+            hisLv = hisLv.slice(0, hisLv.length - 1);
+            replier.reply(hisLv);
+          } catch(error) {
+            replier.reply("캐릭터의 레벨 히스토리가 충분하지 않거나 읽는 도중 오류가 발생하였습니다.");
           }
         }
       }
