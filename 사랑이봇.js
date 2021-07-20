@@ -53,7 +53,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/16 - !강환,!영환 추가\n";
       update += "!강환,영환 정수 오류 수정\n";
       update += "21/07/20 - 보스 레벨, 방어율, 포스 정보 추가\n";
-      update += "!경스토리,!렙스토리 추가";
+      update += "!경스토리,!렙스토리 추가, 오류수정";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -492,10 +492,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           var dataHis3 = dataHis1.split("columns: [[")[1];
           var dataHis4 = dataHis3.split("exp")[0];
 
+          var dataHisYear = [];
+          for(var i = 0; i < 7; ++i){
+            dataHisYear[i] = "21";
+          }
           var dataHisMonth = [];
           for(var i = 0; i < 7; ++i){
             var tempHisMonth = dataHis4.split(",\"")[i+1];
-            dataHisMonth[i] = tempHisMonth.split("\\")[0];
+            tempHisMonth = tempHisMonth.split("\\uc6d4")[0];
+            if(tempHisMonth.length > 2){
+              dataHisYear[i] = tempHisMonth.split("\\ub144")[0];
+              tempHisMonth = tempHisMonth.split(" ")[1];
+            }
+            dataHisMonth[i] = tempHisMonth;
           }
 
           var dataHisDay = [];
@@ -506,6 +515,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           var history = "";
           history += "[";  history += nickname; history += "]\n";
           for(var i = 0; i < 7; ++i){
+            history += dataHisYear[i]; history += "년 ";
             history += dataHisMonth[i]; history += "월 ";
             history += dataHisDay[i]; history += "일: Lv.";
             history += dataHisLevel[i]; history += " (";
@@ -537,10 +547,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             var dataLvHis = dataC1.split("columns: [[\"x\"")[2];
             dataLvHis = dataLvHis.split("]]")[0];
 
+            var dataLvHisYear = [];
+            for(var i = 0; i < 7; ++i){
+              dataLvHisYear[i] = "21";
+            }
             var dataLvHisMonth = [];
             for(var i = 0; i < 7; ++i){
               var tempLvMonth = dataLvHis.split(",\"")[i+1];
-              dataLvHisMonth[i] = tempLvMonth.split("\\")[0];
+              tempLvMonth = tempLvMonth.split("\\uc6d4")[0];
+              if(tempLvMonth.length > 2){
+                dataLvHisYear[i] = tempLvMonth.split("\\ub144")[0];
+                tempLvMonth = tempLvMonth.split(" ")[1];
+              }
+              dataLvHisMonth[i] = tempLvMonth;
             }
 
             var dataLvHisDay = [];
@@ -559,6 +578,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             var hisLv = "";
             hisLv += "[";  hisLv += nickname; hisLv += "]\n";
             for(var i = 0; i < 7; ++i){
+              hisLv += dataLvHisYear[i]; hisLv += "년 ";
               hisLv += dataLvHisMonth[i]; hisLv += "월 ";
               hisLv += dataLvHisDay[i]; hisLv += "일: Lv.";
               hisLv += dataLvHisLevel[i]; hisLv += "\n";
