@@ -49,7 +49,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/13 - !갱신, !코디 추가\n";
       update += "!방무, !데굴데굴 추가\n";
       update += "21/07/16 - !강환,!영환 추가\n"
-      update += "!강환,영환 정수 오류 수정"
+      update += "!강환,영환 정수 오류 수정\n"
       replier.reply(update);
     }
     if(msg == "테스트"){      
