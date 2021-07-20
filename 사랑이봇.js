@@ -28,7 +28,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg == "!도움말"){
       var help = "<--봇 도움말-->\n\n";
-      help += "!업데이트 : 최근 업데이트 내역 \n\n";
+      help += "!업데이트 : 최근 봇 업데이트 내역 \n\n";
       help += "!보스 (보스이름) : 보스 체력, 결정석가격 \n목록 - 각 보스별 인식 키워드 목록\n난이도 생략시 노말 우선\n\n";
       help += "!경험치 (시작레벨) (끝레벨) : 시작레벨부터 끝레벨까지 필요한 경험치량, 끝레벨 생략시 그 레벨 경험치통\n\n";
       help += "!캐릭터,!무릉,!시드,!유니온,!업적,!코디 + (캐릭터명) : 캐릭터 관련 정보 \n\n";
