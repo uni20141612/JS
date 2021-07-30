@@ -9,8 +9,6 @@ const scriptName = "사랑이봇";
 *(String) packageName: 메시지를 받은 메신저의 패키지 이름. (카카오톡: com.kakao.talk, 페메: com.facebook.orca, 라인: jp.naver.line.android
 *(int) threadId: 현재 쓰레드의 순번(스크립트별로 따로 매김) *Api,Utils객체에 대해서는 설정의 도움말 참조
 */
-
-//var exps = import("exps");
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
   
     if(msg.startsWith("!보스")){
@@ -18,17 +16,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var re = getBoss(boss);
       replier.reply(re);
     }
-    if((sender == "천한수" || sender == "리부트1/254/보마") && (msg == "!리로드" || msg == "!ㄹㄹ")){
+    if((sender == "천한수" || sender == adminNick) && (msg == "!리로드" || msg == "!ㄹㄹ")){
+      var sundayTemp = sunday;
       if(Api.reload(scriptName)){
         replier.reply("리로드 성공");
       }
       else{
         replier.reply("리로드 실패");
       }
+      sunday = sundayTemp;
     }
     if(msg == "!도움말"){
       var help = "<--봇 도움말-->\n\n";
-      help += "!업데이트 : 최근 봇 업데이트 내역 \n\n";
+      help += "!봇업데이트/!봇업뎃 : 최근 봇 업데이트 내역 \n\n";
       help += "!보스 (보스이름) : 보스 레벨, 체력, 방어율, 포스, 결정석가격 \n목록 - 각 보스별 인식 키워드 목록\n난이도 생략시 노말 우선\n\n";
       help += "!경험치 (시작레벨) (끝레벨) : 시작레벨부터 끝레벨까지 필요한 경험치량, 끝레벨 생략시 그 레벨 경험치통\n\n";
       help += "!캐릭터,!무릉,!시드,!유니온,!업적,!코디 + (캐릭터명) : 캐릭터 관련 정보 \n\n";
@@ -41,10 +41,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!경스토리/!겸스토리 (캐릭터이름) : 캐릭터의 경험치 히스토리를 보여줍니다.\n\n";
       help += "!렙스토리/!레벨스토리 (캐릭터이름) : 캐릭터의 레벨 히스토리를 보여줍니다.\n\n";
       help += "!(직업이름) : 간단한 직업 설명과 그 직업의 무적기/뎀감기/바인드 보유 여부와 유니온 공격대원 효과, 링크스킬을 보여줍니다.\n\n";
-      help += "!썬데이/!선데이 : 그 주의 썬데이메이플을 보여줍니다. (관리자가 직접 업데이트 하여야 하므로 정확하지 않을 수 있습니다.)"
+      help += "!썬데이/!선데이 : 그 주의 썬데이메이플을 보여줍니다. (관리자가 직접 업데이트 하여야 하므로 정확하지 않을 수 있습니다.)\n\n";
+      help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.";
       replier.reply(help);
     }
-    if(msg == "!업데이트" || msg == "!업뎃"){
+    if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       var update = "<--봇 업데이트 내역-->\n";
       update += "21/07/08 - ver 1.0 Release\n";
       update += "21/07/09 - !한강 업데이트 \n"
@@ -60,12 +61,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/23 - !(직업이름) 전직업 완료\n";
       update += "21/07/27 - !날짜, !시간 추가\n";
       update += "21/07/28 - !(직업이름) 무적기/뎀감기/바인드 추가\n";
-      update += "21/07/30 - !썬데이 추가"
+      update += "21/07/30 - !썬데이, !업데이트 추가, (원래 !업데이트/!업뎃 -> !봇업데이트/!봇업뎃 으로 변경)";
       replier.reply(update);
     }
     if(msg == "테스트"){      
       replier.reply("테스트용입니다.");
-      //직업별 파티유틸, 스킬
+      //직업별 파티유틸, 스킬  V
       //스타포스
       //보스 전리품     
     }
@@ -641,14 +642,30 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
         }
         replier.reply(sunday + "\n\n설정 완료하였습니다.");
+        FileStream.write("storage/emulated/0/kakao/Bots/사랑이봇/sunday.txt", sunday);
       }
     }
     if((sender == "천한수" || sender == "리부트1/254/보마") && msg.startsWith("!썬데이초기화")){
       replier.reply("썬데이 정보 초기화를 완료하였습니다.");
       sunday = "";
+      FileStream.remove("storage/emulated/0/kakao/Bots/사랑이봇/sunday.txt");
     }
     if(msg == "!썬데이" || msg == "!선데이"){
+      sunday = FileStream.read("storage/emulated/0/kakao/Bots/사랑이봇/sunday.txt");
       replier.reply(sunday);
+    }
+    if(msg == "!업데이트" || msg == "!업뎃"){
+      var mapleHome = "https://maplestory.nexon.com/";
+      var mapleUp = "https://maplestory.nexon.com/News/Update";
+      var dataUP1 = org.jsoup.Jsoup.connect(mapleUp).get();
+      dataUP1 = dataUP1.toString();
+      var dataUP2 = dataUP1.split("<!-- notice ul str -->")[1];
+      dataUP2 = dataUP2.split("</span>")[0];
+      var dataUP3 = dataUP2.split("<a href=\"")[1];
+      dataUP3 = dataUP3.split("\">")[0];
+      var dataUP4 = dataUP2.split("<span>")[1];
+
+      replier.reply(dataUP4 + "\n\n" + mapleHome + dataUP3);
     }
     for(var i = 0; i < jobList.length; ++i){
       if(msg == jobList[i]){
@@ -1575,4 +1592,5 @@ var jobMentionList = [
   "\n\n", // 50
 ];
 
+var adminNick = "리부트1/254/보마";
 var sunday = "";
