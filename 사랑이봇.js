@@ -61,7 +61,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/23 - !(직업이름) 전직업 완료\n";
       update += "21/07/27 - !날짜, !시간 추가\n";
       update += "21/07/28 - !(직업이름) 무적기/뎀감기/바인드 추가\n";
-      update += "21/07/30 - !썬데이, !업데이트 추가, (원래 !업데이트/!업뎃 -> !봇업데이트/!봇업뎃 으로 변경)";
+      update += "21/07/30 - !썬데이, !업데이트 추가, (원래 !업데이트/!업뎃 -> !봇업데이트/!봇업뎃 으로 변경)\n";
+      update += "21/08/01 - !(직업이름) 줄임말, 별명으로도 검색 가능";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -69,6 +70,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       //직업별 파티유틸, 스킬  V
       //스타포스
       //보스 전리품     
+    }
+    if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
+      replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
     }
     if(msg.startsWith("!경험치")){
       var startlv = msg.split(" ")[1];
@@ -667,11 +671,273 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
       replier.reply(dataUP4 + "\n\n" + mapleHome + dataUP3);
     }
-    for(var i = 0; i < jobList.length; ++i){
-      if(msg == jobList[i]){
-        replier.reply(jobMentionList[i]);
-      }
+    if(true){
+    switch(msg){
+      case "!초보자":
+        bossmention = jobMentionList[0];
+        break;
+      case "!히어로":
+      case "!혀로":
+      case "!김치싸다구":
+        bossmention = jobMentionList[1];
+        break;
+      case "!팔라딘":
+      case "!팔라":
+      case "!곳폽":
+        bossmention = jobMentionList[2];
+        break;
+      case "!다크나이트":
+      case "!닼나":
+      case "!닥나":
+      case "!창지기":
+        bossmention = jobMentionList[3];
+        break;
+      case "!아크메이지(불,독)":
+      case "!아크메이지불독":
+      case "!불독":
+      case "!방구쟁이":
+        bossmention = jobMentionList[4];
+        break;
+      case "!아크메이지(썬,콜)":
+      case "!아크메이지썬콜":
+      case "!썬콜":
+      case "!썬콜게이트":
+        bossmention = jobMentionList[5];
+        break;
+      case "!비숍":
+      case "!프레이싸개":
+        bossmention = jobMentionList[6];
+        break;
+      case "!보우마스터":
+      case "!보마":
+      case "!보마쟝":
+      case "!보마조아":
+      case "!무지개색총공격":
+        bossmention = jobMentionList[7];
+        break;
+      case "!신궁":
+      case "!신궁쟝":
+      case "!거리두기마스터":
+        bossmention = jobMentionList[8];
+        break;
+      case "!패스파인더":
+      case "!패파":
+      case "!패파쟝":
+      case "!모궁최고아웃풋":
+      case "!간장게장":
+        bossmention = jobMentionList[9];
+        break;
+      case "!나이트로드":
+      case "!나로":
+      case "!표창싸개":
+        bossmention = jobMentionList[10];
+        break;
+      case "!섀도어":
+      case "!닭뛰터줏대감":
+        bossmention = jobMentionList[11];
+        break;
+      case "!듀얼블레이드":
+      case "!듀블":
+      case "!쌍칼":
+      case "!블토카퓨":
+        bossmention = jobMentionList[12];
+        break;
+      case "!바이퍼":
+      case "!초사이어인":
+        bossmention = jobMentionList[13];
+        break;
+      case "!캡틴":
+      case "!캢틴":
+      case "!총잡이":
+        bossmention = jobMentionList[14];
+        break;
+      case "!캐논슈터":
+      case "!캐슈":
+      case "!원숭이주인":
+        bossmention = jobMentionList[15];
+        break;
+      case "!노블레스":
+      case "!시그초보자":
+        bossmention = jobMentionList[16];
+        break;
+      case "!소울마스터":
+      case "!소마":
+      case "!보마아님":
+        bossmention = jobMentionList[17];
+        break;
+      case "!플레임위자드":
+      case "!플위":
+      case "!엠피조루":
+        bossmention = jobMentionList[18];
+        break;
+      case "!윈드브레이커":
+      case "!윈브":
+      case "!페턴":
+        bossmention = jobMentionList[19];
+        break;
+      case "!나이트워커":
+      case "!나워":
+      case "!점샷필수":
+      case "!코로나":
+      case "!박쥐":
+        bossmention = jobMentionList[20];
+        break;
+      case "!스트라이커":
+      case "!스커":
+      case "!경직":
+        bossmention = jobMentionList[21];
+        break;
+      case "!미하일":
+      case "!로얄가드":
+      case "!리듬게임":
+        bossmention = jobMentionList[22];
+        break;
+      case "!시티즌":
+      case "!레지초보자":
+        bossmention = jobMentionList[23];
+        break;
+      case "!블래스터":
+      case "!블래":
+      case "!손목브레이커":
+        bossmention = jobMentionList[24];
+        break;
+      case "!배틀메이지":
+      case "!배메":
+      case "!오라토템":
+        bossmention = jobMentionList[25];
+        break;
+      case "!와일드헌터":
+      case "!와헌":
+      case "!버프주실와헌분계신가요":
+        bossmention = jobMentionList[26];
+        break;
+      case "!메카닉":
+      case "!메탁기":
+      case "!세탁기":
+        bossmention = jobMentionList[27];
+        break;
+      case "!제논":
+      case "!올스탯":
+        bossmention = jobMentionList[28];
+        break;
+      case "!데몬슬레이어":
+      case "!데슬":
+      case "!홈리스":
+        bossmention = jobMentionList[29];
+        break;
+      case "!데몬어벤져":
+      case "!데몬어벤저":
+      case "!데벤져":
+      case "!데벤저":
+      case "!아또데벤템떴네":
+        bossmention = jobMentionList[30];
+        break;
+      case "!아란":
+      case "!곧무원":
+      case "!순대":
+        bossmention = jobMentionList[31];
+        break;
+      case "!에반":
+      case "!프리드":
+      case "!돌아와":
+        bossmention = jobMentionList[32];
+        break;
+      case "!루미너스":
+      case "!루미":
+      case "!어둠이..넘쳐흐른다!!":
+        bossmention = jobMentionList[33];
+        break;
+      case "!메르세데스":
+      case "!메르":
+      case "!메세":
+      case "!여왕님":
+      case "!샾없찐":
+      case "!어디서샤프도없는게까불어":
+        bossmention = jobMentionList[34];
+        break;
+      case "!팬텀":
+      case "!기생오라비":
+      case "!뭐이악":
+      case "!뭐어?!이악녀가!!":
+        bossmention = jobMentionList[35];
+        break;
+      case "!은월":
+      case "!분바":
+      case "![]":
+        bossmention = jobMentionList[36];
+        break;
+      case "!카이저":
+      case "!조상님":
+      case "!디럭스봄버":
+        bossmention = jobMentionList[37];
+        break;
+      case "!카인":
+      case "!조시커":
+      case "!샾없찐2":
+        bossmention = jobMentionList[38];
+        break;
+      case "!카데나":
+      case "!남이하면멋있는데내가하긴싫은직업":
+      case "!사슬":
+        bossmention = jobMentionList[39];
+        break;
+      case "!엔젤릭버스터":
+      case "!엔버":
+      case "!소울시커":
+      case "!전장의아이돌":
+      case "!피니투라☆페투치아":
+      case "!Spotlight":
+      case "!StarBubble":
+        bossmention = jobMentionList[40];
+        break;
+      case "!아델":
+      case "!루델팡":
+      case "!츄델":
+      case "!사기직업":
+        bossmention = jobMentionList[41];
+        break;
+      case "!일리움":
+      case "!탈모":
+        bossmention = jobMentionList[42];
+        break;
+      case "!아크":
+      case "!야,아크":
+        bossmention = jobMentionList[43];
+        break;
+      case "!라라":
+      case "!창섭":
+        bossmention = jobMentionList[44];
+        break;
+      case "!호영":
+      case "!호엥":
+      case "!백호영":
+        bossmention = jobMentionList[45];
+        break;
+      case "!제로":
+      case "!바싸개":
+      case "!클라이언트브레이크":
+      case "!알파벳":
+        bossmention = jobMentionList[46];
+        break;
+      case "!키네시스":
+      case "!키네":
+      case "!서울사람":
+      case "!기내식":
+        bossmention = jobMentionList[47];
+        break;
+      case "!핑크빈":
+      case "!핑빈":
+        bossmention = jobMentionList[48];
+        break;
+      case "!예티":
+        bossmention = jobMentionList[49];
+        break;
+      default:
+        bossmention = "";
+        break;
     }
+    replier.reply(bossmention);
+  }
 }
 
 function addgetResult(addition, addLevel, addList, addResult){
@@ -1594,3 +1860,4 @@ var jobMentionList = [
 
 var adminNick = "리부트1/254/보마";
 var sunday = "";
+var bossmention = "";
