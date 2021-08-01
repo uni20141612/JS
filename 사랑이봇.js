@@ -762,7 +762,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         break;
       case "!소울마스터":
       case "!소마":
-      case "!보마아님":
+      case "!보마아니고":
         bossmention = jobMentionList[17];
         break;
       case "!플레임위자드":
@@ -850,6 +850,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!메르세데스":
       case "!메르":
       case "!메세":
+      case "!메르콥터":
       case "!여왕님":
       case "!샾없찐":
       case "!어디서샤프도없는게까불어":
