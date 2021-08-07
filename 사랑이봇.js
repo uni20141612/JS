@@ -17,14 +17,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(re);
     }
     if((sender == "천한수" || sender == adminNick) && (msg == "!리로드" || msg == "!ㄹㄹ")){
-      var sundayTemp = sunday;
       if(Api.reload(scriptName)){
         replier.reply("리로드 성공");
       }
       else{
         replier.reply("리로드 실패");
       }
-      sunday = sundayTemp;
     }
     if(msg == "!도움말"){
       var help = "<--봇 도움말-->\n\n";
@@ -42,13 +40,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!렙스토리/!레벨스토리 (캐릭터이름) : 캐릭터의 레벨 히스토리를 보여줍니다.\n\n";
       help += "!(직업이름) : 간단한 직업 설명과 그 직업의 무적기/뎀감기/바인드 보유 여부와 유니온 공격대원 효과, 링크스킬을 보여줍니다.\n\n";
       help += "!썬데이/!선데이 : 그 주의 썬데이메이플을 보여줍니다. (관리자가 직접 업데이트 하여야 하므로 정확하지 않을 수 있습니다.)\n\n";
-      help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.";
+      help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.\n\n";
+      help += "!추옵/!추가옵션 (무기이름) : 각 무기에 해당하는 추가옵션표를 보여줍니다. 괄호 안에는 순수 무기공격력이 들어갑니다. (순서 : 우트가르드, 파프니르, 앱솔랩스, 아케인셰이드, 제네시스)\n무기이름 대신 그 무기를 사용하는 직업(전용무기가 아닌 경우엔 나오지 않을 수 있음)을 적어도 됩니다.";
       replier.reply(help);
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       var update = "<--봇 업데이트 내역-->\n";
       update += "21/07/08 - ver 1.0 Release\n";
-      update += "21/07/09 - !한강 업데이트 \n"
+      update += "21/07/09 - !한강 업데이트 \n";
       update += "21/07/10 - !캐릭터,!무릉,!시드,!유니온,!업적 업데이트 \n";
       update += "(!보스 목록) 추가 \n";
       update += "21/07/13 - !갱신, !코디 추가\n";
@@ -62,14 +61,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/27 - !날짜, !시간 추가\n";
       update += "21/07/28 - !(직업이름) 무적기/뎀감기/바인드 추가\n";
       update += "21/07/30 - !썬데이, !업데이트 추가, (원래 !업데이트/!업뎃 -> !봇업데이트/!봇업뎃 으로 변경)\n";
-      update += "21/08/01 - !(직업이름) 줄임말, 별명으로도 검색 가능";
+      update += "21/08/01 - !(직업이름) 줄임말, 별명으로도 검색 가능\n";
+      update += "21/08/07 - !추옵 (무기이름) 추가, 코드의 오탈자, 누락/중복 제거";
       replier.reply(update);
     }
     if(msg == "테스트"){      
-      replier.reply("테스트용입니다.");
-      //직업별 파티유틸, 스킬  V
-      //스타포스
-      //보스 전리품     
+      replier.reply("테스트용입니다.");      //스타포스      //보스 전리품     
     }
     if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
       replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
@@ -98,7 +95,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
       else{
-        replier.reply("레벨이 범위를 벗어났거나 숫자가 아닙니다.")
+        replier.reply("레벨이 범위를 벗어났거나 숫자가 아닙니다.");
       }
     }
     if (msg.startsWith("!날씨"))  {
@@ -122,10 +119,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         let secondW = word.indexOf("<");
         word = word.slice(0, secondW);
         if(temp != "" && word != "") {
-        replier.reply(msg.slice(4) + "의 날씨\n" + temp + "℃, " + word)
+        replier.reply(msg.slice(4) + "의 날씨\n" + temp + "℃, " + word);
         }
         else{
-          replier.reply(msg.slice(4) + "에 대한 날씨정보를 찾는 것을 실패하였습니다.")
+          replier.reply(msg.slice(4) + "에 대한 날씨정보를 찾는 것을 실패하였습니다.");
         }
       }
     }
@@ -138,11 +135,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       riverTemp = riverTemp.slice(0, dataR2);
       var dataR3 = timeR.indexOf("e");
       timeR = timeR.slice(dataR3 + 4, timeR.length-41);
-      //replier.reply(riverTemp + " °C, " + timeR + " 기준");
       replier.reply(timeR + " 기준 " + riverTemp + " °C");
     }
     if(msg.startsWith("!캐릭터")){
-      var nickname = msg.split(" ")[1];
+      nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세용");
       }
@@ -172,14 +168,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!무릉") || msg.startsWith("!시드") || msg.startsWith("!유니온") || msg.startsWith("!업적")){
-      var nickname = msg.split(" ")[1];
+      nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세용");
       }
       else{
-        var maplegg = "https://maple.gg/u/" + nickname;
-        //var charInfo = Utils.getWebText("https://maple.gg/", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36", false, false);
-        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        maplegg = "https://maple.gg/u/" + nickname;
+        dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
         dataC1 = dataC1.toString();
         
         if(dataC1.indexOf("검색결과 없음") != -1){
@@ -197,7 +192,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               replier.reply(dataM5 + ", " + dataM6);
             }
             else{
-              replier.reply("이 캐릭터는 무릉 기록이 없습니다.")
+              replier.reply("이 캐릭터는 무릉 기록이 없습니다.");
             }
           }
       
@@ -212,7 +207,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               replier.reply(dataS5 + ", " + dataS6);
             }
             else{
-              replier.reply("이 캐릭터는 시드 기록이 없습니다.")
+              replier.reply("이 캐릭터는 시드 기록이 없습니다.");
             }
           }
 
@@ -228,7 +223,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               replier.reply(dataU4 + ", " + dataU6);
             }
             else{
-              replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.")
+              replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
             }
           }
 
@@ -244,14 +239,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               replier.reply(dataA4 + ", " + dataA6);
             }
             else{
-              replier.reply("이 캐릭터는 업적 정보가 없습니다.")
+              replier.reply("이 캐릭터는 업적 정보가 없습니다.");
             }
           }
         }
       }
     }
     if(msg.startsWith("!갱신")){
-      var nickname = msg.split(" ")[1];
+      nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세용");
       }
@@ -260,13 +255,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!코디")){
-      var nickname = msg.split(" ")[1];
+      nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세용");
       }
       else{
-        var maplegg = "https://maple.gg/u/" + nickname;
-        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        maplegg = "https://maple.gg/u/" + nickname;
+        dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
         dataC1 = dataC1.toString();
 
         if(dataC1.indexOf("검색결과 없음") != -1){
@@ -398,14 +393,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         else if(msg.split(" ")[2] > 0 && msg.split(" ")[2] < 6 && msg.split(" ")[2] % 1 === 0){
           addResult += msg.split(" ")[2];
           addResult += "회\n";
-          for(var i = 0; i < msg.split(" ")[2]; ++i){
-            var addition = [];
+          for(i = 0; i < msg.split(" ")[2]; ++i){
+            addition = [];
             addEternal(addition);
           
             let addList = [];
-            var additer = 0;
+            additer = 0;
             while(additer < 4){
-              var n = getRandomInt(0,19);
+              n = getRandomInt(0,19);
               if(!isSameadd(n, addList)){
                 addList.push(n);
                 additer++;
@@ -414,7 +409,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             addResult = addgetResult(addition, addLevel, addList, addResult);
             addResult += "\n";
           }
-          var addlen = addResult.length;
+          addlen = addResult.length;
           addResult = addResult.slice(0, addlen-2);
 
           replier.reply(addResult);
@@ -425,7 +420,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!강환") || msg.startsWith("!강환불")){
-      var addLevel = msg.split(" ")[1];
+      addLevel = msg.split(" ")[1];
       if(addLevel == undefined){
         replier.reply("레벨을 입력해주세용");
       }
@@ -433,7 +428,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("레벨은 150, 160, 200만 가능합니다.");
       }
       else{
-        var addResult = "";
+        addResult = "";
         if(addLevel == 150){
           addResult += "150제 아이템 ";
         }
@@ -444,13 +439,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           addResult += "200제 아이템 ";
         }
         if(msg.split(" ")[2] == undefined || msg.split(" ")[2] == 1){
-          var addition = [];
+          addition = [];
           addStrong(addition);
           
           let addList = [];
-          var additer = 0;
+          additer = 0;
           while(additer < 4){
-            var n = getRandomInt(0,19);
+            n = getRandomInt(0,19);
             if(!isSameadd(n, addList)){
               addList.push(n);
               additer++;
@@ -458,7 +453,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
           addResult += "\n";
           addResult = addgetResult(addition, addLevel, addList, addResult);
-          var addlen = addResult.length;
+          addlen = addResult.length;
           addResult = addResult.slice(0, addlen-1);
 
           replier.reply(addResult);
@@ -466,14 +461,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         else if(msg.split(" ")[2] > 0 && msg.split(" ")[2] < 6 && msg.split(" ")[2] % 1 === 0){
           addResult += msg.split(" ")[2];
           addResult += "회\n";
-          for(var i = 0; i < msg.split(" ")[2]; ++i){
-            var addition = [];
+          for(i = 0; i < msg.split(" ")[2]; ++i){
+            addition = [];
             addStrong(addition);
           
             let addList = [];
-            var additer = 0;
+            additer = 0;
             while(additer < 4){
-              var n = getRandomInt(0,19);
+              n = getRandomInt(0,19);
               if(!isSameadd(n, addList)){
                 addList.push(n);
                 additer++;
@@ -482,7 +477,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             addResult = addgetResult(addition, addLevel, addList, addResult);
             addResult += "\n";
           }
-          var addlen = addResult.length;
+          addlen = addResult.length;
           addResult = addResult.slice(0, addlen-2);
 
           replier.reply(addResult);
@@ -498,8 +493,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("캐릭터 이름을 입력해주세용");
       }
       else{
-        var maplegg = "https://maple.gg/u/" + nickname;
-        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        maplegg = "https://maple.gg/u/" + nickname;
+        dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
         dataC1 = dataC1.toString();
 
         if(dataC1.indexOf("검색결과 없음") != -1){
@@ -511,13 +506,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           var dataHis2 = dataHis1.split("c3.generate")[0];
 
           var dataHisLevel = [];
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             var tempHisLevel = dataHis2.split("level\":\"")[i+1];
             dataHisLevel[i] = tempHisLevel.split("\",")[0];
           }
 
           var dataHisExp = [];
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             var tempHisExp = dataHis2.split("exp\":")[i+1];
             dataHisExp[i] = tempHisExp.split("}")[0];
           }
@@ -526,11 +521,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           var dataHis4 = dataHis3.split("exp")[0];
 
           var dataHisYear = [];
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             dataHisYear[i] = "21";
           }
           var dataHisMonth = [];
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             var tempHisMonth = dataHis4.split(",\"")[i+1];
             tempHisMonth = tempHisMonth.split("\\uc6d4")[0];
             if(tempHisMonth.length > 2){
@@ -541,13 +536,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
 
           var dataHisDay = [];
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             var tempHisDay = dataHis4.split("uc6d4 ")[i+1];
             dataHisDay[i] = tempHisDay.split("\\")[0];
           }
           var history = "";
           history += "[";  history += nickname; history += "]\n";
-          for(var i = 0; i < 7; ++i){
+          for(i = 0; i < 7; ++i){
             history += dataHisYear[i]; history += "년 ";
             history += dataHisMonth[i]; history += "월 ";
             history += dataHisDay[i]; history += "일: Lv.";
@@ -563,13 +558,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!렙스토리") || msg.startsWith("!레벨스토리")){
-      var nickname = msg.split(" ")[1];
+      nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세용");
       }
       else{
-        var maplegg = "https://maple.gg/u/" + nickname;
-        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        maplegg = "https://maple.gg/u/" + nickname;
+        dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
         dataC1 = dataC1.toString();
 
         if(dataC1.indexOf("검색결과 없음") != -1){
@@ -581,11 +576,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             dataLvHis = dataLvHis.split("]]")[0];
 
             var dataLvHisYear = [];
-            for(var i = 0; i < 7; ++i){
+            for(i = 0; i < 7; ++i){
               dataLvHisYear[i] = "21";
             }
             var dataLvHisMonth = [];
-            for(var i = 0; i < 7; ++i){
+            for(i = 0; i < 7; ++i){
               var tempLvMonth = dataLvHis.split(",\"")[i+1];
               tempLvMonth = tempLvMonth.split("\\uc6d4")[0];
               if(tempLvMonth.length > 2){
@@ -596,21 +591,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             }
 
             var dataLvHisDay = [];
-            for(var i = 0; i < 7; ++i){
+            for(i = 0; i < 7; ++i){
               var tempLvDay = dataLvHis.split("uc6d4 ")[i+1];
               dataLvHisDay[i] = tempLvDay.split("\\")[0];
             }
 
             var dataLvHisLv = dataLvHis.split("level")[1];
             var dataLvHisLevel = [];
-            for(var i = 0; i < 7; ++i){
+            for(i = 0; i < 7; ++i){
               var tempLv = dataLvHisLv.split(",\"")[i+1];
               dataLvHisLevel[i] = tempLv.split("\"")[0];
             }
 
             var hisLv = "";
             hisLv += "[";  hisLv += nickname; hisLv += "]\n";
-            for(var i = 0; i < 7; ++i){
+            for(i = 0; i < 7; ++i){
               hisLv += dataLvHisYear[i]; hisLv += "년 ";
               hisLv += dataLvHisMonth[i]; hisLv += "월 ";
               hisLv += dataLvHisDay[i]; hisLv += "일: Lv.";
@@ -629,7 +624,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("오늘은 " + (day.getMonth() + 1) + "월 " + day.getDate() + "일 입니다.");
     }
     if(msg == "!시간"){      
-      var day = new Date();
+      day = new Date();
       replier.reply("지금은 " + day.getHours() + "시 " + day.getMinutes() + "분 " + day.getSeconds() + "초입니다.");
     }
     if((sender == "천한수" || sender == "리부트1/254/보마") && msg.startsWith("!썬데이설정")){
@@ -640,7 +635,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var sunlen = msg.split(" ").length;
         sunday = msg.split(" ")[1];
         if(sunlen > 1){
-          for(var i = 2; i < sunlen; ++i){
+          for(i = 2; i < sunlen; ++i){
             sunday += "\n";
             sunday += msg.split(" ")[i];
           }
@@ -671,181 +666,519 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
       replier.reply(dataUP4 + "\n\n" + mapleHome + dataUP3);
     }
+    if(msg.startsWith("!추옵") || msg.startsWith("!추가옵션")){
+      var weaponName = msg.split(" ")[1];
+      if(weaponName == undefined){
+        replier.reply("무기 이름이 누락되었습니다.");
+      }
+      else{
+        var chkW = 1;
+        var w140 = "우트가르드 ";
+        var w150 = "파프니르 ";
+        var w160 = "앱솔랩스 ";
+        var w200 = " 아케인셰이드 ";
+        var wGene = "제네시스 ";
+        switch(weaponName){
+          case "아대":
+          case "나로":
+          case "나이트로드":
+          case "나워":
+          case "나이트워커":
+          case "표창":
+            w140 += "가즈\n(62) "; w140 += weapon140[0];
+            w150 += "리스크홀더\n(86) "; w150 += weapon150[0];    
+            w160 += "리벤지가즈\n(103) "; w160 += weapon160[0];
+            w200 += "가즈\n(149) "; w200 += weapon200[0];        
+            wGene += "가즈\n(172) "; wGene += weaponGenesis[0];
+            break;
+          case "건":
+          case "총":
+          case "캡틴":
+          case "메카닉":
+          case "불릿":
+            w140 += "피스톨\n(90) "; w140 += weapon140[1];
+            w150 += "첼리스카\n(125) "; w150 += weapon150[1];
+            w160 += "포인팅건\n(150) "; w160 += weapon160[1];
+            w200 += "피스톨\n(216) "; w200 += weapon200[1];       
+            wGene += "피스톨\n(249) "; wGene += weaponGenesis[1];
+            break;
+          case "건틀렛리볼버":
+          case "블래스터":
+          case "블래":
+            w140 += "흐림두르스\n(90) "; w140 += weapon140[1];
+            w150 += "빅 마운틴\n(128) "; w150 += weapon150[2];
+            w160 += "파일 갓\n(154) "; w160 += weapon160[2];
+            w200 += "엘라하\n(221) "; w200 += weapon200[2];       
+            wGene += "엘라하\n(255) "; wGene += weaponGenesis[2];
+            break;
+          case "너클":
+          case "바이퍼":
+          case "스트라이커":
+          case "스커":
+          case "은월":
+          case "아크":
+            w140 += "클로\n(90) "; w140 += weapon140[1];
+            w150 += "펜리르탈론\n(128) "; w150 += weapon150[2];
+            w160 += "블로우너클\n(154) "; w160 += weapon160[2];
+            w200 += "클로\n(221) "; w200 += weapon200[2];       
+            wGene += "클로\n(255) "; wGene += weaponGenesis[2];
+            break;
+          case "에너지소드":
+          case "제논":
+            w140 += "에너지체인\n(90) "; w140 += weapon140[1];
+            w150 += "스플릿엣지\n(128) "; w150 += weapon150[2];
+            w160 += "에너지체인\n(154) "; w160 += weapon160[2];
+            w200 += "에너지체인\n(221) "; w200 += weapon200[2];       
+            wGene += "에너지체인\n(255) "; wGene += weaponGenesis[2];
+            break;
+          case "소울슈터":
+          case "엔젤릭버스터":
+          case "엔버":
+            w140 += "드래곤소울\n(92) "; w140 += weapon140[2];
+            w150 += "엔젤릭슈터\n(128) "; w150 += weapon150[2];
+            w160 += "소울슈터\n(154) "; w160 += weapon160[2];
+            w200 += "소울슈터\n(221) "; w200 += weapon200[2];       
+            wGene += "소울슈터\n(255) "; wGene += weaponGenesis[2];
+            break;
+          case "단검":
+          case "섀도어":
+          case "듀얼블레이드":
+          case "듀블":
+            w140 += "대거\n(115) "; w140 += weapon140[3];
+            w150 += "다마스커스\n(160) "; w150 += weapon150[4];
+            w160 += "슬래셔\n(192) "; w160 += weapon160[4];
+            w200 += "대거\n(276) "; w200 += weapon200[4];       
+            wGene += "대거\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "듀얼보우건":
+          case "메르세데스":
+          case "메르":
+            w140 += "듀얼보우건\n(115) "; w140 += weapon140[3];
+            w150 += "듀얼윈드윙\n(160) "; w150 += weapon150[4];
+            w160 += "듀얼보우건\n(192) "; w160 += weapon160[4];
+            w200 += "듀얼보우건\n(276) "; w200 += weapon200[4];       
+            wGene += "듀얼보우건\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "부채":
+          case "호영":
+            w140 += "거선\n(115) "; w140 += weapon140[3];
+            w150 += "용선\n(160) "; w150 += weapon150[4];
+            w160 += "괴선\n(192) "; w160 += weapon160[4];
+            w200 += "초선\n(276) "; w200 += weapon200[4];       
+            wGene += "창세선\n(318) "; wGene += weaponGenesis[4];
+            break;            
+          case "브레스슈터":
+          case "카인":
+            w140 += "브레스 슈터\n(115) "; w140 += weapon140[3];
+            w150 += "브레스 슈터\n(160) "; w150 += weapon150[4];
+            w160 += "브레스 슈터\n(192) "; w160 += weapon160[4];
+            w200 += "브레스 슈터\n(276) "; w200 += weapon200[4];       
+            wGene += "브레스 슈터\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "에인션트보우":
+          case "패스파인더":
+          case "패파":
+            w140 += "에인션트 보우\n(115) "; w140 += weapon140[3];
+            w150 += "에인션트 보우\n(160) "; w150 += weapon150[4];
+            w160 += "에인션트 보우\n(192) "; w160 += weapon160[4];
+            w200 += "에인션트 보우\n(276) "; w200 += weapon200[4];       
+            wGene += "에인션트 보우\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "체인":
+          case "카데나":            
+            w140 += "체인\n(115) "; w140 += weapon140[3];
+            w150 += "체인\n(160) "; w150 += weapon150[4];
+            w160 += "체인\n(192) "; w160 += weapon160[4];
+            w200 += "체인\n(276) "; w200 += weapon200[4];       
+            wGene += "체인\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "활":
+          case "보우마스터":
+          case "보마":
+          case "윈드브레이커":
+          case "윈브":
+            w140 += "보우\n(115) "; w140 += weapon140[3];
+            w150 += "윈드체이서\n(160) "; w150 += weapon150[4];
+            w160 += "슈팅보우\n(192) "; w160 += weapon160[4];
+            w200 += "보우\n(276) "; w200 += weapon200[4];       
+            wGene += "보우\n(318) "; wGene += weaponGenesis[4];
+            break;
+          case "석궁":
+          case "신궁":
+          case "와일드헌터":
+          case "와헌":
+            w140 += "크로스보우\n(118) "; w140 += weapon140[4];
+            w150 += "윈드윙슈터\n(164) "; w150 += weapon150[5];
+            w160 += "크로스보우\n(197) "; w160 += weapon160[5];
+            w200 += "크로스보우\n(283) "; w200 += weapon200[5];       
+            wGene += "크로스보우\n(326) "; wGene += weaponGenesis[5];
+            break;
+          case "케인":
+          case "팬텀":
+            w140 += "케인\n(118) "; w140 += weapon140[4];
+            w150 += "클레르시엘\n(164) "; w150 += weapon150[5];
+            w160 += "핀쳐케인\n(197) "; w160 += weapon160[5];
+            w200 += "케인\n(283) "; w200 += weapon200[5];       
+            wGene += "케인\n(326) "; wGene += weaponGenesis[5];
+            break;
+          case "한손검":
+          case "미하일":
+            w140 += "세이버\n(118) "; w140 += weapon140[4];
+            w150 += "미스틸테인\n(164) "; w150 += weapon150[5];
+            w160 += "세이버\n(197) "; w160 += weapon160[5];
+            w200 += "세이버\n(283) "; w200 += weapon200[5];       
+            wGene += "세이버\n(326) "; wGene += weaponGenesis[5];
+            break;
+          case "한손도끼":
+            w140 += "엑스\n(118) "; w140 += weapon140[4];
+            w150 += "트윈클리버\n(164) "; w150 += weapon150[5];
+            w160 += "엑스\n(197) "; w160 += weapon160[5];
+            w200 += "엑스\n(283) "; w200 += weapon200[5];       
+            wGene += "엑스\n(326) "; wGene += weaponGenesis[5];
+            break;
+          case "한손둔기":
+          case "데몬슬레이어":
+          case "데슬":
+            w140 += "해머\n(118) "; w140 += weapon140[4];
+            w150 += "골디언해머\n(164) "; w150 += weapon150[5];
+            w160 += "비트해머\n(197) "; w160 += weapon160[5];
+            w200 += "해머\n(283) "; w200 += weapon200[5];       
+            wGene += "해머\n(326) "; wGene += weaponGenesis[5];
+            break;
+          case "데스페라도":
+          case "데몬어벤져":
+          case "데벤져":
+            w140 += "데스페라도\n(122) "; w140 += weapon140[5];
+            w150 += "데스브링어\n(171) "; w150 += weapon150[6];
+            w160 += "데스페라도\n(205) "; w160 += weapon160[6];
+            w200 += "데스페라도\n(295) "; w200 += weapon200[6];       
+            wGene += "데스페라도\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "두손검":
+          case "히어로":
+            w140 += "투핸드소드\n(122) "; w140 += weapon140[5];
+            w150 += "페니텐시아\n(171) "; w150 += weapon150[6];
+            w160 += "브로드세이버\n(205) "; w160 += weapon160[6];
+            w200 += "투핸드소드\n(295) "; w200 += weapon200[6];       
+            wGene += "투핸드소드\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "튜너":
+          case "아델":
+            w140 += "리스트레인트\n(122) "; w140 += weapon140[5];
+            w150 += "포기브니스\n(171) "; w150 += weapon150[6];
+            w160 += "튜너\n(205) "; w160 += weapon160[6];
+            w200 += "튜너\n(295) "; w200 += weapon200[6];       
+            wGene += "튜너\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "폴암":
+          case "아란":
+            w140 += "핼버드\n(122) "; w140 += weapon140[5];
+            w150 += "문글레이브\n(153) "; w150 += weapon150[3];
+            w160 += "핼버드\n(184) "; w160 += weapon160[3];
+            w200 += "폴암\n(264) "; w200 += weapon200[3];       
+            wGene += "폴암\n(304) "; wGene += weaponGenesis[3];
+            break;
+          case "핸드캐논":
+          case "캐논슈터":
+          case "캐슈":
+            w140 += "시즈건\n(122) "; w140 += weapon140[5];
+            w150 += "러스터캐논\n(175) "; w150 += weapon150[7];
+            w160 += "블래스트캐논\n(210) "; w160 += weapon160[7];
+            w200 += "시즈건\n(302) "; w200 += weapon200[7];       
+            wGene += "시즈건\n(348) "; wGene += weaponGenesis[7];
+            break;
+          case "두손도끼":
+            w140 += "투핸드엑스\n(124) "; w140 += weapon140[6];
+            w150 += "배틀클리버\n(171) "; w150 += weapon150[6];
+            w160 += "브로드엑스\n(205) "; w160 += weapon160[6];
+            w200 += "투핸드엑스\n(295) "; w200 += weapon200[6];       
+            wGene += "투핸드엑스\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "두손둔기":
+          case "팔라딘":
+          case "팔라":
+            w140 += "투핸드해머\n(124) "; w140 += weapon140[6];
+            w150 += "라이트닝어\n(171) "; w150 += weapon150[6];
+            w160 += "브로드해머\n(205) "; w160 += weapon160[6];
+            w200 += "투핸드해머\n(295) "; w200 += weapon200[6];       
+            wGene += "투핸드해머\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "창":
+          case "다크나이트":
+          case "닼나":
+            w140 += "스피어\n(124) "; w140 += weapon140[6];
+            w150 += "브류나크\n(171) "; w150 += weapon150[6];
+            w160 += "피어싱스피어\n(205) "; w160 += weapon160[6];
+            w200 += "스피어\n(295) "; w200 += weapon200[6];       
+            wGene += "스피어\n(340) "; wGene += weaponGenesis[6];
+            break;
+          case "매직건틀렛":
+          case "일리움":
+            w140 += "매직 건틀렛\n(153) "; w140 += weapon140[7];
+            w150 += "매직 건틀렛\n(201) "; w150 += weapon150[8];
+            w160 += "매직 건틀렛\n(241) "; w160 += weapon160[8];
+            w200 += "매직 건틀렛\n(347) "; w200 += weapon200[8];       
+            wGene += "매직 건틀렛\n(400) "; wGene += weaponGenesis[8];
+            break;
+          case "샤이닝로드":
+          case "루미너스":
+          case "루미":
+            w140 += "샤이닝로드\n(153) "; w140 += weapon140[7];
+            w150 += "마나크래들\n(201) "; w150 += weapon150[8];
+            w160 += "샤이닝로드\n(241) "; w160 += weapon160[8];
+            w200 += "샤이닝로드\n(347) "; w200 += weapon200[8];       
+            wGene += "샤이닝로드\n(400) "; wGene += weaponGenesis[8];
+            break;
+          case "완드":
+          case "라라":
+            w140 += "완드\n(153) "; w140 += weapon140[7];
+            w150 += "마나테이커\n(201) "; w150 += weapon150[8];
+            w160 += "스펠링완드\n(241) "; w160 += weapon160[8];
+            w200 += "완드\n(347) "; w200 += weapon200[8];       
+            wGene += "완드\n(400) "; wGene += weaponGenesis[8];
+            break;
+          case "ESP리미터":
+          case "키네시스":
+          case "키네":
+            w140 += "ESP리미터\n(153) "; w140 += weapon140[7];
+            w150 += "ESP리미터\n(201) "; w150 += weapon150[8];
+            w160 += "ESP리미터\n(241) "; w160 += weapon160[8];
+            w200 += "ESP리미터\n(347) "; w200 += weapon200[8];       
+            wGene += "ESP리미터\n(400) "; wGene += weaponGenesis[8];
+            break;
+          case "스태프":
+          case "배틀메이지":
+            w140 += "스태프\n(155) "; w140 += weapon140[8];
+            w150 += "마나크라운\n(204) "; w150 += weapon150[9];
+            w160 += "스펠링스테프\n(245) "; w160 += weapon160[9];
+            w200 += "스태프\n(353) "; w200 += weapon200[9];       
+            wGene += "스태프\n(406) "; wGene += weaponGenesis[9];
+            break;
+          case "태도":
+          case "제로":
+          case "알파":
+            w140 = "라즐리(6형)\n(135) "; w140 += weapon140[9];
+            w150 = "라즐리(7형)\n(169) "; w150 += weapon150[10];
+            w160 = "라즐리(8형)\n(203) "; w160 += weapon160[10];
+            w200 = "라즐리(9형)\n(293) "; w200 += weapon200[10];       
+            wGene = "제네시스 라즐리\n(337) "; wGene += weaponGenesis[10];
+            chkW = 3;
+            break;
+          case "대검":
+          case "베타":
+            w140 = "라피스(6형)\n(139) "; w140 += weapon140[9];
+            w150 = "라피스(7형)\n(173) "; w150 += weapon150[10];
+            w160 = "라피스(8형)\n(207) "; w160 += weapon160[10];
+            w200 = "라피스(9형)\n(297) "; w200 += weapon200[10];       
+            wGene = "제네시스 라피스\n(342) "; wGene += weaponGenesis[10];
+            chkW = 3;
+            break;
+          case "해방된카이세리움":
+          case "해카세":
+          case "카이저":
+            w150 = "해방된 카이세리움\n(400) "; w150 += weapon150[11];
+            chkW = 2;
+            break;
+          default:
+            chkW = 0;
+            break;
+        }
+        if(chkW == 0){
+          replier.reply("그런 이름의 무기는 없습니다.");
+        }
+        else if(chkW == 2){
+          replier.reply("Lv150. " + w150);
+        }
+        else if(chkW == 3){
+          replier.reply("Lv150. " + w140 + "\n\nLv170. " + w150 + "\n\nLv180. " + w160 + "\n\nLv200. " + w200 + "\n\nLv200. " + wGene);
+        }
+        else{
+          replier.reply("Lv140. " + w140 + "\n\nLv150. " + w150 + "\n\nLv160. " + w160 + "\n\nLv200. " + w200 + "\n\nLv200. " + wGene);
+        }
+      }
+    }
     if(true){
     switch(msg){
       case "!초보자":
-        bossmention = jobMentionList[0];
+        jobmention = jobMentionList[0];
         break;
       case "!히어로":
       case "!혀로":
       case "!김치싸다구":
-        bossmention = jobMentionList[1];
+        jobmention = jobMentionList[1];
         break;
       case "!팔라딘":
       case "!팔라":
       case "!곳폽":
-        bossmention = jobMentionList[2];
+      case "!괄라딘":
+      case "!팔퀴벌레":
+      case "!망치나가신다":
+        jobmention = jobMentionList[2];
         break;
       case "!다크나이트":
       case "!닼나":
       case "!닥나":
       case "!창지기":
-        bossmention = jobMentionList[3];
+        jobmention = jobMentionList[3];
         break;
       case "!아크메이지(불,독)":
       case "!아크메이지불독":
       case "!불독":
       case "!방구쟁이":
-        bossmention = jobMentionList[4];
+        jobmention = jobMentionList[4];
         break;
       case "!아크메이지(썬,콜)":
       case "!아크메이지썬콜":
       case "!썬콜":
       case "!썬콜게이트":
-        bossmention = jobMentionList[5];
+        jobmention = jobMentionList[5];
         break;
       case "!비숍":
+      case "!오더마스터":
       case "!프레이싸개":
-        bossmention = jobMentionList[6];
+        jobmention = jobMentionList[6];
         break;
       case "!보우마스터":
       case "!보마":
       case "!보마쟝":
       case "!보마조아":
       case "!무지개색총공격":
-        bossmention = jobMentionList[7];
+        jobmention = jobMentionList[7];
         break;
       case "!신궁":
       case "!신궁쟝":
       case "!거리두기마스터":
-        bossmention = jobMentionList[8];
+        jobmention = jobMentionList[8];
         break;
       case "!패스파인더":
       case "!패파":
       case "!패파쟝":
       case "!모궁최고아웃풋":
       case "!간장게장":
-        bossmention = jobMentionList[9];
+        jobmention = jobMentionList[9];
         break;
       case "!나이트로드":
       case "!나로":
       case "!표창싸개":
-        bossmention = jobMentionList[10];
+      case "!물몸":
+        jobmention = jobMentionList[10];
         break;
       case "!섀도어":
       case "!닭뛰터줏대감":
-        bossmention = jobMentionList[11];
+        jobmention = jobMentionList[11];
         break;
       case "!듀얼블레이드":
       case "!듀블":
       case "!쌍칼":
       case "!블토카퓨":
-        bossmention = jobMentionList[12];
+        jobmention = jobMentionList[12];
         break;
       case "!바이퍼":
       case "!초사이어인":
-        bossmention = jobMentionList[13];
+        jobmention = jobMentionList[13];
         break;
       case "!캡틴":
       case "!캢틴":
       case "!총잡이":
-        bossmention = jobMentionList[14];
+        jobmention = jobMentionList[14];
         break;
       case "!캐논슈터":
       case "!캐슈":
       case "!원숭이주인":
-        bossmention = jobMentionList[15];
+        jobmention = jobMentionList[15];
         break;
       case "!노블레스":
       case "!시그초보자":
-        bossmention = jobMentionList[16];
+        jobmention = jobMentionList[16];
         break;
       case "!소울마스터":
       case "!소마":
       case "!보마아니고":
-        bossmention = jobMentionList[17];
+        jobmention = jobMentionList[17];
         break;
       case "!플레임위자드":
       case "!플위":
       case "!엠피조루":
-        bossmention = jobMentionList[18];
+        jobmention = jobMentionList[18];
         break;
       case "!윈드브레이커":
       case "!윈브":
       case "!페턴":
-        bossmention = jobMentionList[19];
+        jobmention = jobMentionList[19];
         break;
       case "!나이트워커":
       case "!나워":
       case "!점샷필수":
       case "!코로나":
       case "!박쥐":
-        bossmention = jobMentionList[20];
+        jobmention = jobMentionList[20];
         break;
       case "!스트라이커":
       case "!스커":
       case "!경직":
-        bossmention = jobMentionList[21];
+        jobmention = jobMentionList[21];
         break;
       case "!미하일":
       case "!로얄가드":
       case "!리듬게임":
-        bossmention = jobMentionList[22];
+        jobmention = jobMentionList[22];
         break;
       case "!시티즌":
       case "!레지초보자":
-        bossmention = jobMentionList[23];
+        jobmention = jobMentionList[23];
         break;
       case "!블래스터":
       case "!블래":
       case "!손목브레이커":
-        bossmention = jobMentionList[24];
+        jobmention = jobMentionList[24];
         break;
       case "!배틀메이지":
       case "!배메":
       case "!오라토템":
-        bossmention = jobMentionList[25];
+        jobmention = jobMentionList[25];
         break;
       case "!와일드헌터":
       case "!와헌":
       case "!버프주실와헌분계신가요":
-        bossmention = jobMentionList[26];
+        jobmention = jobMentionList[26];
         break;
       case "!메카닉":
       case "!메탁기":
       case "!세탁기":
-        bossmention = jobMentionList[27];
+        jobmention = jobMentionList[27];
         break;
       case "!제논":
       case "!올스탯":
-        bossmention = jobMentionList[28];
+        jobmention = jobMentionList[28];
         break;
       case "!데몬슬레이어":
       case "!데슬":
       case "!홈리스":
-        bossmention = jobMentionList[29];
+        jobmention = jobMentionList[29];
         break;
       case "!데몬어벤져":
       case "!데몬어벤저":
       case "!데벤져":
       case "!데벤저":
       case "!아또데벤템떴네":
-        bossmention = jobMentionList[30];
+        jobmention = jobMentionList[30];
         break;
       case "!아란":
       case "!곧무원":
       case "!순대":
-        bossmention = jobMentionList[31];
+      case "!분노조절장애":
+      case "!분조장":
+        jobmention = jobMentionList[31];
         break;
       case "!에반":
       case "!프리드":
       case "!돌아와":
-        bossmention = jobMentionList[32];
+        jobmention = jobMentionList[32];
         break;
       case "!루미너스":
       case "!루미":
       case "!어둠이..넘쳐흐른다!!":
-        bossmention = jobMentionList[33];
+        jobmention = jobMentionList[33];
         break;
       case "!메르세데스":
       case "!메르":
@@ -854,33 +1187,33 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!여왕님":
       case "!샾없찐":
       case "!어디서샤프도없는게까불어":
-        bossmention = jobMentionList[34];
+        jobmention = jobMentionList[34];
         break;
       case "!팬텀":
       case "!기생오라비":
       case "!뭐이악":
       case "!뭐어?!이악녀가!!":
-        bossmention = jobMentionList[35];
+        jobmention = jobMentionList[35];
         break;
       case "!은월":
       case "!분바":
       case "![]":
-        bossmention = jobMentionList[36];
+        jobmention = jobMentionList[36];
         break;
       case "!카이저":
       case "!조상님":
       case "!디럭스봄버":
-        bossmention = jobMentionList[37];
+        jobmention = jobMentionList[37];
         break;
       case "!카인":
       case "!조시커":
       case "!샾없찐2":
-        bossmention = jobMentionList[38];
+        jobmention = jobMentionList[38];
         break;
       case "!카데나":
       case "!남이하면멋있는데내가하긴싫은직업":
       case "!사슬":
-        bossmention = jobMentionList[39];
+        jobmention = jobMentionList[39];
         break;
       case "!엔젤릭버스터":
       case "!엔버":
@@ -889,55 +1222,57 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!피니투라☆페투치아":
       case "!Spotlight":
       case "!StarBubble":
-        bossmention = jobMentionList[40];
+        jobmention = jobMentionList[40];
         break;
       case "!아델":
       case "!루델팡":
       case "!츄델":
       case "!사기직업":
-        bossmention = jobMentionList[41];
+        jobmention = jobMentionList[41];
         break;
       case "!일리움":
       case "!탈모":
-        bossmention = jobMentionList[42];
+        jobmention = jobMentionList[42];
         break;
       case "!아크":
       case "!야,아크":
-        bossmention = jobMentionList[43];
+        jobmention = jobMentionList[43];
         break;
       case "!라라":
       case "!창섭":
-        bossmention = jobMentionList[44];
+        jobmention = jobMentionList[44];
         break;
       case "!호영":
       case "!호엥":
       case "!백호영":
-        bossmention = jobMentionList[45];
+        jobmention = jobMentionList[45];
         break;
       case "!제로":
       case "!바싸개":
       case "!클라이언트브레이크":
       case "!알파벳":
-        bossmention = jobMentionList[46];
+        jobmention = jobMentionList[46];
         break;
       case "!키네시스":
       case "!키네":
       case "!서울사람":
       case "!기내식":
-        bossmention = jobMentionList[47];
+        jobmention = jobMentionList[47];
         break;
       case "!핑크빈":
       case "!핑빈":
-        bossmention = jobMentionList[48];
+        jobmention = jobMentionList[48];
         break;
       case "!예티":
-        bossmention = jobMentionList[49];
+        jobmention = jobMentionList[49];
         break;
       default:
-        bossmention = "";
+        jobmention = "-";
         break;
     }
-    replier.reply(bossmention);
+    if(jobmention != "-"){
+      replier.reply(jobmention);
+    }
   }
 }
 
@@ -1015,8 +1350,8 @@ function addgetResult(addition, addLevel, addList, addResult){
   }
   }
   else if(addLevel == 160){
-  for(var i = 0; i < addList.length; ++i){
-    var addList_one = addList[i];
+  for(i = 0; i < addList.length; ++i){
+    addList_one = addList[i];
     switch(addList_one){
       case 0:
         addSTR += add160[addition[i] + (5 * addList_one)];
@@ -1085,8 +1420,8 @@ function addgetResult(addition, addLevel, addList, addResult){
   }
   }
   else if(addLevel == 200){
-  for(var i = 0; i < addList.length; ++i){
-    var addList_one = addList[i];
+  for(i = 0; i < addList.length; ++i){
+    addList_one = addList[i];
     switch(addList_one){
       case 0:
         addSTR += add200[addition[i] + (5 * addList_one)];
@@ -1637,7 +1972,7 @@ function mapleupdate(nick) {
       return '갱신중입니다. 1~10초 내에 반영됩니다.';
     }
     else{
-      return '이미 갱신되었습니다.'
+      return '이미 갱신되었습니다.';
     }
 
   }
@@ -1739,7 +2074,7 @@ var bossList = [
 var bossnameList = "이지자쿰,  0\n 노말자쿰, 자쿰, 1\n 피아누스, 2\n 노말반반, 반반, 3\n 노말피에르, 노말삐에르, 피에르, 삐에르, 4\n 노말블러디퀸, 노블퀸, 블러디퀸, 블퀸, 5\n 이지파풀라투스, 이지파풀, 6\n 이지매그너스, 이지매그, 7\n 노말힐라, 힐라, 8\n 노말벨룸, 벨룸, 9\n 이지반레온, 이지반래온, 10\n 이지혼테일, 이지혼텔, 11\n 카웅, 12\n 이지아카이럼, 13\n 노말혼테일, 노말혼텔, 혼테일, 혼텔, 14\n 노말매그너스, 매그너스, 노매그, 매그, 15\n 노말반레온, 노말반래온, 반레온, 반래온, 16\n 노말핑크빈, 노핑, 핑크빈, 17\n 하드반레온, 하드반래온, 18\n 이지시그너스, 이시그, 19\n 노말아카이럼, 아카이럼, 20\n 노말파풀라투스, 노말파풀, 파풀라투스, 파풀, 21\n 하드힐라, 하힐, 22\n 카오스혼테일, 카텔, 카혼텔, 23\n 노말시그너스, 노말시그, 노시그, 시그너스, 시그, 24\n 카오스피에르, 카오스삐에르, 카피, 카삐, 25\n 카오스자쿰, 카쿰, 26\n 카오스반반, 카반반, 카반, 27\n 하드매그너스, 하매그, 하매, 28\n 카오스블러디퀸, 카블퀸, 29\n 카오스벨룸, 카벨룸, 카벨, 30\n 카오스핑크빈, 카핑빈, 카핑, 31\n 카오스파풀라투스, 카파풀, 32\n 불꽃늑대, 불늑, 33\n 도로시, 시드, 34\n 노말데미안, 노데미, 데미안, 데미, 35\n 노말스우, 노스우, 스우, 36\n 우르스, 우루스, 37\n 이지루시드, 이루시, 38\n 노말루시드, 노루시, 루시드, 루시, 39\n 노말윌, 노윌, 윌, 40\n 노말거대괴수더스크, 노말더스크, 노더스크, 노더, 거대괴수더스크, 더스크, 41\n 노말친위대장듄켈, 노말듄켈, 노듄켈, 노듄, 친위대장듄켈, 듄켈, 42\n 하드스우, 하스우, 43\n 하드데미안, 하데미, 44\n 하드루시드, 하루시, 45\n 카오스거대괴수더스크, 카오스더스크, 카더스크, 카더, 46\n 하드윌, 하윌, 47\n 하드친위대장듄켈, 하드듄켈, 하듄켈, 하듄, 48\n 진힐라, 진힐, 49\n 선택받은세렌, 세렌, 50\n 검은마법사, 검마, 검멘, 51\n 아르카누스, 수로, 길드, 52";
 var accexps = [ 0, 15, 49, 106, 198, 333, 705, 1265, 2105, 3347, 4589, 5831, 7073, 8315, 9557, 11047, 12835, 14980, 17554, 20642, 24347, 28793, 34128, 40530, 48212, 57430, 68491, 81764, 97691, 116803, 135915, 155027, 174139, 193251, 212363, 235297, 262817, 295841, 335469, 383022, 434379, 489844, 549746, 614440, 684309, 759767, 841261, 929274, 1024328, 1126986, 1237856, 1357595, 1486913, 1626576, 1777412, 1940314, 2116248, 2306256, 2511464, 2733088, 2954712, 3176336, 3397960, 3619584, 3841208, 4079453, 4335566, 4610887, 4906857, 5225024, 5567053, 5934734, 6329991, 6754892, 7211660, 7700401, 8223353, 8782911, 9381638, 10022275, 10707756, 11441220, 12226026, 13065768, 13964291, 14925710, 15954428, 17055156, 18232934, 19493156, 20835292, 22264666, 23786949, 25408180, 27134791, 28973631, 30931995, 33017652, 35238876, 37604479, 39970082, 42335685, 44701288, 47066891, 49432494, 51951861, 54634986, 57492514, 60535781, 63776860, 67228609, 70904721, 74819780, 78989317, 83429873, 88159065, 93195654, 98559621, 104272245, 110356189, 116835589, 123736150, 131085247, 138912035, 147247564, 156124902, 165579266, 175648163, 186371538, 197791932, 209954651, 222907946, 236703205, 251395155, 267042081, 283706057, 301453191, 320353888, 340483130, 361920772, 384698266, 408899353, 434613007, 461933764, 490962068, 521804641, 554574874, 589393246, 626387766, 665694443, 707457787, 751831340, 798978240, 849071821, 902296250, 958847205, 1018932594, 1082773319, 1150604089, 1222674282, 1299248862, 1380609353, 1467054874, 1558903240, 1656492128, 1760180321, 1870349026, 1987403275, 2111773414, 2243916686, 2382667121, 2528355077, 2681327430, 2841948400, 3010600418, 3187685036, 3373623884, 3568859674, 3773857253, 3989104710, 4215114539, 4452424859, 4701600695, 4963235322, 5237951680, 5526403855, 5829278638, 6147297160, 6481216608, 6831832028, 7199978219, 7586531719, 7992412894, 8418588127, 8866072121, 9335930314, 9829281416, 10347300073, 10891219662, 11462335230, 13669361590, 16141231346, 18909725349, 22010438632, 25483237508, 29372772249, 33729051158, 38608083536, 44072599799, 50192858013, 59985271155, 70854849742, 82920081973, 96312489749, 111178062380, 130503306800, 151567823217, 174528146111, 199554898065, 226834057694, 270480713100, 317182634384, 367153690157, 420622719834, 477834581588, 552210001868, 630304193162, 712303094020, 798401939920, 888805728115, 1033451789227, 1182437232172, 1335892238405, 1493950894824, 1656751310935, 1868391851879, 2086381609051, 2310911058938, 2542176392321, 2780379685705, 3161504955119, 3554063982615, 3958399780935, 4374865653204, 4803825501641, 5361473304609, 5935850541666, 6527459095834, 7136815906627, 7764453421743, 9078218184097, 10405120594074, 11745292028150, 13098865176566, 14465974056466, 15846754025165, 17241341793550, 18649875439618, 20072494422146, 21509339594499, 24411766842652, 27343218363286, 30303984399126, 33294358095324, 36314635528483, 39365115735973, 42446100745537, 45557895605196, 48700808413451, 51875150349788, 58287321061188, 64763613479702, 71304668822401, 77911134718526, 84583665273612, 98062176994885, 112888539888285, 129197539071025, 147137438172039, 166871327183154, 206733782985606, 250582484368303, 298816055889269, 351872984562331, 410235606102699, 528128101614242, 657809846676939, 800459766245905, 957374677771767, 1129981080450210, 1478646013860670, 1862177440612180, 2284062010038850, 2748135036408170, 3258615365414430, 4289785630007070, 5424072921058980, 6671788941216080, 8044276563388880, 10103007996648000 ];
 
-var exps = [ 15, 34, 57,92,135,372,560,840,1242,1242,1242,1242,1242,1242,1490,1788,2145,2574,3088,3705,4446,5335,6402,7682,9218,11061,13273,15927,19112,19112,19112,19112,19112,19112,22934,27520,33024,39628,47553,51357,55465,59902,64694,69869,75458,81494,88013,95054,102658,110870,119739,129318,139663,150836,162902,175934,190008,205208,221624,221624,221624,221624,221624,221624,238245,256113,275321,295970,318167,342029,367681,395257,424901,456768,488741,522952,559558,598727,640637,685481,733464,784806,839742,898523,961419,1028718,1100728,1177778,1260222,1342136,1429374,1522283,1621231,1726611,1838840,1958364,2085657,2221224,2365603,2365603,2365603,2365603,2365603,2365603,2519367,2683125,2857528,3043267,3241079,3451749,3676112,3915059,4169537,4440556,4729192,5036589,5363967,5712624,6083944,6479400,6900561,7349097,7826788,8335529,8877338,9454364,10068897,10723375,11420394,12162719,12953295,13795259,14691950,15646926,16663976,17747134,18900697,20129242,21437642,22777494,24201087,25713654,27320757,29028304,30842573,32770233,34818372,36994520,39306677,41763344,44373553,47146900,50093581,53224429,56550955,60085389,63840725,67830770,72070193,76574580,81360491,86445521,91848366,97588888,103688193,110168705,117054249,124370139,132143272,138750435,145687956,152972353,160620970,168652018,177084618,185938848,195235790,204997579,215247457,226009829,237310320,249175836,261634627,274716358,288452175,302874783,318018522,333919448,350615420,368146191,386553500,405881175,426175233,447483994,469858193,493351102,518018657,543919589,571115568,2207026470,2471869646,2768494003,3100713283,3472798876,3889534741,4356278909,4879032378,5464516263,6120258214,9792413142,10869578587,12065232231,13392407776,14865572631,19325244420,21064516417,22960322894,25026751954,27279159629,43646655406,46701921284,49971055773,53469029677,57211861754,74375420280,78094191294,81998900858,86098845900,90403788195,144646061112,148985442945,153455006233,158058656419,162800416111,211640540944,217989757172,224529449887,231265333383,238203293384,381125269414,392559027496,404335798320,416465872269,428959848437,557647802968,574377237057,591608554168,609356810793,627637515116,1313764762354,1326902409977,1340171434076,1353573148416,1367108879900,1380779968699,1394587768385,1408533646068,1422618982528,1436845172353,2902427248153,2931451520634,2960766035840,2990373696198,3020277433159,3050480207490,3080985009564,3111794859659,3142912808255,3174341936337,6412170711400,6476292418514,6541055342699,6606465896125,6672530555086,13478511721273,14826362893400,16308999182740,17939899101014,19733889011115,39862455802452,43848701382697,48233571520966,53056928673062,58362621540368,117892495511543,129681745062697,142649919568966,156914911525862,172606402678448,348664933410464,383531426751510,421884569426661,464073026369327,510480329006259,1031170264592640,1134287291051900,1247716020157090,1372487622172800,2058731433259200,];
+var exps = [ 15, 34, 57,92,135,372,560,840,1242,1242,1242,1242,1242,1242,1490,1788,2145,2574,3088,3705,4446,5335,6402,7682,9218,11061,13273,15927,19112,19112,19112,19112,19112,19112,22934,27520,33024,39628,47553,51357,55465,59902,64694,69869,75458,81494,88013,95054,102658,110870,119739,129318,139663,150836,162902,175934,190008,205208,221624,221624,221624,221624,221624,221624,238245,256113,275321,295970,318167,342029,367681,395257,424901,456768,488741,522952,559558,598727,640637,685481,733464,784806,839742,898523,961419,1028718,1100728,1177778,1260222,1342136,1429374,1522283,1621231,1726611,1838840,1958364,2085657,2221224,2365603,2365603,2365603,2365603,2365603,2365603,2519367,2683125,2857528,3043267,3241079,3451749,3676112,3915059,4169537,4440556,4729192,5036589,5363967,5712624,6083944,6479400,6900561,7349097,7826788,8335529,8877338,9454364,10068897,10723375,11420394,12162719,12953295,13795259,14691950,15646926,16663976,17747134,18900697,20129242,21437642,22777494,24201087,25713654,27320757,29028304,30842573,32770233,34818372,36994520,39306677,41763344,44373553,47146900,50093581,53224429,56550955,60085389,63840725,67830770,72070193,76574580,81360491,86445521,91848366,97588888,103688193,110168705,117054249,124370139,132143272,138750435,145687956,152972353,160620970,168652018,177084618,185938848,195235790,204997579,215247457,226009829,237310320,249175836,261634627,274716358,288452175,302874783,318018522,333919448,350615420,368146191,386553500,405881175,426175233,447483994,469858193,493351102,518018657,543919589,571115568,2207026470,2471869646,2768494003,3100713283,3472798876,3889534741,4356278909,4879032378,5464516263,6120258214,9792413142,10869578587,12065232231,13392407776,14865572631,19325244420,21064516417,22960322894,25026751954,27279159629,43646655406,46701921284,49971055773,53469029677,57211861754,74375420280,78094191294,81998900858,86098845900,90403788195,144646061112,148985442945,153455006233,158058656419,162800416111,211640540944,217989757172,224529449887,231265333383,238203293384,381125269414,392559027496,404335798320,416465872269,428959848437,557647802968,574377237057,591608554168,609356810793,627637515116,1313764762354,1326902409977,1340171434076,1353573148416,1367108879900,1380779968699,1394587768385,1408533646068,1422618982528,1436845172353,2902427248153,2931451520634,2960766035840,2990373696198,3020277433159,3050480207490,3080985009564,3111794859659,3142912808255,3174341936337,6412170711400,6476292418514,6541055342699,6606465896125,6672530555086,13478511721273,14826362893400,16308999182740,17939899101014,19733889011115,39862455802452,43848701382697,48233571520966,53056928673062,58362621540368,117892495511543,129681745062697,142649919568966,156914911525862,172606402678448,348664933410464,383531426751510,421884569426661,464073026369327,510480329006259,1031170264592640,1134287291051900,1247716020157090,1372487622172800,2058731433259200];
 var add150 = [
   24, 32, 40, 48, 56, //STR 0-4
   24, 32, 40, 48, 56, //DEX 5-9
@@ -1803,7 +2138,74 @@ var add200 = [
   33, 44, 55, 66, 77, //DEF 85-89
   -15, -20, -25, -30, -35 //Decrease Restrict 90-94
 ];
-var jobList = ["!초보자", "!히어로", "!팔라딘", "!다크나이트", "!불독", "!썬콜", "!비숍", "!보우마스터", "!신궁", "!패스파인더", "!나이트로드", "!섀도어", "!듀얼블레이드", "!바이퍼", "!캡틴", "!캐논슈터", "!노블레스", "!소울마스터", "!플레임위자드", "!윈드브레이커", "!나이트워커", "!스트라이커", "!미하일", "!시티즌", "!블래스터", "!배틀메이지", "!와일드헌터", "!메카닉", "!제논", "!데몬슬레이어", "!데몬어벤져", "!아란", "!에반", "!루미너스", "!메르세데스", "!팬텀", "!은월", "!카이저", "!카인", "!카데나", "!엔젤릭버스터", "!아델", "!일리움", "!아크", "!라라", "!호영", "!제로", "!키네시스", "!핑크빈", "!예티", ];
+var weapon140 = [
+"3/6/10/14/19/22/26", //아대
+"4/8/14/20/27/33/38", //건, 건틀렛리볼버, 너클, 에너지소드
+"4/9/14/20/27/33/38", //소울슈터
+"5/11/17/25/34/41/48", //단검, 듀얼보우건, 부채, 브레스슈터, 에인션트보우, 체인, 활
+"5/11/18/26/35/42/49", //석궁, 케인, 한손검, 한손도끼, 한손둔기
+"5/11/18/26/36/43/51", //데스페라도, 두손검, 튜너, 폴암, 핸드캐논
+"5/11/19/27/37/44/51", //두손도끼, 두손둔기, 창
+"7/14/23/33/45/54/63", //매직건틀렛, 샤이닝로드, 완드, ESP리미터
+"7/14/23/34/46/55/64", //스태프
+"6/13/21/30/41" //태도,대검(6형)
+];
+var weapon150 = [
+"11/16/21/28/36", //0 아대
+"15/22/31/40/52", //1 건
+"16/23/31/41/53", //2 건틀렛리볼버, 너클, 소울슈터, 에너지소드
+"19/27/38/49/63", //3 폴암
+"20/29/39/52/66", //4 단검, 듀얼보우건, 부채, 브레스슈터, 에인션트보우, 체인, 활
+"20/29/40/53/68", //5 석궁, 케인, 한손검, 한손도끼, 한손둔기
+"21/31/42/55/71", //6 데스페라도, 두손검, 두손도끼, 두손둔기, 창, 튜너
+"21/31/43/56/72", //7 핸드캐논
+"25/36/49/65/83", //8 매직건틀렛, 샤이닝로드, 완드, ESP리미터
+"25/36/50/66/84", //9 스태프
+"9/20/32/47/64", //10 태도,대검(7형)
+"16/36/59/86/118" //11 해방된카이세리움
+];
+var weapon160 = [
+"16/23/32/42/53", //0 아대
+"23/33/46/60/77", //1 건
+"24/34/47/62/79", //2 건틀렛리볼버, 너클, 소울슈터, 에너지소드
+"28/41/56/74/95", //3 폴암
+"29/43/59/77/99", //4 단검, 듀얼보우건, 부채, 브레스슈터, 에인션트보우, 체인, 활
+"30/44/60/79/101", //5 석궁, 케인, 한손검, 한손도끼, 한손둔기
+"31/46/63/82/106", //6 데스페라도, 두손검, 두손도끼, 두손둔기, 창, 튜너
+"32/47/64/84/108", //7 핸드캐논
+"37/54/73/97/124", //8 매직건틀렛, 샤이닝로드, 완드, ESP리미터
+"37/54/75/98/126", //9 스태프
+"11/23/38/56/76" //10 태도,대검(8형)
+];
+var weapon200 = [
+"27/40/55/72/92", //0 아대
+"39/58/79/104/133", //1 건
+"40/59/81/106/136", //2 건틀렛리볼버, 너클, 소울슈터, 에너지소드
+"48/70/96/127/163", //3 폴암
+"50/73/101/133/170", //4 단검, 듀얼보우건, 부채, 브레스슈터, 에인션트보우, 체인, 활
+"51/75/103/136/175", //5 석궁, 케인, 한손검, 한손도끼, 한손둔기
+"54/78/108/142/182", //6 데스페라도, 두손검, 두손도끼, 두손둔기, 창, 튜너
+"55/80/110/145/186", //7 핸드캐논
+"63/92/126/167/214", //8 매직건틀렛, 샤이닝로드, 완드, ESP리미터
+"64/94/129/170/218", //9 스태프
+"18/40/65/95/131" //10 태도,대검(9형)
+];
+var weaponGenesis = [
+"31/46/72/83/106", //0 아대
+"45/66/91/120/154", //1 건
+"46/68/106/123/157", //2 건틀렛리볼버, 너클, 소울슈터, 에너지소드
+"55/81/111/146/187", //3 폴암
+"58/84/116/153/196", //4 단검, 듀얼보우건, 부채, 브레스슈터, 에인션트보우, 체인, 활
+"59/87/119/157/201", //5 석궁, 케인, 한손검, 한손도끼, 한손둔기
+"62/90/124/164/210", //6 데스페라도, 두손검, 두손도끼, 두손둔기, 창, 튜너
+"63/92/127/167/215", //7 핸드캐논
+"72/106/146/192/246", //8 매직건틀렛, 샤이닝로드, 완드, ESP리미터
+"74/108/148/195/250", //9 스태프
+"21/46/75/110/151" //10 태도,대검(10형)
+];
+
+
+var jobList = ["!초보자", "!히어로", "!팔라딘", "!다크나이트", "!불독", "!썬콜", "!비숍", "!보우마스터", "!신궁", "!패스파인더", "!나이트로드", "!섀도어", "!듀얼블레이드", "!바이퍼", "!캡틴", "!캐논슈터", "!노블레스", "!소울마스터", "!플레임위자드", "!윈드브레이커", "!나이트워커", "!스트라이커", "!미하일", "!시티즌", "!블래스터", "!배틀메이지", "!와일드헌터", "!메카닉", "!제논", "!데몬슬레이어", "!데몬어벤져", "!아란", "!에반", "!루미너스", "!메르세데스", "!팬텀", "!은월", "!카이저", "!카인", "!카데나", "!엔젤릭버스터", "!아델", "!일리움", "!아크", "!라라", "!호영", "!제로", "!키네시스", "!핑크빈", "!예티" ];
 
 var jobMentionList = [
   "초보자\n일반 모험가가 레벨1부터 10까지 거치는 직업. 전사계열이다. 아케인리버 지역 입장이 불가능해 세계수, 헤이븐이 최종 사냥터이다.", // 0  초보자
@@ -1856,9 +2258,10 @@ var jobMentionList = [
   "키네시스\n\n염동력을 사용하는 마법사. 광부용 직업으로 격상될 정도의 압도적인 사냥 능력을 과시한다. 이동 범위가 워낙 좁아서, 실전 기동성은 타 직업에 비해 뒤떨어진다.\n\n[2015년 7월 23일 출시]\n\n무적기 : 에버싸이킥 (7초)\n뎀감기 : 에테리얼 폼[공용] (3초), 이계 여신의 축복 - 방패의 축복 (75%)\n바인드 : 사이코 메트리\n\n공격대원 효과 : INT 10/20/40/80/100 증가\n\n링크 스킬 : 판단 - 크리티컬 데미지 2%/4% 증가", // 47 키네시스
   "핑크빈\n\n이벤트 한정 캐릭터라 그런지 기본 공격력도 그렇고, 동 레벨대의 어느 직업군도 따라올 수 없는 매우 강한 공격력을 보여준다. 이동 스킬은 꽤 좋은 성능을 보여주고, 사냥 스킬로 사용할 경우 맵을 싹쓸이할 수 있다.\n\n[2015년 5월 14일 최초 출시]\n\n보상 : 핑아일체 - 보스 공격 시 데미지 증가 + 10%, 공격력/마력 +5, 올스탯 +10", // 48 핑크빈
   "예티\n\n이벤트 직업 특성 상 핑크빈처럼 기간 한정 캐릭터이다. 또한 이벤트 기간에만 열리는 예티X핑크빈 월드에서만 캐릭터를 생성할 수 있으며 예티X핑크빈 스탭업 이벤트로 첫 출시되었다.\n\n[2021년 3월 25일 최초 출시]\n\n보상 : 예아일체 - 보스 공격 시 데미지 증가 + 10%, 공격력/마력 +5, 올스탯 +10", // 49 예티
-  "\n\n", // 50
+  "\n\n" // 50
 ];
 
 var adminNick = "리부트1/254/보마";
+var nickname = "";
 var sunday = "";
-var bossmention = "";
+var jobmention = "";
