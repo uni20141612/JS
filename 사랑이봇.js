@@ -41,7 +41,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!(직업이름) : 간단한 직업 설명과 그 직업의 무적기/뎀감기/바인드 보유 여부와 유니온 공격대원 효과, 링크스킬을 보여줍니다.\n\n";
       help += "!썬데이/!선데이 : 그 주의 썬데이메이플을 보여줍니다. (관리자가 직접 업데이트 하여야 하므로 정확하지 않을 수 있습니다.)\n\n";
       help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.\n\n";
-      help += "!추옵/!추가옵션 (무기이름) : 각 무기에 해당하는 추가옵션표를 보여줍니다. 괄호 안에는 순수 무기공격력이 들어갑니다. (순서 : 우트가르드, 파프니르, 앱솔랩스, 아케인셰이드, 제네시스)\n무기이름 대신 그 무기를 사용하는 직업(전용무기가 아닌 경우엔 나오지 않을 수 있음)을 적어도 됩니다.";
+      help += "!추옵/!추가옵션 (무기이름) : 각 무기에 해당하는 추가옵션표를 보여줍니다. 괄호 안에는 순수 무기공격력이 들어갑니다. (순서 : 우트가르드, 파프니르, 앱솔랩스, 아케인셰이드, 제네시스)\n무기이름 대신 그 무기를 사용하는 직업(전용무기가 아닌 경우엔 나오지 않을 수 있음)을 적어도 됩니다.\n\n";
+      help += "!그님티 (롤아이디) : 해당 아이디의 티어를 보여줍니다.";
       replier.reply(help);
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
@@ -63,6 +64,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/07/30 - !썬데이, !업데이트 추가, (원래 !업데이트/!업뎃 -> !봇업데이트/!봇업뎃 으로 변경)\n";
       update += "21/08/01 - !(직업이름) 줄임말, 별명으로도 검색 가능\n";
       update += "21/08/07 - !추옵 (무기이름) 추가, 코드의 오탈자, 누락/중복 제거";
+      update += "21/08/11 - !그님티 (롤아이디) 추가";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -997,6 +999,37 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
+    if(msg.startsWith("!그님티")){
+      if(msg.split(" ")[1] == undefined){
+        replier.reply("닉네임을 입력해주세요.");
+      }
+      else{
+        var lolrank = "";
+        var lolnick = msg.slice(5);
+        var opgg = "https://www.op.gg/summoner/userName=" + lolnick;
+        var dataL1 = org.jsoup.Jsoup.connect(opgg).get();
+        dataL1 = dataL1.toString();
+        var dataL2 = dataL1.split("TierRankInfo\">")[1];
+        dataL2 = dataL2.split("sub-tier")[0];
+        
+        if(dataL2.indexOf("TierRank unranked") != -1){
+          lolrank = "언랭";
+        }
+        else{
+          var dataL3 = dataL2.split("TierRank\">")[1];
+          var dataL4 = dataL3.split("</div>")[0];
+          lolrank = dataL4;
+          lolrank = lolrank.replace(/ /g, "");
+          lolrank = lolrank.slice(0, lolrank.length - 1);
+          lolrank = getTier(lolrank);
+        }
+
+        replier.reply("그래서 님 티어는\n\n" + lolrank);
+      }
+    }
+    if(msg.startsWith("!똥캐")){
+      replier.reply(jobMentionList[17]);
+    }
     if(true){
     switch(msg){
       case "!초보자":
@@ -1274,6 +1307,47 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(jobmention);
     }
   }
+}
+
+function getTier(lolrank){
+  var tiernum = lolrank.slice(-1);
+  var tiername = lolrank.slice(0, lolrank.length - 1);
+  tiername = tiername.slice(1);
+  var tierHan = "";
+  switch(tiername){
+    case "Bronze":
+      tierHan = "브론즈 ";
+      break;
+    case "Silver":
+      tierHan = "실버 ";
+      break;
+    case "Gold":
+      tierHan = "골드 ";
+      break;
+    case "Platinum":
+      tierHan = "플래티넘 ";
+      break;  
+    case "Diamond":
+      tierHan = "다이아몬드 ";
+      break;
+    case "Maste":
+      tierHan = "마스터 ";
+      tiernum = "";
+      break;    
+    case "Grandmaste":
+      tierHan = "그랜드마스터 ";
+      tiernum = "";
+      break;
+    case "Challenge":
+      tierHan = "챌린저 ";
+      tiernum = "";
+      break;
+    default:
+      tierHan = "오류 ";
+      break;
+  }
+  tierHan = tierHan + tiernum;
+  return tierHan;
 }
 
 function addgetResult(addition, addLevel, addList, addResult){
@@ -1963,11 +2037,8 @@ function mapleupdate(nick) {
   var isDone = JSON.parse(org.jsoup.Jsoup.connect('https://maple.gg/u/'+encodeURI(nick)+'/sync').ignoreContentType(true).get().text()).done;
 
   if(isError == true) {
-
       return '유저정보가 없습니다.';
-
   } else {
-
     if(isDone == false){
       return '갱신중입니다. 1~10초 내에 반영됩니다.';
     }
@@ -2261,7 +2332,7 @@ var jobMentionList = [
   "\n\n" // 50
 ];
 
-var adminNick = "리부트1/254/보마";
+var adminNick = "리부트1/255/보마";
 var nickname = "";
 var sunday = "";
 var jobmention = "";
