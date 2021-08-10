@@ -1009,22 +1009,28 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var opgg = "https://www.op.gg/summoner/userName=" + lolnick;
         var dataL1 = org.jsoup.Jsoup.connect(opgg).get();
         dataL1 = dataL1.toString();
-        var dataL2 = dataL1.split("TierRankInfo\">")[1];
-        dataL2 = dataL2.split("sub-tier")[0];
-        
-        if(dataL2.indexOf("TierRank unranked") != -1){
-          lolrank = "언랭";
+
+        if(dataL1.indexOf("TierRankInfo") == -1){
+          replier.reply("그런 닉네임의 롤 아이디는 존재하지 않습니다.");
         }
         else{
-          var dataL3 = dataL2.split("TierRank\">")[1];
-          var dataL4 = dataL3.split("</div>")[0];
-          lolrank = dataL4;
-          lolrank = lolrank.replace(/ /g, "");
-          lolrank = lolrank.slice(0, lolrank.length - 1);
-          lolrank = getTier(lolrank);
-        }
+          var dataL2 = dataL1.split("TierRankInfo\">")[1];
+          dataL2 = dataL2.split("sub-tier")[0];
+        
+          if(dataL2.indexOf("TierRank unranked") != -1){
+            lolrank = "언랭";
+          }
+          else{
+            var dataL3 = dataL2.split("TierRank\">")[1];
+            var dataL4 = dataL3.split("</div>")[0];
+            lolrank = dataL4;
+            lolrank = lolrank.replace(/ /g, "");
+            lolrank = lolrank.slice(0, lolrank.length - 1);
+            lolrank = getTier(lolrank);
+          }
 
-        replier.reply("그래서 님 티어는\n\n" + lolrank);
+          replier.reply("그래서 님 티어는\n\n" + lolrank);
+        }
       }
     }
     if(msg.startsWith("!똥캐")){
