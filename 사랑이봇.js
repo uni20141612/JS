@@ -72,7 +72,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.\n\n";
       help += "!추옵/!추가옵션 (무기이름) : 각 무기에 해당하는 추가옵션표를 보여줍니다. 괄호 안에는 순수 무기공격력이 들어갑니다. (순서 : 우트가르드, 파프니르, 앱솔랩스, 아케인셰이드, 제네시스)\n무기이름 대신 그 무기를 사용하는 직업(전용무기가 아닌 경우엔 나오지 않을 수 있음)을 적어도 됩니다.\n\n";
       help += "!그님티 (롤아이디) : 해당 아이디의 티어를 보여줍니다.\n\n";
-      help += "!로얄 (횟수) : 지정한 횟수만큼의 로얄스타일 시뮬레이션을 보여줍니다. 횟수는 최대 5000까지 설정할수 있습니다. 횟수를 생략할 시 1회만 시뮬레이션 합니다.";
+      help += "!로얄 (횟수) : 지정한 횟수만큼의 로얄스타일 시뮬레이션을 보여줍니다. 횟수는 최대 5000까지 설정할수 있습니다. 횟수를 생략할 시 1회만 시뮬레이션 합니다.\n\n";
+      help += "!사다리타기/!사다리 (단어) : 띄어쓰기로 구분된 단어들 중에서 하나를 골라 결과로 보여줍니다. 최소 두 단어 이상 입력하여야 합니다.";
       replier.reply(help);
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
@@ -98,8 +99,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/08/17 - !로얄 추가\n";
       update += "!캐릭터에 프로필 이미지 추가, !정보 명령어 추가\n";
       update += "!보스, !영환, !강환 출력방식 변경\n";
-      update += "21/08/18 - !(직업이름) 직업별 일러스트, 나무위키 링크 포함 메시지 추가";
+      update += "21/08/18 - !(직업이름) 직업별 일러스트, 나무위키 링크 포함 메시지 추가\n";
+      update += "!사다리타기/!사다리 추가\n";
+      update += "!유니온 코인 일일수급량 쿠가";
       replier.reply(update);
+    }
+    if(msg.startsWith("ㅋㅋㅋ")){
+      Api.markAsRead(room);
     }
     if(msg == "테스트"){      
       replier.reply("테스트용입니다.");      //스타포스      //보스 전리품     
@@ -281,7 +287,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               dataU5 = dataU3.split("level\">")[1];
               dataU6 = dataU5.split("</span>")[0];
 
-              replier.reply(dataU4 + ", " + dataU6);
+              dataU7 = dataU1.split("전투력</b> ")[1];
+              dataU7 = dataU7.split("</span>")[0];
+              dataU8 = parseFloat(dataU7.replace(/,/g, ""));
+              dataU9 = parseInt(dataU8 * 8.64 / 10000000);
+              replier.reply(dataU4 + ", " + dataU6 + "\n유니온 전투력 : " + dataU8 + "\n일일 유니온 코인 수급량 : " + dataU9);
             }
             else{
               replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
@@ -1217,7 +1227,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             lolrank = getTier(lolrank);
           }
 
-          replier.reply("그래서 님 티어는\n\n" + lolrank);
+          replier.reply("그래서 " + lolnick + " 님 티어는\n\n" + lolrank);
         }
       }
     }
@@ -1261,6 +1271,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       else{        
         replier.reply("숫자가 5000을 초과하거나 숫자가 아닙니다.");
+      }
+    }
+    if(msg.startsWith("!사다리타기") || msg.startsWith("!사다리")){
+      if(msg.split(" ").length < 3){
+        replier.reply("최소 2개이상의 단어를 입력해주세요.");
+      }
+      else{
+        var laddercnt = msg.split(" ").length - 1;
+        laddercnt = getRandomInt(0, laddercnt);
+
+        replier.reply("보마봇 사다리타기 결과 : " + msg.split(" ")[1 + laddercnt]);
       }
     }
     if(true){
@@ -1593,8 +1614,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var jobname = getJobname(chkjob);
       var jobdesc = getJobdesc(chkjob);
       var jobimage = getJobimage(chkjob);
-      var jobmobweb = getJobpcweb(chkjob);
-      var jobpcweb = getJobpcweb(chkjob);
+      var jobmobweb = getJobweb(chkjob);
+      var jobpcweb = getJobweb(chkjob);
       Kakao.send(room,
        {
          "link_ver" : "4.0",
@@ -1613,7 +1634,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(jobmention);
       }
     }
-  Api.markAsRead(room);
 }
 
 function getTier(lolrank){
@@ -2966,64 +2986,64 @@ function getBossinfo(ind){
         rep = "250%, 비반감";
         break;
       case 35:
-        rep = "300%, 반감";
+        rep = "300%, 반감, 수에큐 3개";
         break;
       case 36:
-        rep = "300%, 반감";
+        rep = "300%, 반감, 수에큐 3개";
         break;
       case 37:
         rep = "10%, 부위별 뎀감";
         break;
       case 38:
-        rep = "300%, 반감, 포스 360";
+        rep = "300%, 반감, 포스 360, 수에큐 3개";
         break;
       case 39:
-        rep = "300%, 반감, 포스 360";
+        rep = "300%, 반감, 포스 360, 수에큐 4개";
         break;
       case 40:
-        rep = "300%, 반감, 포스 760";
+        rep = "300%, 반감, 포스 760, 수에큐 5개";
         break;
       case 41:
-        rep = "300%, 반감, 포스 730";
+        rep = "300%, 반감, 포스 730, 수에큐 6개";
         break;
       case 42:
-        rep = "300%, 반감, 포스 850";
+        rep = "300%, 반감, 포스 850, 수에큐 6개";
         break;
       case 43:
-        rep = "300%, 반감";
+        rep = "300%, 반감, 수에큐 8개";
         break;
       case 44:
-        rep = "300%, 반감";
+        rep = "300%, 반감, 수에큐 7개";
         break;
       case 45:
-        rep = "300%, 반감, 포스 360";
+        rep = "300%, 반감, 포스 360, 수에큐 9개";
         break;
       case 46:
-        rep = "300%, 반감, 포스 730";
+        rep = "300%, 반감, 포스 730, 수에큐 10개";
         break;
       case 47:
-        rep = "300%, 반감, 포스 760";
+        rep = "300%, 반감, 포스 760, 수에큐 9개";
         break;
       case 48:
-        rep = "300%, 반감, 포스 850";
+        rep = "300%, 반감, 포스 850, 수에큐 10개";
         break;
       case 49:
-        rep = "300%, 반감, 포스 900";
+        rep = "300%, 반감, 포스 900, 수에큐 10개";
         break;
       case 50:
-        rep = "380%, 반감, 어센틱포스 150ㆍ200";
+        rep = "380%, 반감, 어센틱포스 150ㆍ200, 수에큐 ?개";
         break;
       case 51:
-        rep = "300%, 반감, 포스 1320";
+        rep = "300%, 반감, 포스 1320, 수에큐 30개";
         break;
       case 52:
         rep = "50%ㆍ100%ㆍ150%ㆍ200%ㆍ250%ㆍ300%, 반감";
         break;
       case 53:
-        rep = "300%, 반감, 상시 피해감소 30%";
+        rep = "300%, 반감, 상시 피해감소 30%, 수에큐 3개";
         break;
       case 54:
-        rep = "300%, 반감, 상시 피해감소 30%";
+        rep = "300%, 반감, 상시 피해감소 30%, 수에큐 10개";
         break;
   }
   return rep;
@@ -3496,163 +3516,7 @@ function getJobimage(ind){
   }
   return rep;
 }
-function getJobmobweb(ind){
-  rep = "";
-  switch(ind){
-    case 0:
-      rep = "초보자";
-      break;
-    case 1:
-      rep = "히어로";
-      break;
-    case 2:
-      rep = "팔라딘";
-      break;
-    case 3:
-      rep = "다크나이트";
-      break;
-    case 4:
-      rep = "아크메이지(불,독)";
-      break;
-    case 5:
-      rep = "아크메이지(썬,콜)";
-      break;
-    case 6:
-      rep = "비숍";
-      break;
-    case 7:
-      rep = "★보우마스터★";
-      break;
-    case 8:
-      rep = "신궁";
-      break;
-    case 9:
-      rep = "패스파인더";
-      break;
-    case 10:
-      rep = "나이트로드";
-      break;
-    case 11:
-      rep = "섀도어";
-      break;
-    case 12:
-      rep = "듀얼블레이드";
-      break;
-    case 13:
-      rep = "바이퍼";
-      break;
-    case 14:
-      rep = "캡틴";
-      break;
-    case 15:
-      rep = "캐논슈터";
-      break;
-    case 16:
-      rep = "노블레스";
-      break;
-    case 17:
-      rep = "소울마스터";
-      break;
-    case 18:
-      rep = "플레임위자드";
-      break;
-    case 19:
-      rep = "윈드브레이커";
-      break;
-    case 20:
-      rep = "나이트워커";
-      break;
-    case 21:
-      rep = "스트라이커";
-      break;
-    case 22:
-      rep = "미하일";
-      break;
-    case 23:
-      rep = "시티즌";
-      break;
-    case 24:
-      rep = "블래스터";
-      break;
-    case 25:
-      rep = "배틀메이지";
-      break;
-    case 26:
-      rep = "와일드헌터";
-      break;
-    case 27:
-      rep = "메카닉";
-      break;
-    case 28:
-      rep = "제논";
-      break;
-    case 29:
-      rep = "데몬슬레이어";
-      break;
-    case 30:
-      rep = "데몬어벤져";
-      break;
-    case 31:
-      rep = "아란";
-      break;
-    case 32:
-      rep = "에반";
-      break;
-    case 33:
-      rep = "루미너스";
-      break;
-    case 34:
-      rep = "메르세데스";
-      break;
-    case 35:
-      rep = "팬텀";
-      break;
-    case 36:
-      rep = "은월";
-      break;
-    case 37:
-      rep = "카이저";
-      break;
-    case 38:
-      rep = "카인";
-      break;
-    case 39:
-      rep = "카데나";
-      break;
-    case 40:
-      rep = "엔젤릭버스터";
-      break;
-    case 41:
-      rep = "아델";
-      break;
-    case 42:
-      rep = "일리움";
-      break;
-    case 43:
-      rep = "아크";
-      break;
-    case 44:
-      rep = "라라";
-      break;
-    case 45:
-      rep = "호영";
-      break;
-    case 46:
-      rep = "제로";
-      break;
-    case 47:
-      rep = "키네시스";
-      break;
-    case 48:
-      rep = "핑크빈";
-      break;
-    case 49:
-      rep = "예티";
-      break;
-  }
-  return rep;
-}
-function getJobpcweb(ind){
+function getJobweb(ind){
   rep = "";
   switch(ind){
     case 0:
