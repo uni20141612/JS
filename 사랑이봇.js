@@ -97,7 +97,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/08/11 - !그님티 (롤아이디) 추가\n";
       update += "21/08/17 - !로얄 추가\n";
       update += "!캐릭터에 프로필 이미지 추가, !정보 명령어 추가\n";
-      update += "!보스, !영환, !강환 출력방식 변경";
+      update += "!보스, !영환, !강환 출력방식 변경\n";
+      update += "21/08/18 - !(직업이름) 직업별 일러스트, 나무위키 링크 포함 메시지 추가";
       replier.reply(update);
     }
     if(msg == "테스트"){      
@@ -1263,14 +1264,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(true){
+      chkjob = -1;
     switch(msg){
       case "!초보자":
         jobmention = jobMentionList[0];
+        chkjob = 0;
         break;
       case "!히어로":
       case "!혀로":
       case "!김치싸다구":
         jobmention = jobMentionList[1];
+        chkjob = 1;
         break;
       case "!팔라딘":
       case "!팔라":
@@ -1279,29 +1283,34 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!팔퀴벌레":
       case "!망치나가신다":
         jobmention = jobMentionList[2];
+        chkjob = 2;
         break;
       case "!다크나이트":
       case "!닼나":
       case "!닥나":
       case "!창지기":
         jobmention = jobMentionList[3];
+        chkjob = 3;
         break;
       case "!아크메이지(불,독)":
       case "!아크메이지불독":
       case "!불독":
       case "!방구쟁이":
         jobmention = jobMentionList[4];
+        chkjob = 4;
         break;
       case "!아크메이지(썬,콜)":
       case "!아크메이지썬콜":
       case "!썬콜":
       case "!썬콜게이트":
         jobmention = jobMentionList[5];
+        chkjob = 5;
         break;
       case "!비숍":
       case "!오더마스터":
       case "!프레이싸개":
         jobmention = jobMentionList[6];
+        chkjob = 6;
         break;
       case "!보우마스터":
       case "!보마":
@@ -1309,11 +1318,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!보마조아":
       case "!무지개색총공격":
         jobmention = jobMentionList[7];
+        chkjob = 7;
         break;
       case "!신궁":
       case "!신궁쟝":
       case "!거리두기마스터":
         jobmention = jobMentionList[8];
+        chkjob = 8;
         break;
       case "!패스파인더":
       case "!패파":
@@ -1321,55 +1332,67 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!모궁최고아웃풋":
       case "!간장게장":
         jobmention = jobMentionList[9];
+        chkjob = 9;
         break;
       case "!나이트로드":
       case "!나로":
       case "!표창싸개":
       case "!물몸":
         jobmention = jobMentionList[10];
+        chkjob = 10;
         break;
       case "!섀도어":
       case "!닭뛰터줏대감":
         jobmention = jobMentionList[11];
+        chkjob = 11;
         break;
       case "!듀얼블레이드":
       case "!듀블":
       case "!쌍칼":
       case "!블토카퓨":
         jobmention = jobMentionList[12];
+        chkjob = 12;
         break;
       case "!바이퍼":
       case "!초사이어인":
         jobmention = jobMentionList[13];
+        chkjob = 13;
         break;
       case "!캡틴":
       case "!캢틴":
       case "!총잡이":
         jobmention = jobMentionList[14];
+        chkjob = 14;
         break;
       case "!캐논슈터":
       case "!캐슈":
       case "!원숭이주인":
         jobmention = jobMentionList[15];
+        chkjob = 15;
         break;
       case "!노블레스":
       case "!시그초보자":
         jobmention = jobMentionList[16];
+        chkjob = 16;
         break;
       case "!소울마스터":
       case "!소마":
       case "!보마아니고":
         jobmention = jobMentionList[17];
+        chkjob = 17;
         break;
       case "!플레임위자드":
       case "!플위":
       case "!엠피조루":
+      case "!마나조루":
         jobmention = jobMentionList[18];
+        chkjob = 18;
         break;
       case "!윈드브레이커":
       case "!윈브":
       case "!페턴":
         jobmention = jobMentionList[19];
+        chkjob = 19;
         break;
       case "!나이트워커":
       case "!나워":
@@ -1377,49 +1400,59 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!코로나":
       case "!박쥐":
         jobmention = jobMentionList[20];
+        chkjob = 20;
         break;
       case "!스트라이커":
       case "!스커":
       case "!경직":
         jobmention = jobMentionList[21];
+        chkjob = 21;
         break;
       case "!미하일":
       case "!로얄가드":
       case "!리듬게임":
         jobmention = jobMentionList[22];
+        chkjob = 22;
         break;
       case "!시티즌":
       case "!레지초보자":
         jobmention = jobMentionList[23];
+        chkjob = 23;
         break;
       case "!블래스터":
       case "!블래":
       case "!손목브레이커":
         jobmention = jobMentionList[24];
+        chkjob = 24;
         break;
       case "!배틀메이지":
       case "!배메":
       case "!오라토템":
         jobmention = jobMentionList[25];
+        chkjob = 25;
         break;
       case "!와일드헌터":
       case "!와헌":
       case "!버프주실와헌분계신가요":
         jobmention = jobMentionList[26];
+        chkjob = 26;
         break;
       case "!메카닉":
       case "!메탁기":
       case "!세탁기":
         jobmention = jobMentionList[27];
+        chkjob = 27;
         break;
       case "!제논":
       case "!올스탯":
         jobmention = jobMentionList[28];
+        chkjob = 28;
         break;
       case "!데몬슬레이어":
       case "!데슬":
       case "!홈리스":
         jobmention = jobMentionList[29];
+        chkjob = 29;
         break;
       case "!데몬어벤져":
       case "!데몬어벤저":
@@ -1427,6 +1460,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!데벤저":
       case "!아또데벤템떴네":
         jobmention = jobMentionList[30];
+        chkjob = 30;
         break;
       case "!아란":
       case "!곧무원":
@@ -1434,16 +1468,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!분노조절장애":
       case "!분조장":
         jobmention = jobMentionList[31];
+        chkjob = 31;
         break;
       case "!에반":
       case "!프리드":
       case "!돌아와":
         jobmention = jobMentionList[32];
+        chkjob = 32;
         break;
       case "!루미너스":
       case "!루미":
       case "!어둠이..넘쳐흐른다!!":
         jobmention = jobMentionList[33];
+        chkjob = 33;
         break;
       case "!메르세데스":
       case "!메르":
@@ -1453,32 +1490,38 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!샾없찐":
       case "!어디서샤프도없는게까불어":
         jobmention = jobMentionList[34];
+        chkjob = 34;
         break;
       case "!팬텀":
       case "!기생오라비":
       case "!뭐이악":
       case "!뭐어?!이악녀가!!":
         jobmention = jobMentionList[35];
+        chkjob = 35;
         break;
       case "!은월":
       case "!분바":
       case "![]":
         jobmention = jobMentionList[36];
+        chkjob = 36;
         break;
       case "!카이저":
       case "!조상님":
       case "!디럭스봄버":
         jobmention = jobMentionList[37];
+        chkjob = 37;
         break;
       case "!카인":
       case "!조시커":
       case "!샾없찐2":
         jobmention = jobMentionList[38];
+        chkjob = 38;
         break;
       case "!카데나":
       case "!남이하면멋있는데내가하긴싫은직업":
       case "!사슬":
         jobmention = jobMentionList[39];
+        chkjob = 39;
         break;
       case "!엔젤릭버스터":
       case "!엔버":
@@ -1488,56 +1531,87 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       case "!Spotlight":
       case "!StarBubble":
         jobmention = jobMentionList[40];
+        chkjob = 40;
         break;
       case "!아델":
       case "!루델팡":
       case "!츄델":
       case "!사기직업":
         jobmention = jobMentionList[41];
+        chkjob = 41;
         break;
       case "!일리움":
       case "!탈모":
         jobmention = jobMentionList[42];
+        chkjob = 42;
         break;
       case "!아크":
       case "!야,아크":
         jobmention = jobMentionList[43];
+        chkjob = 43;
         break;
       case "!라라":
       case "!창섭":
         jobmention = jobMentionList[44];
+        chkjob = 44;
         break;
       case "!호영":
       case "!호엥":
       case "!백호영":
         jobmention = jobMentionList[45];
+        chkjob = 45;
         break;
       case "!제로":
       case "!바싸개":
       case "!클라이언트브레이크":
       case "!알파벳":
         jobmention = jobMentionList[46];
+        chkjob = 46;
         break;
       case "!키네시스":
       case "!키네":
       case "!서울사람":
       case "!기내식":
         jobmention = jobMentionList[47];
+        chkjob = 47;
         break;
       case "!핑크빈":
       case "!핑빈":
         jobmention = jobMentionList[48];
+        chkjob = 48;
         break;
       case "!예티":
         jobmention = jobMentionList[49];
+        chkjob = 49;
         break;
       default:
         jobmention = "-";
+        chkjob = -1;
         break;
     }
-    if(jobmention != "-"){
-      replier.reply(jobmention);
+    if(chkjob != -1){
+      var jobname = getJobname(chkjob);
+      var jobdesc = getJobdesc(chkjob);
+      var jobimage = getJobimage(chkjob);
+      var jobmobweb = getJobpcweb(chkjob);
+      var jobpcweb = getJobpcweb(chkjob);
+      Kakao.send(room,
+       {
+         "link_ver" : "4.0",
+         "template_id" : 59546,
+          "template_args" : {
+                                "jobname" : jobname,
+                                "jobdesc" : jobdesc,
+                                "jobimage" : jobimage,
+                                "jobmobweb" : jobmobweb,
+                                "jobpcweb" : jobpcweb
+                            }
+       },
+         "custom");
     }
+    if(jobmention != "-"){
+        replier.reply(jobmention);
+      }
     }
   Api.markAsRead(room);
 }
@@ -2954,6 +3028,786 @@ function getBossinfo(ind){
   }
   return rep;
 }
+function getJobname(ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "초보자";
+      break;
+    case 1:
+      rep = "히어로";
+      break;
+    case 2:
+      rep = "팔라딘";
+      break;
+    case 3:
+      rep = "다크나이트";
+      break;
+    case 4:
+      rep = "아크메이지(불,독)";
+      break;
+    case 5:
+      rep = "아크메이지(썬,콜)";
+      break;
+    case 6:
+      rep = "비숍";
+      break;
+    case 7:
+      rep = "★보우마스터★";
+      break;
+    case 8:
+      rep = "신궁";
+      break;
+    case 9:
+      rep = "패스파인더";
+      break;
+    case 10:
+      rep = "나이트로드";
+      break;
+    case 11:
+      rep = "섀도어";
+      break;
+    case 12:
+      rep = "듀얼블레이드";
+      break;
+    case 13:
+      rep = "바이퍼";
+      break;
+    case 14:
+      rep = "캡틴";
+      break;
+    case 15:
+      rep = "캐논슈터";
+      break;
+    case 16:
+      rep = "노블레스";
+      break;
+    case 17:
+      rep = "소울마스터";
+      break;
+    case 18:
+      rep = "플레임위자드";
+      break;
+    case 19:
+      rep = "윈드브레이커";
+      break;
+    case 20:
+      rep = "나이트워커";
+      break;
+    case 21:
+      rep = "스트라이커";
+      break;
+    case 22:
+      rep = "미하일";
+      break;
+    case 23:
+      rep = "시티즌";
+      break;
+    case 24:
+      rep = "블래스터";
+      break;
+    case 25:
+      rep = "배틀메이지";
+      break;
+    case 26:
+      rep = "와일드헌터";
+      break;
+    case 27:
+      rep = "메카닉";
+      break;
+    case 28:
+      rep = "제논";
+      break;
+    case 29:
+      rep = "데몬슬레이어";
+      break;
+    case 30:
+      rep = "데몬어벤져";
+      break;
+    case 31:
+      rep = "아란";
+      break;
+    case 32:
+      rep = "에반";
+      break;
+    case 33:
+      rep = "루미너스";
+      break;
+    case 34:
+      rep = "메르세데스";
+      break;
+    case 35:
+      rep = "팬텀";
+      break;
+    case 36:
+      rep = "은월";
+      break;
+    case 37:
+      rep = "카이저";
+      break;
+    case 38:
+      rep = "카인";
+      break;
+    case 39:
+      rep = "카데나";
+      break;
+    case 40:
+      rep = "엔젤릭버스터";
+      break;
+    case 41:
+      rep = "아델";
+      break;
+    case 42:
+      rep = "일리움";
+      break;
+    case 43:
+      rep = "아크";
+      break;
+    case 44:
+      rep = "라라";
+      break;
+    case 45:
+      rep = "호영";
+      break;
+    case 46:
+      rep = "제로";
+      break;
+    case 47:
+      rep = "키네시스";
+      break;
+    case 48:
+      rep = "핑크빈";
+      break;
+    case 49:
+      rep = "예티";
+      break;
+  }
+  return rep;
+}
+function getJobdesc(ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "전직을 하지 않은 모험가";
+      break;
+    case 1:
+      rep = "타격을 극대화한 전사 최고의 딜러!";
+      break;
+    case 2:
+      rep = "절대 방어의 수호기사!";
+      break;
+    case 3:
+      rep = "죽지 않는 암흑기사!";
+      break;
+    case 4:
+      rep = "강력한 중첩 도트 공격의 불과 독의 지배자!";
+      break;
+    case 5:
+      rep = "결빙된 적에게 선사하는 짜릿한 공격!";
+      break;
+    case 6:
+      rep = "파티원의 수만큼 최종 대미지가 증가한다!";
+      break;
+    case 7:
+      rep = "다양한 속성의 화살로 퍼붓는 시원한 속사포 공격!";
+      break;
+    case 8:
+      rep = "정확한 원 샷 원 킬의 스나이퍼!";
+      break;
+    case 9:
+      rep = "한 번 노린 건 놓치지 않아!";
+      break;
+    case 10:
+      rep = "한 번의 공격으로 주위의 모든 적을 섬멸하라!";
+      break;
+    case 11:
+      rep = "공격 시마다 크리티컬 확률이 증가하는 크리티컬 그로잉!";
+      break;
+    case 12:
+      rep = "날카로운 두 개의 칼날이 적의 심장을 꿰뚫는다!";
+      break;
+    case 13:
+      rep = "에너지가 충전되는 순간 모든 것이 변화한다!";
+      break;
+    case 14:
+      rep = "더욱 강력해진 무기를 장착한 최강 병기!";
+      break;
+    case 15:
+      rep = "심장을 울리는 전율의 포격!";
+      break;
+    case 16:
+      rep = "시그너스기사단 계열의 초보자";
+      break;
+    case 17:
+      rep = "빛의 기사";
+      break;
+    case 18:
+      rep = "불의 기사";
+      break;
+    case 19:
+      rep = "바람의 기사";
+      break;
+    case 20:
+      rep = "어둠의 기사";
+      break;
+    case 21:
+      rep = "번개의 기사";
+      break;
+    case 22:
+      rep = "빛의 기사단장";
+      break;
+    case 23:
+      rep = "레지스탕스 계열의 초보자";
+      break;
+    case 24:
+      rep = "끊기지 않는 무한 연속 공격";
+      break;
+    case 25:
+      rep = "실전에 특화된 근접 마법사";
+      break;
+    case 26:
+      rep = "재규어를 탄 궁수";
+      break;
+    case 27:
+      rep = "로봇을 조종하여 적을 무찌른다!";
+      break;
+    case 28:
+      rep = "완벽한 전투를 위해 태어난 최종 병기";
+      break;
+    case 29:
+      rep = "검은 마법사의 오른팔";
+      break;
+    case 30:
+      rep = "검은 마법사의 오른팔";
+      break;
+    case 31:
+      rep = "전장을 지배하는 폴암의 여전사";
+      break;
+    case 32:
+      rep = "드래곤 마스터의 후계자";
+      break;
+    case 33:
+      rep = "빛과 어둠의 경계에 선 마법사";
+      break;
+    case 34:
+      rep = "운명에 맞서는 엘프의 군주";
+      break;
+    case 35:
+      rep = "무엇이든 손에 넣는 전설의 괴도";
+      break;
+    case 36:
+      rep = "잊혀진 영웅";
+      break;
+    case 37:
+      rep = "노바의 수호자";
+      break;
+    case 38:
+      rep = "어둠의 추격자";
+      break;
+    case 39:
+      rep = "해방의 사슬";
+      break;
+    case 40:
+      rep = "전장의 아이돌";
+      break;
+    case 41:
+      rep = "리스토니아 왕국 제1왕자의 계약 기사";
+      break;
+    case 42:
+      rep = "광휘의 날개";
+      break;
+    case 43:
+      rep = "괴물이 된 소년";
+      break;
+    case 44:
+      rep = "낭만풍수사";
+      break;
+    case 45:
+      rep = "천방지축 도사";
+      break;
+    case 46:
+      rep = "신의 아이";
+      break;
+    case 47:
+      rep = "The Supernatural";
+      break;
+    case 48:
+      rep = "슈퍼스타 핑크빈";
+      break;
+    case 49:
+      rep = "귀여운 예티";
+      break;
+  }
+  return rep;
+}
+function getJobimage(ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "https://w.namu.la/s/5eb3ae47f9b495898447916f757e813642bb1b1c6cdd83a49f8dc60d9641c2764f853b2b750ecbf2a2d47b905c7271df5866c4f7e74a3776a7adb79955ddf4c09ab855218d98fc5fc42d2c84739cef09ea351eeb651b175cf3f95c82777cf72ae2498bb891849e13deea3891b817cebd";
+      break;
+    case 1:
+      rep = "https://ww.namu.la/s/0cd162249e68f7916bc3f9c85975a7bb1ad88922b17acd0df139789d03487684584992d101162eaa6064ecccd2a0d36d0f177e5d607d998c3a950a48a4de9440b8b583c5ab281472de0ee946dc63db630db428836eb1b40996f99a759e06339440879db661565fa28f1f8878477a088e";
+      break;
+    case 2:
+      rep = "https://w.namu.la/s/be8d2ec79dab4c9411bcb95c2c89b20ea1852de54469191f07cd0484899215f4602d6d09e4494ccae83a32af1d711e314ba22291b1448ec3c6c20c0809a3fc1ed1bf45dacf32d5720c9646b4a246f11f6a36c9e1340080644e322a08666898cd3f2f1dbc2be3e17d5c71ac37c3a5e324";
+      break;
+    case 3:
+      rep = "https://w.namu.la/s/e5e89e8c8f9d66d5070481fb352547650b4fc3558fd4a26325775dc8205d4f868be2724d76718f7273bf400bbbc1bd1cc632022451fe2d84081e414c0919dfa4f568a1b65340eafe57440e0d3fd924e3a41b2a90a130c84a72487cdf62499cffb752ef950c8b81d544c42504d6fbeed9";
+      break;
+    case 4:
+      rep = "https://ww.namu.la/s/58056c0018a2fbbc8a0182e3b8765336b15579622d6e866678d7e3e32dc734ca63edb9cd67bd194b0d857452a7b3ebe1cd974522589697b8cb3e00ce9ce9204cce814fc81c82a9a1727b5c1b03a0ffec6c7cecb23bde23e69db04aa6bbccafe3ea6a4e6ea8fef79c31ae78e98103d787";
+      break;
+    case 5:
+      rep = "https://ww.namu.la/s/b8ec173d9ce499da8bd0f9c7a1002c312a8519f878702686db9d5d195514da21c257345ce7fa757ae3dbc4b190fe31d062395979a9e010718e1dd3189f18b5b7daa008a23c2934d7460f4710a0ca67217dc14b0276f319eaba53ebc306bdeb7f";
+      break;
+    case 6:
+      rep = "https://w.namu.la/s/159b55a377baf0a539c98276105eccac419836a6f36a7c4260a1b297ad28b1641bb7316a009be3c08b76c86f84b22c989990b4face10596ec8db079766f1c3c8ca3b9adf629b4a997f5084dd923f982ab80983156d2983667c5f4579ecf416237e0488ce2314ee3b5825becbcf2a7b72";
+      break;
+    case 7:
+      rep = "https://w.namu.la/s/9da58d65b2255c0857d3aa9cdbda065848839d3b73cfad91bac9659b11f6c25fd6b67626e5c941d68d483af480f05baa2071aec0bb9ae251a07771e55e2c6e03769b0017e7669a66d7e0890ca7bdaa52978f56e4f9d2ee17b7b4c1107b7beb9757560818f41e23f914a15e7efff417e7";
+      break;
+    case 8:
+      rep = "https://w.namu.la/s/a02ce3f25f630cc25c266c2a6b5376192ece93a5ec3538e693662c9d53041da163b5b05eaf6366a0c7d58278517a7b9b3cf80f6a6ece5195c7f0fc2905060c5240cad36f439656cb796105e943db47d75c4aefa061d8bfef695754cd0aa5d381";
+      break;
+    case 9:
+      rep = "https://w.namu.la/s/ad302405bd3cc41b8c29dea62b801af8dda6c7edad87b50ab342356d569b1744f079fad5dc3a0cc48cf12e6d810f8e10f83e2560dbb8e362ba4aed9c7afda767c1f356aafc1b0dc40827b136455a0cb68b6f8a8fb4e7fdc3c5c974138ad68506";
+      break;
+    case 10:
+      rep = "https://w.namu.la/s/a0b3dcaf545033a33aec35908584680a231c58584fcdcdd8f92ce2ba66e7907aec8328b58ef30402d86082d54758f87344f3f0734c48812ef52551cd5bfe99e8e497cac033dc6768c4428e1285dd8426db5458d1f964cc12030c9faae3db0275da186cdeb9847481cc6ce7147403d556";
+      break;
+    case 11:
+      rep = "https://w.namu.la/s/c3c80c9f4ca4f64fef214c0136558dbf7fb3159637d8c016a23f561cbda9a9168dee25d9368d4e1987864012d057fe72ddfe68810fb1727a407429bb294ddae23d54fcab9a11e80fa50827c8f6bebbd28549b1880cbb8bb1c9664d701bca15fc";
+      break;
+    case 12:
+      rep = "https://w.namu.la/s/12eccfa32a2e3454b4397d8d9b90b1e688109057b9ea227d599b10685a39c2e3815d4df2d0221a0582e5e5424cec7d2926176517d63e08b08e34ab72a95e4a77397448bca9f611c1fbdd804d06e38cc30674f192080c99c84857c39677d09530984eae5de73644631d8bbaa2057f234d";
+      break;
+    case 13:
+      rep = "https://w.namu.la/s/cbc145cfb9edd0640709c18363d502b4dcd523c92c9321dcee7a7587c8cd1085199514e3c16a232f8116e84062d0e20c45ef1d1ae461834529908ed4b0eeb89020baddce7923cd665c530b0e70589c71f3e78017a53dc400181a94ec088ce3c9";
+      break;
+    case 14:
+      rep = "https://w.namu.la/s/35b72ab434e6e0d3890e503a70e83bbf729940b2ed66b02bbcf87715adfce8f55ec0f27fd5e5e9dc19ed0804fa48633b793a5fc8a72848ae14612c15d23946c7fb206bdb7313939f961da02933fe61851093f1074d00b691c2e03ceaf93e268aae0abbba3ebc471ac07b00c5f8a3cbf8";
+      break;
+    case 15:
+      rep = "https://w.namu.la/s/e299cf023ae9ba5d625f6e13c883226517fbf9f808b98587fe6effeeb7b4169312ed9f8fa57cfc624ac969d4ff2328091500ff4fd9ee5825e9529de8e9d2b810fac82b8b5d7e9eda9c96b7c42eeab255f30509acfa677553ea32508386fe8f0e97c2ae2435951be51b659634c6423146";
+      break;
+    case 16:
+      rep = "https://w.namu.la/s/6488445cad74ec0c881b2e70e66adb04ceb3c18d57b738773e395c6df8378bb78a1637aaa90f9f30dafa1a077cba06ebfbce783cc4e5e4de8c53fb9e55d27473fdb85a15ac8a28a1f0b93ffaa131009169dfbb0141f992cca12297e3ca5037ca5ecbafa10d6fcec4889cc9e72e27a44c";
+      break;
+    case 17:
+      rep = "https://w.namu.la/s/0f45f8548ec218cff4ef04a8394d7baca4393405c82c2b54114a998d632ddfe05e35a1235ae40602dbf40046045b2ed370d0851262b4e83ff8b4e4f36b893d80695c31252494b73fa35bed2ffaebfb4235cbf559534f3bcdd952670962396bcf588c7758df477b042891fbd40648a670";
+      break;
+    case 18:
+      rep = "https://w.namu.la/s/3aaaeb766c4a09a9f1b8c05ddc8f94363f091e1e4a0fd26c5e4e59ff7a79d9cdaa7191041bcffdc58eb9b2f78554305308a15d81d49ceded4dcfcc4b4bf04c773d6f99816c2929e929fd03582a4dae6f103c07314e39bf6097db5bdd7a40e425";
+      break;
+    case 19:
+      rep = "https://w.namu.la/s/cd21f0946305fcc79b2ecac82e63f3c193afdf42907a6473b9838b6f5a0261746ea47f03a0054783e3107f30d616847eb0e40d394e8589e35e87f0e7561859eb96f9eceef130e8dd43cc62103300b132dd6fad7619cc64d5c2eb78651ed27ab4";
+      break;
+    case 20:
+      rep = "https://w.namu.la/s/ed899cd4a74a998afb8b09808db54eee1fb0d58edf5602b39c31296a26dafd2a7952450378fa86eced709419cc46db59a5f81afa26618bc3cd03cbc28441df9e78a18eb6bb7fc9e123733f4535f8c8cae1bfab158fa61386d83d91b745bbddad";
+      break;
+    case 21:
+      rep = "https://w.namu.la/s/1d4875c940bbf6413ffccc1a2e85dfeafbda1453fc6e114ddf2fbe08a9fdf887c28c5aa66e9c1552be94083a4c225db5897947afe08add4f5087f5c53f4e1d24d87b35161bf5744512c4a31f19aa28669185c2d610e3cde300114b47a7444348a5aacfeaf1bf50d810a5f5460470be86";
+      break;
+    case 22:
+      rep = "https://ww.namu.la/s/b5ea18f1679f17936e06725ee04e62bbba20b77e4785556508e296e4620adefadf453d8da55d3eb67c1cd752d5cbfcbb1b3748c19cb84a3e16eb2b07f0f78161c65804b6fa55a09a2f052055119e4e03fa5c7f99062f23dacf8035db672dcc74f8f276dba78065a0e8d4202180b4419c";
+      break;
+    case 23:
+      rep = "https://w.namu.la/s/aba1106b22ace6899f9360136d9bcbaa791f739b00f3f7f152c3bbf1c9d316543f434e5cca1fb21e5e468932e5254a6799953818d2ba16e7b4d0afa02003c048f9c590fe38f2acb8b1a8ec76f057c51af7054931d1217eee0ed8e541b2b3b685a56fa0f73816c214c4fe1acf9e192dd8";
+      break;
+    case 24:
+      rep = "https://ww.namu.la/s/20e24064a5a20fb83805385c826cb1c9710b51fbe568bfa68f3f6bced60226cac01b5a6432a41ab759d130fa2a5866b92bc6e673b08a9f82b330b708e5255dd320bfbc96070b9dbc06ce5c78e7186dea4390c752361cab00b5bc20dbfc6a311f";
+      break;
+    case 25:
+      rep = "https://ww.namu.la/s/f60f2e59add1c7a0aec64dcb72b08319a55119b235db46e0bdef085ab5b2ffddff1bd74c5f5c68acffdae47e55641ff472ff8c07d3d9b43de9f41668242f62d1cab981638c2ad002e186d89b088cfdbdf01324361ba7a79c4e49886972d0bc49";
+      break;
+    case 26:
+      rep = "https://w.namu.la/s/1484851964709e08fb2de011ab8f2a915bce7865813539a7c3cb123e4e880e25e106a0f78f32a6a56ecc31c69edc0c24fe1f51f8bef5410d6801f68b1aac3d272c05fc70fd0d97f20a4b782b9590f416287364d941b59db7482b097eb4522d3e";
+      break;
+    case 27:
+      rep = "https://ww.namu.la/s/35d910d3d69c2e7f0deea92e7267c5ec7fa6d809a1580fb9afb8564ccb57d703a8e7f7be3602cbc76d12db28faaa34c078d98c579f75684e09bdd7875019376bbe628d898e6630bfaa32d95690d36bcd0f6db2647e0ba1b22f7263c01773223a";
+      break;
+    case 28:
+      rep = "https://w.namu.la/s/bfdce05b31881e72d83e3f620f86320d5ed424683a1cc5e88736fad6f8c9181c17437b1fe367b52bb81dec969c7b949aea88ef5851e754b099f7b5aa1e9758d8ab2e27ca62205655e56c159362eacaf27d683371db15292feb1964bb6aa2edce54e8616b8bc046997101afc388241a12";
+      break;
+    case 29:
+      rep = "https://w.namu.la/s/96360b7cdc9935ccceff07d62cf1a6f7d035c4b274cdb345048dbb67e283a401715a53e1b43eb9b2f00a06c0dbda06a9f93aaa3984799bbf3469eb6265bca84d28748362eae2dc826a6f45b28d1fc5d89a203554b6301257fe7de2e98b5d6211";
+      break;
+    case 30:
+      rep = "https://w.namu.la/s/e7391a8e9cfdb6ecc2d5e33fe56a61c809e7b1a197a3a76bb3797115737f8394e25015eeaa783645c1d848e403acab4907773510e27d5ec20167f6c5e316a871e385b9edc6a10b9958a2d0461aedbfd5eccda52ca36f911e45858c43b6d7f437";
+      break;
+    case 31:
+      rep = "https://w.namu.la/s/71dc8512a2abf709d56aae75280f37d11b2ad1be97ae7ba63731118a71546f2914c1b56947d08110fadf0ecab8043fede9e242559c412d37aa4019ae11432390cc28959ef6080cdd9a71f6da04f7c1889145c1355307ae9b189534760e8a396c4bd09169849b36ce028f2037e389a178";
+      break;
+    case 32:
+      rep = "https://w.namu.la/s/0fc51f1e6d6528b46cd3018cd6e7a3ed4c16f49d5f6d92ab9c50951db9242e702f01afe178bd9951738dc14db9320f9f498a9fbbaf11a64beb7147b9ee0d1dfff85846233dc58307b7466211be7a0da99908c3be3f310722caf5677351a1011e86beddb3f5d20248a10b0b9e8738da6b";
+      break;
+    case 33:
+      rep = "https://w.namu.la/s/663d868bcf2409bbc26c3af16e50e9868ab2c913cd9365d51c593c2d3c78a01a90b27398fab25ae2bd1e8bc9e531b5d18861110d993f4fbedb731714a00215de3e333a7b26815c436fc42ac82fd356e0af428585524ea6faa847011d01cc73150d45e6eeac5f445056d336b291ef5f99";
+      break;
+    case 34:
+      rep = "https://w.namu.la/s/28d30b4d8db0ffafc6ad6c77244f8cc5a766b1e2ce32ad0f5e36af20d055474396fe6a64c67109995673dc64b235b134214d807678dc15d1ce77252fb9eb46f84aa47f14d37db4a9029249e33d0609356d3275cf3ee2e2dfa83b17d8e4c0d13af80103c1d793a5e760a11a17c407793d";
+      break;
+    case 35:
+      rep = "https://w.namu.la/s/4956b0c5b6eaee5461898827280e2a3b1d5d06ac645386a3263db6cb4d57bee03d5c6e3a813d309ab3ee96f2dc3404697226685bad7dccaa37e1409a0f087c5fcb73dd97f813c3f4618bcd6d7322219b34e2155619be7b512a49544bf8290404763da6847c0f153dcd9963df447d4d84";
+      break;
+    case 36:
+      rep = "https://w.namu.la/s/aecc9e917d3736ffd35fd7be15161ba2b0a91063a0f43913b5cbecf3f8c618d0093c8aee461f87167232b4b9952492452d80e808307db637c9f85ce54e41cb2e54489e06c7640c6acbe7b3e017204b0901cbd44da0d413a500e8acb918729cdfa0e14ccc94206bc6b41654d53e64bd20";
+      break;
+    case 37:
+      rep = "https://ww.namu.la/s/82da2f3affeacfa0210efbb4af20f7bb13cb5cc2f659b3ed75ffd696950e7d64fffe509a3c84105a64e6792bd1f4f617c90760a8a3ebee3ded1f7ca2869ca7a423c2cbc02ea20c5a2dcd1277a3e7075cbe3e777bb00e8c8e43e6372833190d57b80186a6a3c88d9124a0be0f4fd6e53a";
+      break;
+    case 38:
+      rep = "https://w.namu.la/s/d3213140bd1f3c872f02a0168bd3aa2fb2c33dd73c884ab8d8f887efc1810b8dbb2c2d4581aeb2f8b82979ce85fee86664bea9b608ac80e2831ce869309205c849a2c39d636690ddc7b6bfd09754a2aba3e994689c6119319f34e9d83e43eb82";
+      break;
+    case 39:
+      rep = "https://ww.namu.la/s/83755560295162319d0cda94cffe5b4ebb5dca5b540a397f879b086a309136664e06de9b2b0c3c4cc9f09d12561abc5b0c028018026ff72ace34465f75f587d70d3330c12c21eb2e9a1082b0b711e07ae287636b39d3d14c86b0ca3f2ae0381ebbc02e81fef252393e48f596aa44560d";
+      break;
+    case 40:
+      rep = "https://w.namu.la/s/354aea3c696216c6dfd246b689c64f1bbcb5bb64f246f09dba8ec291cde1b46b7741ff34361e3bafd5e59d1864a6a253f424c5698511c8145538c953c57da81d12ad39e9ce27a1d81e63a131b4ca46b0d76e6e7d954b608070d4057636cf3862d2a3a7f2ee65f1808a94928ed2b91f32";
+      break;
+    case 41:
+      rep = "https://w.namu.la/s/06a5552f91690e047c583957b3435f164ccb5404a162429278b62e20c5a09fdf72f086cc3c28a9faa6aaf3c42c45e3ed37a6cdb5ea32a1f0a9e966660248e7c5cbaa37fe61d9c892a423a54885dedc4a1748e7159d0cff1a1205e89713b0db6ca47d1b1af9fbb353dbfce09a00e0e713";
+      break;
+    case 42:
+      rep = "https://w.namu.la/s/a831ac3d666af93120f239f5c8021289388726a265122c3460b33bdd7829a22c6cb79ace7581e8ba75ed871305ef88d8e6139024127e10665c0be13c80f1f014f6e3dd5e69364dc470a8d6b13bc68863ee98291b7e8ce106e2bebb79232015d0eeae6fafe62ef48a2a44723d19f8e9c8";
+      break;
+    case 43:
+      rep = "https://ww.namu.la/s/3a25b69f83ce1dce215c8e4dc0c2934c357dd3fa4e22b8cc9f8adea7473eec76922f0fd2147eb166de71778190b7eb7697b7a74957555d761620d1a02f6c667d3f8e6c3686a61fe2e17956813b3ee66a3132efa5059d5641641ec3c44ea04b185d378486166acf262f8b2daefaf2f338";
+      break;
+    case 44:
+      rep = "https://w.namu.la/s/4d845bef7d3aa1a17549a73d61f0e97dbde431a8b181a1e9c595d74aec093bb4ec096540cf93fd4375042a3afbc30126c730b6078b4d144aec82d42a3670484fde645bb924f647e3179d230085cb5b986b1e01aef7382b00c33019dc705fc30b95a0a5337e57c88559939c8ddfd16cc3";
+      break;
+    case 45:
+      rep = "https://w.namu.la/s/32f412fb123c96f4e53495a84ebbfc7bb8ba1bd62296543e1e708bd8ac326f2732b651293c951fbd000c4405b12bfb8b58ca8758811a48c955909d707ffddb66b7c8c00d1ea16ab030b87ae6680963e046b4cff9b30c63766d6682adc4ef1a779dc0b0bdbbf62147e333944ebddc5f65";
+      break;
+    case 46:
+      rep = "https://ww.namu.la/s/40183cdc00bd373945e3ea14b2645f45efe8dfebdcd56858ff389808083cf3400ef0d08c460adb3d9824cddb67fb995c448477cc4e28d7ca49852f41f05934b76ff5bc44c0889f2280c23875f15768b654853ef7a6cd513e8b04232a201bbec2ff99f78f19bd19171c77ef6ad4687120";
+      break;
+    case 47:
+      rep = "https://ww.namu.la/s/679bdd93251692755fec7d174304b3744b746e19596a4f01b8b5baa5e30530aa81c7def50fc11b7d3c1c856f3e79ae1c79bf463c1a0e1b259e2a0cd8f45308b36e6f729f87b3b227653d815c21da372a5220450fadbfe8ab51e9ccae91dc593ff537b0734746dd1a9494ab496cb4d26a";
+      break;
+    case 48:
+      rep = "https://w.namu.la/s/77b4dfff7b85940f74c12198cecc6f33af228417cfeea99ad1da0b19e9a4ce43259056a2fdc3fe0e3508e1da46d2fc80259e04afed8f6c301b99c48045f28cc6c8ef85e9bc4c2b8ce879c43fdd3cbc69690105b4c68afc94cd738dcae2e7cbdba351e0a4604e780e4f22079cfad32fc8";
+      break;
+    case 49:
+      rep = "https://w.namu.la/s/874582360ef270a1762efcd579b8a30d67a91009a92996c18c3ab0eb3bd820e25d9e2e3124d5591d5e86224a0932c1e6f485138b2989def5ae89bcb68c29e7e99037cc31ba0a18ed76358dc421aa6c22a5ef3154450bb16a91f0bdaca6aed5aeb660c2a01bc549dbf818133b70c7d4b8";
+      break;
+  }
+  return rep;
+}
+function getJobmobweb(ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "초보자";
+      break;
+    case 1:
+      rep = "히어로";
+      break;
+    case 2:
+      rep = "팔라딘";
+      break;
+    case 3:
+      rep = "다크나이트";
+      break;
+    case 4:
+      rep = "아크메이지(불,독)";
+      break;
+    case 5:
+      rep = "아크메이지(썬,콜)";
+      break;
+    case 6:
+      rep = "비숍";
+      break;
+    case 7:
+      rep = "★보우마스터★";
+      break;
+    case 8:
+      rep = "신궁";
+      break;
+    case 9:
+      rep = "패스파인더";
+      break;
+    case 10:
+      rep = "나이트로드";
+      break;
+    case 11:
+      rep = "섀도어";
+      break;
+    case 12:
+      rep = "듀얼블레이드";
+      break;
+    case 13:
+      rep = "바이퍼";
+      break;
+    case 14:
+      rep = "캡틴";
+      break;
+    case 15:
+      rep = "캐논슈터";
+      break;
+    case 16:
+      rep = "노블레스";
+      break;
+    case 17:
+      rep = "소울마스터";
+      break;
+    case 18:
+      rep = "플레임위자드";
+      break;
+    case 19:
+      rep = "윈드브레이커";
+      break;
+    case 20:
+      rep = "나이트워커";
+      break;
+    case 21:
+      rep = "스트라이커";
+      break;
+    case 22:
+      rep = "미하일";
+      break;
+    case 23:
+      rep = "시티즌";
+      break;
+    case 24:
+      rep = "블래스터";
+      break;
+    case 25:
+      rep = "배틀메이지";
+      break;
+    case 26:
+      rep = "와일드헌터";
+      break;
+    case 27:
+      rep = "메카닉";
+      break;
+    case 28:
+      rep = "제논";
+      break;
+    case 29:
+      rep = "데몬슬레이어";
+      break;
+    case 30:
+      rep = "데몬어벤져";
+      break;
+    case 31:
+      rep = "아란";
+      break;
+    case 32:
+      rep = "에반";
+      break;
+    case 33:
+      rep = "루미너스";
+      break;
+    case 34:
+      rep = "메르세데스";
+      break;
+    case 35:
+      rep = "팬텀";
+      break;
+    case 36:
+      rep = "은월";
+      break;
+    case 37:
+      rep = "카이저";
+      break;
+    case 38:
+      rep = "카인";
+      break;
+    case 39:
+      rep = "카데나";
+      break;
+    case 40:
+      rep = "엔젤릭버스터";
+      break;
+    case 41:
+      rep = "아델";
+      break;
+    case 42:
+      rep = "일리움";
+      break;
+    case 43:
+      rep = "아크";
+      break;
+    case 44:
+      rep = "라라";
+      break;
+    case 45:
+      rep = "호영";
+      break;
+    case 46:
+      rep = "제로";
+      break;
+    case 47:
+      rep = "키네시스";
+      break;
+    case 48:
+      rep = "핑크빈";
+      break;
+    case 49:
+      rep = "예티";
+      break;
+  }
+  return rep;
+}
+function getJobpcweb(ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "w/초보자";
+      break;
+    case 1:
+      rep = "w/히어로(메이플스토리)";
+      break;
+    case 2:
+      rep = "w/팔라딘(메이플스토리)";
+      break;
+    case 3:
+      rep = "w/다크나이트(메이플스토리)";
+      break;
+    case 4:
+      rep = "w/아크메이지(불,독)";
+      break;
+    case 5:
+      rep = "w/아크메이지(썬,콜)";
+      break;
+    case 6:
+      rep = "w/비숍(메이플스토리)";
+      break;
+    case 7:
+      rep = "w/보우마스터";
+      break;
+    case 8:
+      rep = "w/신궁(메이플스토리)";
+      break;
+    case 9:
+      rep = "w/패스파인더(메이플스토리)";
+      break;
+    case 10:
+      rep = "w/나이트로드";
+      break;
+    case 11:
+      rep = "w/섀도어";
+      break;
+    case 12:
+      rep = "w/듀얼블레이드";
+      break;
+    case 13:
+      rep = "w/바이퍼(메이플스토리)";
+      break;
+    case 14:
+      rep = "w/캡틴(메이플스토리)";
+      break;
+    case 15:
+      rep = "w/캐논슈터";
+      break;
+    case 16:
+      rep = "w/시그너스%20기사단#s-6";
+      break;
+    case 17:
+      rep = "w/소울마스터";
+      break;
+    case 18:
+      rep = "w/플레임위자드";
+      break;
+    case 19:
+      rep = "w/윈드브레이커(메이플스토리)";
+      break;
+    case 20:
+      rep = "w/나이트워커";
+      break;
+    case 21:
+      rep = "w/스트라이커(메이플스토리)";
+      break;
+    case 22:
+      rep = "w/미하일(메이플스토리)";
+      break;
+    case 23:
+      rep = "w/레지스탕스(메이플스토리)#s-7";
+      break;
+    case 24:
+      rep = "w/블래스터(메이플스토리)";
+      break;
+    case 25:
+      rep = "w/배틀메이지(메이플스토리)";
+      break;
+    case 26:
+      rep = "w/와일드헌터";
+      break;
+    case 27:
+      rep = "w/메카닉(메이플스토리)";
+      break;
+    case 28:
+      rep = "w/제논(메이플스토리)";
+      break;
+    case 29:
+      rep = "w/데몬슬레이어(메이플스토리)";
+      break;
+    case 30:
+      rep = "w/데몬어벤져";
+      break;
+    case 31:
+      rep = "w/아란(메이플스토리)";
+      break;
+    case 32:
+      rep = "w/에반(메이플스토리)";
+      break;
+    case 33:
+      rep = "w/루미너스(메이플스토리)";
+      break;
+    case 34:
+      rep = "w/메르세데스(메이플스토리)";
+      break;
+    case 35:
+      rep = "w/팬텀(메이플스토리)";
+      break;
+    case 36:
+      rep = "w/은월";
+      break;
+    case 37:
+      rep = "w/카이저(메이플스토리)";
+      break;
+    case 38:
+      rep = "w/카인(메이플스토리)";
+      break;
+    case 39:
+      rep = "w/카데나";
+      break;
+    case 40:
+      rep = "w/엔젤릭버스터";
+      break;
+    case 41:
+      rep = "w/아델(메이플스토리)";
+      break;
+    case 42:
+      rep = "w/일리움";
+      break;
+    case 43:
+      rep = "w/아크(메이플스토리)";
+      break;
+    case 44:
+      rep = "w/라라(메이플스토리)";
+      break;
+    case 45:
+      rep = "w/호영(메이플스토리)";
+      break;
+    case 46:
+      rep = "w/제로(메이플스토리)";
+      break;
+    case 47:
+      rep = "w/키네시스";
+      break;
+    case 48:
+      rep = "w/핑크빈(직업)";
+      break;
+    case 49:
+      rep = "w/예티(메이플스토리)";
+      break;
+  }
+  return rep;
+}
 
 var bossList = [
   "이지 자쿰 Lv.50\n220만, 30%, 반감\n200,000메소", //0
@@ -3261,3 +4115,4 @@ var nickname = "";
 var sunday = "";
 var jobmention = "";
 var chkboss = 0;
+var chkjob = -1;
