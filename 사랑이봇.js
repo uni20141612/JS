@@ -4,16 +4,14 @@ const Kakao = new kalingModule();
 Kakao.init('f8a946e1c19887744ce173e69effc988', 'https://developers.kakao.com');
 Kakao.login('hansu1115@kakao.com', 'cjsgkstn1!');
 
+//const JariM = require('Jari');
 /*
 Kakao.send(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59430,
               "template_args" : {
-                                    "profile" : dataCname + " | " + dataC8,
-                                    "desc" : dataC6 + "\n" + dataCmureung + "\n" + dataCseed,
-                                    "server" : dataCservericon,
-                                    "image" : dataCprofile
+                                    "profile" : dataCname
                                 }
             },
              "custom");
@@ -80,7 +78,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       help += "!업데이트/!업뎃 : 현재 기준 가장 최근의 업데이트 글의 제목과 주소를 보여줍니다.\n\n";
       help += "!추옵/!추가옵션 (무기이름) : 각 무기에 해당하는 추가옵션표를 보여줍니다. 괄호 안에는 순수 무기공격력이 들어갑니다. (순서 : 우트가르드, 파프니르, 앱솔랩스, 아케인셰이드, 제네시스)\n무기이름 대신 그 무기를 사용하는 직업(전용무기가 아닌 경우엔 나오지 않을 수 있음)을 적어도 됩니다.\n\n";
       help += "!그님티 (롤아이디) : 해당 아이디의 티어를 보여줍니다.\n\n";
-      help += "!로얄 (횟수) : 지정한 횟수만큼의 로얄스타일 시뮬레이션을 보여줍니다. 횟수는 최대 5000까지 설정할수 있습니다. 횟수를 생략할 시 1회만 시뮬레이션 합니다.\n\n";
+      help += "!로얄 (횟수) : 지정한 횟수만큼의 로얄스타일 시뮬레이션을 보여줍니다. 횟수는 최대 5000까지 설정할수 있습니다. 횟수를 생략할 시 1회만 시뮬레이션 합니다.\n'확률' 또는 '확률표'를 입력하면 현재 로얄스타일의 확률표를 보여줍니다.\n\n";
       help += "!사다리타기/!사다리 (단어) : 띄어쓰기로 구분된 단어들 중에서 하나를 골라 결과로 보여줍니다. 최소 두 단어 이상 입력하여야 합니다.\n\n";
       help += "!이벤트/!ㅇㅂㅌ : 현재 진행중인 이벤트를 보여줍니다.\n\n"
       help += "!실검/!실시간검색어 : ZUM 이슈트렌드 기준 현재시간 실시간 검색어 순위를 10위까지 보여줍니다.";
@@ -112,13 +110,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       update += "21/08/18 - !(직업이름) 직업별 일러스트, 나무위키 링크 포함 메시지 추가\n";
       update += "!사다리타기/!사다리 추가\n";
       update += "!유니온 코인 일일수급량 쿠가, !이벤트 추가\n";
-      update += "21/08/19 - !실검 추가";
+      update += "21/08/19 - !실검 추가, !로얄 확률 추가";
       replier.reply(update);
     }
     if(msg.startsWith("ㅋㅋㅋ")){
       Api.markAsRead(room);
     }
-    if(msg == "테스트"){      
+    if(msg == "테스트"){     
       replier.reply("테스트용입니다.");      //스타포스      //보스 전리품     
     }
     if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
@@ -854,13 +852,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
         }
         replier.reply(sunday + "\n\n설정 완료하였습니다.");
-        FileStream.write("storage/emulated/0/kakao/Bots/사랑이봇/sunday.txt", sunday);
+        FileStream.write("storage/emulated/0/kakao/Bots/보마봇/sunday.txt", sunday);
       }
     }
     if((sender == "천한수" || sender == adminNick) && msg.startsWith("!썬데이초기화")){
       replier.reply("썬데이 정보 초기화를 완료하였습니다.");
-      sunday = "";
-      FileStream.remove("storage/emulated/0/kakao/Bots/사랑이봇/sunday.txt");
+      sunday = "아직 썬데이 정보가 없습니다.";
+      FileStream.remove("storage/emulated/0/kakao/Bots/보마봇/sunday.txt");
+      FileStream.write("storage/emulated/0/kakao/Bots/보마봇/sunday.txt", sunday);
     }
     if(msg == "!썬데이" || msg == "!선데이"){
       sunday = FileStream.read("storage/emulated/0/kakao/Bots/보마봇/sunday.txt");
@@ -1248,19 +1247,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(jobMentionList[17]);
     }
     if(msg.startsWith("!로얄")){
+      royalList2 = getroyalList();
+      royalRate2 = getroyalRate();
       if(msg.split(" ")[1] == undefined){
         var roy = 0;
         royalrand = getRandomInt(0, 1000);
-        if(royalrand < royalrate[0]){
+        if(royalrand < royalRate2[0]){
           roy = 0;
         }
         for(var j = 1; j < 25; ++j){
-          if(royalrand < cumulate(royalrate, j) && royalrand >= cumulate(royalrate, j-1)){
+          if(royalrand < cumulate(royalRate2, j) && royalrand >= cumulate(royalRate2, j-1)){
             roy = j; break;
           }
         }
         rep = "어때? (";
-        rep += royalList[roy];
+        rep += royalList2[roy];
         rep += ")아이템은 잘 받았어? 정말 어메이징하지 않아? 다음번에 또 메이플 로얄 스타일 쿠폰이 생기면 나를 찾아와줘!";
         Kakao.send(room,
           {
@@ -1280,6 +1281,20 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         royalrep += royalcnt;
         royalrep += "회 결과>\n";
         royalrep += royal(royalcnt);
+        replier.reply(royalrep);
+      }
+      else if(msg.split(" ")[1] == "확률" || msg.split(" ")[1] == "확률표"){
+        royalcnt = royalList2.length;
+        royalrep = "";
+        for(i = 0; i < royalcnt; ++i){
+          royalrep += royalList2[i];
+          royalrep += " : ";
+          var tempfloat = parseFloat(royalRate2[i]);
+          tempfloat /= 10;
+          royalrep += tempfloat;
+          royalrep += "%\n";
+        }
+        royalrep = royalrep.slice(0, royalrep.length - 1);
         replier.reply(royalrep);
       }
       else{        
@@ -2081,12 +2096,12 @@ function royal(n){
   var ii = 0;
   while(ii < n){
     royalrand = getRandomInt(0,1000);
-    if(royalrand < royalrate[0]){
+    if(royalrand < royalRate2[0]){
       royalarr[0]++;
     }
     else{
       for(var j = 1; j < 25; ++j){
-        if(royalrand < cumulate(royalrate, j) && royalrand >= cumulate(royalrate, j-1)){
+        if(royalrand < cumulate(royalRate2, j) && royalrand >= cumulate(royalRate2, j-1)){
           royalarr[j]++; break;
        }
       }
@@ -2096,7 +2111,7 @@ function royal(n){
 
   for(i = 0; i < 25; ++i){
     if(royalarr[i] != 0){
-      rep += royalList[i];
+      rep += royalList2[i];
       rep += " : ";
       rep += royalarr[i];
       rep += "\n";
@@ -2104,6 +2119,33 @@ function royal(n){
   }
   rep = rep.slice(0, rep.length - 1);
   return rep;
+}
+function getroyalList(){
+  var datary = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/Guide/CashShop/Probability/RoyalStyle").get();
+  datary = datary.toString();
+  var troyalList = [];
+  var tempcnt = datary.split("<td><span>").length;
+  for(i = 1; i < tempcnt; ++i){
+    var tempry = datary.split("<td><span>")[i];
+    tempry = tempry.split("</span>")[0];
+    troyalList.push(tempry);
+  }
+  return troyalList;
+}
+function getroyalRate(){
+  var datarr = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/Guide/CashShop/Probability/RoyalStyle").get();
+  datarr = datarr.toString();
+  var troyalRate = [];
+  tempcnt = datarr.split("</span></td>").length;
+  for(i = 1; i < tempcnt; ++i){
+    tempry = datarr.split("<td><span>")[i];
+    tempry = tempry.split("%</td>")[0];
+    tempry = tempry.split("<td>")[1];
+    tempry = parseFloat(tempry) * 10;
+    var tempint = parseInt(tempry);
+    troyalRate.push(tempint);
+  }
+  return troyalRate;
 }
 //아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다.
 function onCreate(savedInstanceState, activity) {
@@ -3218,60 +3260,6 @@ var weaponGenesis = [
 "74/108/148/195/250", //9 스태프
 "21/46/75/110/151" //10 태도,대검(10형)
 ];
-var royalList = [
-"[스페셜 라벨] 진주빛 기억", //0
-"[스페셜 라벨] 블루밍 버블", //1
-"[스페셜 라벨] 설레는 시작", //2
-"[스페셜 라벨] 파란 물보라(남) / 파란 물결(여)", //3
-"[스페셜 라벨] 블루밍 오션", //4
-"헤네시스 나들이", //5
-"쫑긋 헤네시스", //6
-"헤네시스 채집가", //7
-"버섯의 노래", //8
-"꿈꾸는 오솔길", //9
-"발그레 발그레", //10
-"토끼 귀", //11
-"퍼니펀치 요요", //12
-"특대 사이즈 와이셔츠", //13
-"핑크 다이빙 마스크", //14
-"스카이 다이빙 마스크", //15
-"스카이 스쿠버다이빙(남) / 핑크 스쿠버다이빙(여)", //16
-"뽀그리 오리", //17
-"짝짝이 반바지", //18
-"그린 냥이 티셔츠", //19
-"트윙클 글리터", //20
-"[30일] 꽥꽥 오리 말풍선 반지 교환권", //21
-"[30일] 꽥꽥 오리 명찰반지 교환권", //22
-"new 파도가 철썩! 이펙트 교환권", //23
-"스카우터" //24
-];
-var royalrate = [
-25, //0
-30, //1
-32, //2
-32, //3
-31, //4
-30, //5
-45, //6
-50, //7
-50, //8
-50, //9
-15, //10
-20, //11
-20, //12
-20, //13
-50, //14
-50, //15
-50, //16
-50, //17
-50, //18
-50, //19
-50, //20
-50, //21
-50, //22
-50, //23
-50 //24
-];
 var jobList = ["!초보자", "!히어로", "!팔라딘", "!다크나이트", "!불독", "!썬콜", "!비숍", "!보우마스터", "!신궁", "!패스파인더", "!나이트로드", "!섀도어", "!듀얼블레이드", "!바이퍼", "!캡틴", "!캐논슈터", "!노블레스", "!소울마스터", "!플레임위자드", "!윈드브레이커", "!나이트워커", "!스트라이커", "!미하일", "!시티즌", "!블래스터", "!배틀메이지", "!와일드헌터", "!메카닉", "!제논", "!데몬슬레이어", "!데몬어벤져", "!아란", "!에반", "!루미너스", "!메르세데스", "!팬텀", "!은월", "!카이저", "!카인", "!카데나", "!엔젤릭버스터", "!아델", "!일리움", "!아크", "!라라", "!호영", "!제로", "!키네시스", "!핑크빈", "!예티" ];
 var jobMentionList = [
   "초보자\n일반 모험가가 레벨1부터 10까지 거치는 직업. 전사계열이다. 아케인리버 지역 입장이 불가능해 세계수, 헤이븐이 최종 사냥터이다.", // 0  초보자
@@ -3332,3 +3320,5 @@ var nickname = "";
 var sunday = "";
 var jobmention = "";
 var chkjob = -1;
+var royalList2 = [];
+var royalRate2 = [];
