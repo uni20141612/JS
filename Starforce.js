@@ -180,19 +180,24 @@ sf.simulation = function (A, B, C, D, E, F){
             continue;
         }
         else{
+          sfdestroyCnt++;
+          if(sfdestroyCnt > 300){
+            sfrep += "파괴횟수가 300회가 넘어 시뮬레이션이 종료됩니다.\n";
+            sfrep += "최종 결과 : " + currentsf + "성\n";
+            break;
+          }
             currentsf = 12;
             if(A == 99){currentsf = 0;}            //sfrep += "파괴\n";
-            sfdestroyCnt++;
             two100 = 0;
             continue;
-        }
+        }        
     }
 
     sfrep += "소모메소 : " + numberWithCommas(sfmeso);
     sfrep += "메소\n성공횟수 : " + sfsuccessCnt;
     sfrep += "\n실패(하락)횟수 : " + sffailCnt;
     sfrep += "\n파괴횟수 : " + sfdestroyCnt;
-    if(A != 99 && D == 1){ sfrep += "\n*스타캐치 적용";}
+    if(D == 1){ sfrep += "\n*스타캐치 적용";}
     if(A != 99 && E == 1){ sfrep += "\n*30% 할인 이벤트 적용";}
     else if(A != 99 && E == 2){ sfrep += "\n*5,10,15성 100% 이벤트 적용";}
     else if(A != 99 && E == 3){ sfrep += "\n*10성이하 1+1 이벤트 적용";}
