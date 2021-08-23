@@ -59,7 +59,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("리로드 실패");
       }
     }
-    if(msg == "!도움말"){
+    if(msg == "!도움말" || msg == "!명령어"){
       const helpM = require('Help');
       var help = helpM.gethelp();
       replier.reply(help);
@@ -925,15 +925,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("숫자가 5000을 초과하거나 숫자가 아닙니다.");
       }
     }
-    if(msg.startsWith("!사다리타기") || msg.startsWith("!사다리")){
+    if(msg.startsWith("!뽑기") || msg.startsWith("!하나만")){
       if(msg.split(" ").length < 3){
         replier.reply("최소 2개이상의 단어를 입력해주세요.");
       }
       else{
-        var laddercnt = msg.split(" ").length - 1;
-        laddercnt = getRandomInt(0, laddercnt);
+        var pickcnt = msg.split(" ").length - 1;
+        pickcnt = getRandomInt(0, pickcnt);
 
-        replier.reply("보마봇 사다리타기 결과 : " + msg.split(" ")[1 + laddercnt]);
+        replier.reply("보마봇 뽑기 결과 : " + msg.split(" ")[1 + pickcnt]);
       }
     }
     if(msg == "!이벤트" || msg == "!ㅇㅂㅌ"){      
@@ -1004,6 +1004,134 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             }
         },
          "custom");   
+    }
+    if(msg.startsWith("!사다리") || msg.startsWith("!사다리타기")){
+      if(msg.split(" ").length < 3){
+        replier.reply("최소 2개이상의 단어를 입력해주세요.");
+      }
+      else{
+        var laddercnt = msg.split(" ").length;
+        var ladderarr = [];
+        for(i = 1; i < laddercnt; ++i){
+          var ladderword = msg.split(" ")[i];
+          var ladderint = getRandomInt(0, 1000000);
+          var laddertemp = { words : ladderword, ints : ladderint };
+          ladderarr.push(laddertemp);
+        }
+        ladderarr.sort(ladderComp);
+        var ladderrep = "";
+        for(i = 0; i < ladderarr.length; ++i){ 
+          ladderrep += i + 1;
+          ladderrep += "등 : ";
+          ladderrep += ladderarr[i].words;
+          ladderrep += "\n";
+        }
+        ladderrep = ladderrep.slice(0, ladderrep.length - 1);
+        replier.reply(ladderrep);
+      }
+    }
+    if(msg.startsWith("!메소")){
+      //dataMeso = Utils.getWebText("https://talk.gamemarket.kr/maple/graph/");
+      replier.reply("개발 예정중인 기능입니다.");
+    }
+    if(msg.startsWith("!스타포스")){
+      const sfM = require('Starforce');
+      var sfhelp = "!스타포스 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 스타포스 개수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
+      if(msg.split(" ")[1] == "비용"){
+        var sfrep = "";
+        var sfcost = [];
+        switch(msg.split(" ")[2]){
+          case "100":
+            sfrep += "100제 아이템 강화비용\n";
+            sfcost = sfM.cost100s;
+            break;
+          case "110":
+            sfrep += "110제 아이템 강화비용\n";
+            sfcost = sfM.cost110s;
+            break;
+          case "120":
+            sfrep += "120제 아이템 강화비용\n";
+            sfcost = sfM.cost120s;
+            break;
+          case "130":
+            sfrep += "130제 아이템 강화비용\n";
+            sfcost = sfM.cost130s;
+            break;
+          case "140":
+            sfrep += "140제 아이템 강화비용\n";
+            sfcost = sfM.cost140s;
+            break;
+          case "150":
+            sfrep += "150제 아이템 강화비용\n";
+            sfcost = sfM.cost150s;
+            break;
+          case "160":
+            sfrep += "160제 아이템 강화비용\n";
+            sfcost = sfM.cost160s;
+            break;
+          case "200":
+            sfrep += "200제 아이템 강화비용\n";
+            sfcost = sfM.cost200s;
+            break;
+          case "타일런트":
+          case "탈벨":
+          case "슈페리얼":
+          case "탈망":
+          case "99":
+            sfrep += "타일런트 강화비용\n";
+            sfcost = sfM.costtiles;
+            break;
+          default:
+            sfrep += "200제 아이템 강화비용\n";
+            sfcost = sfM.cost200s;
+            break;
+        }
+        for(i = 0; i < sfcost.length; ++i){
+          sfrep += i + 1;
+          sfrep += "성 비용 : ";
+          sfrep += numberWithCommas(sfcost[i]);
+          sfrep += "메소\n";
+        }
+        sfrep = sfrep.slice(0, sfrep.length - 1);
+        replier.reply(sfrep);
+      }
+      else{
+        if(msg.split(" ").length < 7){
+          replier.reply("시뮬레이터를 돌리기 위한 요소들이 부족합니다.\n\n" + sfhelp);
+        }
+        else{
+          chkN = false;
+          for(i = 1; i < 7; ++i){
+            if(isNaN(msg.split(" ")[i])){
+              chkN = true;
+            }
+            else{
+              if(msg.split(" ")[i] % 1 != 0){
+                chkN = true;
+              }
+            }
+          }
+          if(chkN){
+            replier.reply("숫자가 아니거나 정수가 아닌 요소가 있습니다.\n\n" + sfhelp);
+          }
+          else{
+            var sfLevel = 0, sfStart = 0, sfDest = 0, sfCatch = 0, sfEvent = 0, sfDefend = 0;
+            sfLevel = parseInt(msg.split(" ")[1]);
+            sfStart = parseInt(msg.split(" ")[2]);
+            sfDest = parseInt(msg.split(" ")[3]);
+            sfCatch = parseInt(msg.split(" ")[4]);
+            sfEvent = parseInt(msg.split(" ")[5]);
+            sfDefend = parseInt(msg.split(" ")[6]);
+            if(sfM.isSFready(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend) != 0){
+              replier.reply("조건에 맞지않는 요소가 있습니다.\n\n" + sfhelp + "\n오류코드 : " + sfM.isSFready(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend));
+            }
+            else{
+              rep = sfM.simulation(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend);
+              replier.reply(rep);
+            }
+          }
+        }
+      }
     }
     if(msg.startsWith("!")){
       const jobM = require('Job');
@@ -1146,6 +1274,12 @@ function cumulate(arr, ind) {
     ret += arr[i];
   }
   return ret;
+}
+function ladderComp(a, b){
+  return a.ints - b.ints;
+}
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 var accexps = [ 0, 15, 49, 106, 198, 333, 705, 1265, 2105, 3347, 4589, 5831, 7073, 8315, 9557, 11047, 12835, 14980, 17554, 20642, 24347, 28793, 34128, 40530, 48212, 57430, 68491, 81764, 97691, 116803, 135915, 155027, 174139, 193251, 212363, 235297, 262817, 295841, 335469, 383022, 434379, 489844, 549746, 614440, 684309, 759767, 841261, 929274, 1024328, 1126986, 1237856, 1357595, 1486913, 1626576, 1777412, 1940314, 2116248, 2306256, 2511464, 2733088, 2954712, 3176336, 3397960, 3619584, 3841208, 4079453, 4335566, 4610887, 4906857, 5225024, 5567053, 5934734, 6329991, 6754892, 7211660, 7700401, 8223353, 8782911, 9381638, 10022275, 10707756, 11441220, 12226026, 13065768, 13964291, 14925710, 15954428, 17055156, 18232934, 19493156, 20835292, 22264666, 23786949, 25408180, 27134791, 28973631, 30931995, 33017652, 35238876, 37604479, 39970082, 42335685, 44701288, 47066891, 49432494, 51951861, 54634986, 57492514, 60535781, 63776860, 67228609, 70904721, 74819780, 78989317, 83429873, 88159065, 93195654, 98559621, 104272245, 110356189, 116835589, 123736150, 131085247, 138912035, 147247564, 156124902, 165579266, 175648163, 186371538, 197791932, 209954651, 222907946, 236703205, 251395155, 267042081, 283706057, 301453191, 320353888, 340483130, 361920772, 384698266, 408899353, 434613007, 461933764, 490962068, 521804641, 554574874, 589393246, 626387766, 665694443, 707457787, 751831340, 798978240, 849071821, 902296250, 958847205, 1018932594, 1082773319, 1150604089, 1222674282, 1299248862, 1380609353, 1467054874, 1558903240, 1656492128, 1760180321, 1870349026, 1987403275, 2111773414, 2243916686, 2382667121, 2528355077, 2681327430, 2841948400, 3010600418, 3187685036, 3373623884, 3568859674, 3773857253, 3989104710, 4215114539, 4452424859, 4701600695, 4963235322, 5237951680, 5526403855, 5829278638, 6147297160, 6481216608, 6831832028, 7199978219, 7586531719, 7992412894, 8418588127, 8866072121, 9335930314, 9829281416, 10347300073, 10891219662, 11462335230, 13669361590, 16141231346, 18909725349, 22010438632, 25483237508, 29372772249, 33729051158, 38608083536, 44072599799, 50192858013, 59985271155, 70854849742, 82920081973, 96312489749, 111178062380, 130503306800, 151567823217, 174528146111, 199554898065, 226834057694, 270480713100, 317182634384, 367153690157, 420622719834, 477834581588, 552210001868, 630304193162, 712303094020, 798401939920, 888805728115, 1033451789227, 1182437232172, 1335892238405, 1493950894824, 1656751310935, 1868391851879, 2086381609051, 2310911058938, 2542176392321, 2780379685705, 3161504955119, 3554063982615, 3958399780935, 4374865653204, 4803825501641, 5361473304609, 5935850541666, 6527459095834, 7136815906627, 7764453421743, 9078218184097, 10405120594074, 11745292028150, 13098865176566, 14465974056466, 15846754025165, 17241341793550, 18649875439618, 20072494422146, 21509339594499, 24411766842652, 27343218363286, 30303984399126, 33294358095324, 36314635528483, 39365115735973, 42446100745537, 45557895605196, 48700808413451, 51875150349788, 58287321061188, 64763613479702, 71304668822401, 77911134718526, 84583665273612, 98062176994885, 112888539888285, 129197539071025, 147137438172039, 166871327183154, 206733782985606, 250582484368303, 298816055889269, 351872984562331, 410235606102699, 528128101614242, 657809846676939, 800459766245905, 957374677771767, 1129981080450210, 1478646013860670, 1862177440612180, 2284062010038850, 2748135036408170, 3258615365414430, 4289785630007070, 5424072921058980, 6671788941216080, 8044276563388880, 10103007996648000 ];
