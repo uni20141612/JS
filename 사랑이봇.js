@@ -1207,7 +1207,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       else{
         var cn = cubeM.getCubename(cubename);
-        if(cn == "없음"){ replier.reply("그런 이름의 큐브는 없습니다.");}
+        if(cn == "없음"){ replier.reply(cubename + " >> 그런 이름의 큐브는 없습니다.");}
         else{
           var cubesecond = msg.split(" ")[2];
           if(cubesecond == undefined){
@@ -1215,7 +1215,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
           else{
             var cubeclass = cubeM.getCubeclass(cubesecond);
-            if(cubeclass == -1){ replier.reply("그런 이름의 등급은 없습니다.");}
+            if(cubeclass == -1){ replier.reply(cubesecond + " >> 그런 이름의 등급은 없습니다.");}
             else{
               var cubethird = msg.split(" ")[3];
               if(cubethird == undefined){
@@ -1223,7 +1223,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               }
               else{
                 var cubeitem = cubeM.getItemname(cubethird);
-                if(cubeitem == "없음"){replier.reply("그런 이름의 장비 분류는 없습니다.");}
+                if(cubeitem == "없음"){replier.reply(cubethird + " >> 그런 이름의 장비 분류는 없습니다.");}
                 else{
                   var cubeweb = cubeM.web + cn;
                   var dataCube = org.jsoup.Jsoup.connect(cubeweb).get().toString();
@@ -1231,7 +1231,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("<tbody>")[1]
                   .replace(/<\/tr>/g, "")
                   .replace(/<tr>/g, "")
-                  .replace(/  /g, "");
+                  .replace(/  /g, "")
+                  .replace(/&lt;/g, "<")
+                  .replace(/&gt;/g, ">");
                   if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
                   dataCube = dataCube.slice(4, dataCube.length);
 
@@ -1284,10 +1286,40 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                     replier.reply(cuberep);
                   }
                   else{
-                    replier.reply(poten1[2] + "\n" + parseFloat(prate1[2]));
+                    var cabilind = cubeM.getCubeability(cubefourth);
+                    if(cabilind == -1){
+                      replier.reply(cubefourth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                    }
+                    else{
+                      var cubefifth = parseInt(msg.split(" ")[5]);
+                      if(isNaN(cubefifth)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
+                      else if(cubefifth < 0 || cubefifth % 1 != 0){replier.reply(cubefifth + " >> 수치는 음수나 소수점이 포함된 수가 될 수 없습니다.");}
+                      else{
+                        var cubesixth = msg.split(" ")[6];
+                        if(cubesixth == undefined){
+                          var cubeoneabil = "";
+                          cubeoneabil += cuberep + cubeM.getCuberateOneabil(cabilind, cubefifth, poten1, poten2, poten3, prate1, prate2, prate3);
+                          replier.reply(cubeoneabil);
+                        }
+                        else{
+                          var cabilind2 = cubeM.getCubeability(cubesixth);
+                          if(cabilind2 == -1){
+                            replier.reply(cubesixth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                          }
+                          else{
+                            var cubeseventh = parseInt(msg.split(" ")[7]);
+                            if(isNaN(cubeseventh)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
+                            else{
+
+                              replier.reply(cubesixth + " " + cubeseventh);
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                   }catch(error){
-                    replier.reply("해당 큐브에는 해당 등급이 존재하지 않습니다.");
+                    replier.reply("해당 큐브에는 해당 등급이 존재하지 않습니다.\n\n" + error);
                   }
                 }
               }
