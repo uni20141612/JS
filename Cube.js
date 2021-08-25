@@ -275,7 +275,53 @@ cb.getItemname = function (itemname){
     }
     return rep;
 };
-
+cb.getCuberatetable = function (poten, rate){
+    rep = "";
+    for(i = 0; i < poten.length; ++i){
+        rep += poten[i] + " : ";
+        rep += rate[i] + "\n";
+    }
+    return rep;
+}
+cb.getCubenameclasswear = function (cubename, classind, itemname){
+    rep = "";
+    switch(cubename){
+        case "red":
+            rep += "레드 큐브 ";
+            break;
+        case "black":
+            rep += "블랙 큐브 ";
+            break;
+        case "addi":
+            rep += "에디셔널 큐브 ";
+            break;
+        case "strange":
+            rep += "수상한 큐브 ";
+            break;
+        case "master":
+            rep += "장인의 큐브 ";
+            break;
+        case "artisan":
+            rep += "명장의 큐브 ";
+            break;
+    }
+    switch(classind){
+        case 0:
+            rep += "레어등급 ";
+            break;
+        case 1:
+            rep += "에픽등급 ";
+            break;
+        case 2:
+            rep += "유니크등급 ";
+            break;
+        case 3:
+            rep += "레전드리등급 ";
+            break;
+    }
+    rep += itemname + " 잠재능력 설정 확률\n\n";
+    return rep;
+};
 
 
 function arrcopy(arr1, arr2){

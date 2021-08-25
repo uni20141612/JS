@@ -1203,7 +1203,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const cubeM = require('Cube');
       var cubename = msg.split(" ")[1];
       if(cubename == undefined){
-        replier.reply("큐브 이름을 입력해주세요.");
+        replier.reply("큐브 이름을 입력해주세요.\n\n!큐브 (큐브이름) (잠재등급) (장비분류) (1,2,3) : 큐브에 대한 정보를 보여줍니다.\n(큐브이름)만 입력 시 해당큐브의 등급 상승 확률표를 보여줍니다.\n(잠재등급) 까지만 입력 시 해당 큐브의 해당 등급에서의 옵션별 등급 설정 확률을 보여줍니다.\n(장비분류) 까지만 입력 시 해당 큐브의 해당 등급의 세부 확률표를 보여줍니다. 1,2,3입력시 각 번째에 해당하는 옵션의 확률만 보여줍니다.");
       }
       else{
         var cn = cubeM.getCubename(cubename);
@@ -1234,7 +1234,58 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   .replace(/  /g, "");
                   if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
                   dataCube = dataCube.slice(4, dataCube.length);
-                  replier.reply(dataCube);
+
+                  var poten1 = [], poten2 = [], poten3 = [];
+                  var prate1 = [], prate2 = [], prate3 = [];
+                  for(i = 1; i < dataCube.split("<td>").length; ++i){
+                    var temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                    if(temppoten != ""){poten1.push(temppoten);}
+                    temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                    if(temppoten != ""){prate1.push(temppoten);}
+                    temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                    if(temppoten != ""){poten2.push(temppoten);}
+                    temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                    if(temppoten != ""){prate2.push(temppoten);}
+                    temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                    if(temppoten != ""){poten3.push(temppoten);}
+                    temppoten = dataCube.split("<td>")[i].split("</td>")[0];
+                    if(temppoten != ""){prate3.push(temppoten);}
+                  }
+
+                  var cubefourth = msg.split(" ")[4];
+                  var cuberep = "";
+                  cuberep += cubeM.getCubenameclasswear(cn, cubeclass, cubeitem);
+                  if(cubefourth == undefined){
+                    cuberep += "첫 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten1, prate1);
+                    cuberep += "\n\n두 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten2, prate2);
+                    cuberep += "\n\n세 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten3, prate3);
+                    cuberep = cuberep.slice(0, cuberep.length-1);
+                    replier.reply(cuberep);
+                  }
+                  else if(cubefourth == "1"){
+                    cuberep += "첫 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten1, prate1);
+                    cuberep = cuberep.slice(0, cuberep.length-1);
+                    replier.reply(cuberep);
+                  }
+                  else if(cubefourth == "2"){
+                    cuberep += "두 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten2, prate2);
+                    cuberep = cuberep.slice(0, cuberep.length-1);
+                    replier.reply(cuberep);
+                  }
+                  else if(cubefourth == "3"){
+                    cuberep += "세 번째 옵션\n\n";
+                    cuberep += cubeM.getCuberatetable(poten3, prate3);
+                    cuberep = cuberep.slice(0, cuberep.length-1);
+                    replier.reply(cuberep);
+                  }
+                  else{
+                    replier.reply(poten1[2] + "\n" + parseFloat(prate1[2]));
+                  }
                   }catch(error){
                     replier.reply("해당 큐브에는 해당 등급이 존재하지 않습니다.");
                   }
