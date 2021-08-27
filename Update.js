@@ -29,7 +29,8 @@ function getupdate(){
     update += "21/08/23 - !스타포스 비용 추가\n";
     update += "!스타포스 추가\n";
     update += "21/08/24 - !결정석, !메소 추가\n";
-    update += "21/08/25 - !큐브 추가";
+    update += "21/08/25 - !큐브 추가\n";
+    update += "21/08/27 - !무릉 에 층수정보 추가";
 
     return update;
 }

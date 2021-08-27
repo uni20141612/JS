@@ -173,6 +173,8 @@ cb.getItemname = function (itemname){
             rep = "무기";
             break;
         case "엠블렘":
+        case "엠블럼":
+        case "엠블":
         case "엠":
             rep = "엠블렘";
             break;
@@ -330,20 +332,24 @@ cb.getCubeability = function (abilname){
     var ret = -1;
     switch(abilname){
         case "STR":
+        case "str":
         case "힘":
             ret = 0;
             break;
         case "DEX":
+        case "dex":
         case "덱스":
         case "덱":
             ret = 1;
             break;
         case "INT":
+        case "int":
         case "인트":
         case "인":
             ret = 2;
             break;
         case "LUK":
+        case "luk":
         case "럭":
             ret = 3;
             break;
@@ -378,6 +384,7 @@ cb.getCubeability = function (abilname){
             ret = 9;
             break;
         case "HP":
+        case "hp":
         case "피":
             ret = 10;
             break;
@@ -517,12 +524,24 @@ cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
                         break;
                     case 32:
                         alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
                         break;
                     case 33:
                         alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
                         break;
                     case 34:
                         alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
                         break;
                     case 35:
                         hps += 12;
@@ -642,12 +661,24 @@ cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
                         break;
                     case 32:
                         alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
                         break;
                     case 33:
                         alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
                         break;
                     case 34:
                         alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
                         break;
                     case 35:
                         hps += 12;
@@ -767,12 +798,24 @@ cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
                         break;
                     case 32:
                         alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
                         break;
                     case 33:
                         alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
                         break;
                     case 34:
                         alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
                         break;
                     case 35:
                         hps += 12;
@@ -829,9 +872,500 @@ cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
             }
         }
     }
-    var frate = finalrate.toFixed(6);
+    var frate = finalrate.toFixed(8);
     if(finalrate == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
     else{rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + frate + "% 입니다.";}
+    return rep;
+}
+cb.getCuberateTwoabil = function (abilind, abilval, abilind2, abilval2, p1, p2, p3, r1, r2, r3){
+    var rep = "";
+    var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate = 0.0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+
+    for(a = 0; a < p1.length; ++a){
+        var abcode1 = getabilityCode(p1[a]);
+        for(b = 0; b < p2.length; ++b){
+            var abcode2 = getabilityCode(p2[b]);
+            for(c = 0; c < p3.length; ++c){
+                var abcode3 = getabilityCode(p3[c]);
+                if(true){
+                if(abcode1 == abcode2 && abcode1 == abcode3 && abcode1 == 40){continue;}
+                if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){continue;}}}
+                if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){continue;}}}
+                if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){ if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){continue;}}}
+                if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){ if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){continue;}}}
+                if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){ if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){continue;}}}
+                if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){ if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){continue;}}}
+                if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){continue;}}}
+                if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
+                if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){continue;}}}
+                if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
+                if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                }
+                temprate = 1.0;
+                temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
+                temprate /= 10000; 
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+                switch(abcode1){
+                    case 0:
+                        str += 12;
+                        break;
+                    case 1:
+                        str += 9;
+                        break;
+                    case 2:
+                        str += 6;
+                        break;
+                    case 3:
+                        str += 3;
+                        break;
+                    case 4:
+                        dex += 12;
+                        break;
+                    case 5:
+                        dex += 9;
+                        break;
+                    case 6:
+                        dex += 6;
+                        break;
+                    case 7:
+                        dex += 3;
+                        break;
+                    case 8:
+                        ints += 12;
+                        break;
+                    case 9:
+                        ints += 9;
+                        break;
+                    case 10:
+                        ints += 6;
+                        break;
+                    case 11:
+                        ints += 3;
+                        break;
+                    case 12:
+                        luk += 12;
+                        break;
+                    case 13:
+                        luk += 9;
+                        break;
+                    case 14:
+                        luk += 6;
+                        break;
+                    case 15:
+                        luk += 3;
+                        break;
+                    case 16:
+                        bossa += 40;
+                        break;
+                    case 17:
+                        bossa += 35;
+                        break;
+                    case 18:
+                        bossa += 30;
+                        break;
+                    case 19:
+                        atk += 12;
+                        break;
+                    case 20:
+                        atk += 9;
+                        break;
+                    case 21:
+                        atk += 6;
+                        break;
+                    case 22:
+                        atk += 3;
+                        break;
+                    case 23:
+                        mag += 12;
+                        break;
+                    case 24:
+                        mag += 9;
+                        break;
+                    case 25:
+                        mag += 6;
+                        break;
+                    case 26:
+                        mag += 3;
+                        break;
+                    case 27:
+                        defig += 40;
+                        break;
+                    case 28:
+                        defig += 35;
+                        break;
+                    case 29:
+                        defig += 30;
+                        break;
+                    case 30:
+                        defig += 15;
+                        break;
+                    case 31:
+                        cridam += 8;
+                        break;
+                    case 32:
+                        alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
+                        break;
+                    case 33:
+                        alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
+                        break;
+                    case 34:
+                        alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
+                        break;
+                    case 35:
+                        hps += 12;
+                        break;
+                    case 36:
+                        hps += 9;
+                        break;
+                    case 37:
+                        hps += 6;
+                        break;
+                    case 38:
+                        hps += 3;
+                        break;
+                    case 39:
+                        mesos += 20;
+                        break;
+                    case 40:
+                        items += 20;
+                        break;
+                }
+                switch(abcode2){
+                    case 0:
+                        str += 12;
+                        break;
+                    case 1:
+                        str += 9;
+                        break;
+                    case 2:
+                        str += 6;
+                        break;
+                    case 3:
+                        str += 3;
+                        break;
+                    case 4:
+                        dex += 12;
+                        break;
+                    case 5:
+                        dex += 9;
+                        break;
+                    case 6:
+                        dex += 6;
+                        break;
+                    case 7:
+                        dex += 3;
+                        break;
+                    case 8:
+                        ints += 12;
+                        break;
+                    case 9:
+                        ints += 9;
+                        break;
+                    case 10:
+                        ints += 6;
+                        break;
+                    case 11:
+                        ints += 3;
+                        break;
+                    case 12:
+                        luk += 12;
+                        break;
+                    case 13:
+                        luk += 9;
+                        break;
+                    case 14:
+                        luk += 6;
+                        break;
+                    case 15:
+                        luk += 3;
+                        break;
+                    case 16:
+                        bossa += 40;
+                        break;
+                    case 17:
+                        bossa += 35;
+                        break;
+                    case 18:
+                        bossa += 30;
+                        break;
+                    case 19:
+                        atk += 12;
+                        break;
+                    case 20:
+                        atk += 9;
+                        break;
+                    case 21:
+                        atk += 6;
+                        break;
+                    case 22:
+                        atk += 3;
+                        break;
+                    case 23:
+                        mag += 12;
+                        break;
+                    case 24:
+                        mag += 9;
+                        break;
+                    case 25:
+                        mag += 6;
+                        break;
+                    case 26:
+                        mag += 3;
+                        break;
+                    case 27:
+                        defig += 40;
+                        break;
+                    case 28:
+                        defig += 35;
+                        break;
+                    case 29:
+                        defig += 30;
+                        break;
+                    case 30:
+                        defig += 15;
+                        break;
+                    case 31:
+                        cridam += 8;
+                        break;
+                    case 32:
+                        alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
+                        break;
+                    case 33:
+                        alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
+                        break;
+                    case 34:
+                        alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
+                        break;
+                    case 35:
+                        hps += 12;
+                        break;
+                    case 36:
+                        hps += 9;
+                        break;
+                    case 37:
+                        hps += 6;
+                        break;
+                    case 38:
+                        hps += 3;
+                        break;
+                    case 39:
+                        mesos += 20;
+                        break;
+                    case 40:
+                        items += 20;
+                        break;
+                }
+                switch(abcode3){
+                    case 0:
+                        str += 12;
+                        break;
+                    case 1:
+                        str += 9;
+                        break;
+                    case 2:
+                        str += 6;
+                        break;
+                    case 3:
+                        str += 3;
+                        break;
+                    case 4:
+                        dex += 12;
+                        break;
+                    case 5:
+                        dex += 9;
+                        break;
+                    case 6:
+                        dex += 6;
+                        break;
+                    case 7:
+                        dex += 3;
+                        break;
+                    case 8:
+                        ints += 12;
+                        break;
+                    case 9:
+                        ints += 9;
+                        break;
+                    case 10:
+                        ints += 6;
+                        break;
+                    case 11:
+                        ints += 3;
+                        break;
+                    case 12:
+                        luk += 12;
+                        break;
+                    case 13:
+                        luk += 9;
+                        break;
+                    case 14:
+                        luk += 6;
+                        break;
+                    case 15:
+                        luk += 3;
+                        break;
+                    case 16:
+                        bossa += 40;
+                        break;
+                    case 17:
+                        bossa += 35;
+                        break;
+                    case 18:
+                        bossa += 30;
+                        break;
+                    case 19:
+                        atk += 12;
+                        break;
+                    case 20:
+                        atk += 9;
+                        break;
+                    case 21:
+                        atk += 6;
+                        break;
+                    case 22:
+                        atk += 3;
+                        break;
+                    case 23:
+                        mag += 12;
+                        break;
+                    case 24:
+                        mag += 9;
+                        break;
+                    case 25:
+                        mag += 6;
+                        break;
+                    case 26:
+                        mag += 3;
+                        break;
+                    case 27:
+                        defig += 40;
+                        break;
+                    case 28:
+                        defig += 35;
+                        break;
+                    case 29:
+                        defig += 30;
+                        break;
+                    case 30:
+                        defig += 15;
+                        break;
+                    case 31:
+                        cridam += 8;
+                        break;
+                    case 32:
+                        alls += 9;
+                        str += 9;
+                        dex += 9;
+                        ints += 9;
+                        luk += 9;
+                        break;
+                    case 33:
+                        alls += 6;
+                        str += 6;
+                        dex += 6;
+                        ints += 6;
+                        luk += 6;
+                        break;
+                    case 34:
+                        alls += 3;
+                        str += 3;
+                        dex += 3;
+                        ints += 3;
+                        luk += 3;
+                        break;
+                    case 35:
+                        hps += 12;
+                        break;
+                    case 36:
+                        hps += 9;
+                        break;
+                    case 37:
+                        hps += 6;
+                        break;
+                    case 38:
+                        hps += 3;
+                        break;
+                    case 39:
+                        mesos += 20;
+                        break;
+                    case 40:
+                        items += 20;
+                        break;
+                }
+
+                if(abilind == 0){ tempcomp = str; }
+                else if(abilind == 1){ tempcomp = dex; }
+                else if(abilind == 2){ tempcomp = ints; }
+                else if(abilind == 3){ tempcomp = luk; }
+                else if(abilind == 4){ tempcomp = bossa; }
+                else if(abilind == 5){ tempcomp = atk; }
+                else if(abilind == 6){ tempcomp = mag; }
+                else if(abilind == 7){ tempcomp = defig; }
+                else if(abilind == 8){ tempcomp = cridam; }
+                else if(abilind == 9){ tempcomp = alls; }
+                else if(abilind == 10){ tempcomp = hps; }
+                else if(abilind == 11){ tempcomp = mesos; }
+                else if(abilind == 12){ tempcomp = items; }
+                if(abilind2 == 0){ tempcomp2 = str; }
+                else if(abilind2 == 1){ tempcomp2 = dex; }
+                else if(abilind2 == 2){ tempcomp2 = ints; }
+                else if(abilind2 == 3){ tempcomp2 = luk; }
+                else if(abilind2 == 4){ tempcomp2 = bossa; }
+                else if(abilind2 == 5){ tempcomp2 = atk; }
+                else if(abilind2 == 6){ tempcomp2 = mag; }
+                else if(abilind2 == 7){ tempcomp2 = defig; }
+                else if(abilind2 == 8){ tempcomp2 = cridam; }
+                else if(abilind2 == 9){ tempcomp2 = alls; }
+                else if(abilind2 == 10){ tempcomp2 = hps; }
+                else if(abilind2 == 11){ tempcomp2 = mesos; }
+                else if(abilind2 == 12){ tempcomp2 = items; }
+                
+                if(tempcomp >= abilval){ //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
+                    finalrate1 += temprate;
+                }          
+                if(tempcomp2 >= abilval2){
+                    finalrate2 += temprate;
+                }
+                if(tempcomp >= abilval && tempcomp2 >= abilval2){
+                    finalrate += temprate;
+                }
+            }
+        }
+    }
+    var frate = finalrate.toFixed(8);
+    if(finalrate1 == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate2 == 0){rep += "\n해당 수치가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}}
+    else if(finalrate2 == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+    else{
+        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+        rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.";
+    }
     return rep;
 }
 

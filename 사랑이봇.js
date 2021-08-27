@@ -21,7 +21,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const BossM = require('getBoss');
       var boss = msg.split(" ")[1];
       if(boss == undefined){
-        replier.reply("보스 이름을 입력해주세요.\n\n!보스 (보스이름) : 보스 레벨, 체력, 방어율, 포스, 결정석가격 \n목록 - 각 보스별 인식 키워드 목록\n난이도 생략시 노말 우선");
+        replier.reply("보스 이름을 입력해주세요.\n\n!보스 (보스이름) : 보스 레벨, 체력, 방어율, 포스, 결정석가격을 보여줍니다. ※(보스이름) 입력 시 띄어쓰기를 하지 말아 주세요.\n(보스이름)에 '목록'을 입력하면 각 보스별 인식 키워드 목록을 보여줍니다.\n난이도 생략시 노멀난이도를 우선합니다.\n결정석 가격은 변동패치전 최초 기준 가격입니다. 자세한 변동내역은 !결정석을 참조해주세요.");
       }
       else{
         var re = BossM.getBoss(boss);
@@ -209,74 +209,113 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         maplegg = "https://maple.gg/u/" + nickname;
         dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
         dataC1 = dataC1.toString();
-        
-        if(dataC1.indexOf("검색결과 없음") != -1){
-          replier.reply("그런 캐릭터는 없습니다.");
+                       
+        if(msg.startsWith("!무릉")){
+          var stair = parseInt(nickname);
+          if(nickname.length < 3 && stair > 0 && stair < 81){
+            const mrM = require('Mureung');
+            const jariM = require('Jari');
+            var mname = mrM.monstername[stair];
+            var mlevel = mrM.monsterlevel[stair];
+            var mhp = mrM.monsterhp[stair];
+            var mhpjari = "확인 불가";
+            if(mhp != "-"){mhpjari = jariM.Jari2(parseInt(mhp.replace(/,/g, ""))).replace(/ 0억/g, "").replace(/ 0만/g, "").replace(/ 0/g, "");}
+            var mchp = mrM.monstercumulativehp[stair];
+            var mchpjari = "확인 불가";
+            if(mchp != "-"){mchpjari = jariM.Jari2(parseInt(mchp.replace(/,/g, ""))).replace(/ 0억/g, "").replace(/ 0만/g, "").replace(/ 0/g, "");}
+            var minc = mrM.monsterhpincrease[stair];
+            var mimage = mrM.monsterimage[stair];
+            Kakao.send(room,
+              {
+                "link_ver" : "4.0",
+                "template_id" : 60127,
+                "template_args" : {
+                                      "stair" : stair,
+                                      "monstername" : mname,
+                                      "monsterlevel" : mlevel,
+                                      "monsterhp" : mhpjari,
+                                      "monsterchp" : mchpjari,
+                                      "monsterinc" : minc,
+                                      "monsterimage" : mimage
+                                  }
+              },
+               "custom");
+          }
+          else{
+            if(dataC1.indexOf("검색결과 없음") != -1){
+              replier.reply(dataC1 + " >> 그런 캐릭터는 없습니다.\n\n!무릉 (층수) : 1~80사이의 숫자를 넣으면 해당 층수의 몬스터 정보를 보여줍니다.");
+            }
+            else{
+              dataM1 = dataC1.split("도장</span> 최고기록")[1];
+              dataM2 = dataM1.split("더시드 최고기록")[0];
+              if(dataM2.indexOf("user-summary-no-data") == -1){
+                dataM3 = dataM2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
+                dataM4 = dataM3.split("</small>")[0];
+                dataM5 = dataM4.split("</h1>")[0];
+                dataM6 = dataM4.split("\">")[1];
+                replier.reply(dataM5 + ", " + dataM6);
+              }
+              else{
+                replier.reply("이 캐릭터는 무릉 기록이 없습니다.");
+              }
+            }
+          }
         }
-        else{                
-          if(msg.startsWith("!무릉")){
-            dataM1 = dataC1.split("도장</span> 최고기록")[1];
-            dataM2 = dataM1.split("더시드 최고기록")[0];
-            if(dataM2.indexOf("user-summary-no-data") == -1){
-              dataM3 = dataM2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
-              dataM4 = dataM3.split("</small>")[0];
-              dataM5 = dataM4.split("</h1>")[0];
-              dataM6 = dataM4.split("\">")[1];
-              replier.reply(dataM5 + ", " + dataM6);
-            }
-            else{
-              replier.reply("이 캐릭터는 무릉 기록이 없습니다.");
-            }
+        else{
+          if(dataC1.indexOf("검색결과 없음") != -1){
+            replier.reply("그런 캐릭터는 없습니다.");
           }
-      
-          if(msg.startsWith("!시드")){
-            dataS1 = dataC1.split("더시드 최고기록")[1];
-            dataS2 = dataS1.split("유니온")[0];
-            if(dataS2.indexOf("user-summary-no-data") == -1){
-              dataS3 = dataS2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
-              dataS4 = dataS3.split("</small>")[0];
-              dataS5 = dataS4.split("</h1>")[0];
-              dataS6 = dataS4.split("\">")[1];
-              replier.reply(dataS5 + ", " + dataS6);
+          else{ 
+          
+            if(msg.startsWith("!시드")){
+              dataS1 = dataC1.split("더시드 최고기록")[1];
+              dataS2 = dataS1.split("유니온")[0];
+              if(dataS2.indexOf("user-summary-no-data") == -1){
+                dataS3 = dataS2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
+                dataS4 = dataS3.split("</small>")[0];
+                dataS5 = dataS4.split("</h1>")[0];
+                dataS6 = dataS4.split("\">")[1];
+                replier.reply(dataS5 + ", " + dataS6);
+              }
+              else{
+                replier.reply("이 캐릭터는 시드 기록이 없습니다.");
+              }
             }
-            else{
-              replier.reply("이 캐릭터는 시드 기록이 없습니다.");
-            }
-          }
 
-          if(msg.startsWith("!유니온")){
-            dataU1 = dataC1.split("유니온 <i")[1];
-            dataU2 = dataU1.split("업적")[0];
-            if(dataU2.indexOf("user-summary-no-data") == -1){
-              dataU3 = dataU2.split("bold\">")[1];
-              dataU4 = dataU3.split("</div>")[0].trim();
-              dataU5 = dataU3.split("level\">")[1];
-              dataU6 = dataU5.split("</span>")[0];
+            if(msg.startsWith("!유니온")){
+              dataU1 = dataC1.split("유니온 <i")[1];
+              dataU2 = dataU1.split("업적")[0];
+              if(dataU2.indexOf("user-summary-no-data") == -1){
+                dataU3 = dataU2.split("bold\">")[1];
+                dataU4 = dataU3.split("</div>")[0].trim();
+                dataU5 = dataU3.split("level\">")[1];
+                dataU6 = dataU5.split("</span>")[0];
 
-              dataU7 = dataU1.split("전투력</b> ")[1];
-              dataU7 = dataU7.split("</span>")[0];
-              dataU8 = parseFloat(dataU7.replace(/,/g, ""));
-              dataU9 = parseInt(dataU8 * 8.64 / 10000000);
-              replier.reply(dataU4 + ", " + dataU6 + "\n유니온 전투력 : " + dataU8 + "\n일일 유니온 코인 수급량 : " + dataU9);
+                dataU7 = dataU1.split("전투력</b> ")[1];
+                dataU7 = dataU7.split("</span>")[0];
+                dataU8 = parseFloat(dataU7.replace(/,/g, ""));
+                dataU9 = parseInt(dataU8 * 8.64 / 10000000);
+                replier.reply(dataU4 + ", " + dataU6 + "\n유니온 전투력 : " + dataU8 + "\n일일 유니온 코인 수급량 : " + dataU9);
+              }
+              else{
+                replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
+              }
             }
-            else{
-              replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
-            }
-          }
 
-          if(msg.startsWith("!업적")){
-            dataA1 = dataC1.split("업적 <i")[1];
-            dataA2 = dataA1.split("</section>")[0];
-            if(dataA2.indexOf("user-summary-no-data") == -1){
-              dataA3 = dataA2.split("bold\">")[1];
-              dataA4 = dataA3.split("</div>")[0].trim();
-              dataA5 = dataA3.split("업적점수 ")[1];
-              dataA6 = dataA5.split("</span>")[0];
+            if(msg.startsWith("!업적")){
+              dataA1 = dataC1.split("업적 <i")[1];
+              dataA2 = dataA1.split("</section>")[0];
+              if(dataA2.indexOf("user-summary-no-data") == -1){
+                dataA3 = dataA2.split("bold\">")[1];
+                dataA4 = dataA3.split("</div>")[0].trim();
+                dataA5 = dataA3.split("업적점수 ")[1];
+                dataA6 = dataA5.split("</span>")[0];
 
-              replier.reply(dataA4 + ", " + dataA6);
-            }
-            else{
-              replier.reply("이 캐릭터는 업적 정보가 없습니다.");
+                replier.reply(dataA4 + ", " + dataA6);
+              }
+              else{
+                replier.reply("이 캐릭터는 업적 정보가 없습니다.");
+              }
             }
           }
         }
@@ -792,12 +831,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("지금은 " + day.getHours() + "시 " + day.getMinutes() + "분 " + day.getSeconds() + "초입니다.");
     }
     if(msg == "!썬데이" || msg == "!선데이"){
-      var dataSun = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/News/Event/495").get();
+      var dataSun = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/News/Event/496").get();
       dataSun = dataSun.toString();
       var dataSundate = dataSun.split("event_date\">")[1];
       dataSundate = dataSundate.split(" 00시 00분")[0];
       dataSun = dataSun.split("썬데이 메이플!\" src=\"")[1];
       dataSun = dataSun.split("\" usemap=")[0];
+      var sunlink = "/News/Event/496";
 
       Kakao.send(room,
         {
@@ -806,6 +846,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           "template_args" : {
                                 "suntitle" : dataSundate,
                                 "sunimage" : dataSun,
+                                "sunlink" : sunlink
                             }
         },
          "custom");
@@ -868,9 +909,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
-    if(msg.startsWith("!똥캐")){
+    /*if(msg.startsWith("!똥캐")){
       replier.reply("소울마스터\n\n자체 버프만으로도 풀공속 유지가 가능하며, 기본 크리 확률이 낮지 않다. 사냥기가 점샷이 가능하고, 원킬컷이 낮아서 낮은 스펙으로도 원킬 사냥이 쉽다. 광역 바인드와 공격 무시/반사 버프를 관통하는 스킬을 보유하고 있다. 상태에 따른 독자적인 모션과, 보스 주력기가 강제 점프를 동반하는 특이점을 가지고 있다.\n\n[2008년 12월 18일 출시]\n\n무적기 : 소울 이클립스 (3.5초), 솔루나 디바이드 (5초)\n뎀감기 : 초월자 시그너스의 축복[공용] (5%)\n바인드 : 소울 페네트레이션\n\n공격대원 효과 : 최대 HP 250/500/1000/2000/2500 증가\n\n링크 스킬 : 시그너스 블레스 - 공격력과 마력 25, 상태 이상 내성 15, 모든 속성 내성 15% 증가"); 
-    }
+    }*/
     if(msg.startsWith("!로얄")){      
       const royalM = require('Royal');
       if(msg.split(" ")[1] == undefined){
@@ -1168,8 +1209,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           priceinfo = priceinfo.split("},")[0];
           priceinfo = priceinfo.split("data\": [")[1];
           priceinfo = priceinfo.split("]")[0];
-          var pastprice = parseInt(priceinfo.split(",")[0]);
-          var currentprice = parseInt(priceinfo.split(", ")[1]);
+          var priceind = priceinfo.split(",").length;
+          var pastprice = parseInt(priceinfo.split(",")[priceind - 2]);
+          var currentprice = parseInt(priceinfo.split(", ")[priceind - 1]);
           var pricediff = currentprice - pastprice;
           var pricepercent = (parseFloat(pricediff) / parseFloat(pastprice)) * 100;
           pricepercent = Number(pricepercent.toFixed(2));
@@ -1310,8 +1352,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             var cubeseventh = parseInt(msg.split(" ")[7]);
                             if(isNaN(cubeseventh)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
                             else{
-
-                              replier.reply(cubesixth + " " + cubeseventh);
+                              var cubetwoabil = "";
+                              cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
+                              replier.reply(cubetwoabil);
                             }
                           }
                         }
