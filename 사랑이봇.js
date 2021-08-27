@@ -3,7 +3,7 @@ const kalingModule = require('kaling').Kakao();
 const Kakao = new kalingModule();
 Kakao.init('f8a946e1c19887744ce173e69effc988', 'https://developers.kakao.com');
 Kakao.login('hansu1115@kakao.com', 'cjsgkstn1!');
-
+const guitarM = require('Guitar');
 //const JariM = require('Jari');
 /*
 Kakao.send(room,
@@ -113,21 +113,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       else{
     	let isarea = encodeURIComponent(msg.slice(4)+" 날씨");
         let area = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=" + isarea;
-        let temp = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > p > span.todaytemp");
-        temp = temp.toString();
-        let firstT = temp.indexOf(">");
-        temp = temp.slice(firstT+1, temp.length);
-        let secondT = temp.indexOf("<");
-        temp = temp.slice(0, secondT);
+        let tempweather = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > p > span.todaytemp");
+        tempweather = tempweather.toString();
+        let firstT = tempweather.indexOf(">"); tempweather = tempweather.slice(firstT+1, tempweather.length);
+        let secondT = tempweather.indexOf("<"); tempweather = tempweather.slice(0, secondT);
 
-        let word = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > ul > li:nth-child(1) > p");
-        word = word.toString();
-        let firstW = word.indexOf(">");
-        word = word.slice(firstW+1, word.length);
-        let secondW = word.indexOf("<");
-        word = word.slice(0, secondW);
-        if(temp != "" && word != "") {
-        replier.reply(msg.slice(4) + "의 날씨\n" + temp + "℃, " + word);
+        let weatheretc = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > ul > li:nth-child(1) > p");
+        weatheretc = weatheretc.toString();
+        let firstW = weatheretc.indexOf(">"); weatheretc = weatheretc.slice(firstW+1, weatheretc.length);
+        let secondW = weatheretc.indexOf("<"); weatheretc = weatheretc.slice(0, secondW);
+        if(tempweather != "" && weatheretc != "") {
+        replier.reply(msg.slice(4) + "의 날씨\n" + tempweather + "℃, " + weatheretc);
         }
         else{
           replier.reply(msg.slice(4) + "에 대한 날씨정보를 찾는 것을 실패하였습니다.");
@@ -136,14 +132,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg == "!한강" || msg == "!ㅎㄱ"){
       var riverTemp = Utils.getWebText("http://hangang.dkserver.wo.tc/");
-      var dataR1 = riverTemp.indexOf("p");
-      riverTemp = riverTemp.slice(dataR1+4, riverTemp.length);
-      var dataR2 = riverTemp.indexOf("\"");
-      var timeR = riverTemp.slice(dataR2, riverTemp.length);
-      riverTemp = riverTemp.slice(0, dataR2);
-      var dataR3 = timeR.indexOf("e");
-      timeR = timeR.slice(dataR3 + 4, timeR.length-41);
-      replier.reply(timeR + " 기준 " + riverTemp + " °C");
+      var river = guitarM.getHangang(riverTemp);
+      replier.reply(river);
     }
     if(msg.startsWith("!캐릭터") || msg.startsWith("!정보")){
       nickname = msg.split(" ")[1];
@@ -169,17 +159,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           if(dataC4_seed.slice(0,2) == "최고"){dataC4_seed = dataC4_seed.slice(2, dataC4_seed.length);}
           var dataC4_union = dataC3.split(",")[3];    if(dataC4_union == undefined)   {dataC4_union = "-";}
           var dataC4_achievement = dataC3.split(",")[4];  if(dataC4_achievement == undefined) {dataC4_achievement = "-";}
-          var dataC5 = dataC1.split("<li class=\"user-summary-item\">")[1];
-          var dataC6 = dataC5.split("</li>")[0];
-          var dataC7 = dataC1.split("<li class=\"user-summary-item\">")[2];
-          var dataC8 = dataC7.split("</li>")[0];
+          var dataC5 = dataC1.split("<li class=\"user-summary-item\">")[1].split("</li>")[0];
+          var dataC6 = dataC1.split("<li class=\"user-summary-item\">")[2].split("</li>")[0];
 
           var dataCname = dataC4_nameandServer.split("@")[0];
           var dataCservericon = dataC2.split("<div class=\"col-lg-8\">")[1];
-          dataCservericon = dataCservericon.split("\" alt=")[0];
-          dataCservericon = dataCservericon.split("src=\"")[1];
-          dataCprofile = dataCprofile.split("<meta property=\"og:image\" content=\"")[1];
-          dataCprofile = dataCprofile.split("\">")[0];
+          dataCservericon = dataCservericon.split("\" alt=")[0].split("src=\"")[1];
+          dataCprofile = dataCprofile.split("<meta property=\"og:image\" content=\"")[1].split("\">")[0];
           var dataCmureung = "무릉:기록없음";
           var dataCseed = "시드:기록없음";
           if(dataC4_mureung.slice(0,2) == "무릉") {dataCmureung = dataC4_mureung;}
@@ -189,14 +175,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               "link_ver" : "4.0",
               "template_id" : 59430,
               "template_args" : {
-                                    "profile" : dataCname + " | " + dataC8,
-                                    "desc" : dataC6 + "\n" + dataCmureung + "\n" + dataCseed,
+                                    "profile" : dataCname + " | " + dataC6,
+                                    "desc" : dataC5 + "\n" + dataCmureung + "\n" + dataCseed,
                                     "server" : dataCservericon,
                                     "image" : dataCprofile
                                 }
             },
              "custom");
-          replier.reply(dataC4_nameandServer + "\n" + dataC6 + " " + dataC8 + "\n" + dataC4_mureung + "\n" + dataC4_seed + "\n" + dataC4_union + "\n" + dataC4_achievement);
+          replier.reply(dataC4_nameandServer + "\n" + dataC5 + " " + dataC6 + "\n" + dataC4_mureung + "\n" + dataC4_seed + "\n" + dataC4_union + "\n" + dataC4_achievement);
         }
       }
     }
@@ -246,14 +232,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               replier.reply(dataC1 + " >> 그런 캐릭터는 없습니다.\n\n!무릉 (층수) : 1~80사이의 숫자를 넣으면 해당 층수의 몬스터 정보를 보여줍니다.");
             }
             else{
-              dataM1 = dataC1.split("도장</span> 최고기록")[1];
-              dataM2 = dataM1.split("더시드 최고기록")[0];
-              if(dataM2.indexOf("user-summary-no-data") == -1){
-                dataM3 = dataM2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
-                dataM4 = dataM3.split("</small>")[0];
-                dataM5 = dataM4.split("</h1>")[0];
-                dataM6 = dataM4.split("\">")[1];
-                replier.reply(dataM5 + ", " + dataM6);
+              dataM1 = dataC1.split("도장</span> 최고기록")[1].split("더시드 최고기록")[0];
+              if(dataM1.indexOf("user-summary-no-data") == -1){
+                dataM2 = dataM1.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1].split("</small>")[0];
+                dataM3 = dataM2.split("</h1>")[0];
+                dataM4 = dataM2.split("\">")[1];
+                replier.reply(dataM3 + ", " + dataM4);
               }
               else{
                 replier.reply("이 캐릭터는 무릉 기록이 없습니다.");
@@ -268,14 +252,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           else{ 
           
             if(msg.startsWith("!시드")){
-              dataS1 = dataC1.split("더시드 최고기록")[1];
-              dataS2 = dataS1.split("유니온")[0];
-              if(dataS2.indexOf("user-summary-no-data") == -1){
-                dataS3 = dataS2.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1];
-                dataS4 = dataS3.split("</small>")[0];
-                dataS5 = dataS4.split("</h1>")[0];
-                dataS6 = dataS4.split("\">")[1];
-                replier.reply(dataS5 + ", " + dataS6);
+              dataS1 = dataC1.split("더시드 최고기록")[1].split("유니온")[0];
+              if(dataS1.indexOf("user-summary-no-data") == -1){
+                dataS2 = dataS1.split("<h1 class=\"user-summary-floor font-weight-bold\">")[1].split("</small>")[0];
+                dataS3 = dataS2.split("</h1>")[0];
+                dataS4 = dataS2.split("\">")[1];
+                replier.reply(dataS3 + ", " + dataS4);
               }
               else{
                 replier.reply("이 캐릭터는 시드 기록이 없습니다.");
@@ -288,14 +270,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               if(dataU2.indexOf("user-summary-no-data") == -1){
                 dataU3 = dataU2.split("bold\">")[1];
                 dataU4 = dataU3.split("</div>")[0].trim();
-                dataU5 = dataU3.split("level\">")[1];
-                dataU6 = dataU5.split("</span>")[0];
+                dataU5 = dataU3.split("level\">")[1].split("</span>")[0];
 
-                dataU7 = dataU1.split("전투력</b> ")[1];
-                dataU7 = dataU7.split("</span>")[0];
+                dataU7 = dataU1.split("전투력</b> ")[1].split("</span>")[0];
                 dataU8 = parseFloat(dataU7.replace(/,/g, ""));
                 dataU9 = parseInt(dataU8 * 8.64 / 10000000);
-                replier.reply(dataU4 + ", " + dataU6 + "\n유니온 전투력 : " + dataU8 + "\n일일 유니온 코인 수급량 : " + dataU9);
+                replier.reply(dataU4 + ", " + dataU5 + "\n유니온 전투력 : " + dataU8 + "\n일일 유니온 코인 수급량 : " + dataU9);
               }
               else{
                 replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
@@ -303,15 +283,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             }
 
             if(msg.startsWith("!업적")){
-              dataA1 = dataC1.split("업적 <i")[1];
-              dataA2 = dataA1.split("</section>")[0];
-              if(dataA2.indexOf("user-summary-no-data") == -1){
-                dataA3 = dataA2.split("bold\">")[1];
+              dataA1 = dataC1.split("업적 <i")[1].split("</section>")[0];
+              if(dataA1.indexOf("user-summary-no-data") == -1){
+                dataA3 = dataA1.split("bold\">")[1];
                 dataA4 = dataA3.split("</div>")[0].trim();
-                dataA5 = dataA3.split("업적점수 ")[1];
-                dataA6 = dataA5.split("</span>")[0];
+                dataA5 = dataA3.split("업적점수 ")[1].split("</span>")[0];
 
-                replier.reply(dataA4 + ", " + dataA6);
+                replier.reply(dataA4 + ", " + dataA5);
               }
               else{
                 replier.reply("이 캐릭터는 업적 정보가 없습니다.");
@@ -344,88 +322,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           replier.reply("그런 캐릭터는 없습니다.");
         }
         else{ 
-          var dataCo1 = dataC1.split("코디 분석")[1];
-          var dataCo2 = dataCo1.split("<div class=\"col-6 col-md-8 col-lg-6\">")[0];
-
-          var dataMoja1 = dataCo2.split("모자</span>")[1];
-          var dataMoja2 = dataMoja1.split(">")[1];
-          var dataMoja3 = dataMoja2.split("</span")[0];
-
-          var dataHair1 = dataCo2.split("헤어</span>")[1];
-          var dataHair2 = dataHair1.split(">")[1];
-          var dataHair3 = dataHair2.split("</span")[0];
-
-          var dataFace1 = dataCo2.split("성형</span>")[1];
-          var dataFace2 = dataFace1.split(">")[1];
-          var dataFace3 = dataFace2.split("</span")[0];
-
-          var dataTshirt1 = dataCo2.split("상의</span>")[1];
-          var dataTshirt2 = dataTshirt1.split(">")[1];
-          var dataTshirt3 = dataTshirt2.split("</span")[0];
-
-          var dataPants1 = dataCo2.split("하의</span>")[1];
-          var dataPants2 = dataPants1.split(">")[1];
-          var dataPants3 = dataPants2.split("</span")[0];
-
-          var dataShoe1 = dataCo2.split("신발</span>")[1];
-          var dataShoe2 = dataShoe1.split(">")[1];
-          var dataShoe3 = dataShoe2.split("</span")[0];
-
-          var dataWeapon1 = dataCo2.split("무기</span>")[1];
-          var dataWeapon2 = dataWeapon1.split(">")[1];
-          var dataWeapon3 = dataWeapon2.split("</span")[0];
-
-          replier.reply("모자: " + dataMoja3 + "\n헤어: " + dataHair3 + "\n성형: " + dataFace3 + "\n상의: " + dataTshirt3 + "\n하의: " + dataPants3 + "\n신발: " + dataShoe3 + "\n무기: " + dataWeapon3);
+          var dataCo = dataC1.split("코디 분석")[1].split("<div class=\"col-6 col-md-8 col-lg-6\">")[0];
+          var codirep = guitarM.getCodi(dataCo);
+          replier.reply(codirep);
         }
       }
     }
     if(msg.startsWith("!방무")){
       var mobDef = msg.split(" ")[1];
       var myDef = msg.split(" ")[2];
-      if(mobDef == undefined){
-        replier.reply("몬스터 방어율을 입력해주세요.\n\n!방무 (몬스터 방어율) (현재 방어율) (추가 방어율1) (추가방어율2) ... : 총 방어율과 예상 딜량을 계산하여 보여줍니다.");
-      }
-      else if(mobDef != undefined && myDef == undefined){
-        replier.reply("현재 방어율을 입력해주세요.\n\n!방무 (몬스터 방어율) (현재 방어율) (추가 방어율1) (추가방어율2) ... : 총 방어율과 예상 딜량을 계산하여 보여줍니다.");
-      }
-      else if(myDef < 0){
-        replier.reply("현재 방어율은 음수가 될 수 없습니다.");
-      }
-      else{
-        var deflen = msg.split(" ").length;
-        var chkN = false;
-        for(var i = 1; i < deflen; ++i){
-          if(isNaN(msg.split(" ")[i])){
-            chkN = true;
-          }
-        }
-        if(chkN){
-          replier.reply("숫자를 입력해주세요.");
-        }
-        else{
-        var defResult = defenseRate(msg);
-        replier.reply(defResult);
-        }
-      }
+      var defrep = guitarM.getDefense(mobDef, myDef, msg);
+      replier.reply(defrep);
     }
     if(msg == "!데굴" || msg == "!데굴데굴" || msg == "!주사위"){
-      var sumStat = 9;
-      var STR = 4;
-      var ran = getRandomInt(0, sumStat + 1);
-      STR += ran;
-      sumStat -= ran;
-      ran = getRandomInt(0, sumStat + 1);
-      var DEX = 4;
-      DEX += ran;
-      sumStat -= ran;
-      ran = getRandomInt(0, sumStat + 1);
-      var INT = 4;
-      INT += ran;
-      sumStat -= ran;
-      var LUK = 4;
-      LUK += sumStat;
-
-      replier.reply(sender + "\n\nSTR : " + STR + "\nDEX : " + DEX + "\nINT : " + INT + "\nLUK : " + LUK);
+      var dicerep = guitarM.getDice();
+      replier.reply(sender + dicerep);
     }
     if(msg.startsWith("!영환") || msg.startsWith("!영환불")){
       var addtitle = "";
@@ -439,15 +350,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       else{
         const addM = require('Addop');
         var addResult = "";
-        if(addLevel == 150){
-          addResult += "150제 아이템 ";
-        }
-        else if(addLevel == 160){
-          addResult += "160제 아이템 ";
-        }
-        else if(addLevel == 200){
-          addResult += "200제 아이템 ";
-        }
+        if(addLevel == 150){ addResult += "150제 아이템 "; }
+        else if(addLevel == 160){ addResult += "160제 아이템 "; }
+        else if(addLevel == 200){ addResult += "200제 아이템 "; }
         addtitle = addResult;
         if(msg.split(" ")[2] == undefined || msg.split(" ")[2] == 1){
           var addition = [];
@@ -720,16 +625,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             dataHisExp[i] = tempHisExp.split("}")[0];
           }
 
-          var dataHis3 = dataHis1.split("columns: [[")[1];
-          var dataHis4 = dataHis3.split("exp")[0];
-
+          var dataHis3 = dataHis1.split("columns: [[")[1].split("exp")[0];
           var dataHisYear = [];
           for(i = 0; i < 7; ++i){
             dataHisYear[i] = "21";
           }
           var dataHisMonth = [];
           for(i = 0; i < 7; ++i){
-            var tempHisMonth = dataHis4.split(",\"")[i+1];
+            var tempHisMonth = dataHis3.split(",\"")[i+1];
             tempHisMonth = tempHisMonth.split("\\uc6d4")[0];
             if(tempHisMonth.length > 2){
               dataHisYear[i] = tempHisMonth.split("\\ub144")[0];
@@ -740,7 +643,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
           var dataHisDay = [];
           for(i = 0; i < 7; ++i){
-            var tempHisDay = dataHis4.split("uc6d4 ")[i+1];
+            var tempHisDay = dataHis3.split("uc6d4 ")[i+1];
             dataHisDay[i] = tempHisDay.split("\\")[0];
           }
           var history = "";
@@ -831,15 +734,24 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("지금은 " + day.getHours() + "시 " + day.getMinutes() + "분 " + day.getSeconds() + "초입니다.");
     }
     if(msg == "!썬데이" || msg == "!선데이"){
-      var dataSun = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/News/Event/496").get();
-      dataSun = dataSun.toString();
-      var dataSundate = dataSun.split("event_date\">")[1];
-      dataSundate = dataSundate.split(" 00시 00분")[0];
-      dataSun = dataSun.split("썬데이 메이플!\" src=\"")[1];
-      dataSun = dataSun.split("\" usemap=")[0];
-      var sunlink = "/News/Event/496";
+      var mapleeventurl = "https://maplestory.nexon.com/News/Event";
+      var SundayMaple = org.jsoup.Jsoup.connect(mapleeventurl).get().toString();
+      SundayMaple = SundayMaple.split("이벤트 전체보기")[1].split("</div>")[0];
+      if(SundayMaple.indexOf("썬데이 메이플") == -1){
+        replier.reply("아직 썬데이 메이플 이벤트 공지가 올라오지 않았습니다. 금요일 오전 10시쯤 다시 시도해주세요.");
+      }
+      else{
+        var sunlink = SundayMaple.split("\">썬데이 메이플")[0];
+        sunlink = sunlink.slice(sunlink.length - 30, sunlink.length).split("<a href=\"")[1];
+        var Sundayurl = "https://maplestory.nexon.com" + sunlink;
+        var dataSun = org.jsoup.Jsoup.connect(Sundayurl).get();
+        dataSun = dataSun.toString();
+        var dataSundate = dataSun.split("event_date\">")[1];
+        dataSundate = dataSundate.split(" 00시 00분")[0];
+        dataSun = dataSun.split("썬데이 메이플!\" src=\"")[1];
+        dataSun = dataSun.split("\" usemap=")[0];
 
-      Kakao.send(room,
+        Kakao.send(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59697,
@@ -850,19 +762,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             }
         },
          "custom");
+      }
     }
     if(msg == "!업데이트" || msg == "!업뎃"){
       var mapleHome = "https://maplestory.nexon.com/";
-      var mapleUp = "https://maplestory.nexon.com/News/Update";
-      var dataUP1 = org.jsoup.Jsoup.connect(mapleUp).get();
-      dataUP1 = dataUP1.toString();
-      var dataUP2 = dataUP1.split("<!-- notice ul str -->")[1];
-      dataUP2 = dataUP2.split("</span>")[0];
-      var dataUP3 = dataUP2.split("<a href=\"")[1];
-      dataUP3 = dataUP3.split("\">")[0];
-      var dataUP4 = dataUP2.split("<span>")[1];
-
-      replier.reply(dataUP4 + "\n\n" + mapleHome + dataUP3);
+      var dataUP = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/News/Update").get().toString();
+      var updaterep = guitarM.getUpdate(mapleHome, dataUP);
+      replier.reply(updaterep);
     }
     if(msg.startsWith("!추옵") || msg.startsWith("!추가옵션")){
       var weaponName = msg.split(" ")[1];
@@ -875,38 +781,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(wpaddop);
       }
     }
-    if(msg.startsWith("!그님티")){
+    if(msg.startsWith("!그님티") || msg.startsWith("!롤")){
       if(msg.split(" ")[1] == undefined){
         replier.reply("닉네임을 입력해주세요.\n\n!그님티 (롤아이디) : 해당 아이디의 티어를 보여줍니다.");
       }
       else{
-        var lolrank = "";
         var lolnick = msg.slice(5);
         var opgg = "https://www.op.gg/summoner/userName=" + lolnick;
-        var dataL1 = org.jsoup.Jsoup.connect(opgg).get();
-        dataL1 = dataL1.toString();
-
-        if(dataL1.indexOf("TierRankInfo") == -1){
-          replier.reply("그런 닉네임의 롤 아이디는 존재하지 않습니다.");
-        }
-        else{
-          var dataL2 = dataL1.split("TierRankInfo\">")[1];
-          dataL2 = dataL2.split("sub-tier")[0];
-        
-          if(dataL2.indexOf("TierRank unranked") != -1){
-            lolrank = "언랭";
-          }
-          else{
-            var dataL3 = dataL2.split("TierRank\">")[1];
-            var dataL4 = dataL3.split("</div>")[0];
-            lolrank = dataL4;
-            lolrank = lolrank.replace(/ /g, "");
-            lolrank = lolrank.slice(0, lolrank.length - 1);
-            lolrank = getTier(lolrank);
-          }
-
-          replier.reply("그래서 " + lolnick + " 님 티어는\n\n" + lolrank);
-        }
+        var dataL = org.jsoup.Jsoup.connect(opgg).get().toString();
+        var lolrep = guitarM.getLol(dataL, lolnick);
+        replier.reply(lolrep);
       }
     }
     /*if(msg.startsWith("!똥캐")){
@@ -979,8 +863,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       dataRTarr = [];
       var tempRT = "";
       for(i = 0; i < 10; ++i){
-        tempRT = dataRT.split("<span class=\"word\">")[i+1];
-        tempRT = tempRT.split("</span>")[0];
+        tempRT = dataRT.split("<span class=\"word\">")[i+1].split("</span>")[0];
         dataRTarr.push(tempRT);
       }
       Kakao.send(room,
@@ -988,16 +871,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           "link_ver" : "4.0",
           "template_id" : 59549,
           "template_args" : {
-                               "title0" : dataRTarr[0],
-                               "title1" : dataRTarr[1],
-                               "title2" : dataRTarr[2],
-                               "title3" : dataRTarr[3],
-                               "title4" : dataRTarr[4], 
-                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139017.png",
-                               "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139333.png",
-                               "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139330.png",
-                               "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139327.png",
-                               "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139325.png"
+                               "title0" : dataRTarr[0], "title1" : dataRTarr[1], "title2" : dataRTarr[2], "title3" : dataRTarr[3], "title4" : dataRTarr[4], 
+                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139017.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139333.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139330.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139327.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139325.png"
                             }
         },
          "custom");
@@ -1006,16 +881,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           "link_ver" : "4.0",
           "template_id" : 59549,
           "template_args" : {
-                               "title0" : dataRTarr[5],
-                               "title1" : dataRTarr[6],
-                               "title2" : dataRTarr[7],
-                               "title3" : dataRTarr[8],
-                               "title4" : dataRTarr[9], 
-                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png",
-                               "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png",
-                               "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png",
-                               "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png",
-                               "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
+                               "title0" : dataRTarr[5], "title1" : dataRTarr[6], "title2" : dataRTarr[7], "title3" : dataRTarr[8], "title4" : dataRTarr[9], 
+                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
                             }
         },
          "custom");   
@@ -1025,23 +892,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("최소 2개이상의 단어를 입력해주세요.\n\n!사다리타기/!사다리 (단어) : 띄어쓰기로 구분된 단어들을 랜덤으로 순위를 매겨 보여줍니다. 최소 두 단어 이상 입력하여야 합니다.");
       }
       else{
-        var laddercnt = msg.split(" ").length;
-        var ladderarr = [];
-        for(i = 1; i < laddercnt; ++i){
-          var ladderword = msg.split(" ")[i];
-          var ladderint = getRandomInt(0, 1000000);
-          var laddertemp = { words : ladderword, ints : ladderint };
-          ladderarr.push(laddertemp);
-        }
-        ladderarr.sort(ladderComp);
-        var ladderrep = "";
-        for(i = 0; i < ladderarr.length; ++i){ 
-          ladderrep += i + 1;
-          ladderrep += "등 : ";
-          ladderrep += ladderarr[i].words;
-          ladderrep += "\n";
-        }
-        ladderrep = ladderrep.slice(0, ladderrep.length - 1);
+        var ladderrep = guitarM.getLadder(msg);
         replier.reply(ladderrep);
       }
     }
@@ -1172,12 +1023,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
           else{
             var sfLevel = 0, sfStart = 0, sfDest = 0, sfCatch = 0, sfEvent = 0, sfDefend = 0;
-            sfLevel = parseInt(msg.split(" ")[1]);
-            sfStart = parseInt(msg.split(" ")[2]);
-            sfDest = parseInt(msg.split(" ")[3]);
-            sfCatch = parseInt(msg.split(" ")[4]);
-            sfEvent = parseInt(msg.split(" ")[5]);
-            sfDefend = parseInt(msg.split(" ")[6]);
+            sfLevel = parseInt(msg.split(" ")[1]); sfStart = parseInt(msg.split(" ")[2]); sfDest = parseInt(msg.split(" ")[3]); sfCatch = parseInt(msg.split(" ")[4]); sfEvent = parseInt(msg.split(" ")[5]); sfDefend = parseInt(msg.split(" ")[6]);
             if(sfM.isSFready(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend) != 0){
               replier.reply("조건에 맞지않는 요소가 있습니다.\n\n" + sfhelp + "\n오류코드 : " + sfM.isSFready(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend));
             }
@@ -1205,10 +1051,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         else{
           bname = gbM.getBossname2(bossind);
 
-          var priceinfo = dataCrystal2.split(bname)[1];
-          priceinfo = priceinfo.split("},")[0];
-          priceinfo = priceinfo.split("data\": [")[1];
-          priceinfo = priceinfo.split("]")[0];
+          var priceinfo = dataCrystal2.split(bname)[1].split("},")[0].split("data\": [")[1].split("]")[0];
           var priceind = priceinfo.split(",").length;
           var pastprice = parseInt(priceinfo.split(",")[priceind - 2]);
           var currentprice = parseInt(priceinfo.split(", ")[priceind - 1]);
@@ -1270,12 +1113,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                   var cubeweb = cubeM.web + cn;
                   var dataCube = org.jsoup.Jsoup.connect(cubeweb).get().toString();
                   try{
-                  dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("<tbody>")[1]
-                  .replace(/<\/tr>/g, "")
-                  .replace(/<tr>/g, "")
-                  .replace(/  /g, "")
-                  .replace(/&lt;/g, "<")
-                  .replace(/&gt;/g, ">");
+                  dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("<tbody>")[1].replace(/<\/tr>/g, "").replace(/<tr>/g, "").replace(/  /g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
                   if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
                   dataCube = dataCube.slice(4, dataCube.length);
 
@@ -1340,7 +1178,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                         var cubesixth = msg.split(" ")[6];
                         if(cubesixth == undefined){
                           var cubeoneabil = "";
-                          cubeoneabil += cuberep + cubeM.getCuberateOneabil(cabilind, cubefifth, poten1, poten2, poten3, prate1, prate2, prate3);
+                          cubeoneabil += cuberep + cubeM.getCuberateOneabil(cn, cabilind, cubefifth, poten1, poten2, poten3, prate1, prate2, prate3);
                           replier.reply(cubeoneabil);
                         }
                         else{
@@ -1353,7 +1191,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             if(isNaN(cubeseventh)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
                             else{
                               var cubetwoabil = "";
-                              cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
+                              cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cn, cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
                               replier.reply(cubetwoabil);
                             }
                           }
@@ -1454,52 +1292,16 @@ function onPause(activity) {}
 function onStop(activity) {}
 
 function mapleupdate(nick) {
-
   var isError = JSON.parse(org.jsoup.Jsoup.connect('https://maple.gg/u/'+encodeURI(nick)+'/sync').ignoreContentType(true).get().text()).error;
   var isDone = JSON.parse(org.jsoup.Jsoup.connect('https://maple.gg/u/'+encodeURI(nick)+'/sync').ignoreContentType(true).get().text()).done;
 
   if(isError == true) {
       return '유저정보가 없습니다.';
-  } else {
-    if(isDone == false){
-      return '갱신중입니다. 1~10초 내에 반영됩니다.';
-    }
-    else{
-      return '이미 갱신되었습니다.';
-    }
-
+  } 
+  else {
+    if(isDone == false){ return '갱신중입니다. 1~10초 내에 반영됩니다.'; }
+    else{ return '이미 갱신되었습니다.'; }
   }
-
-}
-function defenseRate(msg){
-  var mobdef = msg.split(" ")[1];
-  var curdef = msg.split(" ")[2];
-  var curdef2 = (curdef / 1).toFixed(2);
-  var defleng = msg.split(" ").length;
-
-  var sumDef = "총 방무 : ";
-  var defRes = "방어율 " + mobdef + "%인 몬스터에게 예상 딜량 : "; 
-
-  if(defleng == 3){
-    sumDef += curdef2 + "%\n";
-    var deal = (100 - (mobdef * (100 - curdef) / 100)).toFixed(2);
-    defRes += deal + "%";
-  }
-  else{
-    var i;
-    for(i = 3; i < defleng; i++){
-      var defs = msg.split(" ")[i];
-      var tempdef1 = 100 - curdef;
-      var tempdef2 = defs / 100;
-      var tempdef3 = tempdef1 * tempdef2;
-      curdef = parseFloat(curdef) + tempdef3;
-    }
-    var curdef4 = (curdef / 1).toFixed(2);
-    sumDef += curdef4 + "%\n";
-    var deals = (100 - (mobdef * (100 - curdef) / 100)).toFixed(2);
-    defRes += deals + "%";
-  }
-  return (sumDef + defRes);
 }
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -1512,9 +1314,6 @@ function cumulate(arr, ind) {
     ret += arr[i];
   }
   return ret;
-}
-function ladderComp(a, b){
-  return a.ints - b.ints;
 }
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -1537,7 +1336,7 @@ function gettoday(){
 var accexps = [ 0, 15, 49, 106, 198, 333, 705, 1265, 2105, 3347, 4589, 5831, 7073, 8315, 9557, 11047, 12835, 14980, 17554, 20642, 24347, 28793, 34128, 40530, 48212, 57430, 68491, 81764, 97691, 116803, 135915, 155027, 174139, 193251, 212363, 235297, 262817, 295841, 335469, 383022, 434379, 489844, 549746, 614440, 684309, 759767, 841261, 929274, 1024328, 1126986, 1237856, 1357595, 1486913, 1626576, 1777412, 1940314, 2116248, 2306256, 2511464, 2733088, 2954712, 3176336, 3397960, 3619584, 3841208, 4079453, 4335566, 4610887, 4906857, 5225024, 5567053, 5934734, 6329991, 6754892, 7211660, 7700401, 8223353, 8782911, 9381638, 10022275, 10707756, 11441220, 12226026, 13065768, 13964291, 14925710, 15954428, 17055156, 18232934, 19493156, 20835292, 22264666, 23786949, 25408180, 27134791, 28973631, 30931995, 33017652, 35238876, 37604479, 39970082, 42335685, 44701288, 47066891, 49432494, 51951861, 54634986, 57492514, 60535781, 63776860, 67228609, 70904721, 74819780, 78989317, 83429873, 88159065, 93195654, 98559621, 104272245, 110356189, 116835589, 123736150, 131085247, 138912035, 147247564, 156124902, 165579266, 175648163, 186371538, 197791932, 209954651, 222907946, 236703205, 251395155, 267042081, 283706057, 301453191, 320353888, 340483130, 361920772, 384698266, 408899353, 434613007, 461933764, 490962068, 521804641, 554574874, 589393246, 626387766, 665694443, 707457787, 751831340, 798978240, 849071821, 902296250, 958847205, 1018932594, 1082773319, 1150604089, 1222674282, 1299248862, 1380609353, 1467054874, 1558903240, 1656492128, 1760180321, 1870349026, 1987403275, 2111773414, 2243916686, 2382667121, 2528355077, 2681327430, 2841948400, 3010600418, 3187685036, 3373623884, 3568859674, 3773857253, 3989104710, 4215114539, 4452424859, 4701600695, 4963235322, 5237951680, 5526403855, 5829278638, 6147297160, 6481216608, 6831832028, 7199978219, 7586531719, 7992412894, 8418588127, 8866072121, 9335930314, 9829281416, 10347300073, 10891219662, 11462335230, 13669361590, 16141231346, 18909725349, 22010438632, 25483237508, 29372772249, 33729051158, 38608083536, 44072599799, 50192858013, 59985271155, 70854849742, 82920081973, 96312489749, 111178062380, 130503306800, 151567823217, 174528146111, 199554898065, 226834057694, 270480713100, 317182634384, 367153690157, 420622719834, 477834581588, 552210001868, 630304193162, 712303094020, 798401939920, 888805728115, 1033451789227, 1182437232172, 1335892238405, 1493950894824, 1656751310935, 1868391851879, 2086381609051, 2310911058938, 2542176392321, 2780379685705, 3161504955119, 3554063982615, 3958399780935, 4374865653204, 4803825501641, 5361473304609, 5935850541666, 6527459095834, 7136815906627, 7764453421743, 9078218184097, 10405120594074, 11745292028150, 13098865176566, 14465974056466, 15846754025165, 17241341793550, 18649875439618, 20072494422146, 21509339594499, 24411766842652, 27343218363286, 30303984399126, 33294358095324, 36314635528483, 39365115735973, 42446100745537, 45557895605196, 48700808413451, 51875150349788, 58287321061188, 64763613479702, 71304668822401, 77911134718526, 84583665273612, 98062176994885, 112888539888285, 129197539071025, 147137438172039, 166871327183154, 206733782985606, 250582484368303, 298816055889269, 351872984562331, 410235606102699, 528128101614242, 657809846676939, 800459766245905, 957374677771767, 1129981080450210, 1478646013860670, 1862177440612180, 2284062010038850, 2748135036408170, 3258615365414430, 4289785630007070, 5424072921058980, 6671788941216080, 8044276563388880, 10103007996648000 ];
 var exps = [ 15,34,57,92,135,372,560,840,1242,1242,1242,1242,1242,1242,1490,1788,2145,2574,3088,3705,4446,5335,6402,7682,9218,11061,13273,15927,19112,19112,19112,19112,19112,19112,22934,27520,33024,39628,47553,51357,55465,59902,64694,69869,75458,81494,88013,95054,102658,110870,119739,129318,139663,150836,162902,175934,190008,205208,221624,221624,221624,221624,221624,221624,238245,256113,275321,295970,318167,342029,367681,395257,424901,456768,488741,522952,559558,598727,640637,685481,733464,784806,839742,898523,961419,1028718,1100728,1177778,1260222,1342136,1429374,1522283,1621231,1726611,1838840,1958364,2085657,2221224,2365603,2365603,2365603,2365603,2365603,2365603,2519367,2683125,2857528,3043267,3241079,3451749,3676112,3915059,4169537,4440556,4729192,5036589,5363967,5712624,6083944,6479400,6900561,7349097,7826788,8335529,8877338,9454364,10068897,10723375,11420394,12162719,12953295,13795259,14691950,15646926,16663976,17747134,18900697,20129242,21437642,22777494,24201087,25713654,27320757,29028304,30842573,32770233,34818372,36994520,39306677,41763344,44373553,47146900,50093581,53224429,56550955,60085389,63840725,67830770,72070193,76574580,81360491,86445521,91848366,97588888,103688193,110168705,117054249,124370139,132143272,138750435,145687956,152972353,160620970,168652018,177084618,185938848,195235790,204997579,215247457,226009829,237310320,249175836,261634627,274716358,288452175,302874783,318018522,333919448,350615420,368146191,386553500,405881175,426175233,447483994,469858193,493351102,518018657,543919589,571115568,2207026470,2471869646,2768494003,3100713283,3472798876,3889534741,4356278909,4879032378,5464516263,6120258214,9792413142,10869578587,12065232231,13392407776,14865572631,19325244420,21064516417,22960322894,25026751954,27279159629,43646655406,46701921284,49971055773,53469029677,57211861754,74375420280,78094191294,81998900858,86098845900,90403788195,144646061112,148985442945,153455006233,158058656419,162800416111,211640540944,217989757172,224529449887,231265333383,238203293384,381125269414,392559027496,404335798320,416465872269,428959848437,557647802968,574377237057,591608554168,609356810793,627637515116,1313764762354,1326902409977,1340171434076,1353573148416,1367108879900,1380779968699,1394587768385,1408533646068,1422618982528,1436845172353,2902427248153,2931451520634,2960766035840,2990373696198,3020277433159,3050480207490,3080985009564,3111794859659,3142912808255,3174341936337,6412170711400,6476292418514,6541055342699,6606465896125,6672530555086,13478511721273,14826362893400,16308999182740,17939899101014,19733889011115,39862455802452,43848701382697,48233571520966,53056928673062,58362621540368,117892495511543,129681745062697,142649919568966,156914911525862,172606402678448,348664933410464,383531426751510,421884569426661,464073026369327,510480329006259,1031170264592640,1134287291051900,1247716020157090,1372487622172800,2058731433259200];
 
-var adminNick = "리부트/256/보마";
+var adminNick = "리부트/257/보마";
 var nickname = "";
 var sunday = "";
 var jobmention = "";

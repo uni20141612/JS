@@ -409,7 +409,7 @@ cb.getCubeability = function (abilname){
     }
     return ret;
 }
-cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
+cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, temprate = 1.0, finalrate = 0.0;
     var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
@@ -873,11 +873,16 @@ cb.getCuberateOneabil = function (abilind, abilval, p1, p2, p3, r1, r2, r3){
         }
     }
     var frate = finalrate.toFixed(8);
+    var cubenum = (100 / finalrate).toFixed(0);
     if(finalrate == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
-    else{rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + frate + "% 입니다.";}
+    else{
+        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + frate + "% 입니다.\n";
+        rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+        rep += getCubeprice(cubename, cubenum);
+    }
     return rep;
 }
-cb.getCuberateTwoabil = function (abilind, abilval, abilind2, abilval2, p1, p2, p3, r1, r2, r3){
+cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate = 0.0;
     var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
@@ -1359,12 +1364,15 @@ cb.getCuberateTwoabil = function (abilind, abilval, abilind2, abilval2, p1, p2, 
         }
     }
     var frate = finalrate.toFixed(8);
+    var cubenum = (100 / finalrate).toFixed(0);
     if(finalrate1 == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate2 == 0){rep += "\n해당 수치가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}}
     else if(finalrate2 == 0){rep += "해당 수치가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
     else{
         rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
         rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.";
+        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+        rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+        rep += getCubeprice(cubename, cubenum);
     }
     return rep;
 }
@@ -1549,6 +1557,57 @@ function getabilityCode(poten){
     }
     return ret;
 }
+function getCubeprice(cubename, cubenum){
+    crep = "";
+    if(cubename == "red"){
+        crep += "\n\n";
+        crep += "레드큐브 낱개로 구매 시 예상 비용은 " + Jari(cubenum * pred) + "원 입니다.\n";
+        crep += "레드 식스팩으로 구매 시 예상 비용은 " + Jari(cubenum * predsetsix) + "원 입니다.\n";
+        crep += "레드 더블식스팩으로 구매 시 예상 비용은 " + Jari(cubenum * predsettwelve) + "원 입니다.\n";
+        crep += "리부트 월드에서 구매 시 예상 비용은 " + Jari(cubenum * predreboot) + "메소 입니다.";
+    }
+    else if(cubename == "black"){
+        crep += "\n\n";
+        crep += "블랙큐브 낱개로 구매 시 예상 비용은 " + Jari(cubenum * pblack) + "원 입니다.\n";
+        crep += "블랙 식스팩으로 구매 시 예상 비용은 " + Jari(cubenum * pblacksetsix) + "원 입니다.\n";
+        crep += "블랙 더블식스팩으로 구매 시 예상 비용은 " + Jari(cubenum * pblacksettwelve) + "원 입니다.\n";
+        crep += "리부트 월드에서 구매 시 예상 비용은 " + Jari(cubenum * pblackreboot) + "메소 입니다.";
+    }
+    else if(cubename == "addi"){
+        crep += "\n\n";
+        crep += "에디셔널 큐브 낱개로 구매 시 예상 비용은 " + Jari(cubenum * paddi) + "원 입니다.\n";
+        crep += "실버 에디셔널 큐브 세트로 구매 시 예상 비용은 " + Jari(cubenum * paddisetfive) + "원 입니다.\n";
+        crep += "골드 에디셔널 큐브 세트로 구매 시 예상 비용은 " + Jari(cubenum * paddisetten) + "원 입니다.";
+    }
+    return crep;
+}
+function Jari(price){
+    var ret = "";
+    if(price < 10000){
+      ret = price + "";
+    }
+    else if(price < 100000000 && price >= 10000)
+    {
+      ret = parseInt(price / 10000) + "만 ";
+      if(parseInt(price % 10000) > 0) { ret += parseInt(price % 10000);}
+    }
+    else if(price < 1000000000000 && price >= 100000000)
+    {
+      ret = parseInt(price / 100000000) + "억";
+      if(parseInt((price % 100000000) / 10000) > 0){ ret += " " + parseInt((price % 100000000) / 10000) +  "만";};
+      if(price % 10000 > 0) { ret += " " + price % 10000;}
+    }
+    else if(price < 10000000000000000 & price >= 1000000000000)
+    {
+      ret = parseInt(price / 1000000000000) + "조 " + parseInt((price % 1000000000000) / 100000000) + "억";
+      if(parseInt((price % 100000000) / 10000) > 0){ ret += " " + parseInt((price % 100000000) / 10000) + "만";}
+      if(price % 10000 > 0){ret += " " + price % 10000;};
+    }
+    else{
+      ret = price;
+    }
+    return ret;
+}
 
 cb.web = "https://maplestory.nexon.com/Guide/OtherProbability/cube/";
 cb.upred = [6.0, 1.8, 0.3];
@@ -1557,5 +1616,16 @@ cb.upaddi = [4.7619, 1.9608, 0.4975];
 cb.upstrange = [0.9901];
 cb.upmaster = [4.7619, 1.1858];
 cb.upartisan = [7.9994, 1.6959, 0.1996];
+var pred = 1200;
+var predsetsix = 1000;
+var predsettwelve = 900;
+var predreboot = 12500000;
+var pblack = 2200;
+var pblacksetsix = 1833;
+var pblacksettwelve = 1650;
+var pblackreboot = 22600000;
+var paddi = 2400;
+var paddisetfive = 1980;
+var paddisetten = 1890;
 
 module.exports = cb;
