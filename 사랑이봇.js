@@ -59,6 +59,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("리로드 실패");
       }
     }
+    if((sender == "천한수" || sender == adminNick) && (msg.startsWith("!공지"))){
+      var notices = msg.slice(4, msg.length);
+      Api.replyRoom("UniMaple", notices);
+    }
     if(msg == "!도움말" || msg == "!명령어"){
       const helpM = require('Help');
       var help = helpM.gethelp();
@@ -72,7 +76,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.startsWith("ㅋㅋㅋ")){
       Api.markAsRead(room);
     }
-    if(msg == "테스트"){     
+    if(sender == "천한수" && msg == "테스트"){     
       replier.reply("테스트용입니다.");      //스타포스      //보스 전리품     
     }
     if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
@@ -1088,7 +1092,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const cubeM = require('Cube');
       var cubename = msg.split(" ")[1];
       if(cubename == undefined){
-        replier.reply("큐브 이름을 입력해주세요.\n\n!큐브 (큐브이름) (잠재등급) (장비분류) (1,2,3) : 큐브에 대한 정보를 보여줍니다.\n(큐브이름)만 입력 시 해당큐브의 등급 상승 확률표를 보여줍니다.\n(잠재등급) 까지만 입력 시 해당 큐브의 해당 등급에서의 옵션별 등급 설정 확률을 보여줍니다.\n(장비분류) 까지만 입력 시 해당 큐브의 해당 등급의 세부 확률표를 보여줍니다. 1,2,3입력시 각 번째에 해당하는 옵션의 확률만 보여줍니다.");
+        replier.reply("큐브 이름을 입력해주세요.\n\n!큐브 (큐브이름) (잠재등급) (장비분류) (1,2,3)/(잠재옵션) (수치) : 큐브에 대한 정보를 보여줍니다.\n(큐브이름)만 입력 시 해당큐브의 등급 상승 확률표를 보여줍니다.\n(잠재등급) 까지만 입력 시 해당 큐브의 해당 등급에서의 옵션별 등급 설정 확률을 보여줍니다.\n(장비분류) 까지만 입력 시 해당 큐브의 해당 등급의 세부 확률표를 보여줍니다. 1,2,3입력시 각 번째에 해당하는 옵션의 확률만 보여줍니다.\n(잠재옵션)과 (수치)를 입력시 해당 잠재옵션이 해당 수치이상 나올 확률을 보여줍니다. 이 기능은 두가지 잠재 옵션까지 기입할 수 있습니다. (예시 : !큐브 블랙 레전 무기 보공 60 공 9)\n잠재 옵션 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
       }
       else{
         var cn = cubeM.getCubename(cubename);
@@ -1173,7 +1177,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                     else{
                       var cubefifth = parseInt(msg.split(" ")[5]);
                       if(isNaN(cubefifth)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
-                      else if(cubefifth < 0 || cubefifth % 1 != 0){replier.reply(cubefifth + " >> 수치는 음수나 소수점이 포함된 수가 될 수 없습니다.");}
+                      else if(cubefifth < 0){replier.reply(cubefifth + " >> 수치는 음수가 될 수 없습니다.");}
                       else{
                         var cubesixth = msg.split(" ")[6];
                         if(cubesixth == undefined){
@@ -1189,10 +1193,30 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                           else{
                             var cubeseventh = parseInt(msg.split(" ")[7]);
                             if(isNaN(cubeseventh)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
+                            else if(cubeseventh < 0){replier.reply(cubeseventh + " >> 수치는 음수가 될 수 없습니다.");}
                             else{
-                              var cubetwoabil = "";
-                              cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cn, cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
-                              replier.reply(cubetwoabil);
+                              var cubeeighth = msg.split(" ")[8];
+                              if(cubeeighth == undefined){
+                                var cubetwoabil = "";
+                                cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cn, cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
+                                replier.reply(cubetwoabil);
+                              }
+                              else{
+                                var cabilind3 = cubeM.getCubeability(cubeeighth);
+                                if(cabilind3 == -1){
+                                  replier.reply(cubeeighth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                                }
+                                else{
+                                  var cubenineth = parseInt(msg.split(" ")[9]);
+                                  if(isNaN(cubenineth)){replier.reply("수치가 누락되었거나 숫자가 아닙니다.");}
+                                  else if(cubenineth < 0){replier.reply(cubenineth + " >> 수치는 음수가 될 수 없습니다.");}
+                                  else{
+                                    var cubethreeabil = "";
+                                    cubethreeabil += cuberep + cubeM.getCuberateThreeabil(cn, cabilind, cubefifth, cabilind2, cubeseventh, cabilind3, cubenineth, poten1, poten2, poten3, prate1, prate2, prate3);
+                                    replier.reply(cubethreeabil);
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -1208,6 +1232,40 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
         }
       }
+    }
+    if(msg.startsWith("!영어로") || msg.startsWith("!영어")){
+      var engword = msg.split(" ")[1];
+      var engdict = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=" + engword + "+영어로").get().toString();      
+      var engwordmean = "";
+      var engwordex = "";
+      if(engdict.indexOf("api_txt_lines\">") != -1){
+        if(engdict.split("api_txt_lines\">").length > 2){
+          for(i = 1; i < engdict.split("api_txt_lines\">").length; ++i){
+            engwordmean += i + ". " + engdict.split("api_txt_lines\">")[i].split("</p>")[0];
+            engwordmean += "\n";
+          }
+        }
+        else{
+          engwordmean += engdict.split("api_txt_lines\">")[1].split("</p>")[0];
+        }
+        engwordmean = engwordmean.slice(0, engwordmean.length - 1);
+        if(engdict.indexOf("span lang=\"en\">") != -1){
+          engwordex = engdict.split("span lang=\"en\">")[1].split("</span>")[0];
+        }
+      }
+      var engrep = "";
+      if(engwordmean != ""){
+        if(engwordex != ""){
+          engrep = engword + "\n\n" + engwordmean + "\n\n" + engwordex;
+        }
+        else{
+          engrep = engword + "\n\n" + engwordmean;
+        }
+      }
+      else{
+        engrep = engword + " >> 사전 검색결과가 없습니다.";
+      }
+      replier.reply(engrep);
     }
     if(msg.startsWith("!")){
       const jobM = require('Job');
