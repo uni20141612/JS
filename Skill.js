@@ -229,9 +229,12 @@ sk.getJobcode = function(job) {
     case "해적":
         ret = 62;
         break;
-    case "공용":
+    case "모험가":
         ret = 63;
-        break;        
+        break;       
+    case "공용":
+        ret = 64;
+        break;          
 	default:
 		ret = -1;
 		break;
@@ -533,13 +536,13 @@ sk.getJobskillList = function(ind) {
         rep = "에반\n\n";
         break;
     case 31:
-        rep = "루미너스\n\n";
+        rep = "루미너스\n\n0차 : 파워 오브 라이트, 라이트 블링크, 퍼미에이트, 선파이어, 이클립스, 이퀄리브리엄\n1차: 라이트랜스포밍, 오디너리 매직가드, 익스텐드 마나, 빛 마법 강화 / 어둠 마법 강화\n2차: 실피드 랜서, 인바이러빌러티, 블레스 오브 다크니스, 스펠 마스터리, 하이 위즈덤\n3차: 샤인 리뎀션, 데스 사이드, 안티 매직쉘, 포틱 메디테이션, 라이트쉐도우 가드, 라이프 타이달\n4차: 운명의 갈림길, 라이트 리플렉션, 모닝 스타폴, 아포칼립스, 앱솔루트 킬, 다크니스 소서러, 다크 크레센도, 다크라이트 마스터리\n하이퍼스킬 : 메모라이즈, 아마겟돈\n5차: 진리의 문, 퍼니싱 리조네이터, 빛과 어둠의 세례, 리버레이션 오브";
         break;
     case 32:
         rep = "메르세데스\n\n";
         break;
     case 33:
-        rep = "팬텀\n\n";
+        rep = "팬텀\n\n1차 : 탤런트 오브 팬텀시프I\n2차 : 탤런트 오브 팬텀시프II\n3차 : 탤런트 오브 팬텀시프III, 미스포츈 프로텍션, 코트 오브 암즈, 럭 오브 팬텀시프, 플래시 앤 플리\n4차 : 탤런트 오브 팬텀시프IV, 얼티밋 드라이브, 템페스트 오브 카드, 느와르 카르트, 트와일라이트, 프레이 오브 아리아, 소울 스틸\n하이퍼스킬 : 탤런트 오브 팬텀시프H, 로즈 카르트 피날레\n5차 : 조커, 블랙잭, 리프트 브레이크, 마크 오브 팬텀";
         break;
     case 34:
         rep = "은월\n\n";
@@ -572,7 +575,7 @@ sk.getJobskillList = function(ind) {
         rep = "호영\n\n";
         break;
     case 44:
-        rep = "제로\n\n";
+        rep = "제로\n\n공용: 듀얼 컴뱃, 디바인 포스, 디바인 스위프트, 륀느의 가호, 리졸브 타임, 륀느의 축복\n알파: 문 스트라이크, 피어스 쓰러스트, 쉐도우 스트라이크, 플래시 어썰터, (어드밴스드)스핀 커터, (어드밴스드)롤링 커브, (어드밴스드)롤링 어썰터, 윈드 커터, 윈드 스트라이크, (어드밴스드)스톰 브레이크,  컴뱃 리커버리, 리인포스 바디, 디바인 리어\n베타: 어퍼 슬래시, (어드밴스드)파워스텀프, 프론트 슬래시, (어드밴스드)스로잉 웨폰, 터닝 드라이브, (어드밴스드)휠 윈드, 기가 크래시, 점핑 크래시, (어드밴스드)어스 브레이크, 솔리드 바디, 아머 스플릿, 이뮨 배리어, 크리티컬 바인드\n초월자 스킬: 래피드 타임, 타임 디스토션, 타임 홀딩, 타임 리와인드, 쉐도우 레인\n5차: 리미트 브레이크, 조인트 어택, 쉐도우 플래시(알파/베타), 에고 웨폰(알파/베타), 초월자 륀느의 기원";
         break;
     case 45:
         rep = "키네시스\n\n";
@@ -767,8 +770,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "에반";
             break;
         case 31:
-            ret = -1;
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            ret = jobM.getskillLumi(skillname);
             break;
         case 32:
             ret = -1;
@@ -819,8 +822,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "호영";
             break;
         case 44:
-            ret = -1;
-            rep = "제로";
+            jobM = require('skillZero');
+            ret = jobM.getskillZero(skillname);
             break;
         case 45:
             ret = -1;
@@ -1018,8 +1021,8 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = "에반";
             break;
         case 31:
-            
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            rep = jobM.getskillnameLumi(skillcode);
             break;
         case 32:
             
@@ -1070,8 +1073,8 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = "호영";
             break;
         case 44:
-            
-            rep = "제로";
+            jobM = require('skillZero');
+            rep = jobM.getskillnameZero(skillcode);
             break;
         case 45:
             
@@ -1267,8 +1270,8 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = "에반";
             break;
         case 31:
-            
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            rep = jobM.getskilldesc1Lumi(skillcode);
             break;
         case 32:
             
@@ -1319,8 +1322,8 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = "호영";
             break;
         case 44:
-            
-            rep = "제로";
+            jobM = require('skillZero');
+            rep = jobM.getskilldesc1Zero(skillcode);
             break;
         case 45:
             
@@ -1532,8 +1535,8 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = "에반";
             break;
         case 31:
-            
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            rep = jobM.getskilldesc2Lumi(skillcode);
             break;
         case 32:
             
@@ -1584,8 +1587,8 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = "호영";
             break;
         case 44:
-            
-            rep = "제로";
+            jobM = require('skillZero');
+            rep = jobM.getskilldesc2Zero(skillcode);
             break;
         case 45:
             
@@ -1797,8 +1800,8 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = "에반";
             break;
         case 31:
-            
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            rep = jobM.getskillimage1Lumi(skillcode);
             break;
         case 32:
             
@@ -1849,8 +1852,8 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = "호영";
             break;
         case 44:
-            
-            rep = "제로";
+            jobM = require('skillZero');
+            rep = jobM.getskillimage1Zero(skillcode);
             break;
         case 45:
             
@@ -2062,8 +2065,8 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = "에반";
             break;
         case 31:
-            
-            rep = "루미너스";
+            jobM = require('skillLumi');
+            rep = jobM.getskillimage2Lumi(skillcode);
             break;
         case 32:
             
@@ -2114,8 +2117,8 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = "호영";
             break;
         case 44:
-            
-            rep = "제로";
+            jobM = require('skillZero');
+            rep = jobM.getskillimage2Zero(skillcode);
             break;
         case 45:
             
@@ -2198,70 +2201,5 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
     }
     return rep;
 };
-
-/*
-switch(skillcode){
-        case 0:
-            rep = "";
-            break;
-        case 1:
-            rep = "";
-            break;
-        case 2:
-            rep = "";
-            break;
-        case 3:
-            rep = "";
-            break;
-        case 4:
-            rep = "";
-            break;
-        case 5:
-            rep = "";
-            break;
-        case 6:
-            rep = "";
-            break;
-        case 7:
-            rep = "";
-            break;
-        case 8:
-            rep = "";
-            break;
-        case 9:
-            rep = "";
-            break;
-        case 10:
-            rep = "";
-            break;
-        case 11:
-            rep = "";
-            break;
-        case 12:
-            rep = "";
-            break;
-        case 13:
-            rep = "";
-            break;
-        case 14:
-            rep = "";
-            break;
-        case 15:
-            rep = "";
-            break;
-        case 16:
-            rep = "";
-            break;
-        case 17:
-            rep = "";
-            break;
-        case 18:
-            rep = "";
-            break;
-        case 19:
-            rep = "";
-            break;
-    }
- */
 
 module.exports = sk;

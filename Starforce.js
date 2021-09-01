@@ -3,64 +3,64 @@ const sf = {};
 sf.isSFready = function (A, B, C, D, E, F){
     var chkSF = 0;
     if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 140 && A != 150 && A != 160 && A != 200){
-      chkSF = 1;
+      chkSF = 1000;
     }
     else{
       if(B < 0 || B > 25){
-        chkSF = 2;
+        chkSF = 2000;
         if(B < 0){chkSF = 2001;}
         else{chkSF = 2002;}
       }
       else{
         if(A == 99 && B > 15){
-          chkSF = 3;
+          chkSF = 3000;
         }
         else if(A == 100 && B > 8){
-          chkSF = 4;
+          chkSF = 4000;
         }
         else if(A == 110 && B > 10){
-          chkSF = 5;
+          chkSF = 5000;
         }
         else if(A == 120 && B > 15){
-          chkSF = 6;
+          chkSF = 6000;
         }
         else if(A == 130 && B > 20){
-          chkSF = 7;
+          chkSF = 7000;
         }
         else{
           if(C < B || C < 1 || C > 25){
-            chkSF = 8;
+            chkSF = 8000;
             if(C < B){ chkSF = 8001;}
             else if(C < 1){ chkSF = 8002;}
             else {chksf = 8003;}
           }
           else if(A == 100 && C > 8){
-            chkSF = 9;
+            chkSF = 9000;
           }
           else if(A == 110 && C > 10){
-            chkSF = 10;
+            chkSF = 10000;
           }
           else if(A == 120 && C > 15){
-            chkSF = 11;
+            chkSF = 11000;
           }
           else if(A == 130 && C > 20){
-            chkSF = 12;
+            chkSF = 12000;
           }
           else{
             if(D < 0 || D > 1){
-              chkSF = 13;
+              chkSF = 13000;
               if(D < 0){chkSF = 13001;}
               else {chkSF = 13002;}
             }
             else{
               if(E < 0 || E > 3){
-                chkSF = 14;
+                chkSF = 14000;
                 if(E < 0) {chkSF = 14001;}
                 else {chkSF = 14002;}
               }
               else{
                 if(F < 0 || F > 2){
-                  chkSF = 15;
+                  chkSF = 15000;
                   if(F < 0) {chkSF = 15001;}
                   else {chkSF = 15002;}
                 }
