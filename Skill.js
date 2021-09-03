@@ -464,7 +464,7 @@ sk.getJobskillList = function(ind) {
         rep = "비숍\n\n";
         break;
     case 7:
-        rep = "보우마스터\n\n2차 : 리트리트 샷, 소울 애로우 : 활, 퀴버 카트리지\n3차 : 애로우 플래터, 피닉스, 슈타이크 아이젠, 익스트림 아쳐리 : 활, 모탈 블로우, 컨센트레이션\n4차 : 폭풍의 시, 운즈 샷, 언카운터블 애로우, 어드밴스드 퀴버, 아머 피어싱\n하이퍼스킬 : 프리퍼레이션, 윈드 오브 프레이\n5차 : 애로우 레인, 잔영의 시, 퀴버 풀버스트, 실루엣 미라주";
+        rep = "보우마스터\n\n2차 : 리트리트 샷, 소울 애로우 : 활, 퀴버 카트리지\n3차 : 애로우 플래터, 피닉스, 슈타이크 아이젠, 익스트림 아쳐리 : 활, 모탈 블로우, 컨센트레이션\n4차 : 폭풍의 시, 운즈 샷, 언카운터블 애로우, 어드밴스드 퀴버, 아머 피어싱\n하이퍼 스킬 : 프리퍼레이션, 윈드 오브 프레이\n5차 : 애로우 레인, 잔영의 시, 퀴버 풀버스트, 실루엣 미라주";
         break;
     case 8:
         rep = "신궁\n\n";
@@ -536,7 +536,7 @@ sk.getJobskillList = function(ind) {
         rep = "에반\n\n";
         break;
     case 31:
-        rep = "루미너스\n\n0차 : 파워 오브 라이트, 라이트 블링크, 퍼미에이트, 선파이어, 이클립스, 이퀄리브리엄\n1차: 라이트랜스포밍, 오디너리 매직가드, 익스텐드 마나, 빛 마법 강화 / 어둠 마법 강화\n2차: 실피드 랜서, 인바이러빌러티, 블레스 오브 다크니스, 스펠 마스터리, 하이 위즈덤\n3차: 샤인 리뎀션, 데스 사이드, 안티 매직쉘, 포틱 메디테이션, 라이트쉐도우 가드, 라이프 타이달\n4차: 운명의 갈림길, 라이트 리플렉션, 모닝 스타폴, 아포칼립스, 앱솔루트 킬, 다크니스 소서러, 다크 크레센도, 다크라이트 마스터리\n하이퍼스킬 : 메모라이즈, 아마겟돈\n5차: 진리의 문, 퍼니싱 리조네이터, 빛과 어둠의 세례, 리버레이션 오브";
+        rep = "루미너스\n\n0차 : 파워 오브 라이트, 라이트 블링크, 퍼미에이트, 선파이어, 이클립스, 이퀄리브리엄\n1차: 라이트랜스포밍, 오디너리 매직가드, 익스텐드 마나, 빛 마법 강화 / 어둠 마법 강화\n2차: 실피드 랜서, 인바이러빌러티, 블레스 오브 다크니스, 스펠 마스터리, 하이 위즈덤\n3차: 샤인 리뎀션, 데스 사이드, 안티 매직쉘, 포틱 메디테이션, 라이트쉐도우 가드, 라이프 타이달\n4차: 운명의 갈림길, 라이트 리플렉션, 모닝 스타폴, 아포칼립스, 앱솔루트 킬, 다크니스 소서러, 다크 크레센도, 다크라이트 마스터리\n하이퍼 스킬 : 메모라이즈, 아마겟돈\n5차: 진리의 문, 퍼니싱 리조네이터, 빛과 어둠의 세례, 리버레이션 오브";
         break;
     case 32:
         rep = "메르세데스\n\n";
@@ -581,61 +581,61 @@ sk.getJobskillList = function(ind) {
         rep = "키네시스\n\n";
         break;
     case 46:
-        rep = "모험가 전사\n\n";
+        rep = "모험가 전사\n\n0차 : 인빈서블 빌리프\n1차 : 아이언 바디, 워리어 마스터리\n2차 : 피지컬 트레이닝\n3차 : 돌진, 어퍼 차지\n4차 : 매직 크래쉬, 스탠스\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 블리츠 실드";
         break;
     case 47:
-        rep = "모험가 마법사\n\n";
+        rep = "모험가 마법사\n\n5차 : 언스태이블 메모라이즈";
         break;
     case 48:
         rep = "모험가 궁수\n\n0차 : 어드벤쳐러 큐리어스\n1차 : 크리티컬 샷\n2차 : 피지컬 트레이닝\n3차 : 닷지\n4차 : 일루전 스탭\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 이볼브";
         break;
     case 49:
-        rep = "모험가 도적\n\n";
+        rep = "모험가 도적\n\n5차 : 얼티밋 다크 사이트";
         break;
     case 50:
-        rep = "모험가 해적\n\n";
+        rep = "모험가 해적\n\n5차 : 파이렛 플래그";
         break;
     case 51:
-        rep = "시그너스 기사단\n\n";
+        rep = "시그너스 기사단\n\n5차 : 시그너스 팔랑크스, 여제 시그너스의 축복, 초월자 시그너스의 축복";
         break;
     case 52:
-        rep = "레지스탕스\n\n";
+        rep = "레지스탕스\n\n5차 : 레지스탕스 라인 인팬트리, 메이플월드 여신의 축복";
         break;
     case 53:
-        rep = "데몬\n\n";
+        rep = "데몬\n\n5차 : 콜 마스테마, 이계 여신의 축복";
         break;
     case 54:
-        rep = "영웅\n\n";
+        rep = "영웅\n\n5차 : 프리드의 가호, 메이플월드 여신의 축복";
         break;
     case 55:
-        rep = "노바\n\n";
+        rep = "노바\n\n5차 : 판테온, 그란디스 여신의 축복";
         break;
     case 56:
-        rep = "레프\n\n";
+        rep = "레프\n\n5차 : 매직 서킷 풀드라이브, 그란디스 여신의 축복";
         break;
     case 57:
-        rep = "아니마\n\n";
+        rep = "아니마\n\n5차 : 화중군자, 그란디스 여신의 축복";
         break;
     case 58:
-        rep = "전사\n\n";
+        rep = "전사\n\n5차 : 오라 웨폰, 바디 오브 스틸";
         break;
     case 59:
-        rep = "마법사\n\n";
+        rep = "마법사\n\n5차 : 오버로드 마나, 에테리얼 폼";
         break;
     case 60:
         rep = "궁수\n\n4차 : 샤프 아이즈(메르세데스, 카인 제외)\n5차 : 가이디드 애로우, 크리티컬 리인포스";
         break;
     case 61:
-        rep = "도적\n\n";
+        rep = "도적\n\n5차 : 베놈 버스트, 레디 투 다이";
         break;
     case 62:
-        rep = "해적\n\n";
+        rep = "해적\n\n5차 : 로디드 다이스, 오버 드라이브";
         break;
     case 63:
         rep = "모험가\n\n5차 : 메이플월드 여신의 축복";
         break;
     case 64:
-        rep = "공용\n\n이름은 모험가 기준으로 작성되었습니다.\n4차 : 메이플 용사, 용사의 의지, 영웅의 메아리\n5차 : 로프 커넥트, 블링크, 에르다 노바, 에르다의 의지, 쓸만한 미스틱 도어, 쓸만한 샤프 아이즈, 쓸만한 하이퍼 바디, 쓸만한 컴뱃 오더스, 쓸만한 어드밴스드 블레스, 쓸만한 윈드 부스터, 쓸만한 홀리 심볼, 스파이더 인 미러, 크레스트 오브 더 솔라";
+        rep = "공용 (이름은 모험가 기준으로 작성되었습니다.)\n\n4차 : 메이플 용사, 용사의 의지, 영웅의 메아리\n5차 : 로프 커넥트, 블링크, 에르다 노바, 에르다의 의지, 에르다 샤워, 쓸만한 미스틱 도어, 쓸만한 샤프 아이즈, 쓸만한 하이퍼 바디, 쓸만한 컴뱃 오더스, 쓸만한 어드밴스드 블레스, 쓸만한 윈드 부스터, 쓸만한 홀리 심볼, 스파이더 인 미러, 크레스트 오브 더 솔라";
         break;
     }
     return rep;
@@ -902,8 +902,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "모험가";
             break;        
         case 64:
-            ret = -1;
-            rep = "공용";
+            jobM = require('skillPublic');
+            ret = jobM.getskillPublic(skillname);
             break;
     }
     return ret;
@@ -1151,8 +1151,9 @@ sk.getJobskillname = function(jobcode, skillcode){
         case 63:            
             rep = "모험가";
             break;        
-        case 64:            
-            rep = "공용";
+        case 64:
+            jobM = require('skillPublic');
+            rep = jobM.getskillnamePublic(skillcode);
             break;
     }
     return rep;
@@ -1400,8 +1401,9 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
         case 63:            
             rep = "모험가";
             break;        
-        case 64:            
-            rep = "공용";
+        case 64:          
+            jobM = require('skillPublic');
+            rep = jobM.getskilldesc1Public(skillcode);
             break;
     }
     return rep;
@@ -1665,8 +1667,9 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
         case 63:            
             rep = "모험가";
             break;        
-        case 64:            
-            rep = "공용";
+        case 64:        
+            jobM = require('skillPublic');
+            rep = jobM.getskilldesc2Public(skillcode);
             break;
     }
     return rep;
@@ -1930,8 +1933,9 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
         case 63:            
             rep = "모험가";
             break;        
-        case 64:            
-            rep = "공용";
+        case 64:
+            jobM = require('skillPublic');
+            rep = jobM.getskillimage1Public(skillcode);
             break;
     }
     return rep;
@@ -2195,8 +2199,9 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
         case 63:            
             rep = "모험가";
             break;        
-        case 64:            
-            rep = "공용";
+        case 64:
+            jobM = require('skillPublic');
+            rep = jobM.getskillimage2Public(skillcode);
             break;
     }
     return rep;
