@@ -1437,6 +1437,82 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var foodrep = foodM.foodList[foodrand];
       replier.reply("보마봇 추천 메뉴 : " + foodrep);
     }
+    if(msg.startsWith("!심볼")){
+      const symbolM = require('Symbol');
+      var symbolinput = msg.split(" ")[1];
+      if(symbolinput == undefined){
+        replier.reply("심볼 이름을 띄어쓰기 없이 입력해주세요.\n\n아케인심볼 종류 : 소멸의 여로, 츄츄 아일랜드, 꿈의 도시 레헬른, 신비의 숲 아르카나, 기억의 늪 모라스, 태초의 바다 에스페라\n어센틱심볼 종류 : 신의 도시 세르니움, 호텔 아르크스\n\n!심볼 (심볼 이름) (현재 레벨) (현재 성장치) : 현재 심볼상태에서 다음 레벨까지 필요한 성장치, 만렙까지 필요한 성장치, 이번에 가능한 모든 레벨업을 하였을때 드는 세금, 만렙까지 드는 잔여 세금을 보여줍니다.\n(심볼 이름)은 띄어쓰기 없이 입력해주셔야 합니다.\n(현재 레벨)을 생략할 시 각 심볼의 일일퀘스트와 스페셜컨텐츠의 수급량을 알려줍니다.\n(현재 성장치)를 생략할 시 0으로 계산하여 보여줍니다.");
+      }
+      else{
+        var symbolind = symbolM.getSymbol(symbolinput);
+        if(symbolind == -1){
+          replier.reply(symbolinput + " >> 심볼 이름을 잘못 입력하셨습니다. 혹시 띄어쓰기를 포함하여 입력하셨다면, 띄어쓰기 없이 다시 입력하여주세요.\n\n아케인심볼 종류 : 소멸의 여로, 츄츄 아일랜드, 꿈의 도시 레헬른, 신비의 숲 아르카나, 기억의 늪 모라스, 태초의 바다 에스페라\n어센틱심볼 종류 : 신의 도시 세르니움, 호텔 아르크스\n\n!심볼 (심볼 이름) (현재 레벨) (현재 성장치) : 현재 심볼상태에서 다음 레벨까지 필요한 성장치, 만렙까지 필요한 성장치, 이번에 가능한 모든 레벨업을 하였을때 드는 세금, 만렙까지 드는 잔여 세금을 보여줍니다.\n(심볼 이름)은 띄어쓰기 없이 입력해주셔야 합니다.\n(현재 레벨)을 생략할 시 각 심볼의 일일퀘스트와 스페셜컨텐츠의 수급량을 알려줍니다.\n(현재 성장치)를 생략할 시 0으로 계산하여 보여줍니다.");
+        }
+        else{
+          var symbollevel = msg.split(" ")[2];
+          var symbolexp = msg.split(" ")[3];
+          if(symbollevel == undefined){
+            var symbolname = symbolM.getSymbolname(symbolind);
+            var symboldaily = symbolM.getSymboldaily(symbolind);
+            var symbolspecial = symbolM.getSymbolspecial(symbolind);
+            var symbolimage = symbolM.getSymbolimage(symbolind);
+            Kakao.send(room,
+              {
+                "link_ver" : "4.0",
+                "template_id" : 60920,
+                "template_args" : {
+                                      "symbolname" : symbolname,
+                                      "symboldaily" : symboldaily,
+                                      "symbolspecial" : symbolspecial,
+                                      "symbolimage" : symbolimage
+                                  }
+              },
+              "custom");
+          }
+          else if(isNaN(symbollevel)){
+            replier.reply(symbollevel + " >> 심볼 레벨이 숫자가 아닙니다.");
+          }
+          else if(symbollevel < 1 || symbollevel > 19){
+            replier.reply(symbollevel + " >> 심볼 레벨이 범위(1~19)를 초과하였습니다.");
+          }
+          else if(symbolexp == undefined){
+            symbolexp = 0;
+            replier.reply("현재 성장치가 누락되어 0으로 계산됩니다.");
+            symbolname = symbolM.getSymbolname(symbolind);
+            var sbexps = symbolM.getSymbolexp(symbolind, symbollevel);
+            var sbexpf = symbolM.getSymbolfinalexp(symbolind, symbollevel);
+            var sbmesos = symbolM.getSymbolmeso(symbolind, symbollevel);
+            var sbcmesos = symbolM.getSymbolcumulmeso(symbolind, symbollevel);
+            replier.reply(symbolname + "\n\n" + (parseInt(symbollevel) + 1) + " 레벨까지 필요 성장치 : " + sbexps + "\n만렙까지 필요 성장치 : " + sbexpf + "\n이번 세금 : " + numberWithCommas(sbmesos) + " 메소\n잔여 세금 : " + numberWithCommas(sbcmesos) + " 메소");
+          }
+          else if(isNaN(symbolexp)){
+            replier.reply(symbolexp + " >> 심볼 성장치가 숫자가 아닙니다.");
+          }
+          else{
+            if(symbolexp < 0){
+              replier.reply(symbolexp + " >> 현재 성장치는 음수가 될 수 없습니다.");
+            }
+            else{
+              symbolname = symbolM.getSymbolname(symbolind);
+              sbexps = symbolM.getSymbolexp(symbolind, symbollevel) - symbolexp;
+              sbexpf = symbolM.getSymbolfinalexp(symbolind, symbollevel) - symbolexp;
+              if(sbexpf < 0){replier.reply("성장치가 최대치를 초과하였습니다.");}
+              else{
+                sbmesos = symbolM.getSymbolmeso(symbolind, symbollevel);
+                sbcmesos = symbolM.getSymbolcumulmeso(symbolind, symbollevel);
+                while(sbexps < 0){
+                  ++symbollevel;
+                  var tempexps = symbolM.getSymbolexp(symbolind, symbollevel);
+                  sbmesos += symbolM.getSymbolmeso(symbolind, symbollevel);
+                  sbexps += tempexps;
+                }
+                replier.reply(symbolname + "\n\n" + (parseInt(symbollevel) + 1) + " 레벨까지 필요 성장치 : " + sbexps + "\n만렙까지 필요 성장치 : " + sbexpf + "\n이번 세금 : " + numberWithCommas(sbmesos) + " 메소\n잔여 세금 : " + numberWithCommas(sbcmesos) + " 메소");
+              }
+            }
+          }
+        }
+      }
+    }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
       var senderhash = java.lang.String(senderinfo).hashCode();
