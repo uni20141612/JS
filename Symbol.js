@@ -20,6 +20,7 @@ sb.getSymbol = function(sbname){
             break;
         case "꿈의도시레헬른":
         case "레헬른":
+        case "레헬":
         case "드림브레이커":
         case "드브":
         case "3":
@@ -27,6 +28,7 @@ sb.getSymbol = function(sbname){
             break;
         case "신비의숲아르카나":
         case "아르카나":
+        case "알카":
         case "스피릿세이비어":
         case "스세":
         case "4":
@@ -41,6 +43,7 @@ sb.getSymbol = function(sbname){
             break;
         case "태초의바다에스페라":
         case "에스페라":
+        case "에페":
         case "프로텍트에스페라":
         case "프로텍트":
         case "6":
@@ -48,6 +51,8 @@ sb.getSymbol = function(sbname){
             break;
         case "신의도시세르니움":
         case "세르니움":
+        case "세전":
+        case "세후":
         case "7":
             ret = 6;
             break;
@@ -303,7 +308,6 @@ function getascumulexp2(lvlc){
     }
     return cumulate(asexp, lvlc-1);
 }
-
 function getsbYRmeso(lvl){
     return (2370000 + 7130000*lvl);
 }

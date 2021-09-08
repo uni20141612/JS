@@ -1,4 +1,5 @@
 const scriptName = "보마봇";
+const path = 'sdcard/kakao/Bots/보마봇/';
 const kalingModule = require('kaling').Kakao();
 const Kakao = new kalingModule();
 Kakao.init('f8a946e1c19887744ce173e69effc988', 'https://developers.kakao.com');
@@ -82,8 +83,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var update = updateM.getupdate();
       replier.reply(update);
     }
-    if(msg.startsWith("ㅋㅋㅋ")){
+    if(msg.indexOf("ㅋㅋㅋ") != -1){
       Api.markAsRead(room);
+      var chkday = new Date();
+      var hourpath = path + "hour.txt";
+      var hourchk = FileStream.read(hourpath);
+      if(chkday.getHours() != parseInt(hourchk)){
+        FileStream.write(hourpath, chkday.getHours());
+        Api.reload(scriptName);
+      }
     }
     if((sender == "천한수" || sender == adminNick) && msg.startsWith("테스트")){
       const fM = require('Food');
