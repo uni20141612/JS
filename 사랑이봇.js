@@ -7,6 +7,11 @@ Kakao.login('hansu1115@kakao.com', 'cjsgkstn1!');
 const guitarM = require('Guitar');
 const naverID = "nBGBcvtfiLuJx1ENn51s";
 const naverSecret = "_1LugNitAD";
+const twitterAToken = "184701208-1liPzAtisND9YCrKNCj9bIa2L1BaUHoEMtAizUT4";
+const twitterATSecret = "1WyVrOuTVYE9bZTvLWY7d1ftbmYvGBiGzZKeMixU9zOvI";
+const twitterAPIKey = "8P2pbQoOOG7YtBybZUVBEvFjB";
+const twitterAPISecret = "BhfKXJ6zL6JQoEzR5l9FniDwp0gTLTnHYSER4fmaJwctOPKpXI";
+const twitterBearerToken = "AAAAAAAAAAAAAAAAAAAAAJ4ZTgEAAAAAGgrOCL1HHPhJ0G3qMqnwOdS7h5U%3DUQbYFOiXQ1glVWUoXabR1DF221Gg6Rsbmm4U0TIGhmAFEfZx7a";
 //const JariM = require('Jari');
 /*
 Kakao.send(room,
@@ -20,13 +25,14 @@ Kakao.send(room,
              "custom");
 */
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
-    var isBanned = false;
-    banList.forEach(function(bvalue, bind, barray){
-      var sinfo = imageDB.getProfileImage();
-      var shash = java.lang.String(sinfo).hashCode();
-      if(bvalue == shash){isBanned = true;}
-    })
-  if(isBanned == false){
+      
+    if(!getMinute()){ //분당 1회 동작 예상
+      var testr = getTest();
+      if(testr != "-"){
+        Api.replyRoom("천한수", testr);
+        Api.replyRoom("UniMaple", testr);
+      }
+    }
     if(msg.startsWith("!보스")){
       const BossM = require('getBoss');
       var boss = msg.split(" ")[1];
@@ -94,8 +100,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if((sender == "천한수" || sender == adminNick) && msg.startsWith("테스트")){
-      const fM = require('Food');
-      replier.reply(fM.foodList.length);
+      //const fM = require('Food');      replier.reply(fM.foodList.length);
     }    
     if((sender == "천한수" || sender == adminNick) && msg == "!유저정보"){
       var dataB = DataBase.getDataBase("Userdata.txt");  
@@ -1552,8 +1557,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         if(jobmention != "-"){
           replier.reply(jobmention);
         }
-    }
-  }
+    }  
 }
 
 //아래 4개의 메소드는 액티비티 화면을 수정할때 사용됩니다.
@@ -1647,6 +1651,43 @@ function getRomaname(kname){
   .post().text();
 
   return res;
+}
+function getTest(){
+  res = org.jsoup.Jsoup.connect("https://www.kmspatcher.com/patchfile/testworld").get();
+  res = res.toString();
+  var datatest = res.split("pageProps")[1].split("},")[0];
+  var postID = datatest.split("postID\":")[1].split(",")[0];
+  var prevID = FileStream.read(path + "test.txt");
+  var testrep = "";
+  if(postID != prevID){
+    FileStream.write(path + "test.txt", postID);
+    var datatest2 = org.jsoup.Jsoup.connect("https://www.kmspatcher.com/patchfile/testworld/" + postID + "?page=1").get().toString();
+    var tTitle = datatest2.split("<title>")[1].split("</title>")[0];
+    var tInfo = datatest2.split("용량 : ")[1].split("</div>")[0];
+    var tSize = tInfo.split("<br>")[0];
+    var tTime = tInfo.split("<br>")[1];
+    tSize = tSize.slice(0, tSize.length-11);
+    tTime = tTime.slice(0, tTime.length-10);
+
+    testrep = "새로운 테스트월드 패치가 발견되었습니다.\n\n" + tTitle + "\n용량 : " + tSize + "\n" + tTime;
+  }
+  else{
+    testrep = "-";
+  }
+
+  return testrep;
+}
+function getMinute(){
+  day = new Date();
+  var minu = day.getMinutes();
+  var prevmin = FileStream.read(path + "min.txt");
+  if(minu != prevmin){
+    FileStream.write(path + "min.txt", minu);
+    return false;
+  }
+  else{
+    return true;
+  }
 }
 
 var accexps = [ 0, 15, 49, 106, 198, 333, 705, 1265, 2105, 3347, 4589, 5831, 7073, 8315, 9557, 11047, 12835, 14980, 17554, 20642, 24347, 28793, 34128, 40530, 48212, 57430, 68491, 81764, 97691, 116803, 135915, 155027, 174139, 193251, 212363, 235297, 262817, 295841, 335469, 383022, 434379, 489844, 549746, 614440, 684309, 759767, 841261, 929274, 1024328, 1126986, 1237856, 1357595, 1486913, 1626576, 1777412, 1940314, 2116248, 2306256, 2511464, 2733088, 2954712, 3176336, 3397960, 3619584, 3841208, 4079453, 4335566, 4610887, 4906857, 5225024, 5567053, 5934734, 6329991, 6754892, 7211660, 7700401, 8223353, 8782911, 9381638, 10022275, 10707756, 11441220, 12226026, 13065768, 13964291, 14925710, 15954428, 17055156, 18232934, 19493156, 20835292, 22264666, 23786949, 25408180, 27134791, 28973631, 30931995, 33017652, 35238876, 37604479, 39970082, 42335685, 44701288, 47066891, 49432494, 51951861, 54634986, 57492514, 60535781, 63776860, 67228609, 70904721, 74819780, 78989317, 83429873, 88159065, 93195654, 98559621, 104272245, 110356189, 116835589, 123736150, 131085247, 138912035, 147247564, 156124902, 165579266, 175648163, 186371538, 197791932, 209954651, 222907946, 236703205, 251395155, 267042081, 283706057, 301453191, 320353888, 340483130, 361920772, 384698266, 408899353, 434613007, 461933764, 490962068, 521804641, 554574874, 589393246, 626387766, 665694443, 707457787, 751831340, 798978240, 849071821, 902296250, 958847205, 1018932594, 1082773319, 1150604089, 1222674282, 1299248862, 1380609353, 1467054874, 1558903240, 1656492128, 1760180321, 1870349026, 1987403275, 2111773414, 2243916686, 2382667121, 2528355077, 2681327430, 2841948400, 3010600418, 3187685036, 3373623884, 3568859674, 3773857253, 3989104710, 4215114539, 4452424859, 4701600695, 4963235322, 5237951680, 5526403855, 5829278638, 6147297160, 6481216608, 6831832028, 7199978219, 7586531719, 7992412894, 8418588127, 8866072121, 9335930314, 9829281416, 10347300073, 10891219662, 11462335230, 13669361590, 16141231346, 18909725349, 22010438632, 25483237508, 29372772249, 33729051158, 38608083536, 44072599799, 50192858013, 59985271155, 70854849742, 82920081973, 96312489749, 111178062380, 130503306800, 151567823217, 174528146111, 199554898065, 226834057694, 270480713100, 317182634384, 367153690157, 420622719834, 477834581588, 552210001868, 630304193162, 712303094020, 798401939920, 888805728115, 1033451789227, 1182437232172, 1335892238405, 1493950894824, 1656751310935, 1868391851879, 2086381609051, 2310911058938, 2542176392321, 2780379685705, 3161504955119, 3554063982615, 3958399780935, 4374865653204, 4803825501641, 5361473304609, 5935850541666, 6527459095834, 7136815906627, 7764453421743, 9078218184097, 10405120594074, 11745292028150, 13098865176566, 14465974056466, 15846754025165, 17241341793550, 18649875439618, 20072494422146, 21509339594499, 24411766842652, 27343218363286, 30303984399126, 33294358095324, 36314635528483, 39365115735973, 42446100745537, 45557895605196, 48700808413451, 51875150349788, 58287321061188, 64763613479702, 71304668822401, 77911134718526, 84583665273612, 98062176994885, 112888539888285, 129197539071025, 147137438172039, 166871327183154, 206733782985606, 250582484368303, 298816055889269, 351872984562331, 410235606102699, 528128101614242, 657809846676939, 800459766245905, 957374677771767, 1129981080450210, 1478646013860670, 1862177440612180, 2284062010038850, 2748135036408170, 3258615365414430, 4289785630007070, 5424072921058980, 6671788941216080, 8044276563388880, 10103007996648000 ];
