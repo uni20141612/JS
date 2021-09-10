@@ -10,10 +10,13 @@ gB.getBoss = function (boss){
           rep = rep.replace(/ㅁ/g, '\n');      
           chkboss = 1000;
           break;
+        case "이지 자쿰":
         case "이지자쿰":
           chkboss = 0;
           break;
+        case "노말 자쿰":
         case "노말자쿰":
+        case "노멀 자쿰":
         case "노멀자쿰":
         case "자쿰":
           chkboss = 1;
@@ -21,47 +24,72 @@ gB.getBoss = function (boss){
         case "피아누스":
           chkboss = 2;
           break;
+        case "노말 반반":
+        case "노멀 반반":
         case "노말반반":
+        case "노멀반반":
         case "반반":
           chkboss = 3;
           break;
+        case "노말 피에르":
         case "노말피에르":
+        case "노멀 피에르":
         case "노멀피에르":
+        case "노말 삐에르":
         case "노말삐에르":
+        case "노멀 삐에르":
         case "노멀삐에르":
         case "피에르":
         case "삐에르":
           chkboss = 4;
           break;
+        case "노말 블러디 퀸":
+        case "노말 블러디퀸":
+        case "노말 블퀸":
+        case "노말 블러디 퀸":
+        case "노말 블러디퀸":
+        case "노말 블퀸":
         case "노말블러디퀸":
         case "노멀블러디퀸":
         case "노블퀸":
+        case "블러디 퀸":
         case "블러디퀸":
         case "블퀸":
           chkboss = 5;
           break;
+        case "이지 파풀라투스":
         case "이지파풀라투스":
         case "이지파풀":
           chkboss = 6;
           break;
+        case "이지 매그너스":
         case "이지매그너스":
         case "이지매그":
           chkboss = 7;
           break;
+        case "노말 힐라":
         case "노말힐라":
+        case "노멀 힐라":
         case "노멀힐라":
         case "힐라":
           chkboss = 8;
           break;
+        case "노말 벨룸":
         case "노말벨룸":
+        case "노멀 벨룸":
         case "노멀벨룸":
         case "벨룸":
           chkboss = 9;
           break;
+        case "이지 반 레온":
+        case "이지 반레온":
         case "이지반레온":
+        case "이지 반 래온":
+        case "이지 반래온":
         case "이지반래온":
           chkboss = 10;
           break;
+        case "이지 혼테일":
         case "이지혼테일":
         case "이지혼텔":
           chkboss = 11;
@@ -69,116 +97,165 @@ gB.getBoss = function (boss){
         case "카웅":
           chkboss = 12;
           break;
+        case "이지 아카이럼":
         case "이지아카이럼":
           chkboss = 13;
           break;
+        case "노말 혼테일":
         case "노말혼테일":
+        case "노멀 혼테일":
         case "노멀혼테일":
+        case "노말 혼텔":
         case "노말혼텔":
+        case "노멀 혼텔":
         case "노멀혼텔":
         case "혼테일":
         case "혼텔":
           chkboss = 14;
           break;
+        case "노말 매그너스":
         case "노말매그너스":
+        case "노멀 매그너스":
         case "노멀매그너스":
         case "매그너스":
         case "노매그":
         case "매그":
           chkboss = 15;
           break;
+        case "노말 반 레온":
+        case "노말 반레온":
         case "노말반레온":
+        case "노멀 반 레온":
+        case "노멀 반레온":
         case "노멀반레온":
+        case "노말 반 래온":
+        case "노말 반래온":
         case "노말반래온":
+        case "노멀 반 래온":
+        case "노멀 반래온":
         case "노멀반래온":
+        case "반 레온":
         case "반레온":
+        case "반 래온":
         case "반래온":
           chkboss = 16;
           break;
+        case "노말 핑크빈":
         case "노말핑크빈":
+        case "노멀 핑크빈":
         case "노멀핑크빈":
         case "노핑":
         case "핑크빈":
+        case "굉크넨":
           chkboss = 17;
           break;
+        case "하드 반 레온":
+        case "하드 반레온":
         case "하드반레온":
+        case "하드 반 래온":
+        case "하드 반래온":
         case "하드반래온":
           chkboss = 18;
           break;
+        case "이지 시그너스":
         case "이지시그너스":
         case "이시그":
           chkboss = 19;
           break;
+        case "노말 아카이럼":
         case "노말아카이럼":
+        case "노멀 아카이럼":
         case "노멀아카이럼":
         case "아카이럼":
           chkboss = 20;
           break;
+        case "노말 파풀라투스":
         case "노말파풀라투스":
+        case "노멀 파풀라투스":
         case "노멀파풀라투스":
+        case "노말 파풀":
         case "노말파풀":
+        case "노멀 파풀":
         case "노멀파풀":
         case "파풀라투스":
         case "파풀":
           chkboss = 21;
           break;
+        case "하드 힐라":
         case "하드힐라":
         case "하힐":
           chkboss = 22;
           break;
+        case "카오스 혼테일":
         case "카오스혼테일":
         case "카텔":
         case "카혼텔":
           chkboss = 23;
           break;
+        case "노말 시그너스":
         case "노말시그너스":
+        case "노멀 시그너스":
         case "노멀시그너스":
+        case "노말 시그":
         case "노말시그":
+        case "노멀 시그":
         case "노멀시그":
         case "노시그":
         case "시그너스":
         case "시그":
           chkboss = 24;
           break;
+        case "카오스 피에르":
         case "카오스피에르":
+        case "카오스 삐에르":
         case "카오스삐에르":
         case "카피":
         case "카삐":
           chkboss = 25;
           break;
+        case "카오스 자쿰":
         case "카오스자쿰":
         case "카쿰":
           chkboss = 26;
           break;
+        case "카오스 반반":
         case "카오스반반":
         case "카반반":
         case "카반":
           chkboss = 27;
           break;
+        case "하드 매그너스":
         case "하드매그너스":
         case "하매그":
         case "하매":
           chkboss = 28;
           break;
+        case "카오스 블러디 퀸":
+        case "카오스 블러디퀸":
         case "카오스블러디퀸":
+        case "카오스 블퀸":
         case "카퀸":
         case "카블퀸":
           chkboss = 29;
           break;
+        case "카오스 벨룸":
         case "카오스벨룸":
         case "카벨룸":
         case "카벨":
           chkboss = 30;
           break;
+        case "카오스 핑크빈":
         case "카오스핑크빈":
         case "카핑빈":
         case "카핑":
           chkboss = 31;
           break;
+        case "카오스 파풀라투스":
         case "카오스파풀라투스":
         case "카파풀":
           chkboss = 32;
           break;
+        case "불꽃 늑대":
         case "불꽃늑대":
         case "불늑":
           chkboss = 33;
@@ -187,14 +264,18 @@ gB.getBoss = function (boss){
         case "시드":
           chkboss = 34;
           break;
+        case "노말 데미안":
         case "노말데미안":
+        case "노멀 데미안":
         case "노멀데미안":
         case "노데미":
         case "데미안":
         case "데미":
           chkboss = 35;
           break;
+        case "노말 스우":
         case "노말스우":
+        case "노멀 스우":
         case "노멀스우":
         case "노스우":
         case "스우":
@@ -204,81 +285,122 @@ gB.getBoss = function (boss){
         case "우루스":
           chkboss = 37;
           break;
+        case "이지 루시드":
         case "이지루시드":
         case "이루시":
+        case "이루":
           chkboss = 38;
           break;
+        case "노말 루시드":
         case "노말루시드":
+        case "노멀 루시드":
         case "노멀루시드":
         case "노루시":
+        case "노루":
         case "루시드":
         case "루시":
           chkboss = 39;
           break;
+        case "노말 윌":
         case "노말윌":
+        case "노멀 윌":
         case "노멀윌":
         case "노윌":
         case "윌":
           chkboss = 40;
           break;
+        case "노말 거대 괴수 더스크":
+        case "노말 거대괴수 더스크":
+        case "노말 거대괴수더스크":
         case "노말거대괴수더스크":
+        case "노멀 거대 괴수 더스크":
+        case "노멀 거대괴수 더스크":
+        case "노멀 거대괴수더스크":
         case "노멀거대괴수더스크":
+        case "노말 더스크":
         case "노말더스크":
+        case "노멀 더스크":
         case "노멀더스크":
         case "노더스크":
         case "노더":
+        case "거대 괴수 더스크":
+        case "거대괴수 더스크":
         case "거대괴수더스크":
+        case "거대 괴수":
         case "거대괴수":
         case "더스크":
           chkboss = 41;
           break;
+        case "노말 친위대장 듄켈":
+        case "노말 친위대장듄켈":
         case "노말친위대장듄켈":
+        case "노멀 친위대장 듄켈":
+        case "노멀 친위대장듄켈":
         case "노멀친위대장듄켈":
+        case "노말 듄켈":
         case "노말듄켈":
+        case "노멀 듄켈":
         case "노멀듄켈":
         case "노듄켈":
         case "노듄":
+        case "친위대장 듄켈":
         case "친위대장듄켈":
         case "듄켈":
           chkboss = 42;
           break;
+        case "하드 스우":
         case "하드스우":
         case "하스우":
           chkboss = 43;
           break;
+        case "하드 데미안":
         case "하드데미안":
         case "하데미":
           chkboss = 44;
           break;
+        case "하드 루시드":
         case "하드루시드":
         case "하루시":
           chkboss = 45;
           break;
+        case "카오스 거대 괴수 더스크":
+        case "카오스 거대괴수 더스크":
+        case "카오스 거대괴수더스크":
         case "카오스거대괴수더스크":
+        case "카오스 더스크":
         case "카오스더스크":
+        case "카오스 거대 괴수":
+        case "카오스 거대 괴수":
         case "카오스거대괴수":
         case "카더스크":
         case "카더":
           chkboss = 46;
           break;
+        case "하드 윌":
         case "하드윌":
         case "하윌":
           chkboss = 47;
           break;
+        case "하드 친위대장 듄켈":
+        case "하드 친위대장듄켈":
         case "하드친위대장듄켈":
+        case "하드 듄켈":
         case "하드듄켈":
         case "하듄켈":
         case "하듄":
           chkboss = 48;
           break;
+        case "진 힐라":
         case "진힐라":
         case "진힐":
           chkboss = 49;
           break;
+        case "선택받은 세렌":
         case "선택받은세렌":
         case "세렌":
           chkboss = 50;
           break;
+        case "검은 마법사":
         case "검은마법사":
         case "검마":
         case "검멘":
@@ -289,23 +411,41 @@ gB.getBoss = function (boss){
         case "길드":          
           chkboss = 52;
           break;
+        case "가디언 엔젤 슬라임":
+        case "가디언 엔젤슬라임":
+        case "가디언엔젤 슬라임":
         case "가디언엔젤슬라임":
         case "가엔슬":
         case "슬라임":
+        case "노말 가디언 엔젤 슬라임":
+        case "노말 가디언 엔젤슬라임":
+        case "노말 가디언엔젤 슬라임":
         case "노말가디언엔젤슬라임":
+        case "노멀 가디언 엔젤 슬라임":
+        case "노멀 가디언 엔젤슬라임":
+        case "노멀 가디언엔젤 슬라임":
         case "노멀가디언엔젤슬라임":
+        case "노말 가엔슬":
         case "노말가엔슬":
+        case "노멀 가엔슬":
         case "노멀가엔슬":
+        case "노말 슬라임":
         case "노말슬라임":
+        case "노멀 슬라임":
         case "노멀슬라임":
           chkboss = 53;
           break;
+        case "카오스 가디언 엔젤 슬라임":
+        case "카오스 가디언 엔젤슬라임":
+        case "카오스 가디언엔젤 슬라임":
         case "카오스가디언엔젤슬라임":
         case "카가엔슬":
+        case "카오스 슬라임":
         case "카오스슬라임":
         case "카슬":
           chkboss = 54;
           break;
+        case "마왕 발록":
         case "마왕발록":
         case "발록":
           chkboss = 55;

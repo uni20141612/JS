@@ -491,7 +491,7 @@ sk.getJobskillList = function(ind) {
         rep = "캐논슈터\n\n";
         break;
     case 16:
-        rep = "소울마스터\n\n";
+        rep = "소울마스터\n\n1차 : 엘리멘트 : 소울, 소드 오브 라이트, 이너 보이스\n2차 : 폴링 문, 님블 핑거, 이너 트러스트, 바디 앤 소울\n3차 : 라이징 선, 트루 사이트, 소울 가디언, 윌 오브 스틸, 이너 샤우트\n4차 : 댄스 오브 문, 스피딩 선셋, 크레센트 디바이드, 솔라 피어스, 소울 페네트레이션, 솔루나 타임, 솔루나 슬래시, 소울 플레지, 언포시어블, 마스터 오브 더 소드\n하이퍼 스킬 : 소울 포지, 크로스 더 스틱스\n5차 : 셀레스티얼 댄스, 엘리시온, 소울 이클립스, 플레어 슬래시";
         break;
     case 17:
         rep = "플레임위자드\n\n";
@@ -596,7 +596,7 @@ sk.getJobskillList = function(ind) {
         rep = "모험가 해적\n\n0차 : 수영의 달인, 수납의 달인, 파이렛 블레스\n1차 : 옥토 푸시(몽키 푸시)\n2차 : 피지컬 트레이닝(파이렛 트레이닝)\n3차 : 럭키 다이스\n4차 : 더블 럭키 다이스\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 파이렛 플래그";
         break;
     case 51:
-        rep = "시그너스 기사단\n\n5차 : 시그너스 팔랑크스, 여제 시그너스의 축복, 초월자 시그너스의 축복";
+        rep = "시그너스 기사단\n\n하이퍼 스킬 : 글로리 오브 가디언즈\n5차 : 시그너스 팔랑크스, 여제 시그너스의 축복, 초월자 시그너스의 축복";
         break;
     case 52:
         rep = "레지스탕스\n\n5차 : 레지스탕스 라인 인팬트리, 메이플월드 여신의 축복";
@@ -710,8 +710,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "캐논슈터";
             break;
         case 16:
-            ret = -1;
-            rep = "소울마스터";
+            jobM = require('skillSoulmaster');
+            ret = jobM.getskillSoulmaster(skillname);
             break;
         case 17:
             ret = -1;
@@ -963,8 +963,9 @@ sk.getJobskillname = function(jobcode, skillcode){
         case 15:            
             rep = "캐논슈터";
             break;
-        case 16:            
-            rep = "소울마스터";
+        case 16:
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskillnameSoulmaster(skillcode);
             break;
         case 17:
             
@@ -1215,8 +1216,9 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
         case 15:            
             rep = "캐논슈터";
             break;
-        case 16:            
-            rep = "소울마스터";
+        case 16:
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskilldesc1Soulmaster(skillcode);
             break;
         case 17:
             
@@ -1467,8 +1469,9 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
         case 15:            
             rep = "캐논슈터";
             break;
-        case 16:            
-            rep = "소울마스터";
+        case 16:
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskilldesc2Soulmaster(skillcode);
             break;
         case 17:            
             rep = "플레임위자드";
@@ -1720,8 +1723,8 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = "캐논슈터";
             break;
         case 16:
-            
-            rep = "소울마스터";
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskillimage1Soulmaster(skillcode);
             break;
         case 17:
             
@@ -1979,8 +1982,8 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = "캐논슈터";
             break;
         case 16:
-            
-            rep = "소울마스터";
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskillimage2Soulmaster(skillcode);
             break;
         case 17:
             
