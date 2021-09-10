@@ -2,16 +2,13 @@ const scriptName = "보마봇";
 const path = 'sdcard/kakao/Bots/보마봇/';
 const kalingModule = require('kaling').Kakao();
 const Kakao = new kalingModule();
-Kakao.init('f8a946e1c19887744ce173e69effc988', 'https://developers.kakao.com');
-Kakao.login('hansu1115@kakao.com', 'cjsgkstn1!');
+let Logindata = FileStream.read(path + "Login.txt");
+Kakao.init(Logindata.split("ksec:")[1].split("/")[0], 'https://developers.kakao.com');
+Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0]);
 const guitarM = require('Guitar');
-const naverID = "nBGBcvtfiLuJx1ENn51s";
-const naverSecret = "_1LugNitAD";
-const twitterAToken = "184701208-1liPzAtisND9YCrKNCj9bIa2L1BaUHoEMtAizUT4";
-const twitterATSecret = "1WyVrOuTVYE9bZTvLWY7d1ftbmYvGBiGzZKeMixU9zOvI";
-const twitterAPIKey = "8P2pbQoOOG7YtBybZUVBEvFjB";
-const twitterAPISecret = "BhfKXJ6zL6JQoEzR5l9FniDwp0gTLTnHYSER4fmaJwctOPKpXI";
-const twitterBearerToken = "AAAAAAAAAAAAAAAAAAAAAJ4ZTgEAAAAAGgrOCL1HHPhJ0G3qMqnwOdS7h5U%3DUQbYFOiXQ1glVWUoXabR1DF221Gg6Rsbmm4U0TIGhmAFEfZx7a";
+const naverID = Logindata.split("nID:")[1].split("/")[0];
+const naverSecret = Logindata.split("nsec:")[1].split("/")[0];
+const twitterAToken = Logindata.split("tActoken:")[1].split("/")[0]; const twitterATSecret = Logindata.split("tAcsec:")[1].split("/")[0]; const twitterAPIKey = Logindata.split("tAPIkey:")[1].split("/")[0]; const twitterAPISecret = Logindata.split("tAPIsec:")[1].split("/")[0]; const twitterBearerToken = Logindata.split("tBtoken:")[1].split("/")[0];
 //const JariM = require('Jari');
 /*
 Kakao.send(room,

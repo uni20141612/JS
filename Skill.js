@@ -584,7 +584,7 @@ sk.getJobskillList = function(ind) {
         rep = "모험가 전사\n\n0차 : 인빈서블 빌리프\n1차 : 아이언 바디, 워리어 마스터리\n2차 : 피지컬 트레이닝\n3차 : 돌진, 어퍼 차지\n4차 : 매직 크래쉬, 스탠스\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 블리츠 실드";
         break;
     case 47:
-        rep = "모험가 마법사\n\n0차 : 임피리컬 널리지\n1차 : 매직 가드, 텔레포트, 매직 아머, MP 증가\n2차 : 매직 부스터, 스펠 마스터리, 하이 위즈덤, MP 이터\n3차 : 텔레포트 마스터리, 매직 크리티컬\n4차 : 아케인 에임, 마스터 매직\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 언스태이블 메모라이즈";
+        rep = "모험가 마법사\n\n0차 : 임피리컬 널리지\n1차 : 매직 가드, 텔레포트, 매직 아머, MP 증가\n2차 : 매직 부스터, 스펠 마스터리, 하이 위즈덤, MP 이터\n3차 : 텔레포트 마스터리, 매직 크리티컬\n4차 : 아케인 에임, 마스터 매직, 인피니티\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 언스태이블 메모라이즈";
         break;
     case 48:
         rep = "모험가 궁수\n\n0차 : 어드벤쳐러 큐리어스\n1차 : 크리티컬 샷\n2차 : 피지컬 트레이닝\n3차 : 닷지\n4차 : 일루전 스탭\n하이퍼 스킬 : 에픽 어드벤쳐\n5차 : 이볼브";
@@ -830,24 +830,24 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "키네시스";
             break;
         case 46:
-            ret = -1;
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            ret = jobM.getskillAdvWarrior(skillname);
             break;
         case 47:
-            ret = -1;
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            ret = jobM.getskillAdvMagician(skillname);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             ret = jobM.getskillAdvArcher(skillname);
             break;
         case 49:
-            ret = -1;
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            ret = jobM.getskillAdvThief(skillname);
             break;
         case 50:
-            ret = -1;
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            ret = jobM.getskillAdvPirate(skillname);
             break;
         case 51:
             ret = -1;
@@ -1083,24 +1083,24 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = "키네시스";
             break;
         case 46:
-            
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            rep = jobM.getskillnameAdvWarrior(skillcode);
             break;
         case 47:
-            
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            rep = jobM.getskillnameAdvMagician(skillcode);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             rep = jobM.getskillnameAdvArcher(skillcode);
             break;
         case 49:
-            
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            rep = jobM.getskillnameAdvThief(skillcode);
             break;
         case 50:
-            
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            rep = jobM.getskillnameAdvPirate(skillcode);
             break;
         case 51:
             
@@ -1335,24 +1335,24 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = "키네시스";
             break;
         case 46:
-            
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            rep = jobM.getskilldesc1AdvWarrior(skillcode);
             break;
         case 47:
-            
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            rep = jobM.getskilldesc1AdvMagician(skillcode);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             rep = jobM.getskilldesc1AdvArcher(skillcode);
             break;
         case 49:
-            
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            rep = jobM.getskilldesc1AdvThief(skillcode);
             break;
         case 50:
-            
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            rep = jobM.getskilldesc1AdvPirate(skillcode);
             break;
         case 51:
             
@@ -1581,24 +1581,24 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = "키네시스";
             break;
         case 46:
-            
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            rep = jobM.getskilldesc2AdvWarrior(skillcode);
             break;
         case 47:
-            
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            rep = jobM.getskilldesc2AdvMagician(skillcode);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             rep = jobM.getskilldesc2AdvArcher(skillcode);
             break;
         case 49:
-            
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            rep = jobM.getskilldesc2AdvThief(skillcode);
             break;
         case 50:
-            
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            rep = jobM.getskilldesc2AdvPirate(skillcode);
             break;
         case 51:
             
@@ -1840,24 +1840,24 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = "키네시스";
             break;
         case 46:
-            
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            rep = jobM.getskillimage1AdvWarrior(skillcode);
             break;
         case 47:
-            
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            rep = jobM.getskillimage1AdvMagician(skillcode);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             rep = jobM.getskillimage1AdvArcher(skillcode);
             break;
         case 49:
-            
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            rep = jobM.getskillimage1AdvThief(skillcode);
             break;
         case 50:
-            
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            rep = jobM.getskillimage1AdvPirate(skillcode);
             break;
         case 51:
             
@@ -2099,24 +2099,24 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = "키네시스";
             break;
         case 46:
-            
-            rep = "모험가 전사";
+            jobM = require('skillAdvWarrior');
+            rep = jobM.getskillimage2AdvWarrior(skillcode);
             break;
         case 47:
-            
-            rep = "모험가 마법사";
+            jobM = require('skillAdvMagician');
+            rep = jobM.getskillimage2AdvMagician(skillcode);
             break;
         case 48:
             jobM = require('skillAdvArcher');
             rep = jobM.getskillimage2AdvArcher(skillcode);
             break;
         case 49:
-            
-            rep = "모험가 도적";
+            jobM = require('skillAdvThief');
+            rep = jobM.getskillimage2AdvThief(skillcode);
             break;
         case 50:
-            
-            rep = "모험가 해적";
+            jobM = require('skillAdvPirate');
+            rep = jobM.getskillimage2AdvPirate(skillcode);
             break;
         case 51:
             
