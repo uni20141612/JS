@@ -910,6 +910,165 @@ gB.getBossname2 = function (ind){
     }
     return rep;
 };
+gB.getBossname3 = function (ind){
+  rep = "";
+  switch(ind){
+    case 0:
+      rep = "이지 자쿰";
+      break;
+    case 1:
+      rep = "노멀 자쿰";
+      break;
+    case 3:
+      rep = "노멀 반반";
+      break;
+    case 4:
+      rep = "노멀 피에르";
+      break;
+    case 5:
+      rep = "노멀 블러디 퀸";
+      break;
+    case 6:
+      rep = "이지 파풀라투스";
+      break;
+    case 7:
+      rep = "이지 매그너스";
+      break;
+    case 8:
+      rep = "노멀 힐라";
+      break;
+    case 9:
+      rep = "노멀 벨룸";
+      break;
+    case 10:
+      rep = "이지 반레온";
+      break;
+    case 11:
+      rep = "이지 혼테일";
+      break;
+    case 12:
+      rep = "노멀 카웅";
+      break;
+    case 13:
+      rep = "이지 아카이럼";
+      break;
+    case 14:
+      rep = "노멀 혼테일";
+      break;
+    case 15:
+      rep = "노멀 매그너스";
+      break;
+    case 16:
+      rep = "노멀 반레온";
+      break;
+    case 17:
+      rep = "노멀 핑크빈";
+      break;
+    case 18:
+      rep = "하드 반레온";
+      break;
+    case 19:
+      rep = "이지 시그너스";
+      break;
+    case 20:
+      rep = "노멀 아카이럼";
+      break;
+    case 21:
+      rep = "노멀 파풀라투스";
+      break;
+    case 22:
+      rep = "하드 힐라";
+      break;
+    case 23:
+      rep = "카오스 혼테일";
+      break;
+    case 24:
+      rep = "노멀 시그너스";
+      break;
+    case 25:
+      rep = "카오스 피에르";
+      break;
+    case 26:
+      rep = "카오스 자쿰";
+      break;
+    case 27:
+      rep = "카오스 반반";
+      break;
+    case 28:
+      rep = "하드 매그너스";
+      break;
+    case 29:
+      rep = "카오스 블러디 퀸";
+      break;
+    case 30:
+      rep = "카오스 벨룸";
+      break;
+    case 31:
+      rep = "카오스 핑크빈";
+      break;
+    case 32:
+      rep = "카오스 파풀라투스";
+      break;
+    case 35:
+      rep = "노멀 데미안";
+      break;
+    case 36:
+      rep = "노멀 스우";
+      break;
+    case 38:
+      rep = "이지 루시드";
+      break;
+    case 39:
+      rep = "노멀 루시드";
+      break;
+    case 40:
+      rep = "노멀 윌";
+      break;
+    case 41:
+      rep = "노멀 더스크";
+      break;
+    case 42:
+      rep = "노멀 듄켈";
+      break;
+    case 43:
+      rep = "하드 스우";
+      break;
+    case 44:
+      rep = "하드 데미안";
+      break;
+    case 45:
+      rep = "하드 루시드";
+      break;
+    case 46:
+      rep = "카오스 더스크";
+      break;
+    case 47:
+      rep = "하드 윌";
+      break;
+    case 48:
+      rep = "하드 듄켈";
+      break;
+    case 49:
+      rep = "하드 진 힐라";
+      break;
+    case 50:
+      rep = "하드 선택받은 세렌";
+      break;
+    case 51:
+      rep = "하드 검은 마법사";
+      break;
+    case 53:
+      rep = "노멀 가디언 엔젤 슬라임";
+      break;
+    case 54:
+      rep = "카오스 가디언 엔젤 슬라임";
+      break;
+    default:
+      rep = "없음";
+      break;
+  }
+  return rep;
+};
 gB.getBossinfo = function (ind){
     rep = "";
     switch(ind){
