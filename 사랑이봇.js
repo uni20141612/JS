@@ -1425,9 +1425,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               var skillname = skillM.getJobskillname(jobcode, skillcode);
               var skilldesc1 = skillM.getJobskilldesc1(jobcode, skillcode);
               var skilldesc2 = skillM.getJobskilldesc2(jobcode, skillcode);
+              var skilldesc3 = "-";
               var skillimage1 = skillM.getJobskillimage1(jobcode, skillcode);
-              var skillimage2 = skillM.getJobskillimage2(jobcode, skillcode);
-              //replier.reply(skillname + " : " + skilldesc1 + " " + skilldesc2 + " " + skillimage1 + " " + skillimage2);
+              var skillimage2 = skillM.getJobskillimage2(jobcode, skillcode);              
               Kakao.send(room,
                 {
                   "link_ver" : "4.0",
@@ -1441,6 +1441,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                     }
                 },
                  "custom");
+                 if(skilldesc2 == "하단 참조"){
+                   skilldesc3 = skillM.getJobskilldesc3(jobcode, skillcode);
+                 }
             }
           }
         }

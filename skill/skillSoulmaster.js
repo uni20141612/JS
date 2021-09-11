@@ -40,6 +40,7 @@ sksm.getskillSoulmaster = function (skillname){
         case "라이징 선":
         case "라이징선":
         case "선":
+        case "썬":
         case "해":
         case "솔라":
             smret = 7;
@@ -63,6 +64,7 @@ sksm.getskillSoulmaster = function (skillname){
             break;
         case "이너 샤우트":
         case "이너샤우트":
+        case "샤우트":
             smret = 11;
             break;
         case "댄스 오브 문":
@@ -147,6 +149,7 @@ sksm.getskillSoulmaster = function (skillname){
         case "소울 이클립스":
         case "소울이클립스":
         case "이클립스":
+        case "이클":
         case "솔루나 디바이드":
         case "솔루나디바이드":
             smret = 26;
@@ -289,52 +292,52 @@ sksm.getskilldesc1Soulmaster = function (skillcode){
             rep = "공격력 30, 힘 40 증가";
             break;
         case 12:
-            rep = "";
+            rep = "1명의 적을 400% 데미지로 4번 공격/ 시전중 슈퍼스탠스";
             break;
         case 13:
-            rep = "";
+            rep = "1명의 적을 400% 데미지로 4번 공격/ 시전중 슈퍼스탠스";
             break;
         case 14:
-            rep = "";
+            rep = "7명의 적을 295% 데미지로 6번 공격";
             break;
         case 15:
-            rep = "";
+            rep = "7명의 적을 295% 데미지로 6번 공격";
             break;
         case 16:
-            rep = "";
+            rep = "15명,850%,1번 공격. 10초 동안 바인드/ 쿨180초";
             break;
         case 17:
-            rep = "";
+            rep = "200초 동안 스킬을 사용할 때마다 자세가 변환";
             break;
         case 18:
-            rep = "";
+            rep = " 7명의 적을 240% 데미지로 6번 공격/ 쿨5초";
             break;
         case 19:
-            rep = "";
+            rep = "올스탯 30, 크확 10% 증가, 스탠스 100% 증가.";
             break;
         case 20:
-            rep = "";
+            rep = "몬스터 방어율 30% 무시, 보스 몬스터 공격 시 데미지 15% 증가";
             break;
         case 21:
-            rep = "";
+            rep = "[폴링 문] 크확35% 증가, 공격횟수2배, 최종데미지 90%로 감소";
             break;
         case 22:
-            rep = "";
+            rep = "180초 동안 공격력 50 증가.";
             break;
         case 23:
-            rep = "";
+            rep = "15명,160%,5번공격,5번발동/ 최대 차지시 580%/ 쿨20초";
             break;
         case 24:
-            rep = "";
+            rep = "70초간 반대자세 스킬사용 잔상생성/ 최종뎀60%/ 쿨150초";
             break;
         case 25:
-            rep = "";
+            rep = "40초간 크로스더스틱스 쿨적용X, 항상최대차지, 최종뎀50%감소";
             break;
         case 26:
-            rep = "";
+            rep = "40초간 15명,990%,7번 지속공격, 시전중 무적/ 쿨180초";
             break;
         case 27:
-            rep = "";
+            rep = "10명,1210%,7번 공격/ 쿨12초/ 패시브스킬";
             break;
     }
     return rep;
@@ -379,52 +382,52 @@ sksm.getskilldesc2Soulmaster = function (skillcode){
             rep = "정신을 집중하여 전신에 활력을 불어넣는다.";
             break;
         case 12:
-            rep = "";
+            rep = "폴링 문 상태 대인 주력 공격기";
             break;
         case 13:
-            rep = "";
+            rep = "라이징 선 상태 대인 주력 공격기/ 강제이동";
             break;
         case 14:
-            rep = "";
+            rep = "폴링 문 상태 주력 다수 공격기";
             break;
         case 15:
-            rep = "";
+            rep = "라이징 선 상태 주력 다수 공격기";
             break;
         case 16:
-            rep = "";
+            rep = "재사용 대기시간 180초";
             break;
         case 17:
-            rep = "";
+            rep = "폴링 문과 라이징 선의 효과가 모두 발동";
             break;
         case 18:
-            rep = "";
+            rep = "솔루나 타임 중 공중에서만 사용가능/ 스킬사용중 사용가능";
             break;
         case 19:
-            rep = "";
+            rep = "4차에 스탠스 확률을 몰아서 적용";
             break;
         case 20:
-            rep = "";
+            rep = "예측할 수 없는 공격으로 상대의 방어를 무력화시킨다.";
             break;
         case 21:
-            rep = "";
+            rep = "[라이징 선] 최종데미지 25%, 공속2단계, 공 45 증가";
             break;
         case 22:
-            rep = "";
+            rep = "펫 버프 자동스킬 등록 가능/ 벞지적용 X";
             break;
         case 23:
-            rep = "";
+            rep = "차지중 이동 및 점프 가능/ 쉬프트이외 스킬사용시 취소";
             break;
         case 24:
-            rep = "";
+            rep = "5초마다 10명,[선]2400%,3번/ [문]1200%,6번/ 크확100%";
             break;
         case 25:
-            rep = "";
+            rep = "10초간 균열, 15명, 1150%, 6번공격,5번발동/ 쿨180초";
             break;
         case 26:
-            rep = "";
+            rep = "솔루나디바이드: 15명, 2750%, 15번공격,5번/ 동작중무적, 체공가능";
             break;
         case 27:
-            rep = "";
+            rep = "솔루나타임 0.3초, 셀레스티얼댄스 3배/ 크로스더스틱스 4배로 감소";
             break;
     }
     return rep;

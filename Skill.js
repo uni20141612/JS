@@ -542,7 +542,7 @@ sk.getJobskillList = function(ind) {
         rep = "메르세데스\n\n5차 : 엘리멘탈 고스트, 실피디아, 이르칼라의 숨결, 로얄 나이츠";
         break;
     case 33:
-        rep = "팬텀\n\n1차 : 탤런트 오브 팬텀시프I\n2차 : 탤런트 오브 팬텀시프II\n3차 : 탤런트 오브 팬텀시프III, 미스포츈 프로텍션, 코트 오브 암즈, 럭 오브 팬텀시프, 플래시 앤 플리\n4차 : 탤런트 오브 팬텀시프IV, 얼티밋 드라이브, 템페스트 오브 카드, 느와르 카르트, 트와일라이트, 프레이 오브 아리아, 소울 스틸\n하이퍼스킬 : 탤런트 오브 팬텀시프H, 로즈 카르트 피날레\n5차 : 조커, 블랙잭, 리프트 브레이크, 마크 오브 팬텀";
+        rep = "팬텀\n\n0차 : 팬텀 슈라우드, 하이 덱스터러티, 스틸 스킬, 스킬 매니지먼트, 저지먼트, 데들리 인스팅트\n1차 : 탤런트 오브 팬텀시프I, 스위프트 팬텀, 퀵 이베이젼\n2차 : 탤런트 오브 팬텀시프II, 브리즈 카르트, 럭 모노폴리\n3차 : 코트 오브 암즈, 탤런트 오브 팬텀시프III, 럭 오브 팬텀시프, 미스포츈 프로텍션, 문 라이트, 플래시 앤 플리, 어큐트 센스\n4차 : 얼티밋 드라이브, 탤런트 오브 팬텀시프IV, 템페스트 오브 카드, 트와일라이트, 느와르 카르트, 소울 스틸, 프레이 오브 아리아\n하이퍼스킬 : 탤런트 오브 팬텀시프H, 로즈 카르트 피날레\n5차 : 조커, 블랙잭, 마크 오브 팬텀, 리프트 브레이크";
         break;
     case 34:
         rep = "은월\n\n";
@@ -778,8 +778,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             ret = jobM.getskillMercedes(skillname);
             break;
         case 33:
-            ret = -1;
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            ret = jobM.getskillPhantom(skillname);
             break;
         case 34:
             ret = -1;
@@ -1032,8 +1032,8 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = jobM.getskillnameMercedes(skillcode);
             break;
         case 33:
-            
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            rep = jobM.getskillnamePhantom(skillcode);
             break;
         case 34:
             
@@ -1285,8 +1285,8 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = jobM.getskilldesc1Mercedes(skillcode);
             break;
         case 33:
-            
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            rep = jobM.getskilldesc1Phantom(skillcode);
             break;
         case 34:
             
@@ -1532,8 +1532,8 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = jobM.getskilldesc2Mercedes(skillcode);
             break;
         case 33:
-            
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            rep = jobM.getskilldesc2Phantom(skillcode);
             break;
         case 34:
             
@@ -1661,6 +1661,16 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
     }
     return rep;
 };
+sk.getJobskilldesc3 = function(jobcode, skillcode){
+    rep = "";
+    var jobM;
+    switch(jobcode){
+        case 33:
+            jobM = require('skillPhantom');            
+            rep = jobM.getskilldesc3Phantom(skillcode); 
+    }
+    return rep;
+}
 sk.getJobskillimage1 = function(jobcode, skillcode){    
     rep = "";
     var jobM;
@@ -1791,8 +1801,8 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = jobM.getskillimage1Mercedes(skillcode);
             break;
         case 33:
-            
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            rep = jobM.getskillimage1Phantom(skillcode);
             break;
         case 34:
             
@@ -2050,8 +2060,8 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = jobM.getskillimage2Mercedes(skillcode);
             break;
         case 33:
-            
-            rep = "팬텀";
+            jobM = require('skillPhantom');
+            rep = jobM.getskillimage2Phantom(skillcode);
             break;
         case 34:
             

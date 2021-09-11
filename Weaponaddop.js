@@ -312,7 +312,7 @@ wpa.getaddop = function (weaponName){
         w130 += "스태프\n(142) "; w130 += weapon130[7];
         w140 += "스태프\n(155) "; w140 += weapon140[8];
         w150 += "마나크라운\n(204) "; w150 += weapon150[9];
-        w160 += "스펠링스테프\n(245) "; w160 += weapon160[9];
+        w160 += "스펠링스태프\n(245) "; w160 += weapon160[9];
         w200 += "스태프\n(353) "; w200 += weapon200[9];       
         wGene += "스태프\n(406) "; wGene += weaponGenesis[9];
         break;
