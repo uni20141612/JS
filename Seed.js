@@ -380,7 +380,7 @@ function getSeedname(ringInd){
             rep = "크라이시스-HM링";
             break;
         case 3:
-            rep = "웨폰퍼프-S/D/I/L랑";
+            rep = "웨폰퍼프-S/D/I/L링";
             break;
         case 4:
             rep = "레벨퍼프-S/D/I/L링";

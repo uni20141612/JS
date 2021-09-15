@@ -434,6 +434,9 @@ sk.getJobname = function(ind) {
         rep = "해적";
         break;
     case 63:
+        rep = "모험가";
+        break;
+    case 64:
         rep = "공용";
         break;
     }
@@ -599,22 +602,22 @@ sk.getJobskillList = function(ind) {
         rep = "시그너스 기사단\n\n하이퍼 스킬 : 글로리 오브 가디언즈\n5차 : 시그너스 팔랑크스, 여제 시그너스의 축복, 초월자 시그너스의 축복";
         break;
     case 52:
-        rep = "레지스탕스\n\n5차 : 레지스탕스 라인 인팬트리, 메이플월드 여신의 축복";
+        rep = "레지스탕스\n\n하이퍼 스킬 : 윌 오브 리버티\n5차 : 레지스탕스 라인 인팬트리, 메이플월드 여신의 축복";
         break;
     case 53:
-        rep = "데몬\n\n5차 : 콜 마스테마, 이계 여신의 축복";
+        rep = "데몬\n\n하이퍼 스킬 : 데모닉 포티튜드\n5차 : 콜 마스테마, 이계 여신의 축복";
         break;
     case 54:
-        rep = "영웅\n\n5차 : 프리드의 가호, 메이플월드 여신의 축복";
+        rep = "영웅\n\n하이퍼 스킬 : 히어로즈 오쓰\n5차 : 프리드의 가호, 메이플월드 여신의 축복";
         break;
     case 55:
-        rep = "노바\n\n5차 : 판테온, 그란디스 여신의 축복";
+        rep = "노바\n\n5차 : 판테온, 그란디스 여신의 축복(노바)";
         break;
     case 56:
-        rep = "레프\n\n5차 : 매직 서킷 풀드라이브, 그란디스 여신의 축복";
+        rep = "레프\n\n하이퍼 스킬 : 레이스 오브 갓\n5차 : 매직 서킷 풀드라이브, 그란디스 여신의 축복(레프)";
         break;
     case 57:
-        rep = "아니마\n\n5차 : 화중군자, 그란디스 여신의 축복";
+        rep = "아니마\n\n5차 : 화중군자, 그란디스 여신의 축복(아니마)";
         break;
     case 58:
         rep = "전사\n\n5차 : 오라 웨폰, 바디 오브 스틸";
@@ -850,52 +853,52 @@ sk.getJobskillcode = function(jobcode, skillname){
             ret = jobM.getskillAdvPirate(skillname);
             break;
         case 51:
-            ret = -1;
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 52:
-            ret = -1;
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 53:
-            ret = -1;
-            rep = "데몬";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 54:
-            ret = -1;
-            rep = "영웅";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 55:
-            ret = -1;
-            rep = "노바";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 56:
-            ret = -1;
-            rep = "레프";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 57:
-            ret = -1;
-            rep = "아니마";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 58:
-            ret = -1;
-            rep = "전사";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 59:
-            ret = -1;
-            rep = "마법사";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 60:
-            ret = -1;
-            rep = "궁수";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 61:
-            ret = -1;
-            rep = "도적";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 62:
-            ret = -1;
-            rep = "해적";
+            jobM = require('skillAll');
+            ret = jobM.getskillAll(jobcode, skillname);
             break;
         case 63:
             ret = -1;
@@ -1104,52 +1107,52 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = jobM.getskillnameAdvPirate(skillcode);
             break;
         case 51:
-            
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 52:
-            
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 53:
-            
-            rep = "데몬";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 54:
-            
-            rep = "영웅";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 55:
-            
-            rep = "노바";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 56:
-            
-            rep = "레프";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 57:
-            
-            rep = "아니마";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 58:
-            
-            rep = "전사";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 59:
-            
-            rep = "마법사";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 60:
-            
-            rep = "궁수";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 61:
-            
-            rep = "도적";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 62:
-            
-            rep = "해적";
+            jobM = require('skillAll');
+            rep = jobM.getskillnameAll(skillcode);
             break;
         case 63:            
             rep = "모험가";
@@ -1357,52 +1360,52 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = jobM.getskilldesc1AdvPirate(skillcode);
             break;
         case 51:
-            
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 52:
-            
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 53:
-            
-            rep = "데몬";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 54:
-            
-            rep = "영웅";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 55:
-            
-            rep = "노바";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 56:
-            
-            rep = "레프";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 57:
-            
-            rep = "아니마";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 58:
-            
-            rep = "전사";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 59:
-            
-            rep = "마법사";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 60:
-            
-            rep = "궁수";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 61:
-            
-            rep = "도적";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 62:
-            
-            rep = "해적";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc1All(skillcode);
             break;
         case 63:            
             rep = "모험가";
@@ -1604,52 +1607,52 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = jobM.getskilldesc2AdvPirate(skillcode);
             break;
         case 51:
-            
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 52:
-            
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 53:
-            
-            rep = "데몬";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 54:
-            
-            rep = "영웅";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 55:
-            
-            rep = "노바";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 56:
-            
-            rep = "레프";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 57:
-            
-            rep = "아니마";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 58:
-            
-            rep = "전사";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 59:
-            
-            rep = "마법사";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 60:
-            
-            rep = "궁수";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 61:
-            
-            rep = "도적";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 62:
-            
-            rep = "해적";
+            jobM = require('skillAll');
+            rep = jobM.getskilldesc2All(skillcode);
             break;
         case 63:            
             rep = "모험가";
@@ -1667,7 +1670,12 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
     switch(jobcode){
         case 33:
             jobM = require('skillPhantom');            
-            rep = jobM.getskilldesc3Phantom(skillcode); 
+            rep = jobM.getskilldesc3Phantom(skillcode);
+        case 53:
+        case 54:
+        case 61:
+            jobM = require('skillAll');            
+            rep = jobM.getskilldesc3All(skillcode);        
     }
     return rep;
 }
@@ -1873,52 +1881,52 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = jobM.getskillimage1AdvPirate(skillcode);
             break;
         case 51:
-            
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 52:
-            
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 53:
-            
-            rep = "데몬";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 54:
-            
-            rep = "영웅";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 55:
-            
-            rep = "노바";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 56:
-            
-            rep = "레프";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 57:
-            
-            rep = "아니마";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 58:
-            
-            rep = "전사";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 59:
-            
-            rep = "마법사";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 60:
-            
-            rep = "궁수";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 61:
-            
-            rep = "도적";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 62:
-            
-            rep = "해적";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage1All(skillcode);
             break;
         case 63:            
             rep = "모험가";
@@ -2132,52 +2140,52 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = jobM.getskillimage2AdvPirate(skillcode);
             break;
         case 51:
-            
-            rep = "시그너스 기사단";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 52:
-            
-            rep = "레지스탕스";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 53:
-            
-            rep = "데몬";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 54:
-            
-            rep = "영웅";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 55:
-            
-            rep = "노바";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 56:
-            
-            rep = "레프";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 57:
-            
-            rep = "아니마";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 58:
-            
-            rep = "전사";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 59:
-            
-            rep = "마법사";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 60:
-            
-            rep = "궁수";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 61:
-            
-            rep = "도적";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 62:
-            
-            rep = "해적";
+            jobM = require('skillAll');
+            rep = jobM.getskillimage2All(skillcode);
             break;
         case 63:            
             rep = "모험가";

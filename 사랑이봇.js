@@ -3,6 +3,7 @@ const path = 'sdcard/kakao/Bots/보마봇/';
 const kalingModule = require('kaling').Kakao();
 const Kakao = new kalingModule();
 let Logindata = FileStream.read(path + "Login.txt");
+let myName = FileStream.read(path + "Name.txt");
 Kakao.init(Logindata.split("ksec:")[1].split("/")[0], 'https://developers.kakao.com');
 Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0]);
 const guitarM = require('Guitar');
@@ -70,11 +71,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
-    if((sender == "천한수" || sender == adminNick) && (msg == "!리로드" || msg == "!ㄹㄹ")){
+    if((sender == myName || sender == adminNick) && (msg == "!리로드" || msg == "!ㄹㄹ")){
       if(Api.reload(scriptName)){     replier.reply("리로드 성공");      }
       else{  replier.reply("리로드 실패");   }
     }
-    if((sender == "천한수" || sender == adminNick) && (msg.startsWith("!공지"))){
+    if((sender == myName || sender == adminNick) && (msg.startsWith("!공지"))){
       var notices = msg.slice(4, msg.length);
       Api.replyRoom("UniMaple", notices);
     }
@@ -98,14 +99,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         Api.reload(scriptName);
       }
     }
-    if((sender == "천한수" || sender == adminNick) && msg.startsWith("테스트")){
+    if((sender == myName || sender == adminNick) && msg.startsWith("테스트")){
       //const fM = require('Food');      replier.reply(fM.foodList.length);
     }    
-    if((sender == "천한수" || sender == adminNick) && msg == "!유저정보"){
+    if((sender == myName || sender == adminNick) && msg == "!유저정보"){
       var dataB = DataBase.getDataBase("Userdata.txt");  
       replier.reply(dataB);
     }
-    if((sender == "천한수" || sender == adminNick) && msg.startsWith("!유저정보삭제")){
+    if((sender == myName || sender == adminNick) && msg.startsWith("!유저정보삭제")){
       var nicks = msg.split(" ")[1];
       var dataB = DataBase.getDataBase("Userdata.txt");  
       var userinfoind = dataB.indexOf(nicks);
@@ -120,7 +121,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(nicks + " >> 닉네임이 유저 정보에 없습니다.");
       }
     }
-    if((sender == "천한수" || sender == adminNick) && msg == "!유저정보전체삭제"){
+    if((sender == myName || sender == adminNick) && msg == "!유저정보전체삭제"){
       var isdataB = DataBase.removeDataBase("Userdata.txt");  
       if(isdataB){replier.reply("유저 정보가 삭제되었습니다.");}
       else{replier.reply("유저 정보가 삭제되지 않았습니다.");}
@@ -870,8 +871,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                     }
                 },
                  "custom");
-                 if(skilldesc2 == "하단 참조"){
+                 if(skilldesc1 == "하단 참조"){
+                   skilldesc2 = "-";
                    skilldesc3 = skillM.getJobskilldesc3(jobcode, skillcode);
+                   replier.reply(skilldesc3);
                  }
             }
           }
