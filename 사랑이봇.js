@@ -872,7 +872,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 },
                  "custom");
                  if(skilldesc1 == "하단 참조"){
-                   skilldesc2 = "-";
                    skilldesc3 = skillM.getJobskilldesc3(jobcode, skillcode);
                    replier.reply(skilldesc3);
                  }
