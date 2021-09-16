@@ -101,6 +101,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if((sender == myName || sender == adminNick) && msg.startsWith("테스트")){
       //const fM = require('Food');      replier.reply(fM.foodList.length);
+      var test1 = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").header("Origin", "http://wachan.me").header("Referer", "http://wachan.me/boss.php").data("date", "8").data("type", "week1").post();
+      test1 = test1.toString();
+      replier.reply(test1);
     }    
     if((sender == myName || sender == adminNick) && msg == "!유저정보"){
       var dataB = DataBase.getDataBase("Userdata.txt");  
@@ -287,6 +290,48 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply("이 캐릭터는 업적 정보가 없습니다.");
               }
             }
+          }
+        }
+      }
+    }
+    if(msg.startsWith("!스카우터")){
+      nickname = msg.split(" ")[1];
+      if(nickname == undefined){
+        replier.reply("캐릭터 이름을 입력해주세요.\n\n!스카우터 (캐릭터 이름) : 당신의 메창력을 수치로 변환하여 보여줍니다.\n본캐의 닉네임을 입력해주세요.");
+      }
+      else{
+        maplegg = "https://maple.gg/u/" + nickname;
+        dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        dataC1 = dataC1.toString();
+        if(dataC1.indexOf("검색결과 없음") != -1){
+          replier.reply(nickname + " >> 그런 캐릭터는 없습니다.\n\n!스카우터 (캐릭터 이름) : 당신의 메창력을 수치로 변환하여 보여줍니다.\n본캐의 닉네임을 입력해주세요.");
+        }
+        else{
+          dataU1 = dataC1.split("유니온 <i")[1];
+          dataU2 = dataU1.split("업적")[0];
+          if(dataU2.indexOf("user-summary-no-data") == -1){
+            var unirep = guitarM.getUnion(dataU1, dataU2);
+            var unionlvl = parseInt(unirep.split("Lv.")[1].split("유니온")[0]);
+
+            dataM1 = dataC1.split("무릉 히스토리")[1].split("</section")[0];
+            if(dataM1.indexOf("기록이 없습니다.") == -1){
+              var murep = guitarM.getMureung(nickname, dataM1, dataC1);
+              var mulvl = parseInt(murep.split("최고기록")[1].split("기준 : ")[1].split("층")[0]);
+              var temparr = ["-", "-", "-", "-", "-", "-", "-"];
+              var inforep = guitarM.getInform(temparr, dataC1);
+              var characlvl = parseInt(inforep.split("Lv.")[1].split("("));
+
+              var maple3dae = guitarM.getScouter(characlvl, mulvl, unionlvl);
+              var scoutres = guitarM.get3Dae(maple3dae);
+
+              replier.reply(nickname + " 캐릭터의 메창력 수치 : " + maple3dae + "\n\n" + scoutres);
+            }
+            else{
+              replier.reply(nickname + " >> 이 캐릭터는 무릉 기록이 없습니다.");
+            }
+          }
+          else{
+            replier.reply("이 캐릭터는 본캐가 아니라서 메창력 조회가 되지 않습니다.(메지지에서 유니온레벨 조회가 되지 않습니다.)");
           }
         }
       }
@@ -666,6 +711,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(sfrep);
     }
     if(msg.startsWith("!결정석") || msg.startsWith("!결정")){
+      const cryM = require('Crystal');
       bossname = msg.split(" ")[1];
       if(bossname == undefined){
         replier.reply("보스 이름을 입력해주십시오.\n\n!결정석 (보스이름) : 보스의 결정석 가격과 변동 현황을 보여줍니다.");
@@ -677,18 +723,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           replier.reply("입력한 값으로 검색되는 보스가 없습니다. 다시 확인해주세요.");
         }
         else{
-          bname = gbM.getBossname2(bossind);
-          var bnameIn = gbM.getBossname3(bossind);      
+          bname = gbM.getBossname2(bossind);  
+          var pricelen = cryM.crystalprice[0].length; 
+          var prevprice = cryM.crystalprice[bossind][pricelen - 2];
+          var curprice = cryM.crystalprice[bossind][pricelen - 1];
           binfo = "";
-          if(bnameIn == "없음"){bHP = "결정석이 없는 보스입니다."}
+          if(prevprice == 0 || curprice == 0){bHP = "결정석이 없는 보스입니다."}
           else{
-            var bmapprev = new Map(); var bmapcur = new Map();
-            getCrystal(bmapprev, bmapcur);
-            var prevprice = parseInt(bmapprev.get(bnameIn));
-            var curprice = parseInt(bmapcur.get(bnameIn));
             var pricediff = (curprice - prevprice);
             var pricepercent = pricediff / prevprice * 100;
-            pricepercent = Number(pricepercent.toFixed(2));
+            pricepercent = Number(pricepercent.toFixed(3));
             bHP = "현재 가격 : " + numberWithCommas(curprice) + "메소";
             if(pricediff >= 0){ binfo += "▲ ";}
             else{ binfo += "▼ ";}
@@ -1089,50 +1133,6 @@ function getRomaname(kname){
 
   return res;
 }
-function getCrystal(tmap1, tmap2){
-  CrysDay = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").data("date", 2).data("type", "day").ignoreHttpErrors(true).ignoreContentType(true).post().text();
-  CrysWeek1 = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").data("date", 2).data("type", "week1").ignoreHttpErrors(true).ignoreContentType(true).post().text();
-  CrysWeek2 = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").data("date", 2).data("type", "week2").ignoreHttpErrors(true).ignoreContentType(true).post().text();
-  CrysMonth = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").data("date", 2).data("type", "month").ignoreHttpErrors(true).ignoreContentType(true).post().text();
-  res = "";
-  CrysDay = unescape(replaceA(CrysDay, "\\", "%"));
-  CrysWeek1 = unescape(replaceA(CrysWeek1, "\\", "%"));
-  CrysWeek2 = unescape(replaceA(CrysWeek2, "\\", "%"));
-  CrysMonth = unescape(replaceA(CrysMonth, "\\", "%"));
-  var Barr = []; var Carr = []; var Carr2 = [];
-  getBname(Barr, CrysDay);    getBCrys1(Carr, CrysDay);    getBCrys2(Carr2, CrysDay);
-  getBname(Barr, CrysWeek1);  getBCrys1(Carr, CrysWeek1);  getBCrys2(Carr2, CrysWeek1);
-  getBname(Barr, CrysWeek2);  getBCrys1(Carr, CrysWeek2);  getBCrys2(Carr2, CrysWeek2);
-  getBname(Barr, CrysMonth);  getBCrys1(Carr, CrysMonth);  getBCrys2(Carr2, CrysMonth);
-  for(i = 0; i < Barr.length; ++i){
-    tmap1.set(Barr[i], Carr[i]);
-    tmap2.set(Barr[i], Carr2[i]);
-  }
-}
-function getBname(arr, text){
-  var temptxt = text.split("날짜")[1].split("\"],[")[0];
-  var templen = temptxt.split("\",\"").length;
-  for(i = 1; i < templen; ++i){
-    var tempt = temptxt.split("\",\"")[i];
-    arr.push(tempt);
-  }  
-}
-function getBCrys1(arr, text){
-  temptxt = text.split("\"],[\"")[1].split("],[\"")[0];
-  templen = temptxt.split(",").length;
-  for(i = 1; i < templen; ++i){
-    tempt = temptxt.split(",")[i];
-    arr.push(tempt);
-  }  
-}
-function getBCrys2(arr, text){
-  temptxt = text.split("\"],[\"")[1].split("],[\"")[1].split("]]")[0];
-  templen = temptxt.split(",").length;
-  for(i = 1; i < templen; ++i){
-    tempt = temptxt.split(",")[i];
-    arr.push(tempt);
-  }  
-}
 function getTest(){
   res = org.jsoup.Jsoup.connect("https://www.kmspatcher.com/patchfile/testworld").get();
   res = res.toString();
@@ -1189,15 +1189,6 @@ function getMinute(){
   else{
     return true;
   }
-}
-function replaceA(strTemp, strValue1, strValue2){ 
-  while(1){
-      if( strTemp.indexOf(strValue1) != -1 )
-          strTemp = strTemp.replace(strValue1, strValue2).replace("Easy", "이지").replace("Normal", "노멀").replace("Hard", "하드").replace("Chaos", "카오스");
-      else
-          break;
-  }
-  return strTemp;
 }
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];

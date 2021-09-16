@@ -403,6 +403,10 @@ cb.getCubeability = function (abilname){
         case "드":
             ret = 12;
             break;
+        case "데미지":
+        case "뎀":
+            ret = 13;
+            break;
         default:
             ret = -1;
             break;
@@ -412,7 +416,7 @@ cb.getCubeability = function (abilname){
 cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, temprate = 1.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -424,7 +428,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 temprate *= parseFloat(r1[a]);
                 temprate *= parseFloat(r2[b]);
                 temprate *= parseFloat(r3[c]);
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -560,6 +564,18 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                         break;
                     case 40:
                         items += 20;
+                        break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
                         break;
                 }
                 switch(abcode2){
@@ -698,6 +714,18 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -835,8 +863,21 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
 
+                if(true){
                 if(abcode1 == abcode2 && abcode1 == abcode3 && abcode1 == 40){continue;}
                 if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){continue;}}}
                 if(abcode1 == 16 || abcode1 == 17 || abcode1 == 18){ if(abcode3 == 16 || abcode3 == 17 || abcode3 == 18){ if(abcode2 == 16 || abcode2 == 17 || abcode2 == 18){continue;}}}
@@ -850,6 +891,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                }
 
                 if(abilind == 0){ tempcomp = str; }
                 else if(abilind == 1){ tempcomp = dex; }
@@ -864,6 +906,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 else if(abilind == 10){ tempcomp = hps; }
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
+                else if(abilind == 13){ tempcomp = dam; }
 
                 if(tempcomp >= abilval){
                     temprate /= 10000;  //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
@@ -885,7 +928,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
 cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -911,7 +954,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
                 temprate /= 10000; 
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -1047,6 +1090,18 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                         break;
                     case 40:
                         items += 20;
+                        break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
                         break;
                 }
                 switch(abcode2){
@@ -1185,6 +1240,18 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -1322,6 +1389,18 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
 
                 if(abilind == 0){ tempcomp = str; }
@@ -1337,6 +1416,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 else if(abilind == 10){ tempcomp = hps; }
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
+                else if(abilind == 13){ tempcomp = dam; }
                 if(abilind2 == 0){ tempcomp2 = str; }
                 else if(abilind2 == 1){ tempcomp2 = dex; }
                 else if(abilind2 == 2){ tempcomp2 = ints; }
@@ -1350,6 +1430,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 else if(abilind2 == 10){ tempcomp2 = hps; }
                 else if(abilind2 == 11){ tempcomp2 = mesos; }
                 else if(abilind2 == 12){ tempcomp2 = items; }
+                else if(abilind2 == 13){ tempcomp2 = dam; }
                 
                 if(tempcomp >= abilval){ //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
                     finalrate1 += temprate;
@@ -1380,7 +1461,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
 cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilval2, abilind3, abilval3, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, tempcomp3 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate3 = 0.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -1406,7 +1487,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
                 temprate /= 10000; 
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -1542,6 +1623,18 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                         break;
                     case 40:
                         items += 20;
+                        break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
                         break;
                 }
                 switch(abcode2){
@@ -1680,6 +1773,18 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -1817,6 +1922,18 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 40:
                         items += 20;
                         break;
+                    case 41:
+                        dam += 12;
+                        break;
+                    case 42:
+                        dam += 9;
+                        break;
+                    case 43:
+                        dam += 6;
+                        break;
+                    case 44:
+                        dam += 3;
+                        break;
                 }
 
                 if(abilind == 0){ tempcomp = str; }
@@ -1832,6 +1949,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind == 10){ tempcomp = hps; }
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
+                else if(abilind == 13){ tempcomp = dam; }
                 if(abilind2 == 0){ tempcomp2 = str; }
                 else if(abilind2 == 1){ tempcomp2 = dex; }
                 else if(abilind2 == 2){ tempcomp2 = ints; }
@@ -1845,6 +1963,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind2 == 10){ tempcomp2 = hps; }
                 else if(abilind2 == 11){ tempcomp2 = mesos; }
                 else if(abilind2 == 12){ tempcomp2 = items; }
+                else if(abilind2 == 13){ tempcomp2 = dam;}
                 if(abilind3 == 0){ tempcomp2 = str; }
                 else if(abilind3 == 1){ tempcomp3 = dex; }
                 else if(abilind3 == 2){ tempcomp3 = ints; }
@@ -1858,6 +1977,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind3 == 10){ tempcomp3 = hps; }
                 else if(abilind3 == 11){ tempcomp3 = mesos; }
                 else if(abilind3 == 12){ tempcomp3 = items; }
+                else if(abilind3 == 13){ tempcomp3 = dam; }
                 
                 if(tempcomp >= abilval){ //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
                     finalrate1 += temprate;
@@ -1938,6 +2058,9 @@ function getCubeabilityR(abilind){
             break;
         case 12:
             ret = "아이템 드롭률";
+            break;
+        case 13:
+            ret = "데미지";
             break;
     }
     return ret;
@@ -2067,7 +2190,19 @@ function getabilityCode(poten){
             break;
         case "아이템 드롭률 : +20%":
             ret = 40;
-            break;        
+            break;
+        case "데미지 : +12%":
+            ret = 41;
+            break;
+        case "데미지 : +9%":
+            ret = 42;
+            break;
+        case "데미지 : +6%":
+            ret = 43;
+            break;
+        case "데미지 : +3%":
+            ret = 44;
+            break;
     }
     return ret;
 }

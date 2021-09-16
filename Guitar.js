@@ -236,6 +236,43 @@ gt.getAchieve = function (dataA1){
   rep = (dataA4 + ", " + dataA5);
   return rep;
 };
+gt.getScouter = function (clvl, mlvl, ulvl){
+  var ret = 0;
+
+  var ctemp = clvl - 100;
+  var mtemp = 0; var utemp = 0;
+  if(mlvl >= 45){
+    mtemp = mlvl * 4;
+  }
+  else{
+    mtemp = mlvl * 3;
+  }
+
+  if(ulvl >= 8000){
+    utemp = 250;
+  }
+  else{
+    utemp = ulvl / 40;
+    utemp = parseInt(utemp.toFixed(0));
+  }
+  ret = ctemp + mtemp + utemp;
+
+  return ret;
+};
+gt.get3Dae = function (mscore){
+  ret = "";
+
+  if(mscore <= 300){ ret = "응애 나 애기 메린이";  }
+  else if(mscore > 300 && mscore <= 350){ ret = "메청소년, 아직 늦지 않았다."; }
+  else if(mscore > 350 && mscore <= 400){ ret = "메청년, 열심히 메린이 코스프레중"; }
+  else if(mscore > 400 && mscore <= 500){ ret = "메유저 평균, 지능이 점점 퇴화중"; }
+  else if(mscore > 500 && mscore <= 550){ ret = "본인은 부정하지만 주변에서는 슬슬 메창소리 들을 수준"; }
+  else if(mscore > 550 && mscore <= 600){ ret = "보마봇 공식 메창 인증서 발급"; }
+  else if(mscore > 600 && mscore <= 700){ ret = "메생이 곧 현생, 일상생활 가능하십니까.."; }
+  else if(mscore > 700){ ret = "당신이 곧 메이플 그 자체, 넥슨 기둥뿌리 몇개는 세워주신 분"}
+
+  return ret;
+}
 gt.getEternal = function (msg, addtitle, addn){
   rep = "";
   var addLevel = msg.split(" ")[1];
