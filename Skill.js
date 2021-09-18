@@ -533,7 +533,7 @@ sk.getJobskillList = function(ind) {
         rep = "데몬어벤져\n\n";
         break;
     case 29:
-        rep = "아란\n\n";
+        rep = "아란\n\n0차 : 컴뱃 스탭, 되찾은 기억, 콤보킬 어드밴티지\n1차 : 콤보 어빌리티, 스매시 스윙, 스매시 웨이브, 바디 프레셔\n2차 : 파이널 차지, 파이널 토스, 롤링 스핀, 드레인, 스노우 차지, 다이나믹 마스터리 I, 스윙 연구 I, 피지컬 트레이닝\n3차 : 어드밴스드 콤보 어빌리티, 에어로 스윙, 아드레날린 부스트 액티베이트, 아드레날린 부스트, 파이널 블로우, 저지먼트, 게더링 캐쳐, 블레싱 마하, 마이트, 클리빙 어택\n4차 : 비욘더, 부스트 엔드-스톰 오브 피어, 부스트 엔드-헌터즈 타겟팅, 하이 디펜스, 스위프트 무브, 다이나믹 마스터리 II, 스윙 연구 II\n하이퍼 스킬: 아드레날린 제네레이터, 마하의 영역\n5차: 인스톨 마하, 브랜디쉬 마하, 펜릴 크래시, 블리자드 템페스트";
         break;
     case 30:
         rep = "에반\n\n";
@@ -545,7 +545,7 @@ sk.getJobskillList = function(ind) {
         rep = "메르세데스\n\n5차 : 엘리멘탈 고스트, 실피디아, 이르칼라의 숨결, 로얄 나이츠";
         break;
     case 33:
-        rep = "팬텀\n\n0차 : 팬텀 슈라우드, 하이 덱스터러티, 스틸 스킬, 스킬 매니지먼트, 저지먼트, 데들리 인스팅트\n1차 : 탤런트 오브 팬텀시프I, 스위프트 팬텀, 퀵 이베이젼\n2차 : 탤런트 오브 팬텀시프II, 브리즈 카르트, 럭 모노폴리\n3차 : 코트 오브 암즈, 탤런트 오브 팬텀시프III, 럭 오브 팬텀시프, 미스포츈 프로텍션, 문 라이트, 플래시 앤 플리, 어큐트 센스\n4차 : 얼티밋 드라이브, 탤런트 오브 팬텀시프IV, 템페스트 오브 카드, 트와일라이트, 느와르 카르트, 소울 스틸, 프레이 오브 아리아\n하이퍼스킬 : 탤런트 오브 팬텀시프H, 로즈 카르트 피날레\n5차 : 조커, 블랙잭, 마크 오브 팬텀, 리프트 브레이크";
+        rep = "팬텀\n\n0차 : 팬텀 슈라우드, 하이 덱스터러티, 스틸 스킬, 스킬 매니지먼트, 저지먼트, 데들리 인스팅트\n1차 : 탤런트 오브 팬텀시프I, 스위프트 팬텀, 퀵 이베이젼\n2차 : 탤런트 오브 팬텀시프II, 브리즈 카르트, 럭 모노폴리\n3차 : 코트 오브 암즈, 탤런트 오브 팬텀시프III, 럭 오브 팬텀시프, 미스포츈 프로텍션, 문 라이트, 플래시 앤 플리, 어큐트 센스\n4차 : 얼티밋 드라이브, 탤런트 오브 팬텀시프IV, 템페스트 오브 카드, 트와일라이트, 느와르 카르트, 소울 스틸, 프레이 오브 아리아\n하이퍼 스킬 : 탤런트 오브 팬텀시프H, 로즈 카르트 피날레\n5차 : 조커, 블랙잭, 마크 오브 팬텀, 리프트 브레이크";
         break;
     case 34:
         rep = "은월\n\n";
@@ -765,8 +765,8 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "데몬어벤져";
             break;
         case 29:
-            ret = -1;
-            rep = "아란";
+            jobM = require('skillAran');
+            ret = jobM.getskillAran(skillname);
             break;
         case 30:
             ret = -1;
@@ -1019,8 +1019,8 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = "데몬어벤져";
             break;
         case 29:
-            
-            rep = "아란";
+            jobM = require('skillAran');
+            rep = jobM.getskillnameAran(skillcode);
             break;
         case 30:
             
@@ -1272,8 +1272,8 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = "데몬어벤져";
             break;
         case 29:
-            
-            rep = "아란";
+            jobM = require('skillAran');
+            rep = jobM.getskilldesc1Aran(skillcode);
             break;
         case 30:
             
@@ -1519,8 +1519,8 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = "데몬어벤져";
             break;
         case 29:
-            
-            rep = "아란";
+            jobM = require('skillAran');
+            rep = jobM.getskilldesc2Aran(skillcode);
             break;
         case 30:
             
@@ -1671,11 +1671,13 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
         case 33:
             jobM = require('skillPhantom');            
             rep = jobM.getskilldesc3Phantom(skillcode);
+            break;
         case 53:
         case 54:
         case 61:
             jobM = require('skillAll');            
             rep = jobM.getskilldesc3All(skillcode);        
+            break;
     }
     return rep;
 }
@@ -1793,8 +1795,8 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = "데몬어벤져";
             break;
         case 29:
-            
-            rep = "아란";
+            jobM = require('skillAran');
+            rep = jobM.getskillimage1Aran(skillcode);
             break;
         case 30:
             
@@ -2052,8 +2054,8 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = "데몬어벤져";
             break;
         case 29:
-            
-            rep = "아란";
+            jobM = require('skillAran');
+            rep = jobM.getskillimage2Aran(skillcode);
             break;
         case 30:
             

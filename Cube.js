@@ -407,6 +407,15 @@ cb.getCubeability = function (abilname){
         case "뎀":
             ret = 13;
             break;
+        case "모든스킬의재사용대기시간":
+        case "재사용대기시간":
+        case "재사용":
+        case "쿨타임":
+        case "쿨뚝":
+        case "쿨감":
+        case "쿨":
+            ret = 14;
+            break;
         default:
             ret = -1;
             break;
@@ -416,7 +425,7 @@ cb.getCubeability = function (abilname){
 cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, temprate = 1.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -428,7 +437,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 temprate *= parseFloat(r1[a]);
                 temprate *= parseFloat(r2[b]);
                 temprate *= parseFloat(r3[c]);
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -576,6 +585,12 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                         break;
                     case 44:
                         dam += 3;
+                        break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
                         break;
                 }
                 switch(abcode2){
@@ -726,6 +741,12 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -875,6 +896,12 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
 
                 if(true){
@@ -907,6 +934,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
                 else if(abilind == 13){ tempcomp = dam; }
+                else if(abilind == 14){ tempcomp = cool; }
 
                 if(tempcomp >= abilval){
                     temprate /= 10000;  //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
@@ -917,9 +945,13 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
     }
     var frate = finalrate.toFixed(8);
     var cubenum = (100 / finalrate).toFixed(0);
-    if(finalrate == 0){rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+    if(finalrate == 0){
+        if(abilind == 14){rep += "해당 수치 " + abilval + "초가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+    }
     else{
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + frate + "% 입니다.\n";
+        if(abilind == 14){rep += getCubeabilityR(abilind) + " " + abilval + "초 이상 확률은 " + frate + "% 입니다.\n";}
+        else{rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + frate + "% 입니다.\n";}
         rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
         rep += getCubeprice(cubename, cubenum);
     }
@@ -928,7 +960,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
 cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -954,7 +986,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
                 temprate /= 10000; 
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -1102,6 +1134,12 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                         break;
                     case 44:
                         dam += 3;
+                        break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
                         break;
                 }
                 switch(abcode2){
@@ -1252,6 +1290,12 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -1401,6 +1445,12 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
 
                 if(abilind == 0){ tempcomp = str; }
@@ -1417,6 +1467,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
                 else if(abilind == 13){ tempcomp = dam; }
+                else if(abilind == 14){ tempcomp = cool; }
                 if(abilind2 == 0){ tempcomp2 = str; }
                 else if(abilind2 == 1){ tempcomp2 = dex; }
                 else if(abilind2 == 2){ tempcomp2 = ints; }
@@ -1431,6 +1482,7 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 else if(abilind2 == 11){ tempcomp2 = mesos; }
                 else if(abilind2 == 12){ tempcomp2 = items; }
                 else if(abilind2 == 13){ tempcomp2 = dam; }
+                else if(abilind2 == 14){ tempcomp2 = cool; }
                 
                 if(tempcomp >= abilval){ //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
                     finalrate1 += temprate;
@@ -1446,22 +1498,53 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
     }
     var frate = finalrate.toFixed(8);
     var cubenum = (100 / finalrate).toFixed(0);
-    if(finalrate1 == 0){rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate2 == 0){rep += "\n해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}}
-    else if(finalrate2 == 0){rep += "해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
-    else if(frate == 0){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 해당 두 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+    if(finalrate1 == 0){
+        if(abilind == 14){rep += "해당 수치 " + abilval + "초가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";} 
+        
+        if(finalrate2 == 0){
+            if(abilind2 == 14){rep += "\n해당 수치 " + abilval2 + "초가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+            else{rep += "\n해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        }
+    }
+    else if(finalrate2 == 0){
+        if(abilind2 == 14){rep += "해당 수치 " + abilval2 + "초가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+    }
+    else if(frate == 0){
+        if(abilind == 14){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"초 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 해당 두 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+        else if(abilind2 == 14){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "초 해당 두 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+        else{rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 해당 두 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+    }
     else{
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
-        rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
-        rep += getCubeprice(cubename, cubenum);
+        if(abilind == 14){
+            rep += getCubeabilityR(abilind) + " " + abilval + "초 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "초 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
+        else if(abilind2 == 14){
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "초 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "초 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
+        else{
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
     }
     return rep;
 }
 cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilval2, abilind3, abilval3, p1, p2, p3, r1, r2, r3){
     var rep = "";
     var a = 0, b = 0, c = 0, tempcomp = 0, tempcomp2 = 0, tempcomp3 = 0, temprate = 1.0, finalrate1 = 0.0, finalrate2 = 0.0, finalrate3 = 0.0, finalrate = 0.0;
-    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
+    var str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
 
     for(a = 0; a < p1.length; ++a){
         var abcode1 = getabilityCode(p1[a]);
@@ -1487,7 +1570,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
                 temprate /= 10000; 
-                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0;
+                str = 0, dex = 0, ints = 0, luk = 0, bossa = 0, atk = 0, mag = 0, defig = 0, cridam = 0, alls = 0, hps = 0, mesos = 0, items = 0, dam = 0, cool = 0;
                 switch(abcode1){
                     case 0:
                         str += 12;
@@ -1635,6 +1718,12 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                         break;
                     case 44:
                         dam += 3;
+                        break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
                         break;
                 }
                 switch(abcode2){
@@ -1785,6 +1874,12 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -1934,6 +2029,12 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 44:
                         dam += 3;
                         break;
+                    case 45:
+                        cool += 2;
+                        break;
+                    case 46:
+                        cool += 1;
+                        break;
                 }
 
                 if(abilind == 0){ tempcomp = str; }
@@ -1950,6 +2051,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind == 11){ tempcomp = mesos; }
                 else if(abilind == 12){ tempcomp = items; }
                 else if(abilind == 13){ tempcomp = dam; }
+                else if(abilind == 14){ tempcomp = cool; }
                 if(abilind2 == 0){ tempcomp2 = str; }
                 else if(abilind2 == 1){ tempcomp2 = dex; }
                 else if(abilind2 == 2){ tempcomp2 = ints; }
@@ -1964,6 +2066,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind2 == 11){ tempcomp2 = mesos; }
                 else if(abilind2 == 12){ tempcomp2 = items; }
                 else if(abilind2 == 13){ tempcomp2 = dam;}
+                else if(abilind2 == 14){ tempcomp2 = cool;}
                 if(abilind3 == 0){ tempcomp2 = str; }
                 else if(abilind3 == 1){ tempcomp3 = dex; }
                 else if(abilind3 == 2){ tempcomp3 = ints; }
@@ -1978,6 +2081,7 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 else if(abilind3 == 11){ tempcomp3 = mesos; }
                 else if(abilind3 == 12){ tempcomp3 = items; }
                 else if(abilind3 == 13){ tempcomp3 = dam; }
+                else if(abilind3 == 14){ tempcomp3 = cool; }
                 
                 if(tempcomp >= abilval){ //var trate = temprate.toFixed(6);   rep += tempcomp + " " + abilval + " " + abcode1 + " " + abcode2 + " " + abcode3 + " " + trate + "%\n";
                     finalrate1 += temprate;
@@ -1996,17 +2100,72 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
     }
     var frate = finalrate.toFixed(8);
     var cubenum = (100 / finalrate).toFixed(0);
-    if(finalrate1 == 0){rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate2 == 0){rep += "\n해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate3 == 0){rep += "\n해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}}}
-    else if(finalrate2 == 0){rep += "해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; if(finalrate3 == 0){rep += "\n해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}}
-    else if(finalrate3 == 0){rep += "해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
-    else if(frate == 0){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 와 [" + getCubeabilityR(abilind3) + "] 능력 해당 세 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+    if(finalrate1 == 0){
+        if(abilind == 14){rep += "해당 수치 " + abilval + "초가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; }
+        
+        if(finalrate2 == 0){
+            if(abilind2 == 14){rep += "\n해당 수치 " + abilval2 + "초가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; }
+            else{rep += "\n해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; }
+        
+        if(finalrate3 == 0){
+            if(abilind3 == 14){rep += "\n해당 수치 " + abilval3 + "초가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+            else{rep += "\n해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; }
+            }
+        }
+    }
+    else if(finalrate2 == 0){
+        if(abilind2 == 14){rep += "해당 수치 " + abilval2 + "초가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval2 + "%가 해당 등급 [" + getCubeabilityR(abilind2) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다."; }
+        
+        if(finalrate3 == 0){
+            if(abilind3 == 14){rep += "\n해당 수치 " + abilval3 + "초가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+            else{rep += "\n해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        }
+    }
+    else if(finalrate3 == 0){
+        if(abilind3 == 14){rep += "해당 수치 " + abilval3 + "초가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        else{rep += "해당 수치 " + abilval3 + "%가 해당 등급 [" + getCubeabilityR(abilind3) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+    }
+    else if(frate == 0){
+        if(abilind == 14){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"초 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 와 [" + getCubeabilityR(abilind3) + "] 능력 " + abilval3 + "% 해당 세 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+        else if(abilind2 == 14){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "초 와 [" + getCubeabilityR(abilind3) + "] 능력 " + abilval3 + "% 해당 세 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+        else if(abilind3 == 14){rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 와 [" + getCubeabilityR(abilind3) + "] 능력 " + abilval3 + "초 해당 세 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+        else{rep += "해당 아이템 분류에서 [" + getCubeabilityR(abilind) + "] 능력 " + abilval +"% 와 [" + getCubeabilityR(abilind2)+ "] 능력 " + abilval2 + "% 와 [" + getCubeabilityR(abilind3) + "] 능력 " + abilval3 + "% 해당 세 수치가 동시에 나올 확률이 0으로 계산되었습니다. 확인 후 다시 입력해주십시오.";}
+    }
     else{
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 확률은 " + finalrate3.toFixed(8) + "% 입니다.\n";
-        rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상, " + getCubeabilityR(abilind3) + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
-        rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
-        rep += getCubeprice(cubename, cubenum);
+        if(abilind == 14){
+            rep += getCubeabilityR(abilind) + " " + abilval + "초 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 확률은 " + finalrate3.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "초 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상, " + getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
+        else if(abilind2 == 14){
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "초 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 확률은 " + finalrate3.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "초 이상, " + getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
+        else if(abilind3 == 14){
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind3) + " " + abilval3 + "초 이상 확률은 " + finalrate3.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상, " + getCubeabilityR(abilind3) + " " + abilval3 + "초 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
+        else{
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상 확률은 " + finalrate1.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind2) + " " + abilval2 + "% 이상 확률은 " + finalrate2.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 확률은 " + finalrate3.toFixed(8) + "% 입니다.\n";
+            rep += getCubeabilityR(abilind) + " " + abilval + "% 이상, " + getCubeabilityR(abilind2) + " " + abilval2 + "% 이상, " + getCubeabilityR(abilind3) + " " + abilval3 + "% 이상 동시에 뜰 확률은 " + frate + "% 입니다.\n";
+            rep += "해당 옵션의 기댓값은 " + cubenum + "개 입니다.";
+            rep += getCubeprice(cubename, cubenum);
+        }
     }
     return rep;
 }
@@ -2061,6 +2220,9 @@ function getCubeabilityR(abilind){
             break;
         case 13:
             ret = "데미지";
+            break;
+        case 14:
+            ret = "모든 스킬의 재사용 대기시간 감소 (10초 이하는 5%감소, 5초 미만으로 감소 불가)";
             break;
     }
     return ret;
@@ -2202,6 +2364,12 @@ function getabilityCode(poten){
             break;
         case "데미지 : +3%":
             ret = 44;
+            break;
+        case "모든 스킬의 재사용 대기시간 : -2초(10초 이하는 10%감소, 5초 미만으로 감소 불가)":
+            ret = 45;
+            break;
+        case "모든 스킬의 재사용 대기시간 : -1초(10초 이하는 5%감소, 5초 미만으로 감소 불가)":
+            ret = 46;
             break;
     }
     return ret;

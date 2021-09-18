@@ -626,7 +626,7 @@ gt.getInform = function (dataarr, dataC1){
     dataarr[6] = dataarr[6].split("<meta property=\"og:image\" content=\"")[1].split("\">")[0];
     dataarr[3] = "무릉:기록없음";
     dataarr[4] = "시드:기록없음";
-    if(dataC4_mureung.slice(0,2) == "무릉") {dataCmureung = dataC4_mureung;}
+    if(dataC4_mureung.slice(0,2) == "무릉") {dataarr[3] = dataC4_mureung;}
     if(dataC4_seed.slice(0,2) == "시드") {dataarr[4] = dataC4_seed;}
     rep = (dataC4_nameandServer + "\n" + dataarr[2] + " " + dataarr[1] + "\n" + dataC4_mureung + "\n" + dataC4_seed + "\n" + dataC4_union + "\n" + dataC4_achievement);
   }
@@ -691,7 +691,7 @@ gt.getCube = function (msg){
             else{
               var cubeweb = cubeM.web + cn;
               var dataCube = org.jsoup.Jsoup.connect(cubeweb).get().toString();
-              try{
+              
               dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("<tbody>")[1].replace(/<\/tr>/g, "").replace(/<tr>/g, "").replace(/  /g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
               if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
               dataCube = dataCube.slice(4, dataCube.length);
@@ -747,7 +747,7 @@ gt.getCube = function (msg){
               else{
                 var cabilind = cubeM.getCubeability(cubefourth);
                 if(cabilind == -1){
-                  rep = (cubefourth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                  rep = (cubefourth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획,데미지,쿨감");
                 }
                 else{
                   var cubefifth = parseInt(msg.split(" ")[5]);
@@ -763,7 +763,7 @@ gt.getCube = function (msg){
                     else{
                       var cabilind2 = cubeM.getCubeability(cubesixth);
                       if(cabilind2 == -1){
-                        rep = (cubesixth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                        rep = (cubesixth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획,데미지,쿨감");
                       }
                       else{
                         var cubeseventh = parseInt(msg.split(" ")[7]);
@@ -774,12 +774,13 @@ gt.getCube = function (msg){
                           if(cubeeighth == undefined){
                             var cubetwoabil = "";
                             cubetwoabil += cuberep + cubeM.getCuberateTwoabil(cn, cabilind, cubefifth, cabilind2, cubeseventh, poten1, poten2, poten3, prate1, prate2, prate3);
+                            //cubetwoabil += cuberep + " cn: " + (cn + "\n cabilind :  " + cabilind + " \n" + cubefifth+ " \n" + cabilind2+ " \n" + cubeseventh);
                             rep = (cubetwoabil);
                           }
                           else{
                             var cabilind3 = cubeM.getCubeability(cubeeighth);
                             if(cabilind3 == -1){
-                              rep = (cubeeighth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획");
+                              rep = (cubeeighth + " >> 해당 이름을 가진 능력치가 없거나 지원하지 않는 능력치입니다.\n\n능력치 목록 : STR,DEX,INT,LUK,보공,공,방무,크뎀,올스탯,HP,메획,아획,데미지,쿨감");
                             }
                             else{
                               var cubenineth = parseInt(msg.split(" ")[9]);
@@ -797,9 +798,6 @@ gt.getCube = function (msg){
                     }
                   }
                 }
-              }
-              }catch(error){
-                rep = ("해당 큐브에는 해당 등급이 존재하지 않습니다.\n\n" + error);
               }
             }
           }

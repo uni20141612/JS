@@ -46,6 +46,8 @@ skpt.getskillPhantom = function (skillname){
         case "탤오팬1":
         case "탤런트I":
         case "탤런트1":
+        case "팬텀시프1":
+        case "팬텀시프I":
             ptret = 6;
             break;
         case "스위프트 팬텀":
@@ -68,6 +70,8 @@ skpt.getskillPhantom = function (skillname){
         case "탤오팬2":
         case "탤런트II":
         case "탤런트2":
+        case "팬텀시프2":
+        case "팬텀시프II":
             ptret = 9;
             break;
         case "브리즈 카르트":
@@ -96,6 +100,8 @@ skpt.getskillPhantom = function (skillname){
         case "탤오팬3":
         case "탤런트III":
         case "탤런트3":
+        case "팬텀시프3":
+        case "팬텀시프III":
             ptret = 13;
             break;
         case "럭 오브 팬텀시프":
@@ -139,6 +145,8 @@ skpt.getskillPhantom = function (skillname){
         case "탤오팬4":
         case "탤런트IV":
         case "탤런트4":
+        case "팬텀시프4":
+        case "팬텀시프IV":
             ptret = 20;
             break;
         case "템페스트 오브 카드":
@@ -176,6 +184,8 @@ skpt.getskillPhantom = function (skillname){
         case "탤오팬5":
         case "탤런트H":
         case "탤런트5":
+        case "팬텀시프5":
+        case "팬텀시프H":
             ptret = 26;
             break;
         case "로즈 카르트 피날레":
@@ -312,100 +322,100 @@ skpt.getskilldesc1Phantom = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "";
+            rep = "사용시 방향키입력으로 순간이동/ 횟수제한 3번";
             break;
         case 1:
-            rep = "";
+            rep = "민첩성 40 증가, 회피율 20% 증가";
             break;
         case 2:
-            rep = "";
+            rep = "사용 시 스틸 모드로 전환";
             break;
         case 3:
-            rep = "";
+            rep = "훔친 스킬들을 마우스를 통해 관리";
             break;
         case 4:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 5:
-            rep = "";
+            rep = "크리티컬 확률 15% 증가";
             break;
         case 6:
-            rep = "";
+            rep = "훔친 다른 모험가의 스킬 중 1차 이하의 것을 사용한다.";
             break;
         case 7:
-            rep = "";
+            rep = "MP 20 소비, 일정 거리 트리플 점프";
             break;
         case 8:
-            rep = "";
+            rep = "회피율 20% 증가";
             break;
         case 9:
-            rep = "";
+            rep = "훔친 다른 모험가의 스킬 중 2차 이하의 것을 사용한다.";
             break;
         case 10:
-            rep = "";
+            rep = "전방의 10명,320% 공격, 뒤로 밀쳐냄";
             break;
         case 11:
-            rep = "";
+            rep = "영구적으로 행운 60 증가";
             break;
         case 12:
-            rep = "";
+            rep = "8명의 적을 320%의 데미지로 4번 공격";
             break;
         case 13:
-            rep = "";
+            rep = "훔친 다른 모험가의 스킬 중 3차 이하의 것을 사용한다.";
             break;
         case 14:
-            rep = "";
+            rep = "사망방지, HP 100%회복. 부활시 4초간 무적/ 쿨1800초";
             break;
         case 15:
-            rep = "";
+            rep = "최대 HP 30% 증가, 최대 MP 30% 증가";
             break;
         case 16:
-            rep = "";
+            rep = "공격력 40 증가";
             break;
         case 17:
-            rep = "";
+            rep = "30% 확률로 추가 회피";
             break;
         case 18:
-            rep = "";
+            rep = "크리티컬 확률 35%, 최종 데미지 30% 증가";
             break;
         case 19:
-            rep = "";
+            rep = "전방 6명의 적에게 140% 데미지로 연속해서 3번 공격";
             break;
         case 20:
-            rep = "";
+            rep = "훔친 다른 모험가의 스킬 중 4차 이하의 것을 사용한다.";
             break;
         case 21:
-            rep = "";
+            rep = "키다운 스킬/ 8명의 적을 200% 데미지로 3번 공격";
             break;
         case 22:
-            rep = "";
+            rep = "후방이동, 10명,450%,3번 공격/ 15초간 방무20% 디버프";
             break;
         case 23:
-            rep = "";
+            rep = "크리티컬시 카드가 주위 적 270% 자동 공격,카드스택 1증가";
             break;
         case 24:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 25:
-            rep = "";
+            rep = "[패시브효과: 데미지 30%, 방무 30%]/ 액티브효과X";
             break;
         case 26:
-            rep = "";
+            rep = "훔친 다른 모험가의 140레벨 하이퍼 버프스킬을 사용한다.";
             break;
         case 27:
-            rep = "";
+            rep = "화면내 15명,700%,6번 공격/ 쿨 30초";
             break;
         case 28:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 29:
-            rep = "";
+            rep = "카드3개가 1320%,6번 공격후 12명,1760%,6번 추가공격/ 쿨15초";
             break;
         case 30:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 31:
-            rep = "";
+            rep = "10명,880%,7번 공격 참격 or 순간이동 7번까지 시행";
             break;
     }
     return rep;
@@ -414,100 +424,100 @@ skpt.getskilldesc2Phantom = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "";
+            rep = "스킬종료 후 이동1회마다 쿨1.5초 적용";
             break;
         case 1:
-            rep = "";
+            rep = "손재주 20레벨, 통찰력 20레벨";
             break;
         case 2:
-            rep = "";
+            rep = "마우스 커서를 이동하여 주변 모험가 캐릭터를 선택";
             break;
         case 3:
-            rep = "";
+            rep = "스킬을 세팅 시에 해당 스킬은 30초간 사용할 수 없다.";
             break;
         case 4:
-            rep = "";
+            rep = "-";
             break;
         case 5:
-            rep = "";
+            rep = "팬텀의 링크 스킬.";
             break;
         case 6:
-            rep = "";
+            rep = "추천: 카디널 디스차지, 다크 사이트";
             break;
         case 7:
-            rep = "";
+            rep = "[패시브 효과 : 이속 35, 최대이속 20, 점프력 20]";
             break;
         case 8:
-            rep = "";
+            rep = "영구적으로 회피율을 증가시킨다.";
             break;
         case 9:
-            rep = "";
+            rep = "추천: 카디널 블래스트, 힐, 분노";
             break;
         case 10:
-            rep = "";
+            rep = "일부 몬스터는 저항하여 밀리지 않는다.";
             break;
         case 11:
-            rep = "";
+            rep = "영구적으로 행운을 증가시킨다.";
             break;
         case 12:
-            rep = "";
+            rep = "-";
             break;
         case 13:
-            rep = "";
+            rep = "추천: 홀리심볼, 크로스오버체인, 애로우플래터, 블레이드어센션";
             break;
         case 14:
-            rep = "";
+            rep = "[패시브 효과 : 영구적으로 행운 60 증가]";
             break;
         case 15:
-            rep = "";
+            rep = "속성 내성 45% 증가, 상태 이상 내성 45 증가";
             break;
         case 16:
-            rep = "";
+            rep = "푸른 달의 힘을 받아 공격력이 증가한다.";
             break;
         case 17:
-            rep = "";
+            rep = "발동 시 팬텀의 문양이 나타나며 피격을 회피한다.";
             break;
         case 18:
-            rep = "";
+            rep = "-";
             break;
         case 19:
-            rep = "";
+            rep = "키다운 중에 이동키로 이동이 가능/ 초당 6.66타";
             break;
         case 20:
-            rep = "";
+            rep = "추천: 캐논바주카, 언카블, 퍼실, 생츄, 프로즌오브, 파이널컷";
             break;
         case 21:
-            rep = "";
+            rep = "재사용 대기시간 18초/ 초당 5.55타";
             break;
         case 22:
-            rep = "";
+            rep = "[패시브 효과 : 팬텀 차지의 데미지 50% 증가]";
             break;
         case 23:
-            rep = "";
+            rep = "반전카드: 4명,900% 공격, 일몹뎀 100%, 쿨5초/ 추가회피20%";
             break;
         case 24:
-            rep = "";
+            rep = "-";
             break;
         case 25:
-            rep = "";
+            rep = "아리아의 영혼 등장";
             break;
         case 26:
-            rep = "";
+            rep = "추천: 새크로생티티, 불스아이, 프리퍼레이션";
             break;
         case 27:
-            rep = "";
+            rep = "8초간 카드 주변 6명,200%,2번 공격";
             break;
         case 28:
-            rep = "";
+            rep = "-";
             break;
         case 29:
-            rep = "";
+            rep = "해방된카드: 10명,1540%,1번 공격 3회발동, 최대21회 공격발동";
             break;
         case 30:
-            rep = "";
+            rep = "-";
             break;
         case 31:
-            rep = "";
+            rep = "쿨30초/ 남은 순간이동 1회당 쿨 3.5초 감소";
             break;
     }
     return rep;
@@ -515,101 +525,17 @@ skpt.getskilldesc2Phantom = function (skillcode){
 skpt.getskilldesc3Phantom = function (skillcode){
     rep = "";
     switch(skillcode){
-        case 0:
-            rep = "";
-            break;
-        case 1:
-            rep = "";
-            break;
-        case 2:
-            rep = "";
-            break;
-        case 3:
-            rep = "";
-            break;
         case 4:
-            rep = "";
-            break;
-        case 5:
-            rep = "";
-            break;
-        case 6:
-            rep = "";
-            break;
-        case 7:
-            rep = "";
-            break;
-        case 8:
-            rep = "";
-            break;
-        case 9:
-            rep = "";
-            break;
-        case 10:
-            rep = "";
-            break;
-        case 11:
-            rep = "";
-            break;
-        case 12:
-            rep = "";
-            break;
-        case 13:
-            rep = "";
-            break;
-        case 14:
-            rep = "";
-            break;
-        case 15:
-            rep = "";
-            break;
-        case 16:
-            rep = "";
-            break;
-        case 17:
-            rep = "";
-            break;
-        case 18:
-            rep = "";
-            break;
-        case 19:
-            rep = "";
-            break;
-        case 20:
-            rep = "";
-            break;
-        case 21:
-            rep = "";
-            break;
-        case 22:
-            rep = "";
-            break;
-        case 23:
-            rep = "";
-            break;
+            rep = "MP 60 소비, 사용 시 전방의 적에게 10번 느와르 카르트 공격을 하고 30초 동안 다음 효과중에 하나를 받음.\n\n포츈 카드 : 크리티컬 확률 20% 증가\n미스포츈 카드 : 아이템 드롭률 10% 증가\n인듀어런스 카드 : 상태 이상 내성/속성 내성이 각각 20, 20% 증가\n드레인 카드 : 공격 시 최대 HP의 1%만큼 회복";
+            break;        
         case 24:
-            rep = "";
-            break;
-        case 25:
-            rep = "";
-            break;
-        case 26:
-            rep = "";
-            break;
-        case 27:
-            rep = "";
+            rep = "MP 60 소비, 최대 12명의 주변 몬스터에게 걸린 버프를 훔쳐서 자신에게 건다. 훔쳐서 적용되는 버프 내용은 아래와 같다.\n\n공격력 : 공격력 40 증가\n피해 무효화 : 받는 피해량 40% 감소\n공격반사 : 받는 데미지의 600%의 데미지 반사\n물리/마법무효, 하드스킨 : 일부 공격을 제외하고는 피해를 입지 않는 일시적 무적\n\n재사용 대기시간 120초";
             break;
         case 28:
-            rep = "";
-            break;
-        case 29:
-            rep = "";
+            rep = "MP 1000 소비, 최대 7초 동안 전방으로 일정 시간마다 510%의 데미지로 1번 공격하는 카드를 다수 던져 공격, 공격 도중 최대 HP의 일정 비율로 피해를 입히는 공격을 포함한 피격 데미지 15% 감소\n공격을 멈춘 후 카드를 뽑아 30초 동안 파티원 전체가 버프를 받음\n\n적십자 : 일정 시간마다 최대 HP와 MP의 2% 회복\n생명의 나무 : 최대 HP의 일정 비율로 피해를 입히는 공격을 포함한 피격 데미지 8% 감소, 상태 이상 내성 25 증가\n모래시계 : 재사용 대기시간 초기화의 영향을 받지 않는 스킬을 제외한 스킬의 재사용 대기시간이 32% 더 빠르게 감소\n날카로운 검 : 최종 데미지 6% 증가\n조커 : 모든 효과를 한번에 받음\n\n재사용 대기시간 : 150초";
             break;
         case 30:
-            rep = "";
-            break;
-        case 31:
-            rep = "";
+            rep = "MP 1000, 표적이 된 적이 없다면 괴도의 증표 7개 필요, 스킬 발동 시 모든 괴도의 증표 소비\n\n이동 시작부터 2초 동안 무적 상태\n\n660%로 6번 공격하는 궤적이 7번 발동한 후 1055%의 데미지로 15번 공격하는 괴도 팬텀의 표식이 2번 발동하며 마무리, 모든 공격은 최대 10명의 적을 공격하고 추가 크리티컬 확률 100%\n\n케인을 사용하는 스킬 및 템페스트 오브 카드를 적에게 적중시키면 30초 동안 디버프를 남기고 7번 중첩되면 해당 적을 표적으로 삼음\n\n얼티밋 드라이브, 템페스트 오브 카드, 리프트 브레이크는 적을 표적으로 삼거나 괴도의 증표를 모으기 위해 다른 스킬 대비 7배 적중 필요\n\n탤런트 오브 팬텀시프로 사용하는 공격 스킬은 5배 적중 필요\n\n재사용 대기시간 30초";
             break;
     }
     return rep;

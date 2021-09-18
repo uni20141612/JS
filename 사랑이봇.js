@@ -10,7 +10,7 @@ const guitarM = require('Guitar');
 const naverID = Logindata.split("nID:")[1].split("/")[0];
 const naverSecret = Logindata.split("nsec:")[1].split("/")[0];
 const twitterAToken = Logindata.split("tActoken:")[1].split("/")[0]; const twitterATSecret = Logindata.split("tAcsec:")[1].split("/")[0]; const twitterAPIKey = Logindata.split("tAPIkey:")[1].split("/")[0]; const twitterAPISecret = Logindata.split("tAPIsec:")[1].split("/")[0]; const twitterBearerToken = Logindata.split("tBtoken:")[1].split("/")[0];
-//아이디어 : 코강/ 최종뎀계산/ 
+//아이디어 : 코강/ 
 /*
 Kakao.send(room,
             {
@@ -27,6 +27,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(!getMinute()){ //분당 1회 동작 예상
       var testr = getTest();
       var testr2 = getTest2();
+      var notice1 = getNotice();
+      var hournow = FileStream.read(path + "hour.txt");
+      var minnow = FileStream.read(path + "min.txt");
+      getNotice();
       if(testr != "-"){
         Api.replyRoom("천한수", testr);
         Api.replyRoom("UniMaple", testr);
@@ -34,6 +38,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(testr2 != "-"){
         Api.replyRoom("천한수", testr2);
         Api.replyRoom("UniMaple", testr);
+      }
+      if(notice1 != "-"){
+        Api.replyRoom("천한수", notice1);
+        Api.replyRoom("UniMaple", notice1);
       }
     }
     if(msg.startsWith("!보스")){
@@ -1177,6 +1185,23 @@ function getTest2(){
   }
 
   return Tret;
+}
+function getNotice(){
+  var Nret = "-";
+  var ntURL = "https://maplestory.nexon.com/News/Notice";
+  res = org.jsoup.Jsoup.connect(ntURL).get();
+  res = res.toString();
+  var dataN1 = res.split("notice ul str")[1].split("notice ul end")[0];
+  var dataFirstNotice = dataN1.split("<a href=\"/News/Notice")[1].split("\">")[0];
+  var savedNotice = FileStream.read(path + "notice.txt");
+  if(dataFirstNotice != savedNotice){
+    FileStream.write(path + "notice.txt", dataFirstNotice);
+    var noticeTitle = dataN1.split("alt=\"")[1].split("\"")[0];
+    var noticeContent = dataN1.split("<span>")[1].split("</span>")[0];
+    var ntURL2 = ntURL + dataFirstNotice;
+    Nret = "<메이플스토리 공지사항>\n\n" +  noticeTitle + " " + noticeContent + "\n\n" + ntURL2;
+  }
+  return Nret;
 }
 function getMinute(){
   day = new Date();
