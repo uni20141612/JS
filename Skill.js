@@ -1668,6 +1668,10 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
     rep = "";
     var jobM;
     switch(jobcode){
+        case 29:
+            jobM = require('skillAran');
+            rep = jobM.getskilldesc3Aran(skillcode);
+            break;
         case 33:
             jobM = require('skillPhantom');            
             rep = jobM.getskilldesc3Phantom(skillcode);

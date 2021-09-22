@@ -202,10 +202,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(informrep);
       }
     }
-    if(msg.startsWith("!무릉") || msg.startsWith("!시드 ") || msg.startsWith("!유니온") || msg.startsWith("!업적")){
+    if(msg.startsWith("!무릉") || msg.startsWith("!시드 ") || msg.startsWith("!유니온") || msg.startsWith("!업적") || msg.startsWith("!길드")){
       nickname = msg.split(" ")[1];
       if(nickname == undefined){
-        replier.reply("캐릭터 이름을 입력해주세요.\n\n!무릉,!시드,!유니온,!업적,!코디 + (캐릭터명) : 메이플지지 기준 캐릭터 관련 정보를 보여줍니다.");
+        replier.reply("캐릭터 이름을 입력해주세요.\n\n!무릉,!시드,!유니온,!업적,!코디,!길드 + (캐릭터명) : 메이플지지 기준 캐릭터 관련 정보를 보여줍니다.");
       }
       else{
         maplegg = "https://maple.gg/u/" + nickname;
@@ -296,6 +296,18 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               }
               else{
                 replier.reply("이 캐릭터는 업적 정보가 없습니다.");
+              }
+            }
+
+            if(msg.startsWith("!길드")){
+              var dataG1 = dataC1.split("d-sm-block\">길드")[1].split("</div>")[0];
+              if(dataG1.indexOf("(없음)") == -1){
+                var guildname = guitarM.getGuild(dataG1);
+                var guildinfo = guitarM.getGuildinfo(dataG1);
+                replier.reply(nickname + " 캐릭터의 길드 : " + guildname + "\n\n길드 정보 : " + guildinfo);
+              }
+              else{
+                replier.reply("이 캐릭터는 길드 정보가 없습니다.")
               }
             }
           }
@@ -884,7 +896,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const skillM = require('Skill');
       var skilljob = msg.split(" ")[1];
       if(skilljob == undefined){
-        replier.reply("직업을 입력해주세요.\n\n직업 목록 : 히어로, 팔라딘, 다크나이트, 불독, 썬콜, 비숍, 보우마스터, 신궁, 패스파인더, 나이트로드, 섀도어, 듀얼블레이드, 바이퍼, 캡틴, 캐논슈터, 소울마스터, 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, 아란, 에반, 루미너스, 메르세데스, 팬텀, 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, 제로, 키네시스, 모험가 전사, 모험가 마법사, 모험가 궁수, 모험가 도적, 모험가 해적, 시그너스 기사단, 레지스탕스, 데몬, 영웅, 노바, 레프, 아니마. 전사, 마법사, 궁수, 도적, 해적, 모험가, 공용");
+        replier.reply("직업을 입력해주세요.\n\n직업 목록 : 히어로, 팔라딘, 다크나이트, 불독, 썬콜, 비숍, [보우마스터], 신궁, 패스파인더, 나이트로드, 섀도어, 듀얼블레이드, 바이퍼, 캡틴, 캐논슈터, [소울마스터], 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], 에반, [루미너스], 메르세데스, [팬텀], 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], 모험가, [공용]");
       }
       else{
         var jobcode = skillM.getJobcode(skilljob);

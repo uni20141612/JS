@@ -902,6 +902,20 @@ gt.getStarforce = function (msg){
   }
   return rep;
 };
+gt.getGuild = function (msg){
+  rep = "";
+
+  rep = msg.split("underline\">")[1].split("</a>")[0];
+
+  return rep;
+};
+gt.getGuildinfo = function (msg){
+  rep = "";
+
+  rep = msg.split("<a href=\"")[1].split("\"")[0];
+
+  return rep;
+};
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);

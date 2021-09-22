@@ -118,6 +118,7 @@ skar.getskillAran = function (skillname){
         case "아드레날린":
         case "아드":
         case "부스트":
+        case "아부":
             arret = 18;
             break;
         case "파이널 블로우":
@@ -367,118 +368,118 @@ skar.getskilldesc1Aran = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "";
+            rep = "짧은 거리 이동/ 이동속도15, 최대이동속도상한 20";
             break;
         case 1:
-            rep = "";
+            rep = "공격력 5%, 방어력 300, 이동속도 10 증가";
             break;
         case 2:
-            rep = "";
+            rep = "콤보킬 구슬 경험치 획득량 650% 추가 획득";
             break;
         case 3:
-            rep = "";
+            rep = "스탠스 50%/ 콤보 카운트 50당 공2, 방20, 이속3";
             break;
         case 4:
-            rep = "";
+            rep = "최대 6명의 적을 150% 데미지로 2번 공격";
             break;
         case 5:
-            rep = "";
+            rep = "500% 데미지로 최대 6명의 적을 1번 공격/ 쿨3초";
             break;
         case 6:
-            rep = "";
+            rep = "500%의 반사 데미지";
             break;
         case 7:
-            rep = "";
+            rep = "10명,300% 공격, 전방이동/ 커맨드사용시 10초 기절";
             break;
         case 8:
-            rep = "";
+            rep = "10명 띄우며 550% 공격/ 직접 띄운상대 공격시 100%p";
             break;
         case 9:
-            rep = "";
+            rep = "10명,555%,3번 공격/ 커맨드사용시 5초 기절";
             break;
         case 10:
-            rep = "";
+            rep = "적공격시 HP 1% 회복/ 최대HP 10% 증가";
             break;
         case 11:
-            rep = "";
+            rep = "데미지 10%/ 200초간 공격시 20초간 적 이속40 감소";
             break;
         case 12:
-            rep = "";
+            rep = "커맨드 입력 시 해당 스킬 데미지 5%p 증가";
             break;
         case 13:
-            rep = "";
+            rep = "스매쉬스윙 데미지 200%p/ 이후 3초간 스킬 최종뎀 10%";
             break;
         case 14:
-            rep = "";
+            rep = "힘 30, 민첩성 30 증가";
             break;
         case 15:
-            rep = "";
+            rep = "스탠스 50%, 공10, 내성40, 크확20%, 크뎀10%";
             break;
         case 16:
-            rep = "";
+            rep = "스매쉬 스윙 공중 사용 가능";
             break;
         case 17:
-            rep = "";
+            rep = "1,000 콤보 도달 후 20초 동안 사용 가능";
             break;
         case 18:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 19:
-            rep = "";
+            rep = "6명,285%,5번 공격/ 방무15%";
             break;
         case 20:
-            rep = "";
+            rep = "10명,380%,4번 공격/ 10초긴 빙결/ 6초간 초당 200% 도트뎀";
             break;
         case 21:
-            rep = "";
+            rep = "10명 끌어당기며 170%,2번 공격/ 쿨5초";
             break;
         case 22:
-            rep = "";
+            rep = "200초 동안 파티원의 공격력 30, 마력 30 증가";
             break;
         case 23:
-            rep = "";
+            rep = "공40, 방215/ 넉백 필요 데미지 10%로 감소";
             break;
         case 24:
-            rep = "";
+            rep = "몬스터의 물리 방어율 40% 무시, 데미지 10% 증가";
             break;
         case 25:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 26:
-            rep = "";
+            rep = "10초간 키다운가능, 12명,650%,1번 공격.";
             break;
         case 27:
-            rep = "";
+            rep = "키다운 및 타겟선택. 종료시 1명,1070%,15번 참격 7번발동";
             break;
         case 28:
-            rep = "";
+            rep = "적에게 입는 데미지 40% 감소, HP 20%, 방어력 300 증가";
             break;
         case 29:
-            rep = "";
+            rep = "스매쉬웨이브, 파이널차지, 파이널토스, 롤링스핀, 저지먼트";
             break;
         case 30:
-            rep = "";
+            rep = "커맨드를 입력하여 스킬 공격 시 해당 스킬 데미지 20%p 증가";
             break;
         case 31:
-            rep = "";
+            rep = "스매쉬스윙 데미지 250%p/ 이후 5초간 스킬 최종뎀 15%";
             break;
         case 32:
-            rep = "";
+            rep = "즉시 아드레날린 부스트 상태가 된다.";
             break;
         case 33:
-            rep = "";
+            rep = "15명,800%,5번 공격/ 이후 10초간 범위내 적 500%,3번 공격";
             break;
         case 34:
-            rep = "";
+            rep = "사용 즉시 100콤보 증가/ 60초간 공격력 35% 증가";
             break;
         case 35:
-            rep = "";
+            rep = "15명,1320%,15번 참격 2회발동/ 쿨20초 (인스톨시 50%감소)";
             break;
         case 36:
-            rep = "";
+            rep = "10명,650%,7번 공격/ 추가크확 100%, 방무50%/ 비욘더3타 이후";
             break;
         case 37:
-            rep = "";
+            rep = "하단 참조";
             break;
     }
     return rep;
@@ -487,238 +488,133 @@ skar.getskilldesc2Aran = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "";
+            rep = "[→→ 또는 점프 중 점프키나 →→ 입력]";
             break;
         case 1:
-            rep = "";
+            rep = "잠재능력의 공격력%와는 궁합이 좋지 않다.";
             break;
         case 2:
-            rep = "";
+            rep = "아란의 링크 스킬";
             break;
         case 3:
-            rep = "";
+            rep = "최대 10회까지 중첩/ 최대 콤보 누적량 1000";
             break;
         case 4:
-            rep = "";
+            rep = "[공격키 연타]";
             break;
         case 5:
-            rep = "";
+            rep = "[↓ → + 공격키]/ 발동효과 : 발사거리 증가";
             break;
         case 6:
-            rep = "";
+            rep = "온오프 스킬";
             break;
         case 7:
-            rep = "";
+            rep = "[← ↓ → + 공격키] (반대쪽은 역순)";
             break;
         case 8:
-            rep = "";
+            rep = "[↑ + 공격키]/ 발동효과 : 점프 높이증가";
             break;
         case 9:
-            rep = "";
+            rep = "[ ↓ ↑ + 공격]";
             break;
         case 10:
-            rep = "";
+            rep = "온오프 스킬";
             break;
         case 11:
-            rep = "";
+            rep = "이속감소된 적에게 데미지 10% 증가/ 보스는 반감";
             break;
         case 12:
-            rep = "";
+            rep = "스킬의 타수마다 적용";
             break;
         case 13:
-            rep = "";
+            rep = "스매쉬스윙 이후 스킬사용시 4명,100%,2번 공격 잔상생성";
             break;
         case 14:
-            rep = "";
+            rep = "-";
             break;
         case 15:
-            rep = "";
+            rep = "콤보카운트 50당 크확3%, 공2 추가증가, 10회까지 중첩";
             break;
         case 16:
-            rep = "";
+            rep = "스매쉬 스윙 데미지 100%p 증가";
             break;
         case 17:
-            rep = "";
+            rep = "부스트 시간내 미발동시 부스트 비활성화, 콤보 800으로 감소";
             break;
         case 18:
-            rep = "";
+            rep = "상태가 종료되면 콤보가 500으로 감소한다.";
             break;
         case 19:
-            rep = "";
+            rep = "[↓ + 공격키]/ 발동효과 : 슈퍼스탠스";
             break;
         case 20:
-            rep = "";
+            rep = "[↑ ↓ / ↑ → / ↑ ← + 공격키]/ 발동효과 : 빙결";
             break;
         case 21:
-            rep = "";
+            rep = "[↑ ↑ + 공격키]/ 발동효과 : 스킬사용중 사용가능";
             break;
         case 22:
-            rep = "";
+            rep = "마하!";
             break;
         case 23:
-            rep = "";
+            rep = "보스 몬스터에게는 적용되지 않는다";
             break;
         case 24:
-            rep = "";
+            rep = "-";
             break;
         case 25:
-            rep = "";
+            rep = "파이널 블로우를 사용한 이후에 사용 가능";
             break;
         case 26:
-            rep = "";
+            rep = "[↓ ← → + 공격키 키다운]/ 부스트 상태당 1회만 사용가능";
             break;
         case 27:
-            rep = "";
+            rep = "[↓→↓ & ↓←↓ + 공격키 키다운]/ 차지 초당 데미지 100%p, 최대5초";
             break;
         case 28:
-            rep = "";
+            rep = "패시브 스킬 레벨 1 증가 효과와의 궁합이 좋다.";
             break;
         case 29:
-            rep = "";
+            rep = "파이널블로우의 데미지 60%p 증가";
             break;
         case 30:
-            rep = "";
+            rep = "-";
             break;
         case 31:
-            rep = "";
+            rep = "스매쉬스윙 이후 스킬사용시 6명,280%,5번 공격 잔상생성";
             break;
         case 32:
-            rep = "";
+            rep = "재사용 대기시간 240초";
             break;
         case 33:
-            rep = "";
+            rep = "1초마다 파티원 디스펠 및 HP/MP 20% 회복/ 쿨150초";
             break;
         case 34:
-            rep = "";
+            rep = "스킬사용시 3초마다 10명,990%,5번 공격 눈보라 발생/ 쿨150초";
             break;
         case 35:
-            rep = "";
+            rep = "[↓↓ + 공격키]/ 발동효과: 슈퍼스탠스, 공무공반무시/ 보뎀 20%";
             break;
         case 36:
-            rep = "";
+            rep = "스킬의 최대공격몹수보다 적을때 1명당 뎀6%, 곱 적용";
             break;
         case 37:
-            rep = "";
+            rep = "모두 상대해 주지!";
             break;    
     }
     return rep;
 };
 skar.getskilldesc3Aran = function (skillcode){
     rep = "";
-    switch(skillcode){
-        case 0:
-            rep = "";
-            break;
-        case 1:
-            rep = "";
-            break;
-        case 2:
-            rep = "";
-            break;
-        case 3:
-            rep = "";
-            break;
-        case 4:
-            rep = "";
-            break;
-        case 5:
-            rep = "";
-            break;
-        case 6:
-            rep = "";
-            break;
-        case 7:
-            rep = "";
-            break;
-        case 8:
-            rep = "";
-            break;
-        case 9:
-            rep = "";
-            break;
-        case 10:
-            rep = "";
-            break;
-        case 11:
-            rep = "";
-            break;
-        case 12:
-            rep = "";
-            break;
-        case 13:
-            rep = "";
-            break;
-        case 14:
-            rep = "";
-            break;
-        case 15:
-            rep = "";
-            break;
-        case 16:
-            rep = "";
-            break;
-        case 17:
-            rep = "";
-            break;
+    switch(skillcode){        
         case 18:
-            rep = "";
-            break;
-        case 19:
-            rep = "";
-            break;
-        case 20:
-            rep = "";
-            break;
-        case 21:
-            rep = "";
-            break;
-        case 22:
-            rep = "";
-            break;
-        case 23:
-            rep = "";
-            break;
-        case 24:
-            rep = "";
+            rep = "1000콤보 도달 후 일정 시간 안에 아드레날린 부스트 액티베이트를 사용해 진입 : 15초 동안 부스트 엔드/소환수/추가 타격 스킬을 제외한 아란의 공격 스킬 데미지 150%p, 공격 횟수 2회, 최대 공격 가능한 몬스터 수 5 증가\n영구적으로 아란의 공격 스킬 데미지 100%p 증가\n\n스매쉬 스윙(1타) : 950% 데미지로 4번 공격\n스매쉬 웨이브 : 늑대 모양의 발사체로 변경되며, 전방, 위아래 대각선으로 투사체가 각 1개씩 날아간다. 810%의 데미지로 3번 공격\n파이널 차지 : 돌진 거리만큼 빙결지대 생성. 피격당한 적은 빙결 상태 이상에 걸린다. 610%의 데미지로 3번 공격\n파이널 토스 : 860%의 데미지로 3번 공격하면서 점프\n롤링 스핀 : 865%의 데미지로 5번 공격\n파이널 블로우 : 350%로 4번 공격하는 파동 발사, 595%의 데미지로 7번 공격\n게더링 캐쳐 : 420%의 데미지로 4번 공격\n저지먼트 : 720%의 데미지로 6번 공격\n비욘더 : 1타 535%, 2타 550%, 3타 565%의 데미지로 8번 공격, 전후방에 400%로 5번 공격하는 파동 방출\n마하의 영역 : 폴암이 떨어질 때 1050%의 데미지로 7번 타격, 폴암 설치 이후 10초 동안 750%의 데미지로 3번 지속 타격";
             break;
         case 25:
-            rep = "";
-            break;
-        case 26:
-            rep = "";
-            break;
-        case 27:
-            rep = "";
-            break;
-        case 28:
-            rep = "";
-            break;
-        case 29:
-            rep = "";
-            break;
-        case 30:
-            rep = "";
-            break;
-        case 31:
-            rep = "";
-            break;
-        case 32:
-            rep = "";
-            break;
-        case 33:
-            rep = "";
-            break;
-        case 34:
-            rep = "";
-            break;
-        case 35:
-            rep = "";
-            break;
-        case 36:
-            rep = "";
+            rep = "MP 40 소비, 6명의 적에게 285% 데미지로 5번 공격. 이후 스킬키 연타를 통한 추가 조작으로 최대 3타까지 공격 가능.\n\n2타 : 300% 데미지로 5번 공격\n3타 : 315% 데미지로 5번 공격.\n\n단, 스킬 사용 시 공격 받는 적이 스킬의 최대 공격 가능한 몬스터 수보다 적을 때 1명 당 데미지 6%씩 증가, 증가되는 데미지 간에는 곱 적용\n추가 크리티컬 확률 100%, 몬스터 방어율 30% 추가 무시";
             break;
         case 37:
-            rep = "";
+            rep = "MP 1200 소비, 최대 12명의 적을 1760%의 데미지로 8번 공격 후 10초 동안 행동 불가 상태 적용, 해당 공격으로 준 데미지에 따라 행동 불가 지속시간 최대 100% 증가, 이후 20초 동안 일정 시간마다 최대 10명의 적에게 다이어 울프의 저주를 거는 오라 발동, 스킬 재사용하여 즉시 종료 가능\n\n다이어 울프의 저주 : 10초 동안 지속, 공격 적중 시 저주에 걸린 적 최대 15명에게 1045%의 데미지의 얼음덩어리로 4번 공격, 저주는 최대 6번까지 누적 가능하고 그에 비례해 얼음덩어리 1개씩 증가\n\n재사용 대기시간 : 180초";
             break;
     }
     return rep;
