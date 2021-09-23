@@ -380,6 +380,8 @@ job.getchkjob = function(msg){
         case "!신궁":
         case "!신궁쟝":
         case "!거리두기마스터":
+        case "!사회적거리두기":
+        case "!사회가거리두기":
           chkjob = 8;
           break;
         case "!패스파인더":
@@ -416,6 +418,7 @@ job.getchkjob = function(msg){
           break;
         case "!캐논슈터":
         case "!캐슈":
+        case "!캐슈넛":
         case "!원숭이주인":
           chkjob = 15;
           break;

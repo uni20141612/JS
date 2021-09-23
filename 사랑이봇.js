@@ -83,7 +83,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(Api.reload(scriptName)){     replier.reply("리로드 성공");      }
       else{  replier.reply("리로드 실패");   }
     }
-    if((sender == myName || sender == adminNick) && (msg.startsWith("!공지"))){
+    if((sender == myName || sender == adminNick) && (msg.startsWith("!답장"))){
       var notices = msg.slice(4, msg.length);
       Api.replyRoom("UniMaple", notices);
     }
@@ -582,9 +582,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(lolrep);
       }
     }
-    /*if(msg.startsWith("!똥캐")){
+    if(msg.startsWith("!똥캐")){
       replier.reply("소울마스터\n\n자체 버프만으로도 풀공속 유지가 가능하며, 기본 크리 확률이 낮지 않다. 사냥기가 점샷이 가능하고, 원킬컷이 낮아서 낮은 스펙으로도 원킬 사냥이 쉽다. 광역 바인드와 공격 무시/반사 버프를 관통하는 스킬을 보유하고 있다. 상태에 따른 독자적인 모션과, 보스 주력기가 강제 점프를 동반하는 특이점을 가지고 있다.\n\n[2008년 12월 18일 출시]\n\n무적기 : 소울 이클립스 (3.5초), 솔루나 디바이드 (5초)\n뎀감기 : 초월자 시그너스의 축복[공용] (5%)\n바인드 : 소울 페네트레이션\n\n공격대원 효과 : 최대 HP 250/500/1000/2000/2500 증가\n\n링크 스킬 : 시그너스 블레스 - 공격력과 마력 25, 상태 이상 내성 15, 모든 속성 내성 15% 증가"); 
-    }*/
+    }
     if(msg.startsWith("!로얄")){      
       const royalM = require('Royal');
       if(msg.split(" ")[1] == undefined){
