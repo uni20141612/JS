@@ -449,22 +449,22 @@ sk.getJobskillList = function(ind) {
         rep = "초보자\n\n";
         break;
     case 1:
-        rep = "히어로\n\n";
+        rep = "히어로\n\n5차 : 소드 오브 버닝 소울, 콤보 데스폴트, 콤보 인스팅트, 소드 일루전";
         break;
     case 2:
-        rep = "팔라딘\n\n";
+        rep = "팔라딘\n\n5차 : 홀리 유니티, 블래스드 해머, 그랜드 크로스, 마이티 묠니르";
         break;
     case 3:
-        rep = "다크나이트\n\n";
+        rep = "다크나이트\n\n5차 : 다크 스피어, 비홀더 임팩트, 피어스 사이클론, 다크니스 오라";
         break;
     case 4:
-        rep = "아크메이지(불,독)\n\n";
+        rep = "아크메이지(불,독)\n\n5차 : 도트 퍼니셔, 포이즌 노바, 퓨리 오브 이프리트, 포이즌 체인";
         break;
     case 5:
-        rep = "아크메이지(썬,콜)\n\n";
+        rep = "아크메이지(썬,콜)\n\n5차 : 아이스 에이지, 썬더 브레이크, 스피릿 오브 스노우, 주피터 썬더";
         break;
     case 6:
-        rep = "비숍\n\n";
+        rep = "비숍\n\n5차 : 프레이, 엔젤 오브 리브라, 피스메이커, 디바인 퍼니시먼트";
         break;
     case 7:
         rep = "보우마스터\n\n2차 : 리트리트 샷, 소울 애로우 : 활, 퀴버 카트리지\n3차 : 애로우 플래터, 피닉스, 슈타이크 아이젠, 익스트림 아쳐리 : 활, 모탈 블로우, 컨센트레이션\n4차 : 폭풍의 시, 운즈 샷, 언카운터블 애로우, 어드밴스드 퀴버, 아머 피어싱\n하이퍼 스킬 : 프리퍼레이션, 윈드 오브 프레이\n5차 : 애로우 레인, 잔영의 시, 퀴버 풀버스트, 실루엣 미라주";
@@ -476,22 +476,22 @@ sk.getJobskillList = function(ind) {
         rep = "패스파인더\n\n5차 : 얼티밋 블래스트, 레이븐 템페스트, 옵시디언 배리어(디스차지, 블래스트, 트랜지션), 렐릭 언바운드(디스차지, 블래스트, 트랜지션)";
         break;
     case 10:
-        rep = "나이트로드\n\n";
+        rep = "나이트로드\n\n5차 : 스프레드 스로우, 풍마수리검, 다크로드의 비전서, 스로우 블래스팅";
         break;
     case 11:
-        rep = "섀도어\n\n";
+        rep = "섀도어\n\n5차 : 쉐도우 어썰트, 절개, 소닉 블로우, 멸귀참영진";
         break;
     case 12:
-        rep = "듀얼블레이드\n\n";
+        rep = "듀얼블레이드\n\n5차 : 블레이드 스톰, 카르마 퓨리, 블레이드 토네이도, 헌티드 엣지";
         break;
     case 13:
-        rep = "바이퍼\n\n";
+        rep = "바이퍼\n\n5차 : 트랜스 폼, 서펜트 스크류, 퓨리어스 차지, 하울링 피스트";
         break;
     case 14:
-        rep = "캡틴\n\n";
+        rep = "캡틴\n\n5차 : 불릿 파티, 데드아이, 노틸러스 어썰트, 데스 트리거";
         break;
     case 15:
-        rep = "캐논슈터\n\n";
+        rep = "캐논슈터\n\n5차 : 빅 휴즈 기간틱 캐논볼, ICBM, 스페셜 몽키 에스코트, 풀 메이커";
         break;
     case 16:
         rep = "소울마스터\n\n1차 : 엘리멘트 : 소울, 소드 오브 라이트, 이너 보이스\n2차 : 폴링 문, 님블 핑거, 이너 트러스트, 바디 앤 소울\n3차 : 라이징 선, 트루 사이트, 소울 가디언, 윌 오브 스틸, 이너 샤우트\n4차 : 댄스 오브 문, 스피딩 선셋, 크레센트 디바이드, 솔라 피어스, 소울 페네트레이션, 솔루나 타임, 솔루나 슬래시, 소울 플레지, 언포시어블, 마스터 오브 더 소드\n하이퍼 스킬 : 소울 포지, 크로스 더 스틱스\n5차 : 셀레스티얼 댄스, 엘리시온, 소울 이클립스, 플레어 슬래시";
@@ -653,28 +653,28 @@ sk.getJobskillcode = function(jobcode, skillname){
             rep = "초보자";
             break;
         case 1:
-            ret = -1;
-            rep = "히어로";
+            jobM = require('skillHero');
+            ret = jobM.getskillHero(skillname);
             break;
         case 2:
-            ret = -1;
-            rep = "팔라딘";
+            jobM = require('skillPaladin');
+            ret = jobM.getskillPaladin(skillname);
             break;
         case 3:
-            ret = -1;
-            rep = "다크나이트";
+            jobM = require('skillDarkknight');
+            ret = jobM.getskillDarkknight(skillname);
             break;
         case 4:
-            ret = -1;
-            rep = "아크메이지(불,독)";
+            jobM = require('skillArchmagefirepoison');
+            ret = jobM.getskillArchmagefirepoison(skillname);
             break;
         case 5:
-            ret = -1;
-            rep = "아크메이지(썬,콜)";
+            jobM = require('skillArchmagethundercold');
+            ret = jobM.getskillArchmagethundercold(skillname);
             break;
         case 6:
-            ret = -1;
-            rep = "비숍";
+            jobM = require('skillBishop');
+            ret = jobM.getskillBishop(skillname);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -689,28 +689,28 @@ sk.getJobskillcode = function(jobcode, skillname){
             ret = jobM.getskillPathfinder(skillname);
             break;
         case 10:
-            ret = -1;
-            rep = "나이트로드";
+            jobM = require('skillNightlord');
+            ret = jobM.getskillNightlord(skillname);
             break;
         case 11:
-            ret = -1;
-            rep = "섀도어";
+            jobM = require('skillShadower');
+            ret = jobM.getskillShadower(skillname);
             break;
         case 12:
-            ret = -1;
-            rep = "듀얼블레이드";
+            jobM = require('skillDualblades');
+            ret = jobM.getskillDualblades(skillname);
             break;
         case 13:
-            ret = -1;
-            rep = "바이퍼";
+            jobM = require('skillViper');
+            ret = jobM.getskillViper(skillname);
             break;
         case 14:
-            ret = -1;
-            rep = "캡틴";
+            jobM = require('skillCaptain');
+            ret = jobM.getskillCaptain(skillname);
             break;
         case 15:
-            ret = -1;
-            rep = "캐논슈터";
+            jobM = require('skillCannonshooter');
+            ret = jobM.getskillCannonshooter(skillname);
             break;
         case 16:
             jobM = require('skillSoulmaster');
@@ -918,23 +918,29 @@ sk.getJobskillname = function(jobcode, skillcode){
         case 0:            
             rep = "초보자";
             break;
-        case 1:            
-            rep = "히어로";
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskillnameHero(skillcode);
             break;
-        case 2:            
-            rep = "팔라딘";
+        case 2:
+            jobM = require('skillPaladin');
+            rep = jobM.getskillnamePaladin(skillcode);
             break;
-        case 3:            
-            rep = "다크나이트";
+        case 3:
+            jobM = require('skillDarkknight');
+            rep = jobM.getskillnameDarkknight(skillcode);
             break;
-        case 4:            
-            rep = "아크메이지(불,독)";
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskillnameArchmagefirepoison(skillcode);
             break;
-        case 5:            
-            rep = "아크메이지(썬,콜)";
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskillnameArchmagethundercold(skillcode);
             break;
-        case 6:            
-            rep = "비숍";
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskillnameBishop(skillcode);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -948,23 +954,29 @@ sk.getJobskillname = function(jobcode, skillcode){
             jobM = require('skillPathfinder');
             rep = jobM.getskillnamePathfinder(skillcode);
             break;
-        case 10:            
-            rep = "나이트로드";
+        case 10:
+            jobM = require('skillNightlord');
+            rep = jobM.getskillnameNightlord(skillcode);
             break;
-        case 11:            
-            rep = "섀도어";
+        case 11:
+            jobM = require('skillShadower');
+            rep = jobM.getskillnameShadower(skillcode);
             break;
-        case 12:            
-            rep = "듀얼블레이드";
+        case 12:
+            jobM = require('skillDualblades');
+            rep = jobM.getskillnameDualblades(skillcode);
             break;
-        case 13:            
-            rep = "바이퍼";
+        case 13:
+            jobM = require('skillViper');
+            rep = jobM.getskillnameViper(skillcode);
             break;
-        case 14:            
-            rep = "캡틴";
+        case 14:
+            jobM = require('skillCaptain');
+            rep = jobM.getskillnameCaptain(skillcode);
             break;
-        case 15:            
-            rep = "캐논슈터";
+        case 15:
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskillnameCannonshooter(skillcode);
             break;
         case 16:
             jobM = require('skillSoulmaster');
@@ -1171,23 +1183,29 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
         case 0:            
             rep = "초보자";
             break;
-        case 1:            
-            rep = "히어로";
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskilldesc1Hero(skillcode);
             break;
-        case 2:            
-            rep = "팔라딘";
+        case 2:
+            jobM = require('skillPaladin');
+            rep = jobM.getskilldesc1Paladin(skillcode);
             break;
-        case 3:            
-            rep = "다크나이트";
+        case 3:
+            jobM = require('skillDarkknight');
+            rep = jobM.getskilldesc1Darkknight(skillcode);
             break;
-        case 4:            
-            rep = "아크메이지(불,독)";
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskilldesc1Archmagefirepoison(skillcode);
             break;
-        case 5:            
-            rep = "아크메이지(썬,콜)";
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskilldesc1Archmagethundercold(skillcode);
             break;
-        case 6:            
-            rep = "비숍";
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskilldesc1Bishop(skillcode);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -1201,23 +1219,29 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             jobM = require('skillPathfinder');
             rep = jobM.getskilldesc1Pathfinder(skillcode);
             break;
-        case 10:            
-            rep = "나이트로드";
+        case 10:
+            jobM = require('skillNightlord');
+            rep = jobM.getskilldesc1Nightlord(skillcode);
             break;
-        case 11:            
-            rep = "섀도어";
+        case 11:
+            jobM = require('skillShadower');
+            rep = jobM.getskilldesc1Shadower(skillcode);
             break;
-        case 12:            
-            rep = "듀얼블레이드";
+        case 12:
+            jobM = require('skillDualblades');
+            rep = jobM.getskilldesc1Dualblades(skillcode);
             break;
-        case 13:            
-            rep = "바이퍼";
+        case 13:
+            jobM = require('skillViper');
+            rep = jobM.getskilldesc1Viper(skillcode);
             break;
-        case 14:            
-            rep = "캡틴";
+        case 14:
+            jobM = require('skillCaptain');
+            rep = jobM.getskilldesc1Captain(skillcode);
             break;
-        case 15:            
-            rep = "캐논슈터";
+        case 15:
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskilldesc1Cannonshooter(skillcode);
             break;
         case 16:
             jobM = require('skillSoulmaster');
@@ -1424,23 +1448,29 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
         case 0:            
             rep = "초보자";
             break;
-        case 1:            
-            rep = "히어로";
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskilldesc2Hero(skillcode);
             break;
-        case 2:            
-            rep = "팔라딘";
+        case 2:
+            jobM = require('skillPaladin');
+            rep = jobM.getskilldesc2Paladin(skillcode);
             break;
-        case 3:            
-            rep = "다크나이트";
+        case 3:
+            jobM = require('skillDarkknight');
+            rep = jobM.getskilldesc2Darkknight(skillcode);
             break;
-        case 4:            
-            rep = "아크메이지(불,독)";
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskilldesc2Archmagefirepoison(skillcode);
             break;
-        case 5:            
-            rep = "아크메이지(썬,콜)";
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskilldesc2Archmagethundercold(skillcode);
             break;
-        case 6:            
-            rep = "비숍";
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskilldesc2Bishop(skillcode);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -1454,23 +1484,29 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             jobM = require('skillPathfinder');
             rep = jobM.getskilldesc2Pathfinder(skillcode);
             break;
-        case 10:            
-            rep = "나이트로드";
+        case 10:
+            jobM = require('skillNightlord');
+            rep = jobM.getskilldesc2Nightlord(skillcode);
             break;
-        case 11:            
-            rep = "섀도어";
+        case 11:
+            jobM = require('skillShadower');
+            rep = jobM.getskilldesc2Shadower(skillcode);
             break;
-        case 12:            
-            rep = "듀얼블레이드";
+        case 12:
+            jobM = require('skillDualblades');
+            rep = jobM.getskilldesc2Dualblades(skillcode);
             break;
-        case 13:            
-            rep = "바이퍼";
+        case 13:
+            jobM = require('skillViper');
+            rep = jobM.getskilldesc2Viper(skillcode);
             break;
-        case 14:            
-            rep = "캡틴";
+        case 14:
+            jobM = require('skillCaptain');
+            rep = jobM.getskilldesc2Captain(skillcode);
             break;
-        case 15:            
-            rep = "캐논슈터";
+        case 15:
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskilldesc2Cannonshooter(skillcode);
             break;
         case 16:
             jobM = require('skillSoulmaster');
@@ -1668,6 +1704,54 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
     rep = "";
     var jobM;
     switch(jobcode){
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskilldesc3Hero(skillcode);
+            break;
+        case 2:            
+            jobM = require('skillPaladin');
+            rep = jobM.getskilldesc3Paladin(skillcode);
+            break;
+        case 3:            
+            jobM = require('skillDarkknight');
+            rep = jobM.getskilldesc3Darkknight(skillcode);
+            break;
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskilldesc3Archmagefirepoison(skillcode);
+            break;
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskilldesc3Archmagethundercold(skillcode);
+            break;            
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskilldesc3Bishop(skillcode);
+            break;
+        case 10:
+            jobM = require('skillNightlord');
+            rep = jobM.getskilldesc3Nightlord(skillcode);
+            break; 
+        case 11:
+            jobM = require('skillShadower');
+            rep = jobM.getskilldesc3Shadower(skillcode);
+            break; 
+        case 12:
+            jobM = require('skillDualblades');
+            rep = jobM.getskilldesc3Dualblades(skillcode);
+            break;
+        case 13:
+            jobM = require('skillViper');
+            rep = jobM.getskilldesc3Viper(skillcode);
+            break;  
+        case 14:
+            jobM = require('skillCaptain');
+            rep = jobM.getskilldesc3Captain(skillcode);
+            break;  
+        case 15:
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskilldesc3Cannonshooter(skillcode);
+            break;                
         case 29:
             jobM = require('skillAran');
             rep = jobM.getskilldesc3Aran(skillcode);
@@ -1692,23 +1776,29 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
         case 0:            
             rep = "초보자";
             break;
-        case 1:            
-            rep = "히어로";
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskillimage1Hero(skillcode);
             break;
-        case 2:            
-            rep = "팔라딘";
+        case 2:
+            jobM = require('skillPaladin');
+            rep = jobM.getskillimage1Paladin(skillcode);
             break;
         case 3:            
-            rep = "다크나이트";
+            jobM = require('skillDarkknight');
+            rep = jobM.getskillimage1Darkknight(skillcode);
             break;
-        case 4:            
-            rep = "아크메이지(불,독)";
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskillimage1Archmagefirepoison(skillcode);
             break;
-        case 5:            
-            rep = "아크메이지(썬,콜)";
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskillimage1Archmagethundercold(skillcode);
             break;
-        case 6:            
-            rep = "비숍";
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskillimage1Bishop(skillcode);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -1723,28 +1813,28 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = jobM.getskillimage1Pathfinder(skillcode);
             break;
         case 10:
-            
-            rep = "나이트로드";
+            jobM = require('skillNightlord');
+            rep = jobM.getskillimage1Nightlord(skillcode);
             break;
         case 11:
-            
-            rep = "섀도어";
+            jobM = require('skillShadower');
+            rep = jobM.getskillimage1Shadower(skillcode);
             break;
         case 12:
-            
-            rep = "듀얼블레이드";
+            jobM = require('skillDualblades');
+            rep = jobM.getskillimage1Dualblades(skillcode);
             break;
         case 13:
-            
-            rep = "바이퍼";
+            jobM = require('skillViper');
+            rep = jobM.getskillimage1Viper(skillcode);
             break;
         case 14:
-            
-            rep = "캡틴";
+            jobM = require('skillCaptain');
+            rep = jobM.getskillimage1Captain(skillcode);
             break;
         case 15:
-            
-            rep = "캐논슈터";
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskillimage1Cannonshooter(skillcode);
             break;
         case 16:
             jobM = require('skillSoulmaster');
@@ -1951,23 +2041,29 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
         case 0:            
             rep = "초보자";
             break;
-        case 1:            
-            rep = "히어로";
+        case 1:
+            jobM = require('skillHero');
+            rep = jobM.getskillimage2Hero(skillcode);
             break;
-        case 2:            
-            rep = "팔라딘";
+        case 2:
+            jobM = require('skillPaladin');
+            rep = jobM.getskillimage2Paladin(skillcode);
             break;
-        case 3:            
-            rep = "다크나이트";
+        case 3:
+            jobM = require('skillDarkknight');
+            rep = jobM.getskillimage2Darkknight(skillcode);
             break;
-        case 4:            
-            rep = "아크메이지(불,독)";
+        case 4:
+            jobM = require('skillArchmagefirepoison');
+            rep = jobM.getskillimage2Archmagefirepoison(skillcode);
             break;
-        case 5:            
-            rep = "아크메이지(썬,콜)";
+        case 5:
+            jobM = require('skillArchmagethundercold');
+            rep = jobM.getskillimage2Archmagethundercold(skillcode);
             break;
-        case 6:            
-            rep = "비숍";
+        case 6:
+            jobM = require('skillBishop');
+            rep = jobM.getskillimage2Bishop(skillcode);
             break;
         case 7:
             jobM = require('skillBowmaster');
@@ -1982,28 +2078,28 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = jobM.getskillimage2Pathfinder(skillcode);
             break;
         case 10:
-            
-            rep = "나이트로드";
+            jobM = require('skillNightlord');
+            rep = jobM.getskillimage2Nightlord(skillcode);
             break;
         case 11:
-            
-            rep = "섀도어";
+            jobM = require('skillShadower');
+            rep = jobM.getskillimage2Shadower(skillcode);
             break;
         case 12:
-            
-            rep = "듀얼블레이드";
+            jobM = require('skillDualblades');
+            rep = jobM.getskillimage2Dualblades(skillcode);
             break;
         case 13:
-            
-            rep = "바이퍼";
+            jobM = require('skillViper');
+            rep = jobM.getskillimage2Viper(skillcode);
             break;
         case 14:
-            
-            rep = "캡틴";
+            jobM = require('skillCaptain');
+            rep = jobM.getskillimage2Captain(skillcode);
             break;
         case 15:
-            
-            rep = "캐논슈터";
+            jobM = require('skillCannonshooter');
+            rep = jobM.getskillimage2Cannonshooter(skillcode);
             break;
         case 16:
             jobM = require('skillSoulmaster');
