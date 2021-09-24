@@ -565,6 +565,10 @@ job.getchkjob = function(msg){
         case "!츄델":
         case "!사기직업":
         case "!사기캐":
+        case "!적폐":
+        case "!씹사기":
+        case "!개사기":
+        case "!원기아들":
           chkjob = 41;
           break;
         case "!일리움":
