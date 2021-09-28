@@ -1027,6 +1027,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
+    if(msg == "와!" || msg == "!와" || msg == "와"){
+      replier.reply("샌즈!");
+    }
+    if(( sender == myName || sender == adminNick ) && msg.startsWith("!어빌")){
+      const abilM = require("Ability");
+      var abilrep = abilM.getAbil(msg);
+      replier.reply(abilrep);
+    }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
       var senderhash = java.lang.String(senderinfo).hashCode();
