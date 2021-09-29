@@ -25,6 +25,7 @@ abil.getAbil = function(msg){
                 }
                 rep = rep.slice(0, rep.length-1);
             }
+            else if(tempA == -1){ rep = firstAbil + " >> 해당 어빌리티는 목록에 없습니다.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지";}
             else{
                 rep = "첫번째 어빌리티 수치가 입력되지 않았습니다.";
             }
@@ -33,9 +34,35 @@ abil.getAbil = function(msg){
         else if(firstAbilnum < 0 || fnum % 1 != 0){rep = "첫번째 어빌리티 수치는 소수나 음수가 될 수 없습니다.";}
         else{
             var firstAbilcode = this.getAbilcode(firstAbil);
-            if(firstAbilcode == -1){rep = firstAbill + " >> 해당 어빌리티는 목록에 없습니다.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지"}
+            if(firstAbilcode == -1){rep = firstAbil + " >> 해당 어빌리티는 목록에 없습니다.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지";}
             else{
-                rep = firstAbilcode + " " + firstAbilnum;
+                var firstAbilname = this.getAbilname(firstAbilcode);
+                var firstNum = -1, firstRate = 0.0;
+                for(i = 0; i < nameA.length; ++i){
+                    if(nameA[i] == firstAbilname){
+                        firstNum = i;
+                        firstRate = legendA[i];
+                    }
+                }
+                var firstNum2 = -1, firstRate2 = 0.0;
+                if(firstAbilnum >= legendB[firstAbilcode][0]){
+                    for(i = 0; i < 6; ++i){
+                        if(firstAbilnum <= legendB[firstAbilcode][i]){
+                            firstNum2 = i;
+                            firstRate2 += abilRate[i]; 
+                        }
+                    }
+                }
+                if(firstRate2 > 1){firstRate2 = 1.0;}
+
+                if(firstNum2 == -1){
+                    rep = "첫번째 줄에서 " + firstAbilname + " 옵션의 해당 수치 " + firstAbilnum + " 이상이 나올 확률이 0입니다. 확인 후 다시 입력해주세요.";
+                }
+                else{
+                    var firstRate3 =  (firstRate * firstRate2).toFixed(3);
+                    firstRate2 *= 100;
+                    rep = "첫번째 줄에서 " + firstAbilname + " 옵션의 해당 " + firstAbilnum + " 수치 이상 나올 확률은\n\n" + firstRate + "% (해당 옵션이 나올 확률) * " + firstRate2 + "% (해당 수치가 나올 확률) = " + firstRate3 +  "% 입니다.";
+                }
             }
         }
     }
@@ -126,6 +153,45 @@ abil.getAbilcode = function(abil){
     }
     return ret;
 };
+abil.getAbilname = function(abilcode){
+    rep = "";
+    switch(abilcode){
+        case 0:
+            rep = "보스 몬스터 공격 시 데미지 % 증가";
+            break;
+        case 1:
+            rep = "패시브 스킬 레벨 증가";
+            break;
+        case 2:
+            rep = "다수 공격 스킬의 공격 대상 증가";
+            break;
+        case 3:
+            rep = "일반 몬스터 공격 시 데미지 % 증가";
+            break;
+        case 4:
+            rep = "상태 이상에 걸린 대상 공격 시 데미지 % 증가";
+            break;
+        case 5:
+            rep = "아이템 드롭률 % 증가";
+            break;
+        case 6:
+            rep = "메소 획득량 % 증가";
+            break;
+        case 7:
+            rep = "크리티컬 확률 % 증가";
+            break;
+        case 8:
+            rep = "공격 속도 단계 증가";
+            break;
+        case 9:
+            rep = "스킬 사용 시 % 확률로 재사용 대기시간이 미적용";
+            break;
+        case 10:
+            rep = "버프 스킬의 지속 시간 % 증가";
+            break;
+    }
+    return rep;
+};
 
 function getAbilRate1(name, rare, epic, unique, legend){
     var dataAbil1 = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/Guide/OtherProbability/ability/reputevalue").get();
@@ -143,10 +209,64 @@ function getAbilRate1(name, rare, epic, unique, legend){
         if(raretemp == "-"){rare.push(0.0);}else{rare.push(parseFloat(raretemp));}
         if(epictemp == "-"){epic.push(0.0);}else{epic.push(parseFloat(epictemp));}
         if(uniquetemp == "-"){unique.push(0.0);}else{unique.push(parseFloat(uniquetemp));}
-        legend.push(parseFloat(legendtemp));
+        if(legendtemp == "-"){legend.push(0.0);}else{legend.push(parseFloat(legendtemp));}
     }
 };
 
-var gradeRate = [10, 40, 50];
+var legendB = [
+    [15, 16, 17, 18, 19, 20],   //보공 0
+    [1, 1, 1, 1, 1, 1],         //패시브 1
+    [1, 1, 1, 1, 1, 1],         //다수 2
+    [9, 9, 10, 10, 10, 10],     //일몹뎀 3
+    [9, 9, 10, 10, 10, 10],     //상추뎀 4
+    [18, 18, 19, 19, 20, 20],   //아획 5
+    [18, 18, 19, 19, 20, 20],   //메획 6
+    [25, 26, 27, 28, 29, 30],   //크확 7
+    [1, 1, 1, 1, 1, 1],         //공속 8
+    [15, 16, 17, 18, 19, 20],   //재사용 9
+    [44, 45, 47, 48, 49, 50]    //벞지 10
+];  
+var uniqueB = [
+    [5, 6, 7, 8, 9, 10],   //보공 0
+    [0, 0, 0, 0, 0, 0],         //패시브 1
+    [0, 0, 0, 0, 0, 0],         //다수 2
+    [7, 7, 7, 7, 8, 8],     //일몹뎀 3
+    [7, 7, 7, 7, 8, 8],     //상추뎀 4
+    [13, 13, 14, 14, 15, 15],   //아획 5
+    [13, 13, 14, 14, 15, 15],   //메획 6
+    [15, 16, 17, 18, 19, 20],   //크확 7
+    [0, 0, 0, 0, 0, 0],         //공속 8
+    [5, 6, 7, 8, 9, 10],   //재사용 9
+    [32, 33, 34, 35, 37, 38]    //벞지 10
+];
+var epicB = [
+    [0, 0, 0, 0, 0, 0],   //보공 0
+    [0, 0, 0, 0, 0, 0],         //패시브 1
+    [0, 0, 0, 0, 0, 0],         //다수 2
+    [4, 4, 5, 5, 5, 5],     //일몹뎀 3
+    [4, 4, 5, 5, 5, 5],     //상추뎀 4
+    [8, 8, 9, 9, 10, 10],   //아획 5
+    [8, 8, 9, 9, 10, 10],   //메획 6
+    [5, 6, 7, 8, 9, 10],   //크확 7
+    [0, 0, 0, 0, 0, 0],         //공속 8
+    [0, 0, 0, 0, 0, 0],   //재사용 9
+    [19, 20, 22, 23, 24, 25]    //벞지 10
+];
+var rareB = [
+    [0, 0, 0, 0, 0, 0],   //보공 0
+    [0, 0, 0, 0, 0, 0],         //패시브 1
+    [0, 0, 0, 0, 0, 0],         //다수 2
+    [2, 2, 2, 2, 3, 3],     //일몹뎀 3
+    [2, 2, 2, 2, 3, 3],     //상추뎀 4
+    [3, 3, 4, 4, 5, 5],   //아획 5
+    [3, 3, 4, 4, 5, 5],   //메획 6
+    [0, 0, 0, 0, 0, 0],   //크확 7
+    [0, 0, 0, 0, 0, 0],         //공속 8
+    [0, 0, 0, 0, 0, 0],   //재사용 9
+    [7, 8, 9, 10, 12, 13]    //벞지 10
+];
+
+var gradeRate = [0.1, 0.4, 0.5];
+var abilRate = [0.2, 0.2, 0.2, 0.15, 0.15, 0.1];
 var resetCost = [8000, 11000, 16000];
 module.exports = abil;

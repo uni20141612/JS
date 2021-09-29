@@ -1030,10 +1030,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg == "와!" || msg == "!와" || msg == "와"){
       replier.reply("샌즈!");
     }
-    if(( sender == myName || sender == adminNick ) && msg.startsWith("!어빌")){
+    if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");
       var abilrep = abilM.getAbil(msg);
       replier.reply(abilrep);
+    }
+    if(msg.startsWith("!농장")){
+      const farmM = require('Farm');
+      var farmrep = farmM.getFarm(msg);
+      replier.reply(farmrep);
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
