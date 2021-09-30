@@ -1,0 +1,853 @@
+<div class="cube_option">
+								<ul>
+									<li>잠재능력 등급<span id="searchGrade">레어</span></li>
+									<li>장비 분류<span id="searchPartsType">무기</span></li>
+									<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+								</ul>
+							</div>
+							<table class="cube_data _1">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>첫 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+								<tbody>
+											<tr>
+                                                <td>STR : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격력 : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>마력 : +12</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>STR : +3%</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +3%</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +3%</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +3%</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>공격력 : +3%</td>
+                                                <td>1.7544%</td>								
+											</tr>
+											<tr>
+                                                <td>마력 : +3%</td>
+                                                <td>1.7544%</td>								
+											</tr>
+											<tr>
+                                                <td>크리티컬 확률 : +4%</td>
+                                                <td>1.7544%</td>								
+											</tr>
+											<tr>
+                                                <td>데미지 : +3%</td>
+                                                <td>1.7544%</td>								
+											</tr>
+											<tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>3.5088%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 3% 확률로 32의 HP 회복</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 3% 확률로 32의 MP 회복</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 10% 확률로 6레벨 중독효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 5% 확률로 2레벨 기절효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 10% 확률로 2레벨 슬로우효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 10% 확률로 3레벨 암흑효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 5% 확률로 2레벨 빙결효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 5% 확률로 2레벨 봉인효과 적용</td>
+                                                <td>5.2632%</td>								
+											</tr>
+											<tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>1.7544%</td>								
+											</tr>
+								</tbody>
+							</table>
+							<table class="cube_data _2">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>두 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +60</td>
+                                                <td>18.7313%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +60</td>
+                                                <td>18.7313%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +6</td>
+                                                <td>6.2438%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +6</td>
+                                                <td>6.2438%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +4%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 HP 회복</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 MP 회복</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 6레벨 중독효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 기절효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 2레벨 슬로우효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 3레벨 암흑효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 빙결효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 봉인효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+							<table class="cube_data _3">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>세 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6</td>
+                                                <td>12.4875%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +60</td>
+                                                <td>18.7313%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +60</td>
+                                                <td>18.7313%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +6</td>
+                                                <td>6.2438%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +6</td>
+                                                <td>6.2438%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +12</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +4%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +3%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>0.0035%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 HP 회복</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 MP 회복</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 6레벨 중독효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 기절효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 2레벨 슬로우효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 3레벨 암흑효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 빙결효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 봉인효과 적용</td>
+                                                <td>0.0053%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>0.0018%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+</end>
+
+<div class="cube_option">
+								<ul>
+									<li>잠재능력 등급<span id="searchGrade">에픽</span></li>
+									<li>장비 분류<span id="searchPartsType">무기</span></li>
+									<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+								</ul>
+							</div>
+							<table class="cube_data _1">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>첫 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+								<tbody>
+											<tr>
+                                                <td>STR : +6%</td>
+                                                <td>7.6923%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +6%</td>
+                                                <td>7.6923%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +6%</td>
+                                                <td>7.6923%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +6%</td>
+                                                <td>7.6923%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>11.5385%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>11.5385%</td>								
+											</tr>
+											<tr>
+                                                <td>공격력 : +6%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+											<tr>
+                                                <td>마력 : +6%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+											<tr>
+                                                <td>크리티컬 확률 : +8%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+											<tr>
+                                                <td>데미지 : +6%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+											<tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 3% 확률로 53의 HP 회복</td>
+                                                <td>11.5385%</td>								
+											</tr>
+											<tr>
+                                                <td>공격 시 3% 확률로 53의 MP 회복</td>
+                                                <td>11.5385%</td>								
+											</tr>
+											<tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>3.8462%</td>								
+											</tr>
+								</tbody>
+							</table>
+							<table class="cube_data _2">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>두 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +4%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 HP 회복</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 MP 회복</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 6레벨 중독효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 기절효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 2레벨 슬로우효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 3레벨 암흑효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 빙결효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 봉인효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +8%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 53의 HP 회복</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 53의 MP 회복</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+							<table class="cube_data _3">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>세 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +12</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +4%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +3%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>3.4740%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 HP 회복</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 32의 MP 회복</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 6레벨 중독효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 기절효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 2레벨 슬로우효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 10% 확률로 3레벨 암흑효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 빙결효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 5% 확률로 2레벨 봉인효과 적용</td>
+                                                <td>5.2110%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>1.7370%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6%</td>
+                                                <td>0.0762%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격력 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>마력 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>크리티컬 확률 : +8%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>데미지 : +6%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 53의 HP 회복</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>공격 시 3% 확률로 53의 MP 회복</td>
+                                                <td>0.1142%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>몬스터 방어율 무시 : +15%</td>
+                                                <td>0.0381%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+</end>

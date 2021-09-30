@@ -1,0 +1,593 @@
+<div class="cube_option">
+								<ul>
+									<li>잠재능력 등급<span id="searchGrade">레어</span></li>
+									<li>장비 분류<span id="searchPartsType">귀고리</span></li>
+									<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+								</ul>
+							</div>
+							<table class="cube_data _1">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>첫 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+								<tbody>
+											<tr>
+                                                <td>STR : +12</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +12</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +12</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +12</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>방어력 : +120</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>STR : +3%</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +3%</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +3%</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +3%</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 HP : +3%</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 MP : +3%</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>방어력 : +3%</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>4.7619%</td>								
+											</tr>
+											<tr>
+                                                <td>4초 당 24의 HP 회복</td>
+                                                <td>7.1429%</td>								
+											</tr>
+											<tr>
+                                                <td>4초 당 24의 MP 회복</td>
+                                                <td>7.1429%</td>								
+											</tr>
+								</tbody>
+							</table>
+							<table class="cube_data _2">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>두 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 HP 회복</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 MP 회복</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+							<table class="cube_data _3">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>세 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6</td>
+                                                <td>11.7530%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +60</td>
+                                                <td>17.6294%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +120</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +3%</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>0.0048%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 HP 회복</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 MP 회복</td>
+                                                <td>0.0071%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+</end>
+
+<div class="cube_option">
+								<ul>
+									<li>잠재능력 등급<span id="searchGrade">에픽</span></li>
+									<li>장비 분류<span id="searchPartsType">귀고리</span></li>
+									<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+								</ul>
+							</div>
+							<table class="cube_data _1">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>첫 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+								<tbody>
+											<tr>
+                                                <td>STR : +6%</td>
+                                                <td>11.1111%</td>								
+											</tr>
+											<tr>
+                                                <td>DEX : +6%</td>
+                                                <td>11.1111%</td>								
+											</tr>
+											<tr>
+                                                <td>INT : +6%</td>
+                                                <td>11.1111%</td>								
+											</tr>
+											<tr>
+                                                <td>LUK : +6%</td>
+                                                <td>11.1111%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>16.6667%</td>								
+											</tr>
+											<tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>16.6667%</td>								
+											</tr>
+											<tr>
+                                                <td>방어력 : +6%</td>
+                                                <td>16.6667%</td>								
+											</tr>
+											<tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>5.5556%</td>								
+											</tr>
+								</tbody>
+							</table>
+							<table class="cube_data _2">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>두 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 HP 회복</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 MP 회복</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>0.0550%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+							<table class="cube_data _3">
+								<colgroup>
+									<col width="*">
+									<col width="20%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>세 번째 옵션</th>
+										<th>확률</th> 
+									   </tr> 
+								</thead>
+                                <tbody>
+                                            <tr>
+                                                <td>STR : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +12</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +120</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +3%</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +3%</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +5</td>
+                                                <td>4.7148%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 HP 회복</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4초 당 24의 MP 회복</td>
+                                                <td>7.0721%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>STR : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>DEX : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INT : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>LUK : +6%</td>
+                                                <td>0.1100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 HP : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>최대 MP : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>방어력 : +6%</td>
+                                                <td>0.1650%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>올스탯 : +3%</td>
+                                                <td>0.0550%</td>
+                                            </tr>
+                                </tbody>
+							</table>
+</end>

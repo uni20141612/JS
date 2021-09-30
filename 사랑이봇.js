@@ -109,9 +109,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if((sender == myName || sender == adminNick) && msg.startsWith("테스트")){
       //const fM = require('Food');      replier.reply(fM.foodList.length);
-      var test1 = org.jsoup.Jsoup.connect("http://wachan.me/boss_api2.php").header("Origin", "http://wachan.me").header("Referer", "http://wachan.me/boss.php").data("date", "8").data("type", "week1").post();
-      test1 = test1.toString();
-      replier.reply(test1);
     }    
     if((sender == myName || sender == adminNick) && msg == "!유저정보"){
       var dataB = DataBase.getDataBase("Userdata.txt");  
@@ -779,13 +776,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!큐브")){
-      if(sender == myName || sender == adminNick){
+      //if(sender == myName || sender == adminNick){
       var cuberep = guitarM.getCube(msg);
-      replier.reply(cuberep);
+      replier.reply(cuberep);/*
       }
       else{
         replier.reply("현재 메이플스토리 홈페이지의 큐브 확률 표기방식이 바뀌어 !큐브 기능이 잠정 중단되었습니다.");
-      }
+      }*/
     }
     if(msg.startsWith("!영어로") || msg.startsWith("!영어")){
       var engword = msg.split(" ")[1];

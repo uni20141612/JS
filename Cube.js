@@ -946,7 +946,7 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
     var frate = finalrate.toFixed(8);
     var cubenum = (100 / finalrate).toFixed(0);
     if(finalrate == 0){
-        if(abilind == 14){rep += "해당 수치 " + abilval + "초가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
+        if(abilind == 14){rep += "해당 수치 " + abilval + "초가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다." + abcode1 + " " + abcode2 + " " + abcode3;}
         else{rep += "해당 수치 " + abilval + "%가 해당 등급 [" + getCubeabilityR(abilind) + "] 에서 나올 수 있는 수치를 초과하였거나 해당 장비에서 나올 수 없는 옵션입니다.";}
     }
     else{
@@ -2366,9 +2366,11 @@ function getabilityCode(poten){
             ret = 44;
             break;
         case "모든 스킬의 재사용 대기시간 : -2초(10초 이하는 10%감소, 5초 미만으로 감소 불가)":
+        case "모든 스킬의 재사용 대기시간 : -2초(10초 이하는 10%감소 5초 미만으로 감소 불가)":
             ret = 45;
             break;
         case "모든 스킬의 재사용 대기시간 : -1초(10초 이하는 5%감소, 5초 미만으로 감소 불가)":
+        case "모든 스킬의 재사용 대기시간 : -1초(10초 이하는 5%감소 5초 미만으로 감소 불가)":
             ret = 46;
             break;
     }
