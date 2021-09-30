@@ -779,8 +779,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!큐브")){
+      if(sender == myName || sender == adminNick){
       var cuberep = guitarM.getCube(msg);
       replier.reply(cuberep);
+      }
+      else{
+        replier.reply("현재 메이플스토리 홈페이지의 큐브 확률 표기방식이 바뀌어 !큐브 기능이 잠정 중단되었습니다.");
+      }
     }
     if(msg.startsWith("!영어로") || msg.startsWith("!영어")){
       var engword = msg.split(" ")[1];

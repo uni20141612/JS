@@ -1,5 +1,5 @@
 const gt = {};
-const cpath = 'sdcard/kakao/Bots/보마봇/Cubetxt/';
+const cpath = 'sdcard/kakao/Bots/보마봇/';
 gt.getLadder = function (msg){
     var ladderrep = "";
     var laddercnt = msg.split(" ").length;
@@ -689,35 +689,29 @@ gt.getCube = function (msg){
             var cubeitem = cubeM.getItemname(cubethird);
             if(cubeitem == "없음"){rep = (cubethird + " >> 그런 이름의 장비 분류는 없습니다.");}
             else{
-              var cfile = cn + cubeitem + ".txt";
-              var dataCube = FileStream.read(cpath + cfile);
+              var cubeweb = cubeM.web + cn;
+              //var dataCube = org.jsoup.Jsoup.connect(cubeweb).get().toString();
+              var dataCube = FileStream.read(cpath + "RedCube.txt");
               
-              dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("</end>")[0];
+              dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("<tbody>")[1].replace(/<\/tr>/g, "").replace(/<tr>/g, "").replace(/  /g, "").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
               if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
-
-              var dataCube1 = dataCube.split("첫 번째 옵션")[1].split("</tbody>")[0];
-              var dataCube2 = dataCube.split("두 번째 옵션")[1].split("</tbody>")[0];
-              var dataCube3 = dataCube.split("세 번째 옵션")[1].split("</tbody>")[0];
+              dataCube = dataCube.slice(4, dataCube.length);
 
               var poten1 = [], poten2 = [], poten3 = [];
               var prate1 = [], prate2 = [], prate3 = [];
-              for(i = 1; i < dataCube1.split("<td>").length; ++i){
-                var temppoten = dataCube1.split("<td>")[i++].split("</td>")[0];
+              for(i = 1; i < dataCube.split("<td>").length; ++i){
+                var temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
                 if(temppoten != ""){poten1.push(temppoten);}
-                temppoten = dataCube1.split("<td>")[i].split("</td>")[0];
-                if(temppoten != ""){prate1.push(temppoten);}                
-              }
-              for(i = 1; i < dataCube2.split("<td>").length; ++i){
-                var temppoten = dataCube2.split("<td>")[i++].split("</td>")[0];
+                temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                if(temppoten != ""){prate1.push(temppoten);}
+                temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
                 if(temppoten != ""){poten2.push(temppoten);}
-                temppoten = dataCube2.split("<td>")[i].split("</td>")[0];
-                if(temppoten != ""){prate2.push(temppoten);}                
-              }
-              for(i = 1; i < dataCube3.split("<td>").length; ++i){
-                var temppoten = dataCube3.split("<td>")[i++].split("</td>")[0];
+                temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
+                if(temppoten != ""){prate2.push(temppoten);}
+                temppoten = dataCube.split("<td>")[i++].split("</td>")[0];
                 if(temppoten != ""){poten3.push(temppoten);}
-                temppoten = dataCube3.split("<td>")[i].split("</td>")[0];
-                if(temppoten != ""){prate3.push(temppoten);}                
+                temppoten = dataCube.split("<td>")[i].split("</td>")[0];
+                if(temppoten != ""){prate3.push(temppoten);}
               }
 
               var cubefourth = msg.split(" ")[4];
