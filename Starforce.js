@@ -137,6 +137,7 @@ sf.simulation = function (A, B, C, D, E, F){
         if(E != 1){ sfmeso += costarr[currentsf];}
         else { sfmeso += costarr[currentsf] * 0.7;} //30%할인
         if((A != 99 && two100 == 2) || (A != 99 && E == 2 && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
+            sfsuccessCnt++;
             currentsf += 1; //sfrep += "찬스타임!\n";
             two100 = 0;
             continue;

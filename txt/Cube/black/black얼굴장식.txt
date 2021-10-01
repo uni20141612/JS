@@ -1,0 +1,1043 @@
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">레어</span></li>
+<li>장비 분류<span id="searchPartsType">얼굴장식</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +12</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>최대 HP : +120</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>최대 MP : +120</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>방어력 : +120</td>
+<td>5.0000%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>7.5000%</td>
+</tr>
+<tr>
+<td>최대 HP : +3%</td>
+<td>5.0000%</td>
+</tr>
+<tr>
+<td>최대 MP : +3%</td>
+<td>5.0000%</td>
+</tr>
+<tr>
+<td>방어력 : +3%</td>
+<td>5.0000%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>5.0000%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>DEX : +6</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>INT : +6</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>LUK : +6</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>최대 HP : +60</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>최대 MP : +60</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>방어력 : +60</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>최대 HP : +120</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>최대 MP : +120</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>방어력 : +120</td>
+<td>1.0000%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>1.5000%</td>
+</tr>
+<tr>
+<td>최대 HP : +3%</td>
+<td>1.0000%</td>
+</tr>
+<tr>
+<td>최대 MP : +3%</td>
+<td>1.0000%</td>
+</tr>
+<tr>
+<td>방어력 : +3%</td>
+<td>1.0000%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>1.0000%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>DEX : +6</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>INT : +6</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>LUK : +6</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>최대 HP : +60</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>최대 MP : +60</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>방어력 : +60</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>최대 HP : +120</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>최대 MP : +120</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>방어력 : +120</td>
+<td>0.2500%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>0.3750%</td>
+</tr>
+<tr>
+<td>최대 HP : +3%</td>
+<td>0.2500%</td>
+</tr>
+<tr>
+<td>최대 MP : +3%</td>
+<td>0.2500%</td>
+</tr>
+<tr>
+<td>방어력 : +3%</td>
+<td>0.2500%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>0.2500%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">에픽</span></li>
+<li>장비 분류<span id="searchPartsType">얼굴장식</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>최대 HP : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>최대 MP : +6%</td>
+<td>14.2857%</td>
+</tr>
+<tr>
+<td>방어력 : +6%</td>
+<td>8.5714%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>5.7143%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +12</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>최대 HP : +120</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>최대 MP : +120</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>방어력 : +120</td>
+<td>4.0000%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>6.0000%</td>
+</tr>
+<tr>
+<td>최대 HP : +3%</td>
+<td>4.0000%</td>
+</tr>
+<tr>
+<td>최대 MP : +3%</td>
+<td>4.0000%</td>
+</tr>
+<tr>
+<td>방어력 : +3%</td>
+<td>4.0000%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>4.0000%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>최대 HP : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>최대 MP : +6%</td>
+<td>2.8571%</td>
+</tr>
+<tr>
+<td>방어력 : +6%</td>
+<td>1.7143%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>1.1429%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +12</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>최대 HP : +120</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>최대 MP : +120</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>방어력 : +120</td>
+<td>4.7500%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>7.1250%</td>
+</tr>
+<tr>
+<td>최대 HP : +3%</td>
+<td>4.7500%</td>
+</tr>
+<tr>
+<td>최대 MP : +3%</td>
+<td>4.7500%</td>
+</tr>
+<tr>
+<td>방어력 : +3%</td>
+<td>4.7500%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>4.7500%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>최대 HP : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>최대 MP : +6%</td>
+<td>0.7143%</td>
+</tr>
+<tr>
+<td>방어력 : +6%</td>
+<td>0.4286%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>0.2857%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">유니크</span></li>
+<li>장비 분류<span id="searchPartsType">얼굴장식</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +9%</td>
+<td>11.3636%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>11.3636%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>11.3636%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>11.3636%</td>
+</tr>
+<tr>
+<td>최대 HP : +9%</td>
+<td>13.6364%</td>
+</tr>
+<tr>
+<td>최대 MP : +9%</td>
+<td>13.6364%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
+<td>9.0909%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>최대 HP : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>최대 MP : +6%</td>
+<td>11.4286%</td>
+</tr>
+<tr>
+<td>방어력 : +6%</td>
+<td>6.8571%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>4.5714%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>2.2727%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>2.2727%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>2.2727%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>2.2727%</td>
+</tr>
+<tr>
+<td>최대 HP : +9%</td>
+<td>2.7273%</td>
+</tr>
+<tr>
+<td>최대 MP : +9%</td>
+<td>2.7273%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>1.8182%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>1.8182%</td>
+</tr>
+<tr>
+<td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
+<td>1.8182%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>최대 HP : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>최대 MP : +6%</td>
+<td>13.5714%</td>
+</tr>
+<tr>
+<td>방어력 : +6%</td>
+<td>8.1429%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>5.4286%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>0.5682%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>0.5682%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>0.5682%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>0.5682%</td>
+</tr>
+<tr>
+<td>최대 HP : +9%</td>
+<td>0.6818%</td>
+</tr>
+<tr>
+<td>최대 MP : +9%</td>
+<td>0.6818%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>0.4545%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>0.4545%</td>
+</tr>
+<tr>
+<td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
+<td>0.4545%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">레전드리</span></li>
+<li>장비 분류<span id="searchPartsType">얼굴장식</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>최대 HP : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>최대 MP : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>6.9767%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +9%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>9.0909%</td>
+</tr>
+<tr>
+<td>최대 HP : +9%</td>
+<td>10.9091%</td>
+</tr>
+<tr>
+<td>최대 MP : +9%</td>
+<td>10.9091%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>7.2727%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>7.2727%</td>
+</tr>
+<tr>
+<td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
+<td>7.2727%</td>
+</tr>
+<tr>
+<td>STR : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>최대 HP : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>최대 MP : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>1.3953%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +9%</td>
+<td>10.7955%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>10.7955%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>10.7955%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>10.7955%</td>
+</tr>
+<tr>
+<td>최대 HP : +9%</td>
+<td>12.9545%</td>
+</tr>
+<tr>
+<td>최대 MP : +9%</td>
+<td>12.9545%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>8.6364%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>8.6364%</td>
+</tr>
+<tr>
+<td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
+<td>8.6364%</td>
+</tr>
+<tr>
+<td>STR : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>최대 HP : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>최대 MP : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>0.3488%</td>
+</tr>
+</tbody>
+</table>
+</end>

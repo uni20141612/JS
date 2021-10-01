@@ -693,7 +693,6 @@ gt.getCube = function (msg){
               var dataCube = FileStream.read(cpath + cfile);
               
               dataCube = dataCube.split(cubeitem)[cubeclass + 1].split("</end>")[0].replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-              if(cn == "addi"){dataCube = dataCube.split("확률</td>")[3];}
 
               var dataCube1 = dataCube.split("첫 번째 옵션")[1].split("</tbody>")[0];
               var dataCube2 = dataCube.split("두 번째 옵션")[1].split("</tbody>")[0];

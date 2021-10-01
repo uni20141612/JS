@@ -741,7 +741,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
         else{
           bname = gbM.getBossname2(bossind);  
-          var pricelen = cryM.crystalprice[0].length; 
+          var pricelen = cryM.crystalprice[bossind].length; 
           var prevprice = cryM.crystalprice[bossind][pricelen - 2];
           var curprice = cryM.crystalprice[bossind][pricelen - 1];
           binfo = "";
@@ -1031,6 +1031,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg == "와!" || msg == "!와" || msg == "와"){
       replier.reply("샌즈!");
+    }
+    if(msg == "?"){
+      replier.reply("?");
     }
     if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");

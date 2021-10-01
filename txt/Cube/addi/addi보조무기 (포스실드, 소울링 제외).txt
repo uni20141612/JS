@@ -1,0 +1,1631 @@
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">레어</span></li>
+<li>장비 분류<span id="searchPartsType">보조무기 (포스실드, 소울링 제외)</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +100</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>최대 MP : +100</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>이동속도 : +6</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>점프력 : +6</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>방어력 : +100</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>공격력 : +12</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>마력 : +12</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>최대 HP : +2%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>최대 MP : +2%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>공격력 : +3%</td>
+<td>1.9608%</td>
+</tr>
+<tr>
+<td>마력 : +3%</td>
+<td>1.9608%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +4%</td>
+<td>3.9216%</td>
+</tr>
+<tr>
+<td>데미지 : +3%</td>
+<td>1.9608%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>5.8824%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>DEX : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>INT : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>LUK : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>최대 HP : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>최대 MP : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>이동속도 : +4</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>점프력 : +4</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>방어력 : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>공격력 : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>마력 : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>최대 HP : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>최대 MP : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>이동속도 : +6</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>점프력 : +6</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>방어력 : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>공격력 : +12</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>마력 : +12</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>최대 HP : +2%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>최대 MP : +2%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>공격력 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>마력 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +4%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>데미지 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>0.1153%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>STR : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>DEX : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>INT : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>LUK : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>최대 HP : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>최대 MP : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>이동속도 : +4</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>점프력 : +4</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>방어력 : +60</td>
+<td>10.8932%</td>
+</tr>
+<tr>
+<td>공격력 : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>마력 : +6</td>
+<td>7.2622%</td>
+</tr>
+<tr>
+<td>최대 HP : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>최대 MP : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>이동속도 : +6</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>점프력 : +6</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>방어력 : +100</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>0.1153%</td>
+</tr>
+<tr>
+<td>공격력 : +12</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>마력 : +12</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>최대 HP : +2%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>최대 MP : +2%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>공격력 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>마력 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +4%</td>
+<td>0.0769%</td>
+</tr>
+<tr>
+<td>데미지 : +3%</td>
+<td>0.0384%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>0.1153%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">에픽</span></li>
+<li>장비 분류<span id="searchPartsType">보조무기 (포스실드, 소울링 제외)</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +5%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>최대 MP : +5%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>공격력 : +6%</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>마력 : +6%</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +6%</td>
+<td>2.9412%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>데미지 : +6%</td>
+<td>2.9412%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>5.8824%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 HP 회복</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 MP 회복</td>
+<td>8.8235%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +3%</td>
+<td>5.8824%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>최대 MP : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>이동속도 : +6</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>점프력 : +6</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>방어력 : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>공격력 : +12</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>마력 : +12</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>최대 HP : +2%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>최대 MP : +2%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>공격력 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>마력 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +4%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>데미지 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>최대 HP : +5%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>최대 MP : +5%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>공격력 : +6%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>마력 : +6%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +6%</td>
+<td>0.1401%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>데미지 : +6%</td>
+<td>0.1401%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 HP 회복</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 MP 회복</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +3%</td>
+<td>0.2801%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>최대 MP : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>이동속도 : +6</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>점프력 : +6</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>방어력 : +100</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>STR : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>DEX : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>INT : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>LUK : +12</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>공격력 : +12</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>마력 : +12</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>최대 HP : +2%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>최대 MP : +2%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>STR : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>DEX : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>INT : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>LUK : +3%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>공격력 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>마력 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +4%</td>
+<td>3.7348%</td>
+</tr>
+<tr>
+<td>데미지 : +3%</td>
+<td>1.8674%</td>
+</tr>
+<tr>
+<td>올스탯 : +5</td>
+<td>5.6022%</td>
+</tr>
+<tr>
+<td>최대 HP : +5%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>최대 MP : +5%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>공격력 : +6%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>마력 : +6%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +6%</td>
+<td>0.1401%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>데미지 : +6%</td>
+<td>0.1401%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>0.2801%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 HP 회복</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 MP 회복</td>
+<td>0.4202%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +3%</td>
+<td>0.2801%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">유니크</span></li>
+<li>장비 분류<span id="searchPartsType">보조무기 (포스실드, 소울링 제외)</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +7%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>최대 MP : +7%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>공격력 : +9%</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>마력 : +9%</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +9%</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>데미지 : +9%</td>
+<td>2.3256%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +1</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +1</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +1</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +1</td>
+<td>4.6512%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 HP 회복</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 MP 회복</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +4%</td>
+<td>2.3256%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +12%</td>
+<td>2.3256%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +5%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>최대 MP : +5%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>공격력 : +6%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>마력 : +6%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +6%</td>
+<td>2.8835%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>데미지 : +6%</td>
+<td>2.8835%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 HP 회복</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 MP 회복</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +3%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>최대 HP : +7%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>최대 MP : +7%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>공격력 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>마력 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>데미지 : +9%</td>
+<td>0.0456%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 HP 회복</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 MP 회복</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +4%</td>
+<td>0.0456%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +12%</td>
+<td>0.0456%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +5%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>최대 MP : +5%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>공격력 : +6%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>마력 : +6%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +6%</td>
+<td>2.8835%</td>
+</tr>
+<tr>
+<td>STR : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>DEX : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>INT : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>LUK : +6%</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>데미지 : +6%</td>
+<td>2.8835%</td>
+</tr>
+<tr>
+<td>올스탯 : +3%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 HP 회복</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>공격 시 3% 확률로 53의 MP 회복</td>
+<td>8.6505%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +3%</td>
+<td>5.7670%</td>
+</tr>
+<tr>
+<td>최대 HP : +7%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>최대 MP : +7%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>공격력 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>마력 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +9%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>데미지 : +9%</td>
+<td>0.0456%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +1</td>
+<td>0.0912%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 HP 회복</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 MP 회복</td>
+<td>0.1368%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +4%</td>
+<td>0.0456%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +12%</td>
+<td>0.0456%</td>
+</tr>
+</tbody>
+</table>
+</end>
+
+<div class="cube_option">
+<ul>
+<li>잠재능력 등급<span id="searchGrade">레전드리</span></li>
+<li>장비 분류<span id="searchPartsType">보조무기 (포스실드, 소울링 제외)</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
+</ul>
+</div>
+<table class="cube_data _1">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>첫 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +10%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>최대 MP : +10%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>공격력 : +12%</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>마력 : +12%</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +12%</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>크리티컬 데미지 : +1%</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>STR : +12%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>7.3171%</td>
+</tr>
+<tr>
+<td>데미지 : +12%</td>
+<td>2.4390%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +2</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +2</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +2</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +2</td>
+<td>4.8780%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 공격력 : +1</td>
+<td>2.4390%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 마력 : +1</td>
+<td>2.4390%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +5%</td>
+<td>2.4390%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +18%</td>
+<td>2.4390%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _2">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>두 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +7%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>최대 MP : +7%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>공격력 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>마력 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>데미지 : +9%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 HP 회복</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 MP 회복</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +4%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +12%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>최대 HP : +10%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>최대 MP : +10%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>공격력 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>마력 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>크리티컬 데미지 : +1%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>STR : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>데미지 : +12%</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 공격력 : +1</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 마력 : +1</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +5%</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +18%</td>
+<td>0.0121%</td>
+</tr>
+</tbody>
+</table>
+<table class="cube_data _3">
+<colgroup>
+<col width="*">
+<col width="20%">
+</colgroup>
+<thead>
+<tr>
+<th>세 번째 옵션</th>
+<th>확률</th> 
+   </tr> 
+</thead>
+<tbody>
+<tr>
+<td>최대 HP : +7%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>최대 MP : +7%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>공격력 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>마력 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +9%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>STR : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>DEX : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>INT : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>LUK : +9%</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>데미지 : +9%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>올스탯 : +6%</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +1</td>
+<td>4.6280%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 HP 회복</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>공격 시 15% 확률로 95의 MP 회복</td>
+<td>6.9420%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +4%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +12%</td>
+<td>2.3140%</td>
+</tr>
+<tr>
+<td>최대 HP : +10%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>최대 MP : +10%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>공격력 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>마력 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>크리티컬 확률 : +12%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>크리티컬 데미지 : +1%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>STR : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>DEX : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>INT : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>LUK : +12%</td>
+<td>0.0364%</td>
+</tr>
+<tr>
+<td>데미지 : +12%</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>올스탯 : +9%</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 STR : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 DEX : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 INT : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 LUK : +2</td>
+<td>0.0243%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 공격력 : +1</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>캐릭터 기준 10레벨 당 마력 : +1</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>몬스터 방어율 무시 : +5%</td>
+<td>0.0121%</td>
+</tr>
+<tr>
+<td>보스 몬스터 공격 시 데미지 : +18%</td>
+<td>0.0121%</td>
+</tr>
+</tbody>
+</table>
+</end>
