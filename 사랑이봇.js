@@ -669,7 +669,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         },
          "custom");   
     }
-    if(msg.startsWith("!사다리") || msg.startsWith("!사다리타기")){
+    if(msg.startsWith("!사다리") || msg.startsWith("!사다리타기") || msg.startsWith("!순위")){
       if(msg.split(" ").length < 3){
         replier.reply("최소 2개이상의 단어를 입력해주세요.\n\n!사다리타기/!사다리 (단어) : 띄어쓰기로 구분된 단어들을 랜덤으로 순위를 매겨 보여줍니다. 최소 두 단어 이상 입력하여야 합니다.");
       }
@@ -1030,10 +1030,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg == "와!" || msg == "!와" || msg == "와"){
-      replier.reply("샌즈!");
+      i = getRandomInt(0, 100);
+      if(i < 30){  replier.reply("샌즈!"); }
     }
     if(msg == "?"){
-      replier.reply("?");
+      i = getRandomInt(0, 100);
+      if(i < 30){ replier.reply("?"); }
     }
     if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");

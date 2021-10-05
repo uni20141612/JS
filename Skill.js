@@ -524,13 +524,13 @@ sk.getJobskillList = function(ind) {
         rep = "메카닉\n\n5차 : 멀티플 옵션 : M-FL, 마이크로 미사일 컨테이너, 메탈아머 전탄발사, 메카 캐리어";
         break;
     case 26:
-        rep = "제논\n\n";
+        rep = "제논\n\n5차 : 메가 스매셔, 오버로드 모드, 홀로그램 그래피티 : 융합, 포톤 레이";
         break;
     case 27:
-        rep = "데몬슬레이어\n\n";
+        rep = "데몬슬레이어\n\n5차 : 데몬 어웨이크닝, 요르문간드, 오르트로스, 데몬 베인";
         break;
     case 28:
-        rep = "데몬어벤져\n\n";
+        rep = "데몬어벤져\n\n5차 : 데몬 프렌지, 블러드 피스트, 디멘션 소드, 레버넌트";
         break;
     case 29:
         rep = "아란\n\n0차 : 컴뱃 스탭, 되찾은 기억, 콤보킬 어드밴티지\n1차 : 콤보 어빌리티, 스매시 스윙, 스매시 웨이브, 바디 프레셔\n2차 : 파이널 차지, 파이널 토스, 롤링 스핀, 드레인, 스노우 차지, 다이나믹 마스터리 I, 스윙 연구 I, 피지컬 트레이닝\n3차 : 어드밴스드 콤보 어빌리티, 에어로 스윙, 아드레날린 부스트 액티베이트, 아드레날린 부스트, 파이널 블로우, 저지먼트, 게더링 캐쳐, 블레싱 마하, 마이트, 클리빙 어택\n4차 : 비욘더, 부스트 엔드-스톰 오브 피어, 부스트 엔드-헌터즈 타겟팅, 하이 디펜스, 스위프트 무브, 다이나믹 마스터리 II, 스윙 연구 II\n하이퍼 스킬: 아드레날린 제네레이터, 마하의 영역\n5차: 인스톨 마하, 브랜디쉬 마하, 펜릴 크래시, 블리자드 템페스트";
@@ -753,16 +753,16 @@ sk.getJobskillcode = function(jobcode, skillname){
             ret = jobM.getskillMechanic(skillname);
             break;
         case 26:
-            ret = -1;
-            rep = "제논";
+            jobM = require('skillXenon');
+            ret = jobM.getskillXenon(skillname);
             break;
         case 27:
-            ret = -1;
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            ret = jobM.getskillDemonslayer(skillname);
             break;
         case 28:
-            ret = -1;
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            ret = jobM.getskillDemonavenger(skillname);
             break;
         case 29:
             jobM = require('skillAran');
@@ -1020,16 +1020,16 @@ sk.getJobskillname = function(jobcode, skillcode){
             rep = jobM.getskillnameMechanic(skillcode);
             break;
         case 26:
-            
-            rep = "제논";
+            jobM = require('skillXenon');
+            rep = jobM.getskillnameXenon(skillcode);
             break;
         case 27:
-            
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskillnameDemonslayer(skillcode);
             break;
         case 28:
-            
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskillnameDemonavenger(skillcode);
             break;
         case 29:
             jobM = require('skillAran');
@@ -1286,16 +1286,16 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             rep = jobM.getskilldesc1Mechanic(skillcode);
             break;
         case 26:
-            
-            rep = "제논";
+            jobM = require('skillXenon');
+            rep = jobM.getskilldesc1Xenon(skillcode);
             break;
         case 27:
-            
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskilldesc1Demonslayer(skillcode);
             break;
         case 28:
-            
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskilldesc1Demonavenger(skillcode);
             break;
         case 29:
             jobM = require('skillAran');
@@ -1552,16 +1552,16 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             rep = jobM.getskilldesc2Mechanic(skillcode);
             break;
         case 26:
-            
-            rep = "제논";
+            jobM = require('skillXenon');
+            rep = jobM.getskilldesc2Xenon(skillcode);
             break;
         case 27:
-            
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskilldesc2Demonslayer(skillcode);
             break;
         case 28:
-            
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskilldesc2Demonavenger(skillcode);
             break;
         case 29:
             jobM = require('skillAran');
@@ -1788,7 +1788,19 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
         case 25:
             jobM = require('skillMechanic');
             rep = jobM.getskilldesc3Mechanic(skillcode);
-            break;                                    
+            break;    
+        case 26:
+            jobM = require('skillXenon');
+            rep = jobM.getskilldesc3Xenon(skillcode);
+            break;    
+        case 27:
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskilldesc3Demonslayer(skillcode);
+            break;     
+        case 28:
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskilldesc3Demonavenger(skillcode);
+            break;                       
         case 29:
             jobM = require('skillAran');
             rep = jobM.getskilldesc3Aran(skillcode);
@@ -1928,16 +1940,16 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             rep = jobM.getskillimage1Mechanic(skillcode);
             break;
         case 26:
-            
-            rep = "제논";
+            jobM = require('skillXenon');
+            rep = jobM.getskillimage1Xenon(skillcode);
             break;
         case 27:
-            
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskillimage1Demonslayer(skillcode);
             break;
         case 28:
-            
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskillimage1Demonavenger(skillcode);
             break;
         case 29:
             jobM = require('skillAran');
@@ -2194,16 +2206,16 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
             rep = jobM.getskillimage2Mechanic(skillcode);
             break;
         case 26:
-            
-            rep = "제논";
+            jobM = require('skillXenon');
+            rep = jobM.getskillimage2Xenon(skillcode);
             break;
         case 27:
-            
-            rep = "데몬슬레이어";
+            jobM = require('skillDemonslayer');
+            rep = jobM.getskillimage2Demonslayer(skillcode);
             break;
         case 28:
-            
-            rep = "데몬어벤져";
+            jobM = require('skillDemonavenger');
+            rep = jobM.getskillimage2Demonavenger(skillcode);
             break;
         case 29:
             jobM = require('skillAran');

@@ -63,6 +63,104 @@ abil.getAbil = function(msg){
                     firstRate2 *= 100;
                     rep = "첫번째 줄에서 " + firstAbilname + " 옵션의 해당 " + firstAbilnum + " 수치 이상 나올 확률은\n\n" + firstRate + "% (해당 옵션이 나올 확률) * " + firstRate2 + "% (해당 수치가 나올 확률) = " + firstRate3 +  "% 입니다.";
                 }
+
+                var secondAbil = msg.split(" ")[3];
+                if(secondAbil != undefined){
+                    var snum = msg.split(" ")[4];
+                    var secondAbilnum = parseInt(snum);
+                    var secondgrade = -1;
+                    if(snum == undefined){
+                        rep += "\n\n두번째 어빌리티 수치가 입력되지 않았습니다.";
+                    }
+                    else if(isNaN(secondAbilnum)){ rep += "\n\n두번째 어빌리티 수치가 숫자가 아닙니다."; }
+                    else if(secondAbilnum < 0 || snum % 1 != 0){ rep += "\n\n두번째 어빌리티 수치는 소수나 음수가 될 수 없습니다."; }
+                    else{
+                        var secondAbilcode = this.getAbilcode(secondAbil);
+                        if(secondAbilcode == -1){ rep += "\n\n" + secondAbil + " >> 해당 어빌리티는 목록에 없습니다.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지"; }
+                        else{
+                            var secondAbilname = this.getAbilname(secondAbilcode);
+                            var secondNum = -1, secondRate = 0.0;
+                            for(i = 0; i < nameA.length; ++i){
+                                if(nameA[i] == secondAbilname){
+                                    secondNum = i;
+                                    secondRate = uniqueA[i];
+                                }
+                            }
+                            var secondNum2 = -1; secondRate2 = 0.0;
+                            if(secondAbilnum >= uniqueB[secondAbilcode][0]){
+                                for(i = 0; i < 6; ++i){
+                                    if(secondAbilnum <= uniqueB[secondAbilcode][i]){
+                                        secondNum2 = i;
+                                        secondRate2 += abilRate[i];
+                                    }
+                                }
+                            }
+                            if(secondRate2 > 1){secondRate2 = 1.0; }
+                            if(secondNum2 != -1){
+                                var secondRate3 = (secondRate * secondRate2).toFixed(3);
+                                secondRate2 *= 100;
+                                secondgrade = 0;
+                                rep += "\n\n두번째 줄에서 " + secondAbilname + " 옵션의 해당 " + secondAbilnum + " 수치 이상 나올 확률은\n\n" + secondRate + "% (해당 옵션이 나올 확률) * " + secondRate2 + "% (해당 수치가 나올 확률) = " + secondRate3 + "% 입니다.";
+                                rep += "\n해당 옵션은 유니크 옵션이며 해당 등급 확률은 " + gradeRate[secondgrade] + "% 입니다.";
+                            }
+                            else{
+                                secondNum = -1, secondRate = 0.0;
+                                for(i = 0; i < nameA.length; ++i){
+                                    if(nameA[i] == secondAbilname){
+                                        secondNum = i;
+                                        secondRate = epicA[i];
+                                    }
+                                }
+                                secondNum2 = -1; secondRate2 = 0.0;
+                                if(secondAbilnum >= epicB[secondAbilcode][0]){
+                                    for(i = 0; i < 6; ++i){
+                                        if(secondAbilnum <= epicB[secondAbilcode][i]){
+                                            secondNum2 = i;
+                                            secondRate2 += abilRate[i];
+                                        }
+                                    }
+                                }
+                                if(secondRate2 > 1){secondRate2 = 1.0; }
+                                if(secondNum2 != -1){
+                                    secondRate3 = (secondRate * secondRate2).toFixed(3);
+                                    secondRate2 *= 100;
+                                    secondgrade = 1;
+                                    rep += "\n\n두번째 줄에서 " + secondAbilname + " 옵션의 해당 " + secondAbilnum + " 수치 이상 나올 확률은\n\n" + secondRate + "% (해당 옵션이 나올 확률) * " + secondRate2 + "% (해당 수치가 나올 확률) = " + secondRate3 + "% 입니다.";
+                                    rep += "\n해당 옵션은 에픽 옵션이며 해당 등급 확률은 " + gradeRate[secondgrade] + "% 입니다.";
+                                }
+                                else{
+                                    secondNum = -1, secondRate = 0.0;
+                                    for(i = 0; i < nameA.length; ++i){
+                                        if(nameA[i] == secondAbilname){
+                                            secondNum = i;
+                                            secondRate = rareA[i];
+                                        }
+                                    }
+                                    secondNum2 = -1; secondRate2 = 0.0;
+                                    if(secondAbilnum >= rareB[secondAbilcode][0]){
+                                        for(i = 0; i < 6; ++i){
+                                            if(secondAbilnum <= rareB[secondAbilcode][i]){
+                                                secondNum2 = i;
+                                                secondRate2 += abilRate[i];
+                                            }
+                                        }
+                                    }
+                                    if(secondRate2 > 1){secondRate2 = 1.0; }
+                                    if(secondNum2 != -1){
+                                        secondRate3 = (secondRate * secondRate2).toFixed(3);
+                                        secondRate2 *= 100;
+                                        secondgrade = 2;
+                                        rep += "\n\n두번째 줄에서 " + secondAbilname + " 옵션의 해당 " + secondAbilnum + " 수치 이상 나올 확률은\n\n" + secondRate + "% (해당 옵션이 나올 확률) * " + secondRate2 + "% (해당 수치가 나올 확률) = " + secondRate3 + "% 입니다.";
+                                        rep += "\n해당 옵션은 레어 옵션이며 해당 등급 확률은 " + gradeRate[secondgrade] + "% 입니다.";
+                                    }
+                                    else{
+                                        rep += "\n\n두번째 줄에서 " + secondAbilname + " 옵션의 해당 " + secondAbilnum + " 수치 이상 나올 확률이 0입니다. 확인 후 다시 입력해주세요.";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -107,12 +205,14 @@ abil.getAbilcode = function(abil){
         case "드랍":
         case "드":
         case "아획":
+        case "아":
             ret = 5;
             break;
         case "메소획득량":
         case "메소획득":
         case "메획":
         case "메소":
+        case "메":
             ret = 6;
             break;
         case "크리티컬확률":
@@ -133,6 +233,7 @@ abil.getAbilcode = function(abil){
         case "버프지속시간":
         case "버프지속":
         case "버프스킬지속시간":
+        case "버프":
             ret = 10;
             break;
         case "레어":
@@ -266,7 +367,7 @@ var rareB = [
     [7, 8, 9, 10, 12, 13]    //벞지 10
 ];
 
-var gradeRate = [0.1, 0.4, 0.5];
+var gradeRate = [10, 40, 50];
 var abilRate = [0.2, 0.2, 0.2, 0.15, 0.15, 0.1];
 var resetCost = [8000, 11000, 16000];
 module.exports = abil;
