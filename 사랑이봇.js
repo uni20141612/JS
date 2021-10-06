@@ -1047,6 +1047,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var farmrep = farmM.getFarm(msg);
       replier.reply(farmrep);
     }
+    if(msg.startsWith("!브금")){
+      const bgmM = require('Bgm');
+      var bgmrep = bgmM.getBGM(msg);
+      replier.reply(bgmrep);
+    }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
       var senderhash = java.lang.String(senderinfo).hashCode();
