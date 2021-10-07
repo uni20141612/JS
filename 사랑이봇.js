@@ -37,7 +37,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       if(testr2 != "-"){
         Api.replyRoom("천한수", testr2);
-        Api.replyRoom("UniMaple", testr);
+        Api.replyRoom("UniMaple", testr2);
       }
       if(notice1 != "-"){
         Api.replyRoom("천한수", notice1);

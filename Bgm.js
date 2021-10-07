@@ -4,7 +4,7 @@ bgm.getBGM = function(msg){
     var rep = "";
     var bgmlist = msg.split(" ")[1];
     var bgmname = "";
-    if(bgmlist == undefined){ rep = "듣고싶은 BGM의 종류를 입력해주세요. BGM이름을 생략하면 해당 종류에 수록된 목록을 보여줍니다.\n\n종류 목록: 보스, 마을";}
+    if(bgmlist == undefined){ rep = "듣고싶은 BGM의 종류를 입력해주세요. BGM이름을 생략하면 해당 종류에 수록된 목록을 보여줍니다.\n\n종류 목록: 보스, 마을, 고유/직업";}
     else{
         if(bgmlist == "보스"){ 
             bgmname = msg.slice(msg.indexOf(" ", 5) + 1, msg.length);
@@ -15,7 +15,7 @@ bgm.getBGM = function(msg){
             else{
                 var bgmbosscode = this.getBossCode(bgmname);
                 if(bgmbosscode != -1){ rep = BGMboss[bgmbosscode]; }
-                else{ rep = bgmname + " >> 해당하는 보스가 목록에 없습니다. [!브금 보스]를 입력하여 목록을 확인해주세요."; }
+                else{ rep = bgmname + " >> 해당하는 보스가 목록에 없습니다. 페이즈별로 BGM이 구분되는 보스의 경우 페이즈를 함께 입력해주세요. (예시 : !브금 보스 윌1페) [!브금 보스]를 입력하여 목록을 확인해주세요."; }
             }
         }
         else if(bgmlist == "마을"){
@@ -27,11 +27,23 @@ bgm.getBGM = function(msg){
             else{
                 var bgmtowncode = this.getTownCode(bgmname);
                 if(bgmtowncode != -1){ rep = BGMtown[bgmtowncode]; }
-                else{ rep = bgmname + " >> 해당하는 마을이 목록에 없습니다. [!브금 마을]을 입력하여 목록을 확인해주세요."}
+                else{ rep = bgmname + " >> 해당하는 마을이 목록에 없습니다. [!브금 마을]을 입력하여 목록을 확인해주세요."; }
+            }
+        }
+        else if(bgmlist == "직업" || bgmlist == "고유"){
+            bgmname = msg.slice(msg.indexOf(" ", 5) + 1, msg.length);
+            bgmchk = msg.split(" ")[2];
+            if(bgmchk == undefined){
+                rep = this.getBGMlist(bgmlist)
+            }
+            else{
+                var bgmjobcode = this.getJobcode(bgmname);
+                if(bgmjobcode != -1){ rep = BGMjob[bgmjobcode]; }
+                else{ rep = bgmname + " >> 해당하는 고유/직업 BGM이 목록에 없습니다. [!브금 고유 또는 !브금 직업]을 입력하여 목록을 확인해주세요."; }
             }
         }
         else{
-            rep = "현재 존재하지 않는 BGM종류입니다. 확인 후 다시 입력해주세요.\n\n현재 입력 가능 종류 목록 : 보스, 마을";
+            rep = "현재 존재하지 않는 BGM종류입니다. 확인 후 다시 입력해주세요.\n\n현재 입력 가능 종류 목록 : 보스, 마을, 고유/직업";
         }
     }
     return rep;
@@ -126,6 +138,87 @@ bgm.getBGMlist = function(listname){
         brep += " -시간의 신전\n";
         brep += " -파괴된 헤네시스\n";
         brep += " -황혼의 페리온\n";
+        brep += " -에델슈타인\n";
+        brep += " -헤이븐\n";
+        brep += " -트뤼에페\n";
+        brep += " -더 시드 로비\n";
+        brep += " -소멸의 여로\n";
+        brep += " -리버스 시티\n";
+        brep += " -츄츄 아일랜드\n";
+        brep += " -얌얌 아일랜드\n";
+        brep += " -꿈의 도시 레헬른\n";
+        brep += " -신비의 숲 아르카나\n";
+        brep += " -기억의 늪 모라스\n";
+        brep += " -태초의 바다 에스페라\n";
+        brep += " -셀라스, 별이 잠긴 곳\n";
+        brep += " -셀라스, 별이 잠긴 곳(구버전)\n";
+        brep += " -에레브 전초기지\n";
+        brep += " -고통의 미궁\n";
+        brep += " -리멘\n";
+        brep += " -신의 도시 세르니움\n";
+        brep += " -불타는 세르니움\n";
+        brep += " -해방된 에델슈타인\n";
+        brep += " -호텔 아르크스\n";
+        brep += " -판테온\n";
+        brep += " -판테온 대신전\n";
+        brep += " -헬리시움 탈환 본부\n";
+        brep += " -뾰족귀 여우마을\n";
+        brep += " -비오는 뾰족귀 여우마을\n";
+        brep += " -새비지 터미널\n";
+        brep += " -아쉴롬\n";
+        brep += " -크리스탈 아카데미아\n";
+        brep += " -베르딜\n";
+        brep += " -청운골\n";
+        brep += " -리스토니아\n";
+        brep += " -툴렌시티\n";
+        brep += " -나린\n";
+        brep += " -거울세계 리프레\n";
+        brep += " -거울세계 아리안트\n";
+        brep += " -거울세계 헤네시스\n";
+        brep += " -거울세계 무릉도원\n";
+        brep += " -거울세계 에델슈타인\n";
+        brep += " -거울세계 마가티아\n";
+        brep += " -거울세계 루디브리엄\n";
+        brep += " -거울세계 시간의 신전\n";
+        brep += " -\n";
+    }
+    else if(listname == "직업" || listname == "고유"){
+        brep += "고유/직업 BGM 목록\n";
+        brep += " -모험가 애니메이션 인트로\n";
+        brep += " -패스파인더 튜토리얼\n";
+        brep += " -패스파인더 하이퍼 스킬 '렐릭 에볼루션'\n";
+        brep += " -나이트워커 하이퍼 스킬 '도미니언'\n";
+        brep += " -데몬 튜토리얼\n";
+        brep += " -제논 튜토리얼\n";
+        brep += " -아란 튜토리얼\n";
+        brep += " -에반 튜토리얼\n";
+        brep += " -메르세데스 튜토리얼\n";
+        brep += " -은월 튜토리얼\n";
+        brep += " -팬텀 튜토리얼\n";
+        brep += " -크리스탈 가든\n";
+        brep += " -크리스탈 가든 비행 중\n";
+        brep += " -루미너스 튜토리얼\n";
+        brep += " -루미너스 홈 타운(라니아의 숲)\n";
+        brep += " -세레니티\n";
+        brep += " -카이저 튜토리얼\n";
+        brep += " -엔젤릭버스터의 방\n";
+        brep += " -엔젤릭버스터 5차 스킬 '스포트라이트'\n";
+        brep += " -카인 5차 스킬 '타나토스 디센트'\n";
+        brep += " -카인 튜토리얼\n";
+        brep += " -일리움 각성\n";
+        brep += " -일리움 3차 스킬 '크리스탈 스킬: 글로리 윙'\n";
+        brep += " -아크 운명의 날\n";
+        brep += " -아크 과거 회상\n";
+        brep += " -아델 각성\n";
+        brep += " -아델 5차 스킬 '인피니트'\n";
+        brep += " -호영 테마곡\n";
+        brep += " -호영 5차 스킬 '선기: 강림 괴력난신'\n";
+        brep += " -라라 테마곡\n";
+        brep += " -라라 하이퍼 스킬 '아름드리 나무'\n";
+        brep += " -제로 그림자 기사단\n";
+        brep += " -제로의 신전\n";
+        brep += " -키네시스 테마곡\n";
+        brep += " -키네시스 하이퍼 스킬 '싸이킥 오버'\n";
         brep += " -\n";
     }
     return brep;
@@ -712,35 +805,275 @@ bgm.getTownCode = function(townname){
         case "황페":
             ret = 39;
             break;
-        case "":
+        case "에델슈타인":
+        case "에델":
+        case "레지스탕스마을":
+        case "레지스탕스":
+        case "레지마을":
+        case "레지":
             ret = 40;
             break;
-        case "":
+        case "헤이븐":
             ret = 41;
             break;
-        case "":
+        case "트뤼에페":
             ret = 42;
             break;
-        case "":
+        case "더 시드 로비":
+        case "더시드 로비":
+        case "더시드로비":
+        case "시드 로비":
+        case "시드로비":
             ret = 43;
             break;
-        case "":
+        case "소멸의 여로":
+        case "소멸의여로":
+        case "여로":
             ret = 44;
             break;
-        case "":
+        case "리버스 시티":
+        case "리버스시티":
+        case "리버스":
             ret = 45;
             break;
-        case "":
+        case "츄츄 아일랜드":
+        case "츄츄아일랜드":
+        case "츄츄":
             ret = 46;
             break;
-        case "":
+        case "얌얌 아일랜드":
+        case "얌얌아일랜드":
+        case "얌얌":
             ret = 47;
             break;
-        case "":
+        case "꿈의 도시 레헬른":
+        case "꿈의도시 레헬른":
+        case "꿈의도시레헬른":
+        case "레헬른":
             ret = 48;
             break;
-        case "":
+        case "신비의 숲 아르카나":
+        case "신비의숲 아르카나":
+        case "신비의숲아르카나":
+        case "아르카나":
+        case "알카":
             ret = 49;
+            break;
+        case "기억의 늪 모라스":
+        case "기억의늪 모라스":
+        case "기억의늪모라스":
+        case "모라스":
+            ret = 50;
+            break;
+        case "태초의 바다 에스페라":
+        case "태초의바다 에스페라":
+        case "태초의바다에스페라":
+        case "에스페라":
+        case "에페":
+            ret = 51;
+            break;
+        case "셀라스, 별이 잠긴 곳":
+        case "셀라스, 별이잠긴곳":
+        case "셀라스,별이잠긴곳":
+        case "셀라스 별이 잠긴 곳":
+        case "셀라스 별이잠긴곳":
+        case "셀라스별이잠긴곳":
+        case "셀라스":
+        case "셀라스(신버전)":
+        case "셀라스신버전":
+            ret = 52;
+            break;
+        case "셀라스, 별이 잠긴 곳 (구버전)":
+        case "셀라스, 별이 잠긴 곳(구버전)":
+        case "셀라스, 별이잠긴곳 (구버전)":
+        case "셀라스, 별이잠긴곳(구버전)":
+        case "셀라스,별이잠긴곳 (구버전)":
+        case "셀라스,별이잠긴곳(구버전)":
+        case "셀라스 별이 잠긴 곳(구버전)":
+        case "셀라스 별이잠긴곳(구버전)":
+        case "셀라스별이잠긴곳(구버전)":
+        case "셀라스(구버전)":
+        case "셀라스구버전":
+            ret = 53;
+            break;
+        case "에레브 전초기지":
+        case "에레브전초기지":
+        case "전초기지":
+            ret = 54;
+            break;
+        case "고통의 미궁":
+        case "고통의미궁":
+        case "미궁":
+            ret = 55;
+            break;
+        case "리멘":
+            ret = 56;
+            break;
+        case "신의 도시 세르니움":
+        case "신의도시 세르니움":
+        case "신의도시세르니움":
+        case "세르니움":
+        case "세전":
+            ret = 57;
+            break;
+        case "해방된 에델슈타인":
+        case "해방된에델슈타인":
+        case "해방에델슈타인":
+            ret = 58;
+            break;
+        case "호텔 아르크스":
+        case "호텔아르크스":
+        case "아르크스":
+            ret = 59;
+            break;
+        case "판테온":
+            ret = 60;
+            break;
+        case "판테온 대신전":
+        case "판테온대신전":
+            ret = 61;
+            break;
+        case "헬리시움 탈환 본부":
+        case "헬리시움 탈환본부":
+        case "헬리시움탈환본부":
+        case "헬리시움":
+            ret = 62;
+            break;
+        case "뾰족귀 여우마을":
+        case "뾰족귀여우마을":
+        case "은월마을":
+        case "은월":
+            ret = 63;
+            break;
+        case "비 오는 뾰족귀 여우마을":
+        case "비 오는 뾰족귀여우마을":
+        case "비오는 뾰족귀 여우마을":
+        case "비오는 뾰족귀여우마을":
+        case "비오는뾰족귀여우마을":
+            ret = 64;
+            break;
+        case "새비지 터미널":
+        case "새비지터미널":
+            ret = 65;
+            break;
+        case "아쉴롬":
+        case "일리움마을":
+        case "일리움":
+            ret = 66;
+            break;
+        case "크리스탈 아카데미아":
+        case "크리스탈아카데미아":
+        case "아카데미아":
+            ret = 67;
+            break;
+        case "베르딜":
+        case "아크마을":
+        case "아크":
+            ret = 68;
+            break;
+        case "청운골":
+        case "호영마을":
+        case "호영":
+            ret = 69;
+            break;
+        case "리스토니아":
+        case "아델마을":
+        case "아델":
+            ret = 70;
+            break;
+        case "툴렌시티":
+        case "툴렌":
+        case "카인마을":
+        case "카인":
+            ret = 71;
+            break;
+        case "나린":
+        case "라라마을":
+        case "라라":
+            ret = 72;
+            break;
+        case "거울세계 리프레":
+        case "거울세계리프레":
+        case "거울리프레":
+        case "제로 리프레":
+        case "제로리프레":
+            ret = 73;
+            break;
+        case "거울세계 아리안트":
+        case "거울세계아리안트":
+        case "거울아리안트":
+        case "제로 아리안트":
+        case "제로아리안트":
+            ret = 74;
+            break;
+        case "거울세계 헤네시스":
+        case "거울세계 헤네":
+        case "거울세계헤네시스":
+        case "거울세계헤네":
+        case "거울헤네시스":
+        case "거울헤네":
+        case "제로 헤네시스":
+        case "제로 헤네":
+        case "제로헤네시스":
+        case "제로헤네":
+            ret = 75;
+            break;
+        case "거울세계 무릉도원":
+        case "거울세계 무릉":
+        case "거울세계무릉도원":
+        case "거울세계무릉":
+        case "거울무릉도원":
+        case "거울무릉":
+        case "제로무릉도원":
+        case "제로무릉":
+        case "제로 무릉도원":
+        case "제로 무릉":
+            ret = 76;
+            break;
+        case "거울세계 에델슈타인":
+        case "거울세계에델슈타인":
+        case "거울에델슈타인":
+        case "제로 에델슈타인":
+        case "제로에델슈타인":
+            ret = 77;
+            break;
+        case "거울세계 마가티아":
+        case "거울세계마가티아":
+        case "거울마가티아":
+        case "제로 마가티아":
+        case "제로마가티아":
+            ret = 78;
+            break;
+        case "거울세계 루디브리엄":
+        case "거울세계 루디":
+        case "거울세계루디브리엄":
+        case "거울세계루디":
+        case "거울루디브리엄":
+        case "거울루디":
+        case "제로 루디브리엄":
+        case "제로 루디":
+        case "제로루디브리엄":
+        case "제로루디":
+            ret = 79;
+            break;
+        case "거울세계 시간의 신전":
+        case "거울세계 시간의신전":
+        case "거울세계시간의 신전":
+        case "거울세계시간의신전":
+        case "거울시간의 신전":
+        case "거울시간의신전":
+        case "제로 시간의 신전":
+        case "제로 시간의신전":
+        case "제로시간의 신전":
+        case "제로시간의신전":
+            ret = 80;
+            break;
+        case "불타는 세르니움":
+        case "불타는세르니움":
+        case "불세르니움":
+        case "불르니움":
+        case "세후":
+            ret = 81;
             break;
     }
     return ret;
@@ -786,48 +1119,48 @@ var BGMtown = [
     "시간의 신전 - Temple of Time\n\nhttps://youtu.be/6uCaEDM-Kf8", //37
     "파괴된 헤네시스 - Destruction Town\n\nhttps://youtu.be/fM0ZfX9zkL4", //38
     "황혼의 페리온 - Destruction Perion Shelter\n\nhttps://youtu.be/gnVoHyAt5ko", //39
-    "에델슈타인 - \n\n", //40
-    "헤이븐 - \n\n", //41
-    "트뤼에페 - \n\n", //42
-    "더 시드 로비 - \n\n", //43
-    " - \n\n", //44
-    " - \n\n", //45
-    " - \n\n", //46
-    " - \n\n", //47
-    " - \n\n", //48
-    " - \n\n", //49
-    " - \n\n", //50
-    " - \n\n", //51
-    " - \n\n", //52
-    " - \n\n", //53
-    " - \n\n", //54
-    " - \n\n", //55
-    " - \n\n", //56
-    " - \n\n", //57
-    " - \n\n", //58
-    " - \n\n", //59
-    " - \n\n", //50
-    " - \n\n", //51
-    " - \n\n", //52
-    " - \n\n", //53
-    " - \n\n", //54
-    " - \n\n", //55
-    " - \n\n", //56
-    " - \n\n", //57
-    " - \n\n", //58
-    " - \n\n", //59
-    " - \n\n", //60
-    " - \n\n", //61
-    " - \n\n", //62
-    " - \n\n", //63
-    " - \n\n", //64
-    " - \n\n", //65
-    " - \n\n", //66
-    " - \n\n", //67
-    " - \n\n", //68
-    " - \n\n", //69
-    " - \n\n", //70
-    " - \n\n", //71
+    "에델슈타인 - Edelstein City\n\nhttps://youtu.be/NqwqmXbGpqc", //40
+    "헤이븐 - Haven\n\nhttps://youtu.be/GgTVmLfhYnA", //41
+    "트뤼에페 - In Ruin In Vain\n\nhttps://youtu.be/D-suBwdKHB8", //42
+    "더 시드 로비 - Venture into the Unknown\n\nhttps://youtu.be/qr9eW2y2EJM", //43
+    "소멸의 여로 - Lake of Oblivion\n\nhttps://youtu.be/FRE_LgKOMoM", //44
+    "리버스 시티 - Reverse City\n\nhttps://youtu.be/Z5sInHxNTRg", //45
+    "츄츄 아일랜드 - Expedition To Chew Chew Island\n\nhttps://youtu.be/ytlI6la4p3E", //46
+    "얌얌 아일랜드 - Mushbud Forest\n\nhttps://youtu.be/TD0abMaS0Sk", //47
+    "꿈의 도시 레헬른 - Lacheln, The City Of Dreams\n\nhttps://youtu.be/1R4JhiW20Vs", //48
+    "신비의 숲 아르카나 - The Tune of The Azure Light(Orchestra Ver.)\n\nhttps://youtu.be/RHWEFgc95Rc", //49
+    "기억의 늪 모라스 - Memory of Kritias\n\nhttps://youtu.be/mKTg64ICSMk", //50
+    "태초의 바다 에스페라 - A Place Where Life Begins\n\nhttps://youtu.be/39tjFNnNW_A", //51
+    "셀라스, 별이 잠긴 곳 - Where Stars Rest ver.B\n\nhttps://youtu.be/z-HEEL4sf34", //52
+    "셀라스, 별이 잠긴 곳(구버전) - Where Stars Rest\n\nhttps://youtu.be/4WcaAn7AM0w", //53
+    "에레브 전초기지 - Outpost\n\nhttps://youtu.be/LrUQTZEWw3g", //54
+    "고통의 미궁 - Secret Labyrinth\n\nhttps://youtu.be/g-vKI79H6u8", //55
+    "리멘 - Tears of The World\n\nhttps://youtu.be/IUNjL25D8iI", //56
+    "신의 도시 세르니움 - The Holy Land\n\nhttps://youtu.be/1KJ7-FUvHYk", //57
+    "해방된 에델슈타인 - Liberated Edelstein City\n\nhttps://youtu.be/pJsS1uwdWrE", //58
+    "호텔 아르크스 - Welcome To Arcs Hotel\n\nhttps://youtu.be/fxBujbnI5Z4", //59
+    "판테온 - Pantheon\n\nhttps://youtu.be/ZYeUnqsCnxg", //60
+    "판테온 대신전 - Great Temple\n\nhttps://youtu.be/CZTQdmJAEQI", //61
+    "헬리시움 탈환 본부 - Retake\n\nhttps://youtu.be/CuoeZkWgDjk", //62
+    "뾰족귀 여우마을 - Fox Village\n\nhttps://youtu.be/lorm88ckSuM", //63
+    "비 오는 뾰족귀 여우마을 - Sad Fox Village\n\nhttps://youtu.be/4oNXYkRrf-g", //64
+    "새비지 터미널 - Savage Terminal\n\nhttps://youtu.be/WQe8xVi-BQY", //65
+    "아쉴롬 - Asylum\n\nhttps://youtu.be/l0GtwHlgw7w", //66
+    "크리스탈 아카데미아 - Crystal Academia\n\nhttps://youtu.be/moCj67e0mII", //67
+    "베르딜 - Verdel Town\n\nhttps://youtu.be/XxeOp93B58g", //68
+    "청운골 - Cheong Un\n\nhttps://youtu.be/d_OKoEWaXo4", //69
+    "리스토니아 - Romantic Sunset\n\nhttps://youtu.be/HM5WTDbZCFc", //70
+    "툴렌시티 - Toolen City\n\nhttps://youtu.be/orEcsHwnYKs", //71
+    "나린 - Wonderful Moments In Narin\n\nhttps://youtu.be/DwQ8zXlOYjs", //72
+    "거울세계 리프레 - Leafre In Mirror\n\nhttps://youtu.be/De3iUHlYZpo", //73
+    "거울세계 아리안트 - Ariant In Mirror\n\nhttps://youtu.be/LX45_JayZQA", //74
+    "거울세계 헤네시스 - Floral Life In Mirror\n\nhttps://youtu.be/Yzz8y-F8BaQ", //75
+    "거울세계 무릉도원 - Mureung Hill In Mirror\n\nhttps://youtu.be/w7qdOGixuX0", //76
+    "거울세계 에델슈타인 - Edelstein City In Mirror\n\nhttps://youtu.be/-x-sbvuqfbE", //77
+    "거울세계 마가티아 - Dispute In Mirror\n\nhttps://youtu.be/57jURcOf930", //78
+    "거울세계 루디브리엄 - Fantastic Thinking In Mirror\n\nhttps://youtu.be/qHgtsdnPkx0", //79
+    "거울세계 시간의 신전 - Time Temple In Mirror\n\nhttps://youtu.be/xVY16wiTTPA", //80
+    "불타는 세르니움 - Burning City\n\nhttps://youtu.be/ML5_pLW-MSc", //81
     " - \n\n", //72
     " - \n\n", //73
     " - \n\n", //74
@@ -836,5 +1169,422 @@ var BGMtown = [
     " - \n\n", //77
     " - \n\n", //78
     " - \n\n", //79
+];
+
+bgm.getJobcode = function(jobname){
+    ret = -1;
+    switch(jobname){
+        case "모험가 애니메이션 인트로":
+        case "모험가애니메이션인트로":
+        case "모험가 인트로":
+        case "모험가인트로":
+        case "모험가":
+            ret = 0;
+            break;
+        case "패스파인더 튜토리얼":
+        case "패스파인더튜토리얼":
+        case "패스파인더 튜토":
+        case "패스파인더튜토":
+        case "패파 튜토리얼":
+        case "패파 튜토":
+        case "패파튜토리얼":
+        case "패파튜토":
+        case "패스파인더":
+        case "패파":
+            ret = 1;
+            break;
+        case "패스파인더 하이퍼 스킬 '렐릭 에볼루션'":
+        case "패스파인더 하이퍼 스킬 '렐릭에볼루션'":
+        case "패스파인더 하이퍼스킬 '렐릭 에볼루션'":
+        case "패스파인더 하이퍼스킬 '렐릭에볼루션'":
+        case "패스파인더하이퍼스킬 '렐릭 에볼루션'":
+        case "패스파인더하이퍼스킬 '렐릭에볼루션'":
+        case "패스파인더하이퍼스킬'렐릭에볼루션'":
+        case "패스파인더하이퍼스킬 렐릭 에볼루션":
+        case "패스파인더하이퍼스킬 렐릭에볼루션":
+        case "패스파인더하이퍼스킬렐릭에볼루션":
+        case "패스파인더 하이퍼 스킬":
+        case "패스파인더 하이퍼스킬":
+        case "패스파인더하이퍼스킬":
+        case "패스파인더 렐릭 에볼루션":
+        case "패스파인더 렐릭에볼루션":
+        case "패스파인더렐릭에볼루션":
+        case "패파 렐릭 에볼루션":
+        case "패파 렐릭에볼루션":
+        case "패파렐릭에볼루션":
+        case "렐릭 에볼루션":
+        case "렐릭에볼루션":
+        case "패스파인더 스킬":
+        case "패스파인더스킬":
+        case "패파 스킬":
+        case "패파스킬":
+            ret = 2;
+            break;
+        case "나이트워커 하이퍼 스킬 '도미니언'":
+        case "나이트워커 하이퍼스킬 '도미니언'":
+        case "나이트워커하이퍼스킬 '도미니언'":
+        case "나이트워커하이퍼스킬'도미니언'":
+        case "나이트워커하이퍼스킬도미니언":
+        case "나이트워커 하이퍼 스킬":
+        case "나이트워커 하이퍼스킬":
+        case "나이트워커하이퍼스킬":
+        case "나이트워커 스킬":
+        case "나이트워커스킬":
+        case "나워 하이퍼스킬":
+        case "나이트워커 도미니언":
+        case "나이트워커도미니언":
+        case "나워 도미니언":
+        case "나워도미니언":
+        case "도미니언":
+            ret = 3;
+            break;
+        case "데몬 튜토리얼":
+        case "데몬 튜토":
+        case "데몬튜토리얼":
+        case "데몬튜토":
+        case "데몬 슬레이어":
+        case "데몬슬레이어":
+        case "데몬어벤져":
+        case "데몬":
+            ret = 4;
+            break;
+        case "제논 튜토리얼":
+        case "제논 튜토":
+        case "제논튜토리얼":
+        case "제논튜토":
+        case "제논":
+            ret = 5;
+            break;
+        case "아란 튜토리얼":
+        case "아란 튜토":
+        case "아란튜토리얼":
+        case "아란튜토":
+        case "아란":
+            ret = 6;
+            break;
+        case "에반 튜토리얼":
+        case "에반 튜토":
+        case "에반튜토리얼":
+        case "에반튜토":
+        case "에반":
+            ret = 7;
+            break;
+        case "메르세데스 튜토리얼":
+        case "메르세데스 튜토":
+        case "메르세데스튜토리얼":
+        case "메르세데스튜토":
+        case "메르세데스":
+        case "메르":
+        case "메세":
+            ret = 8;
+            break;
+        case "은월 튜토리얼":
+        case "은월 튜토":
+        case "은월튜토리얼":
+        case "은월튜토":
+        case "은월":
+            ret = 9;
+            break;
+        case "팬텀 튜토리얼":
+        case "팬텀 튜토":
+        case "팬텀튜토리얼":
+        case "팬텀튜토":
+        case "팬텀":
+            ret = 10;
+            break;
+        case "크리스탈 가든":
+        case "크리스탈가든":
+        case "팬텀 홈 타운":
+        case "팬텀 홈타운":
+        case "팬텀홈타운":
+            ret = 11;
+            break;
+        case "크리스탈 가든 비행 중":
+        case "크리스탈 가든 비행중":
+        case "크리스탈가든 비행중":
+        case "크리스탈가든비행중":
+        case "크리스탈 가든 비행":
+        case "크리스탈가든 비행":
+        case "크리스탈가든비행":
+            ret = 12;
+            break;
+        case "루미너스 튜토리얼":
+        case "루미 튜토리얼":
+        case "루미너스 튜토":
+        case "루미 튜토":
+        case "루미너스튜토리얼":
+        case "루미튜토리얼":
+        case "루미너스튜토":
+        case "루미튜토":
+        case "루미너스":
+        case "루미":
+            ret = 13;
+            break;
+        case "루미너스 홈 타운(라니아의 숲)":
+        case "루미너스 홈타운(라니아의 숲)":
+        case "루미너스홈타운(라니아의 숲)":
+        case "루미너스홈타운(라니아의숲)":
+        case "루미너스 홈 타운":
+        case "루미너스 홈타운":
+        case "루미 홈 타운":
+        case "루미 홈타운":
+        case "루미홈타운":
+        case "라니아의숲":
+        case "라니아":
+            ret = 14;
+            break;
+        case "세레니티":
+            ret = 15;
+            break;
+        case "카이저 튜토리얼":
+        case "카이저 튜토":
+        case "카이저튜토리얼":
+        case "카이저튜토":
+        case "카이저":
+            ret = 16;
+            break;
+        case "엔젤릭버스터의 방":
+        case "엔젤릭버스터의방":
+        case "엔젤릭버스터방":
+        case "엔젤릭버스터":
+            ret = 17;
+            break;
+        case "엔젤릭버스터 5차 스킬 '스포트라이트'":
+        case "엔젤릭버스터 5차 스킬 스포트라이트":
+        case "엔젤릭버스터 5차 스킬":
+        case "엔젤릭버스터 5차스킬":
+        case "엔젤릭버스터5차스킬":
+        case "엔젤릭버스터 5차":
+        case "엔젤릭버스터5차":
+        case "엔버 5차":
+        case "엔버5차":
+        case "엔버 스포트라이트":
+        case "엔버스포트라이트":
+        case "스포트라이트":
+        case "스포트☆라이트":
+        case "스포트★라이트":
+        case "SpotLight":
+            ret = 18;
+            break;
+        case "카인 5차 스킬 '타나토스 디센트'":
+        case "카인 5차 스킬 '타나토스디센트'":
+        case "카인 5차스킬 '타나토스디센트'":
+        case "카인5차스킬 '타나토스디센트'":
+        case "카인5차스킬'타나토스디센트'":
+        case "카인5차스킬 타나토스디센트":
+        case "카인5차스킬타나토스디센트":
+        case "카인 5차 스킬":
+        case "카인 5차스킬":
+        case "카인 5차":
+        case "카인5차":
+        case "카인 타나토스디센트":
+        case "카인타나토스디센트":
+        case "타나토스디센트":
+        case "타나토스":
+            ret = 19;
+            break;
+        case "카인 튜토리얼":
+        case "카인 튜토":
+        case "카인튜토리얼":
+        case "카인튜토":
+        case "카인":
+            ret = 20;
+            break;
+        case "일리움 각성":
+        case "일리움각성":
+        case "일리움":
+            ret = 21;
+            break;
+        case "일리움 3차 스킬 '크리스탈 스킬: 글로리 윙'":
+        case "일리움 3차 스킬 크리스탈 스킬: 글로리 윙":
+        case "일리움 3차 스킬 크리스탈 스킬: 글로리윙":
+        case "일리움 3차 스킬 크리스탈스킬: 글로리윙":
+        case "일리움 3차 스킬":
+        case "일리움 3차스킬":
+        case "일리움3차스킬":
+        case "일리움 3차":
+        case "일리움 글로리 윙":
+        case "일리움 글로리윙":
+        case "일리움글로리윙":
+        case "글로리 윙":
+        case "글로리윙":
+            ret = 22;
+            break;
+        case "아크 운명의 날":
+        case "아크 운명의날":
+        case "아크운명의날":
+        case "아크 운명":
+        case "아크운명":
+            ret = 23;
+            break;
+        case "아크 과거 회상":
+        case "아크 과거회상":
+        case "아크과거회상":
+        case "아크 과거":
+        case "아크과거":
+        case "아크":
+            ret = 24;
+            break;
+        case "아델 각성":
+        case "아델각성":
+        case "아델":
+            ret = 25;
+            break;
+        case "아델 5차 스킬 '인피니트'":
+        case "아델 5차 스킬 인피니트":
+        case "아델 5차스킬 인피니트":
+        case "아델5차스킬 인피니트":
+        case "아델5차스킬인피니트":
+        case "아델 5차 스킬":
+        case "아델 5차스킬":
+        case "아델5차스킬":
+        case "아델 5차":
+        case "아델5차":
+        case "아델 인피니트":
+        case "아델인피니트":
+        case "인피니트":
+        case "인피":
+            ret = 26;
+            break;
+        case "호영 테마곡":
+        case "호영테마곡":
+        case "호영 테마":
+        case "호영테마":
+        case "호영":
+            ret = 27;
+            break;
+        case "호영 5차 스킬 '선기: 강림 괴력난신'":
+        case "호영 5차 스킬 선기: 강림 괴력난신":
+        case "호영 5차스킬 선기: 강림 괴력난신":
+        case "호영5차스킬 선기: 강림 괴력난신":
+        case "호영5차스킬 선기: 강림괴력난신":
+        case "호영5차스킬 선기:강림괴력난신":
+        case "호영 5차 스킬":
+        case "호영 5차스킬":
+        case "호영5차스킬":
+        case "호영 5차":
+        case "호영5차":
+        case "호영 괴력난신":
+        case "호영괴력난신":
+        case "괴력난신":
+            ret = 28;
+            break;
+        case "라라 테마곡":
+        case "라라테마곡":
+        case "라라 테마":
+        case "라라테마":
+        case "라라":
+            ret = 29;
+            break;
+        case "라라 하이퍼 스킬 '아름드리 나무'":
+        case "라라 하이퍼 스킬 아름드리 나무":
+        case "라라 하이퍼 스킬 아름드리나무":
+        case "라라 하이퍼스킬 아름드리나무":
+        case "라라하이퍼스킬 아름드리나무":
+        case "라라하이퍼스킬아름드리나무":
+        case "라라 하이퍼 스킬":
+        case "라라 하이퍼스킬":
+        case "라라하이퍼스킬":
+        case "라라 하이퍼":
+        case "라라하이퍼":
+        case "라라 아름드리 나무":
+        case "라라 아름드리나무":
+        case "라라아름드리나무":
+        case "아름드리 나무":
+        case "아름드리나무":
+            ret = 30;
+            break;
+        case "제로 그림자 기사단":
+        case "제로 그림자기사단":
+        case "제로그림자기사단":
+        case "그림자 기사단":
+        case "그림자기사단":
+            ret = 31;
+            break;
+        case "제로의 신전":
+        case "제로의신전":
+        case "제로 신전":
+        case "제로신전":
+        case "제로 홈 타운":
+        case "제로 홈타운":
+        case "제로홈타운":
+        case "제로":
+            ret = 32;
+            break;
+        case "키네시스 테마곡":
+        case "키네시스테마곡":
+        case "키네시스 테마":
+        case "키네시스테마":
+        case "키네시스":
+        case "키네 테마곡":
+        case "키네테마곡":
+        case "키네 테마":
+        case "키네테마":
+        case "키네":
+            ret = 33;
+            break;
+        case "키네시스 하이퍼 스킬 '싸이킥 오버'":
+        case "키네시스 하이퍼 스킬 싸이킥 오버":
+        case "키네시스 하이퍼 스킬 싸이킥오버":
+        case "키네시스 하이퍼스킬 싸이킥 오버":
+        case "키네시스 하이퍼스킬 싸이킥오버":
+        case "키네시스하이퍼스킬 싸이킥 오버":
+        case "키네시스하이퍼스킬 싸이킥오버":
+        case "키네시스하이퍼스킬싸이킥오버":
+        case "키네시스 하이퍼 싸이킥 오버":
+        case "키네시스 하이퍼 싸이킥오버":
+        case "키네시스하이퍼 싸이킥오버":
+        case "키네시스하이퍼싸이킥오버":
+        case "키네시스 싸이킥 오버":
+        case "키네시스 싸이킥오버":
+        case "키네시스싸이킥오버":
+        case "싸이킥 오버":
+        case "싸이킥오버":
+            ret = 34;
+            break;
+    }
+    return ret;
+};
+var BGMjob = [
+    "모험가 애니메이션 인트로 - Go! Fight! Show your Energy!(vocal ver.)\n\nhttps://youtu.be/mQOc5IaWrlw", //0
+    "패스파인더 튜토리얼, 사념의 방 - Pathfinder\n\nhttps://youtu.be/csey8nFNifU", //1
+    "패스파인더 하이퍼 스킬 '렐릭 에볼루션' - Pathfinder: Relic Evolution\n\nhttps://www.youtube.com/watch?v=ZaNV4dAHSdU", //2
+    "나이트워커 하이퍼 스킬 '도미니언' - Dominion\n\nhttps://youtu.be/Or2OSeGbPV0", //3
+    "데몬 튜토리얼 - Despair in Devil\n\nhttps://youtu.be/e-USJPLjJQ4", //4
+    "제논 튜토리얼 - From Under to Upper\n\nhttps://youtu.be/6qjUzKeTpOo", //5
+    "아란 튜토리얼 - Final Fight\n\nhttps://youtu.be/rEtDrkAYs68", //6
+    "에반 튜토리얼 - Dragon Dream\n\nhttps://youtu.be/mM_27SaY7tE", //7
+    "메르세데스 튜토리얼 - Flower in Blue\n\nhttps://youtu.be/SwDcv_pK_Mo", //8
+    "은월 튜토리얼 - Decision\n\nhttps://youtu.be/fajX5WR07mw", //9
+    "팬텀 튜토리얼 - Injustice\n\nhttps://youtu.be/Dt4hq7RKhsA", //10
+    "크리스탈 가든 - Fly to the Moon\n\nhttps://youtu.be/ZpVpjZJyDJA", //11
+    "크리스탈 가든 비행 중 - Dancing with the Moon\n\nhttps://youtu.be/E7wxS2y6h6M", //12
+    "루미너스 튜토리얼 - Final Fight\n\nhttps://youtu.be/R5dUCq4vnvk", //13
+    "루미너스 홈 타운(라니아의 숲) - Peaceful Woods\n\nhttps://youtu.be/6BqN9qhPoGQ", //14
+    "세레니티 - Serenity\n\nhttps://youtu.be/bDKPdN8rUko", //15
+    "카이저 튜토리얼 - Step of Kaiser, Trapped Kaiser\n\nhttps://youtu.be/r05cGa1Jms0\nhttps://youtu.be/TNcUGCElU40", //16
+    "엔젤릭버스터의 방 - Angel's Room\n\nhttps://youtu.be/EC56KZErScE", //17
+    "엔젤릭버스터 5차 스킬 '스포트라이트' - \n\nhttps://youtu.be/njzZP2857Yc", //18
+    "카인 5차 스킬 '타나토스 디센트' - \n\nhttps://youtu.be/tmK38bSySZ0", //19
+    "카인 튜토리얼 - Doubt You\n\nhttps://youtu.be/8IlOrHqe7Do", //20
+    "일리움 각성 - Illium Rebirth\n\nhttps://youtu.be/wb7ycqo8WAw", //21
+    "일리움 3차 스킬 '크리스탈 스킬: 글로리 윙' - Glory Wing\n\nhttps://youtu.be/W_7Rx3xW7as", //22
+    "아크 운명의 날 - Doomsday (Full)\n\nhttps://youtu.be/YJ134tZGnSs", //23
+    "아크 과거 회상 - Recollecting Memories\n\nhttps://youtu.be/nbTpKL1RUE4", //24
+    "아델 각성 - Adele's Oath\n\nhttps://youtu.be/CHHMxYwvVbI", //25
+    "아델 5차 스킬 '인피니트' - 5th Adele's Oath Infinite\n\nhttps://youtu.be/U2YERB4MjQ8", //26
+    "호영 테마곡 - Riding on the clouds\n\nhttps://youtu.be/6pV7GPXgfCg", //27
+    "호영 5차 스킬 '선기: 강림 괴력난신' - Riding on the clouds God Coming\n\nhttps://youtu.be/QlAMEnsw7Wc", //28
+    "라라 테마곡 - Life Is Full Of Happiness\n\nhttps://youtu.be/FtDyxkzpFes", //29
+    "라라 하이퍼 스킬 '아름드리 나무' - Hyper Life Is Full Of Happiness\n\nhttps://youtu.be/FjGPY1ChtAA", //30
+    "제로 그림자 기사단 - Shadow Knight\n\nhttps://youtu.be/TAzZTAiIrXI", //31
+    "제로의 신전 - Be Born Zero\n\nhttps://youtu.be/_U9ZsV_XAQk", //32
+    "키네시스 테마곡 - Kinesis Theme I, II\n\nhttps://youtu.be/U37EVkJNiSk\nhttps://youtu.be/MmWrqpV7f0Q", //33
+    "키네시스 하이퍼 스킬 '싸이킥 오버' - Kinesis Theme Skill\n\nhttps://youtu.be/I1KQv48Y34U", //34
+    " - \n\n", //35
+    " - \n\n", //36
+    " - \n\n", //37
+    " - \n\n", //38
+    " - \n\n", //39
 ];
 module.exports = bgm;
