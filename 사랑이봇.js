@@ -25,6 +25,7 @@ Kakao.send(room,
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
       
     if(!getMinute()){ //분당 1회 동작 예상
+      try{
       var testr = getTest();
       var testr2 = getTest2();
       var notice1 = getNotice();
@@ -42,6 +43,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(notice1 != "-"){
         Api.replyRoom("천한수", notice1);
         Api.replyRoom("UniMaple", notice1);
+      }
+      }
+      catch(e){
+
       }
     }
     if(msg.startsWith("!보스")){
@@ -137,6 +142,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
       replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
+    }
+    if(msg.startsWith("몬파/데일리/마일리지/")){
+      replier.reply("황금마차도 챙기라구!");
+    }
+    if(msg.startsWith("우르스 두 배 15분 전")){
+      replier.reply("황금마차 얼른 탑승해~");
     }
     if(msg.startsWith("!경험치")){
       var exprep2 = guitarM.getexpInform(msg);
@@ -1051,6 +1062,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const bgmM = require('Bgm');
       var bgmrep = bgmM.getBGM(msg);
       replier.reply(bgmrep);
+    }
+    if(msg.startsWith("!확률")){
+      var raterep = guitarM.getRate(msg);
+      replier.reply(raterep);
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();

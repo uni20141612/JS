@@ -922,6 +922,56 @@ gt.getGuildinfo = function (msg){
 
   return rep;
 };
+gt.getRate = function (msg){
+  rep = "";
+  var firstR = msg.split(" ")[1];
+  if(firstR == undefined){ rep = "확률을 입력하지 않으셨습니다. 확률을 입력해주세요.\n\n!확률 (확률) (횟수) : (확률)에 입력한 확률로 (횟수)에 입력한 만큼 시도하여 최초 성공 시점, 성공 횟수를 보여줍니다. (횟수)를 생략 시 최대 10만회를 시도하여 최초 성공 시점의 시도 횟수를 보여줍니다."; }
+  else{
+    var chance = parseFloat(firstR);
+      if(isNaN(chance)){ rep = "확률이 숫자가 아닌 다른 것을 입력하셨습니다. 확인 후 다시 입력해주세요."; }
+      else if(chance <= 0 || chance >= 100){ rep = "확률은 0 초과 100 미만의 숫자만 입력하실 수 있습니다."; }
+      else{
+        var secondR = msg.split(" ")[2];
+        if(secondR == undefined){
+          var trycnt = 1;
+          while(trycnt < 100000){
+            var randrate = Math.random() * 100;
+            if(randrate < chance){ break; }
+            ++trycnt;
+          }
+          if(trycnt == 100000){rep = "100000회의 시뮬레이션 동안 한번도 " + chance + "%의 벽을 넘지 못하였습니다."; }
+          else{ rep = chance + "%의 벽을 " + trycnt + " 회의 시도만에 성공하였습니다."; }
+        }
+        else{
+          var rateCnt = parseInt(secondR);
+          if(isNaN(rateCnt)){ rep = "횟수가 숫자가 아닌 다른 것을 입력하셨습니다. 확인 후 다시 입력해주세요."; }
+          else if(rateCnt <= 0 || rateCnt > 100000){ rep = "횟수는 0 초과 100000 이하의 숫자만 입력하실 수 있습니다."; }
+          else{
+            trycnt = 1;
+            var firstSuc = 0, succnt = 0;
+            while(trycnt < rateCnt){
+              randrate = Math.random() * 100;
+              if(randrate < chance){ ++succnt; if(firstSuc == 0){ firstSuc = trycnt; }}
+              ++trycnt;
+            }
+
+            var ratechk = 0.0;
+            ratechk = (succnt / rateCnt * 100).toFixed(4);
+            var ratediff = (ratechk - chance).toFixed(4);
+
+            if(succnt == 0){ rep = rateCnt + " 회의 시뮬레이션 동안 한번도 " + chance + "%의 벽을 넘지 못하였습니다."; }
+            else{ 
+              rep = chance + "%의 벽을 " + firstSuc + " 회때 처음 성공하였습니다.\n\n" + rateCnt + "회의 시도 중 총 " + succnt + " 회 성공하였습니다.\n\n";
+              if(ratediff < 0){ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + ratediff + "%의 오차만큼 당신의 운이 드럽게 없습니다."; }
+              else if(ratediff == 0){ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + "한치의 오차도 없이 정확하게 확률을 뚫었습니다."}
+              else{ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + ratediff + "%의 오차만큼 다른분들께 비틱할 수 있습니다."; }
+            }
+          }
+        }
+    }
+  }
+  return rep;
+};
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
