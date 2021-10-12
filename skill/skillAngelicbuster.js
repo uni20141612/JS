@@ -1,112 +1,98 @@
-const skh = {};
+const skab = {};
 
-skh.getskillHoyoung = function (skillname){
-    var hret = -1;
+skab.getskillAngelicbuster = function (skillname){
+    var abret = -1;
     switch(skillname){
-        case "선기 : 극대 분신난무":
-        case "선기 : 극대분신난무":
-        case "선기:극대분신난무":
-        case "선기 극대 분신난무":
-        case "선기 극대분신난무":
-        case "선기극대분신난무":
-        case "극대 분신난무":
-        case "극대분신난무":
-        case "분신난무":
-            hret = 0;
+        case "에너지 버스트":
+        case "에너지버스트":
+        case "에버":
+            abret = 0;
             break;
-        case "권술 : 산령소환":
-        case "권술:산령소환":
-        case "권술 산령소환":
-        case "권술산령소환":
-        case "산령소환":
-            hret = 1;
+        case "스포트라이트":
+        case "스포트☆라이트":
+        case "스포트★라이트":
+        case "Spot☆Light":
+        case "Spot★Light":
+        case "Spotlight":
+            abret = 1;
             break;
-        case "선기 : 강림 괴력난신":
-        case "선기 : 강림괴력난신":
-        case "선기:강림괴력난신":
-        case "선기강림괴력난신":
-        case "선기 강림 괴력난신":
-        case "선기 강림괴력난신":
-        case "강림 괴력난신":
-        case "강림괴력난신":
-        case "괴력난신":
-            hret = 2;
+        case "마스코트 패밀리어":
+        case "마스코트패밀리어":
+        case "마스코트":
+        case "패밀리어":
+        case "마패":
+            abret = 2;
             break;
-        case "선기 : 천지인 환영":
-        case "선기 : 천지인환영":
-        case "선기:천지인환영":
-        case "선기 천지인 환영":
-        case "선기 천지인환영":
-        case "선기천지인환영":
-        case "천지인 환영":
-        case "천지인환영":
-            hret = 3;
+        case "트리니티 퓨전":
+        case "트리니티퓨전":
+        case "트퓨":
+            abret = 3;
             break;
         /*case "":
-            hret = 4;
+            abret = 4;
             break;
         case "":
-            hret = 5;
+            abret = 5;
             break;
         case "":
-            hret = 6;
+            abret = 6;
             break;
         case "":
-            hret = 7;
+            abret = 7;
             break;
         case "":
-            hret = 8;
+            abret = 8;
             break;
         case "":
-            hret = 9;
+            abret = 9;
             break;
         case "":
-            hret = 10;
+            abret = 10;
             break;
         case "":
-            hret = 11;
+            abret = 11;
             break;
         case "":
-            hret = 12;
+            abret = 12;
             break;
         case "":
-            hret = 13;
+            abret = 13;
             break;
         case "":
-            hret = 14;
+            abret = 14;
             break;
         case "":
-            hret = 15;
+            abret = 15;
             break;
         case "":
-            hret = 16;
+            abret = 16;
             break;
         case "":
-            hret = 17;
+            abret = 17;
             break;
         case "":
-            hret = 18;
+            abret = 18;
             break;
         case "":
-            hret = 19;
+            abret = 19;
             break;*/
     }
-    return hret;
+    return abret;
 };
-skh.getskillnameHoyoung = function (skillcode){
+skab.getskillnameAngelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "선기 : 극대 분신난무";
+            rep = "에너지 버스트";
             break;
         case 1:
-            rep = "권술 : 산령소환";
+            rep = "스포트라이트";
             break;
         case 2:
-            rep = "선기 : 강림 괴력난신";
+            rep = "마스코트 패밀리어";
             break;
         case 3:
-            rep = "선기 : 천지인 환영";
+            rep = "트리니티 퓨전";
             break;
         case 4:
             rep = "";
@@ -159,14 +145,14 @@ skh.getskillnameHoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc1Hoyoung = function (skillcode){
+skab.getskilldesc1Angelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "30초간 공격시 분신 10개 생성, 생성후 1.5초간 재생성X/ 쿨 200초";
+            rep = "하단 참조";
             break;
         case 1:
-            rep = "[두루마리] 60초간 12명,1980%,8번 공격/ 쿨 200초";
+            rep = "하단 참조";
             break;
         case 2:
             rep = "하단 참조";
@@ -225,20 +211,20 @@ skh.getskilldesc1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc2Hoyoung = function (skillcode){
+skab.getskilldesc2Angelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "환영 분신부 지속시간 중에만 사용/ 환영분신부에서 440%p 증가, 4번공격";
+            rep = "광범위 공격기 겸 무적기";
             break;
         case 1:
-            rep = "연계 3단계 성공시 일정시간마다 770%,4번공격/ 재발동 3초";
+            rep = "광범위 공격기 겸 액티브 버프";
             break;
         case 2:
-            rep = "막타 미사용시 자동으로 발동되지 않고 스킬이 종료된다.";
+            rep = "최소 61600% ~ 최대 123200%";
             break;
         case 3:
-            rep = "금고봉 : 인을 난사에 가깝게 사용가능";
+            rep = "트리니티의 강화판이자 다수 공격기";
             break;
         case 4:
             rep = "";
@@ -291,14 +277,20 @@ skh.getskilldesc2Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc3Hoyoung = function (skillcode){
+skab.getskilldesc3Angelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
+        case 0:
+            rep = "미지의 힘을 담은 에너지체를 소환한다.\n\n소환 후 30초가 지나거나 스킬을 다시 사용하면 폭발하여 최대 15명의 적을 990%의 데미지로 15번 공격하고 6초 동안 무적 버프를 주는 에너지체 소환\n\n석세서를 제외한 공격 스킬로 적을 공격하여 나오는 미지의 힘으로 에너지체의 위력과 무적 버프의 지속시간을 최대 2단계 증가시킬 수 있으며 단계마다 최종 데미지 100%, 무적 버프 지속시간 2초 증가\n\n재사용 대기시간 : 120초";
+            break;
+        case 1:
+            rep = "슈퍼스타만을 따라다니는 화려한 조명을 설치한다. 슈퍼스타만이 조명 아래 서는 것이 허락되므로 조명 안의 적은 피해를 입고 슈퍼스타의 능력은 강화된다. 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n30초 동안 엔젤릭버스터를 비추는 조명 3개 설치, 각 조명은 일정 주기마다 영역 안에 있는 최대 15명의 적을 880%의 데미지로 3번 공격\n영역 안에 엔젤릭버스터가 있다면 상태 이상 내성 26, 크리티컬 확률 16%, 스탠스 20%, 최종 데미지 6% 증가\n버프는 각 조명마다 별도로 적용되어 최대 3회까지 중첩 가능\n\n재사용 대기시간 120초\n\n시간을 멈출 수는 없지만\n언제나 함께 할 수 있어\n지나가 버린 시간이라도\n영원히 기억할 거야\n\nSpread your Wings and Fly Away\n날개를 활짝 펴고(Dress☆UP!)\nSpread your Wings and Fly Away\n이 세상 다하는 그날까지...\nDress☆UP";
+            break;
         case 2:
-            rep = "근원을 알 수 없는 미지의 신들로부터 힘을 빌린다. 일정 시간 동안 신들의 힘을 받아 데미지가 증가하며 일정 횟수만큼 공격을 적중 시킬 때 마다 차원을 넘은 신들의 일격이 도달한다.\n스킬을 한 번 더 사용하면 짧은 시간 동안 신들을 직접 강림시켜 강력한 공격을 할 수 있다.\n선기 : 강림 괴력난신은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 30초 동안 데미지 80% 증가\n\n지속시간 중 공격을 12회 적중시킬 때 마다 최대 8명의 적을 1870% 데미지로 8번 공격하는 신들의 일격 발동, 재발동 대기시간 1.5초\n\n스킬 재사용 시 즉시 종료되며 최대 15명의 적을 2200% 데미지로 15번 공격하는 충격이 6번 발생하는 신들의 강림 발동\n신들의 강림은 시전 동작 중 무적이며 공격 무시 및 공격 반사 상태의 적에게도 피해를 입힘\n신들의 강림 발동 시 30초 동안 천/지/인 속성 스킬 및 허/실 스킬의 데미지가 20% 증가\n\n재사용 대기시간 : 200초";
+            rep = "에스카다를 마법소녀의 필수 요소인 마스코트 캐릭터로 강제 변신시킨다. 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n36초 동안 지속되며 리차지가 성공했을 때 최대 6명의 적을 1320%의 데미지로 5번 공격하는 트윙클 스타 혹은 매지컬 벌룬 사용, 이미 다른 행동을 하고 있다면 사용하지 않음\n\n트윙클 스타나 매지컬 버블 사용 혹은 8초마다 매지컬 버블을 1개 획득하고 최대 8개까지 소지 가능\n스킬을 한번 더 사용하면 3초 동안 최대 10명의 적을 550%의 데미지로 8번 공격하는 샤이니 버블 브레스 시전, 사용 시 매지컬 버블을 모두 소모하며 버블 1개당 지속시간 0.4초 증가, 소환 중 1회만 사용가능하고 시전 중 소환 지속시간이 종료되었어도 끝까지 사용한 후 소멸\n\n재사용 대기시간 120초";
             break;
         case 3:
-            rep = "도술의 이치를 터득해 속성 연계를 할 수 있는 특별한 분신을 만들어낸다. 허/실 스킬을 제외한 직접 공격하는 호영의 스킬 적중 시 분신이 등장하여 현재 연계하지 않은 속성 공격을 하고 속성 연계를 완성시킨다.\n액티브 효과 지속 중 속성 연계 3단계 달성 시 천/지/인 도술 중 한 속성 도술의 재사용 대기시간이 초기화되며 속성 선택 시 재사용 대기시간 중인 스킬이 있는 속성이 우선된다.\n선기 : 천지인 환영은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n패시브 효과 : 최대 4명의 적을 1375%의 데미지로 6번 공격하는 분신 등장, 재등장 대기시간 5초\n액티브 효과 : MP 1250 소비, 30초 동안 패시브 효과가 재등장 대기시간 없이 2번 발동 가능, 이후 재등장 대기시간 2초로 적용\n재사용 대기시간 : 100초";
+            rep = "에스카다의 응축된 힘을 일시에 분출한다. 아래 방향키와 함께 트리니티를 사용하면 발동할 수 있고 트리니티 사용 중에도 발동할 수 있다.\n시전 동작 중 어떠한 공격에도 밀려나지 않으며 피격 데미지가 감소한다. 트리니티 퓨전은 공격 반사 상태의 적을 공격해도 피해를 입지 않고 트리니티 적중 시 중첩되는 데미지 증가 및 방어율 무시 버프가 적용된다.\n\n최대 8명의 적을 360%의 데미지로 3번 공격하는 용의 기운 9번 발동\n시전 동작 중 최대 HP의 일정 비율로 피해를 입히는 공격을 포함한 피격 데미지의 20% 감소\n\n재사용 대기시간 : 13초\n[패시브 효과 : 민첩 40 증가]";
             break;
         case 4:
             rep = "";
@@ -321,20 +313,20 @@ skh.getskilldesc3Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage1Hoyoung = function (skillcode){
+skab.getskillimage1Angelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/KIRc5Tq.png";
+            rep = "https://i.imgur.com/UeHyf4A.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/RMd0Y9R.png";
+            rep = "https://i.imgur.com/ljTcRlw.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/fgiLDgB.png";
+            rep = "https://i.imgur.com/7bRKYZq.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/OZNWQGt.png";
+            rep = "https://i.imgur.com/X55PFGK.png";
             break;
         case 4:
             rep = "";
@@ -387,20 +379,20 @@ skh.getskillimage1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage2Hoyoung = function (skillcode){
+skab.getskillimage2Angelicbuster = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/bWpjqFQ.png";
+            rep = "https://i.imgur.com/pjAhXer.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/WEjhbaw.png";
+            rep = "https://i.imgur.com/pe7wn8b.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/buJczGV.png";
+            rep = "https://i.imgur.com/ItKID3a.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/g5qEif1.png";
+            rep = "https://i.imgur.com/PBJOjR6.png";
             break;
         case 4:
             rep = "";
@@ -454,4 +446,4 @@ skh.getskillimage2Hoyoung = function (skillcode){
     return rep;
 };
 
-module.exports = skh;
+module.exports = skab;

@@ -1,112 +1,100 @@
-const skh = {};
+const skk = {};
 
-skh.getskillHoyoung = function (skillname){
-    var hret = -1;
+skk.getskillKaiser = function (skillname){
+    var kret = -1;
     switch(skillname){
-        case "선기 : 극대 분신난무":
-        case "선기 : 극대분신난무":
-        case "선기:극대분신난무":
-        case "선기 극대 분신난무":
-        case "선기 극대분신난무":
-        case "선기극대분신난무":
-        case "극대 분신난무":
-        case "극대분신난무":
-        case "분신난무":
-            hret = 0;
+        case "가디언 오브 노바":
+        case "가디언오브노바":
+        case "가디언":
+        case "가오노":
+            kret = 0;
             break;
-        case "권술 : 산령소환":
-        case "권술:산령소환":
-        case "권술 산령소환":
-        case "권술산령소환":
-        case "산령소환":
-            hret = 1;
+        case "윌 오브 소드 : 스트라이크":
+        case "윌오브소드 : 스트라이크":
+        case "윌오브소드:스트라이크":
+        case "윌 오브 소드 스트라이크":
+        case "윌오브소드 스트라이크":
+        case "윌오브소드스트라이크":
+        case "윌오소스":
+        case "윌오스":
+        case "윌스":
+            kret = 1;
             break;
-        case "선기 : 강림 괴력난신":
-        case "선기 : 강림괴력난신":
-        case "선기:강림괴력난신":
-        case "선기강림괴력난신":
-        case "선기 강림 괴력난신":
-        case "선기 강림괴력난신":
-        case "강림 괴력난신":
-        case "강림괴력난신":
-        case "괴력난신":
-            hret = 2;
+        case "드라코 슬래셔":
+        case "드라코슬래셔":
+        case "드슬":
+            kret = 2;
             break;
-        case "선기 : 천지인 환영":
-        case "선기 : 천지인환영":
-        case "선기:천지인환영":
-        case "선기 천지인 환영":
-        case "선기 천지인환영":
-        case "선기천지인환영":
-        case "천지인 환영":
-        case "천지인환영":
-            hret = 3;
+        case "드래곤 블레이즈":
+        case "드래곤블레이즈":
+        case "드블":
+            kret = 3;
             break;
         /*case "":
-            hret = 4;
+            kret = 4;
             break;
         case "":
-            hret = 5;
+            kret = 5;
             break;
         case "":
-            hret = 6;
+            kret = 6;
             break;
         case "":
-            hret = 7;
+            kret = 7;
             break;
         case "":
-            hret = 8;
+            kret = 8;
             break;
         case "":
-            hret = 9;
+            kret = 9;
             break;
         case "":
-            hret = 10;
+            kret = 10;
             break;
         case "":
-            hret = 11;
+            kret = 11;
             break;
         case "":
-            hret = 12;
+            kret = 12;
             break;
         case "":
-            hret = 13;
+            kret = 13;
             break;
         case "":
-            hret = 14;
+            kret = 14;
             break;
         case "":
-            hret = 15;
+            kret = 15;
             break;
         case "":
-            hret = 16;
+            kret = 16;
             break;
         case "":
-            hret = 17;
+            kret = 17;
             break;
         case "":
-            hret = 18;
+            kret = 18;
             break;
         case "":
-            hret = 19;
+            kret = 19;
             break;*/
     }
-    return hret;
+    return kret;
 };
-skh.getskillnameHoyoung = function (skillcode){
+skk.getskillnameKaiser = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "선기 : 극대 분신난무";
+            rep = "가디언 오브 노바";
             break;
         case 1:
-            rep = "권술 : 산령소환";
+            rep = "윌 오브 소드 : 스트라이크";
             break;
         case 2:
-            rep = "선기 : 강림 괴력난신";
+            rep = "드라코 슬래셔";
             break;
         case 3:
-            rep = "선기 : 천지인 환영";
+            rep = "드래곤 블레이즈";
             break;
         case 4:
             rep = "";
@@ -159,14 +147,14 @@ skh.getskillnameHoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc1Hoyoung = function (skillcode){
+skk.getskilldesc1Kaiser = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "30초간 공격시 분신 10개 생성, 생성후 1.5초간 재생성X/ 쿨 200초";
+            rep = "하단 참조";
             break;
         case 1:
-            rep = "[두루마리] 60초간 12명,1980%,8번 공격/ 쿨 200초";
+            rep = "하단 참조";
             break;
         case 2:
             rep = "하단 참조";
@@ -225,20 +213,20 @@ skh.getskilldesc1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc2Hoyoung = function (skillcode){
+skk.getskilldesc2Kaiser = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "환영 분신부 지속시간 중에만 사용/ 환영분신부에서 440%p 증가, 4번공격";
+            rep = "반고정형 소환수 스킬";
             break;
         case 1:
-            rep = "연계 3단계 성공시 일정시간마다 770%,4번공격/ 재발동 3초";
+            rep = "드라코 슬래셔를 강화하는 광범위 공격기";
             break;
         case 2:
-            rep = "막타 미사용시 자동으로 발동되지 않고 스킬이 종료된다.";
+            rep = "베는 이펙트와 캐릭터 사이에 간격안에 있는 몬스터는 피격X";
             break;
         case 3:
-            rep = "금고봉 : 인을 난사에 가깝게 사용가능";
+            rep = "자동 공격형 광범위 공격기이자 극딜기";
             break;
         case 4:
             rep = "";
@@ -291,14 +279,20 @@ skh.getskilldesc2Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc3Hoyoung = function (skillcode){
+skk.getskilldesc3Kaiser = function (skillcode){
     rep = "";
     switch(skillcode){
+        case 0:
+            rep = "고대 카이저들의 영혼을 소환하여 함께 싸운다. 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 45초 동안 고대 카이저의 영혼 3명을 소환, 소환된 카이저들은 자신의 주변 일정 범위를 벗어나지 않음. 소환된 카이저가 존재할 때 스킬을 다시 사용하면 자신이 있는 위치를 기준으로 재소환하며 10초마다 1번 사용가능\n\n6대 카이저 : 최대 10명의 적을 900%로 4번 공격\n15대 카이저 : 최대 10명의 적을 550%로 6번 공격\n27대 카이저 : 최대 10명의 적을 1950%로 2번 공격\n\n재사용 대기시간 : 120초";
+            break;
+        case 1:
+            rep = "윌 오브 소드가 적을 공격하고 바닥에 꽂힌 후 강력한 불길이 발생되어 주변 적을 불태운다. 모든 윌 오브 소드가 바닥에 꽂힌 후 스킬을 한번 더 사용하여 불길을 강제로 발생시킬 수 있다. 불길이 적에게 적중하면 드라코 슬래셔의 재강화 대기시간이 즉시 초기화되고 재강화 대기시간이 일정 횟수 적용되지 않는다. 해당 강화는 윌 오브 소드 : 스트라이크의 재사용 대기시간 동안 유지된다. 윌 오브 소드가 소환된 상태에서만 사용할 수 있고 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 각각의 무기가 적에게 날아가 1100%로 4번 공격하고 바닥에 꽂힌 후 2초 뒤 불길 발생\n불길은 최대 12명의 적을 1540%의 데미지로 6번 공격하며 바닥에 꽂혔던 시간에 비례하여 2200%까지 증가\n\n드라코 슬래셔의 재강화 대기시간 3회 무시\n재사용 대기시간 : 30초\n\n파이널 피규레이션 : 윌 오브 소드 및 불길의 공격횟수 1회 증가";
+            break;
         case 2:
-            rep = "근원을 알 수 없는 미지의 신들로부터 힘을 빌린다. 일정 시간 동안 신들의 힘을 받아 데미지가 증가하며 일정 횟수만큼 공격을 적중 시킬 때 마다 차원을 넘은 신들의 일격이 도달한다.\n스킬을 한 번 더 사용하면 짧은 시간 동안 신들을 직접 강림시켜 강력한 공격을 할 수 있다.\n선기 : 강림 괴력난신은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 30초 동안 데미지 80% 증가\n\n지속시간 중 공격을 12회 적중시킬 때 마다 최대 8명의 적을 1870% 데미지로 8번 공격하는 신들의 일격 발동, 재발동 대기시간 1.5초\n\n스킬 재사용 시 즉시 종료되며 최대 15명의 적을 2200% 데미지로 15번 공격하는 충격이 6번 발생하는 신들의 강림 발동\n신들의 강림은 시전 동작 중 무적이며 공격 무시 및 공격 반사 상태의 적에게도 피해를 입힘\n신들의 강림 발동 시 30초 동안 천/지/인 속성 스킬 및 허/실 스킬의 데미지가 20% 증가\n\n재사용 대기시간 : 200초";
+            rep = "고대 용의 기운으로 강화된 기가 슬래셔를 사용한다. 용의 기운은 전방으로 뿜여져 나가 적을 추가 공격한다. 사용 후 재강화 되는 데 시간이 필요하다.\n보스를 포함한 모든 적은 드라코 슬래셔를 맞을 때 슬로우 상태가 되고 용의 기운은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n[커맨드 스킬 : 공격 도중 + 기가 슬래셔]\n\nMP 60 소비, 최대 8명의 적을 650%의 데미지로 10번 공격 후, 최대 8명의 적에게 650%의 데미지로 6번 공격하는 용의 기운 발사, 추가 크리티컬 확률 100%, 몬스터 방어율 50% 추가 무시\n\n파이널 피규레이션 : 드라코 슬래셔의 모든 공격 횟수 2번 증가\n기가 슬래셔 사용 시 발동\n\n재강화 대기시간 : 5초";
             break;
         case 3:
-            rep = "도술의 이치를 터득해 속성 연계를 할 수 있는 특별한 분신을 만들어낸다. 허/실 스킬을 제외한 직접 공격하는 호영의 스킬 적중 시 분신이 등장하여 현재 연계하지 않은 속성 공격을 하고 속성 연계를 완성시킨다.\n액티브 효과 지속 중 속성 연계 3단계 달성 시 천/지/인 도술 중 한 속성 도술의 재사용 대기시간이 초기화되며 속성 선택 시 재사용 대기시간 중인 스킬이 있는 속성이 우선된다.\n선기 : 천지인 환영은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n패시브 효과 : 최대 4명의 적을 1375%의 데미지로 6번 공격하는 분신 등장, 재등장 대기시간 5초\n액티브 효과 : MP 1250 소비, 30초 동안 패시브 효과가 재등장 대기시간 없이 2번 발동 가능, 이후 재등장 대기시간 2초로 적용\n재사용 대기시간 : 100초";
+            rep = "화염의 화신이 된 고대 용의 힘을 빌려 화염 그 자체가 된다.\n화염을 몸 주위에 둘러 주변 적을 공격하고 지나간 자리에 불의 기운을 남긴다. 자신의 공격 스킬이 적중하면 불의 기운이 폭발하여 광역 피해를 준다. 스킬을 재사용하여 즉시 종료시킬 수 있다.\n드래곤 블레이즈 지속 중이 아닌 재사용 대기시간 동안 자신의 공격 스킬 적중 시 화염구가 생성되어 추가 공격한다. 드래곤 블레이즈의 모든 공격은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n화염구 생성 온오프 : 마우스 우클릭\n\nMP 1000 소비, 20초 동안 몸 주위의 화염이 일정 주기마다 주변에 있는 최대 8명의 적을 550%의 데미지로 6번 자동 공격\n\n불의 기운 : 5초 동안 유지, 폭발 시 불의 기운 및 카이저 주변이 폭발하여 최대 10명의 적을 825%의 데미지로 5번 공격, 재폭발 대기시간 3.6초\n화염구 : 770%의 데미지로 3번 공격하는 화염구가 6개 생성, 재생성 대기시간 10초\n\n재사용 대기시간 : 120초";
             break;
         case 4:
             rep = "";
@@ -321,20 +315,20 @@ skh.getskilldesc3Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage1Hoyoung = function (skillcode){
+skk.getskillimage1Kaiser = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/KIRc5Tq.png";
+            rep = "https://i.imgur.com/O5rvqYW.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/RMd0Y9R.png";
+            rep = "https://i.imgur.com/xSHnygV.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/fgiLDgB.png";
+            rep = "https://i.imgur.com/B6ArNlv.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/OZNWQGt.png";
+            rep = "https://i.imgur.com/Iu6GeYB.png";
             break;
         case 4:
             rep = "";
@@ -387,20 +381,20 @@ skh.getskillimage1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage2Hoyoung = function (skillcode){
+skk.getskillimage2Kaiser = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/bWpjqFQ.png";
+            rep = "https://i.imgur.com/Z2n9OVl.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/WEjhbaw.png";
+            rep = "https://i.imgur.com/VSYO6r8.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/buJczGV.png";
+            rep = "https://i.imgur.com/k0bhwea.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/g5qEif1.png";
+            rep = "https://i.imgur.com/YflkwNg.png";
             break;
         case 4:
             rep = "";
@@ -454,4 +448,4 @@ skh.getskillimage2Hoyoung = function (skillcode){
     return rep;
 };
 
-module.exports = skh;
+module.exports = skk;

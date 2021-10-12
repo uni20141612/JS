@@ -940,7 +940,15 @@ gt.getRate = function (msg){
             ++trycnt;
           }
           if(trycnt == 100000){rep = "100000회의 시뮬레이션 동안 한번도 " + chance + "%의 벽을 넘지 못하였습니다."; }
-          else{ rep = chance + "%의 벽을 " + trycnt + " 회의 시도만에 성공하였습니다."; }
+          else{ 
+            rep = chance + "%의 벽을 " + trycnt + " 회의 시도만에 성공하였습니다.\n\n"; 
+            var rateExp = (100 / chance).toFixed(0);
+            rep += "해당 확률의 기댓값은 " + rateExp + " 회 였습니다.\n";
+            var trydiff = rateExp - trycnt;
+            if(trydiff < 0){ rep += "당신은 기댓값보다 " + -trydiff + " 회나 더 시도했을만큼 드럽게 운이 없습니다."; }
+            else if(trydiff == 0){ rep += "당신은 딱 기댓값만에 성공할 정도로 드럽게 운이 없.. 아닙니다."; }
+            else{ rep += "당신은 기댓값보다 " + trydiff + " 회 더 적게 시도했습니다. 축하드립니다."; }
+          }
         }
         else{
           var rateCnt = parseInt(secondR);
@@ -961,7 +969,7 @@ gt.getRate = function (msg){
 
             if(succnt == 0){ rep = rateCnt + " 회의 시뮬레이션 동안 한번도 " + chance + "%의 벽을 넘지 못하였습니다."; }
             else{ 
-              rep = chance + "%의 벽을 " + firstSuc + " 회때 처음 성공하였습니다.\n\n" + rateCnt + "회의 시도 중 총 " + succnt + " 회 성공하였습니다.\n\n";
+              rep = chance + "%의 벽을 " + firstSuc + " 번째때 처음 성공하였습니다.\n\n" + rateCnt + "회의 시도 중 총 " + succnt + " 회 성공하였습니다.\n\n";
               if(ratediff < 0){ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + ratediff + "%의 오차만큼 당신의 운이 드럽게 없습니다."; }
               else if(ratediff == 0){ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + "한치의 오차도 없이 정확하게 확률을 뚫었습니다."}
               else{ rep += succnt + " / " + rateCnt + " = " + ratechk + "%\n" + ratediff + "%의 오차만큼 다른분들께 비틱할 수 있습니다."; }

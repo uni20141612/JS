@@ -1,112 +1,105 @@
-const skh = {};
+const skc = {};
 
-skh.getskillHoyoung = function (skillname){
-    var hret = -1;
+skc.getskillCadena = function (skillname){
+    var cret = -1;
     switch(skillname){
-        case "선기 : 극대 분신난무":
-        case "선기 : 극대분신난무":
-        case "선기:극대분신난무":
-        case "선기 극대 분신난무":
-        case "선기 극대분신난무":
-        case "선기극대분신난무":
-        case "극대 분신난무":
-        case "극대분신난무":
-        case "분신난무":
-            hret = 0;
+        case "체인아츠:퓨리":
+        case "체인아츠퓨리":
+        case "체인아츠 퓨리":
+        case "퓨리":
+        case "체퓨":
+            cret = 0;
             break;
-        case "권술 : 산령소환":
-        case "권술:산령소환":
-        case "권술 산령소환":
-        case "권술산령소환":
-        case "산령소환":
-            hret = 1;
+        case "A.D 오드넌스":
+        case "A.D오드넌스":
+        case "AD 오드넌스":
+        case "AD오드넌스":
+        case "오드넌스":
+        case "에이디 오드넌스":
+        case "에이디오드넌스":
+        case "에오":
+            cret = 1;
             break;
-        case "선기 : 강림 괴력난신":
-        case "선기 : 강림괴력난신":
-        case "선기:강림괴력난신":
-        case "선기강림괴력난신":
-        case "선기 강림 괴력난신":
-        case "선기 강림괴력난신":
-        case "강림 괴력난신":
-        case "강림괴력난신":
-        case "괴력난신":
-            hret = 2;
+        case "체인아츠:메일스트롬":
+        case "체인아츠메일스트롬":
+        case "체인아츠 메일스트롬":
+        case "메일스트롬":
+        case "메일":
+        case "체메":
+            cret = 2;
             break;
-        case "선기 : 천지인 환영":
-        case "선기 : 천지인환영":
-        case "선기:천지인환영":
-        case "선기 천지인 환영":
-        case "선기 천지인환영":
-        case "선기천지인환영":
-        case "천지인 환영":
-        case "천지인환영":
-            hret = 3;
+        case "웨폰 버라이어티 피날레":
+        case "웨폰버라이어티 피날레":
+        case "웨폰버라이어티피날레":
+        case "웨버피":
+        case "피날레":
+            cret = 3;
             break;
         /*case "":
-            hret = 4;
+            cret = 4;
             break;
         case "":
-            hret = 5;
+            cret = 5;
             break;
         case "":
-            hret = 6;
+            cret = 6;
             break;
         case "":
-            hret = 7;
+            cret = 7;
             break;
         case "":
-            hret = 8;
+            cret = 8;
             break;
         case "":
-            hret = 9;
+            cret = 9;
             break;
         case "":
-            hret = 10;
+            cret = 10;
             break;
         case "":
-            hret = 11;
+            cret = 11;
             break;
         case "":
-            hret = 12;
+            cret = 12;
             break;
         case "":
-            hret = 13;
+            cret = 13;
             break;
         case "":
-            hret = 14;
+            cret = 14;
             break;
         case "":
-            hret = 15;
+            cret = 15;
             break;
         case "":
-            hret = 16;
+            cret = 16;
             break;
         case "":
-            hret = 17;
+            cret = 17;
             break;
         case "":
-            hret = 18;
+            cret = 18;
             break;
         case "":
-            hret = 19;
+            cret = 19;
             break;*/
     }
-    return hret;
+    return cret;
 };
-skh.getskillnameHoyoung = function (skillcode){
+skc.getskillnameCadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "선기 : 극대 분신난무";
+            rep = "체인아츠:퓨리";
             break;
         case 1:
-            rep = "권술 : 산령소환";
+            rep = "A.D 오드넌스";
             break;
         case 2:
-            rep = "선기 : 강림 괴력난신";
+            rep = "체인아츠:메일스트롬";
             break;
         case 3:
-            rep = "선기 : 천지인 환영";
+            rep = "웨폰 버라이어티 피날레";
             break;
         case 4:
             rep = "";
@@ -159,14 +152,14 @@ skh.getskillnameHoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc1Hoyoung = function (skillcode){
+skc.getskilldesc1Cadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "30초간 공격시 분신 10개 생성, 생성후 1.5초간 재생성X/ 쿨 200초";
+            rep = "65초간 공격시 550%,10명,6번 공격 거대체인생성/ 쿨150초";
             break;
         case 1:
-            rep = "[두루마리] 60초간 12명,1980%,8번 공격/ 쿨 200초";
+            rep = "10초간 일정간격 495%,8명,5번 공격/ 쿨25초";
             break;
         case 2:
             rep = "하단 참조";
@@ -225,20 +218,20 @@ skh.getskilldesc1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc2Hoyoung = function (skillcode){
+skc.getskilldesc2Cadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "환영 분신부 지속시간 중에만 사용/ 환영분신부에서 440%p 증가, 4번공격";
+            rep = "거대체인 재생성 대기시간 : 0.6초";
             break;
         case 1:
-            rep = "연계 3단계 성공시 일정시간마다 770%,4번공격/ 재발동 3초";
+            rep = "응집 후, 1650%,15명,8번 공격 구체 발사";
             break;
         case 2:
-            rep = "막타 미사용시 자동으로 발동되지 않고 스킬이 종료된다.";
+            rep = "설치형 보조 공격기";
             break;
         case 3:
-            rep = "금고봉 : 인을 난사에 가깝게 사용가능";
+            rep = "웨폰 버라이어티의 강화판";
             break;
         case 4:
             rep = "";
@@ -291,14 +284,14 @@ skh.getskilldesc2Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskilldesc3Hoyoung = function (skillcode){
+skc.getskilldesc3Cadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 2:
-            rep = "근원을 알 수 없는 미지의 신들로부터 힘을 빌린다. 일정 시간 동안 신들의 힘을 받아 데미지가 증가하며 일정 횟수만큼 공격을 적중 시킬 때 마다 차원을 넘은 신들의 일격이 도달한다.\n스킬을 한 번 더 사용하면 짧은 시간 동안 신들을 직접 강림시켜 강력한 공격을 할 수 있다.\n선기 : 강림 괴력난신은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 30초 동안 데미지 80% 증가\n\n지속시간 중 공격을 12회 적중시킬 때 마다 최대 8명의 적을 1870% 데미지로 8번 공격하는 신들의 일격 발동, 재발동 대기시간 1.5초\n\n스킬 재사용 시 즉시 종료되며 최대 15명의 적을 2200% 데미지로 15번 공격하는 충격이 6번 발생하는 신들의 강림 발동\n신들의 강림은 시전 동작 중 무적이며 공격 무시 및 공격 반사 상태의 적에게도 피해를 입힘\n신들의 강림 발동 시 30초 동안 천/지/인 속성 스킬 및 허/실 스킬의 데미지가 20% 증가\n\n재사용 대기시간 : 200초";
+            rep = "휘두른 체인을 빠르게 회전시켜 소용돌이를 만들어 낸다. 소용돌이는 1개만 존재할 수 있고 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n체인아츠:스트로크 2타를 사용한 후 연계로만 사용할 수 있으며 ↓+[공격키] 를 입력해서도 사용할 수 있다.\n\nMP 250 소비, 8초 동안 일정 시간마다 660%의 데미지로 최대 8명의 적을 4번 공격, 공격 시 100% 확률로 6초 동안 슬로우\n\n공격 속도가 시간에 따라 점차 감소";
             break;
         case 3:
-            rep = "도술의 이치를 터득해 속성 연계를 할 수 있는 특별한 분신을 만들어낸다. 허/실 스킬을 제외한 직접 공격하는 호영의 스킬 적중 시 분신이 등장하여 현재 연계하지 않은 속성 공격을 하고 속성 연계를 완성시킨다.\n액티브 효과 지속 중 속성 연계 3단계 달성 시 천/지/인 도술 중 한 속성 도술의 재사용 대기시간이 초기화되며 속성 선택 시 재사용 대기시간 중인 스킬이 있는 속성이 우선된다.\n선기 : 천지인 환영은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n패시브 효과 : 최대 4명의 적을 1375%의 데미지로 6번 공격하는 분신 등장, 재등장 대기시간 5초\n액티브 효과 : MP 1250 소비, 30초 동안 패시브 효과가 재등장 대기시간 없이 2번 발동 가능, 이후 재등장 대기시간 2초로 적용\n재사용 대기시간 : 100초";
+            rep = "무기 사용 숙련도가 극한에 도달해 더 강화된 추가타를 사용할 수 있게 된다. 웨폰 버라이어티 피날레는 공격 반사 상태의 적을 공격해도 피해를 입지 않으며 특정 공격 스킬 적중 시 준비 시간이 감소된다.\n\nMP 450 소비, 웨폰 버라이어티 추가타 4회 적중 시 주변 적 위치에서 발동\n\n최대 7명의 적을 550%의 데미지로 7번 공격하는 추가타 4번 발동\n웨폰 버라이어티 피날레는 11초마다 1개씩 준비되며 최대 3개까지 준비 가능\n\n체인아츠:터프 허슬/체인아츠:테이크다운/체인아츠:크러시 적중 시 준비 시간 2초 감소, 체인아츠:퓨리 적중 시 1초 감소";
             break;
         case 4:
             rep = "";
@@ -321,20 +314,20 @@ skh.getskilldesc3Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage1Hoyoung = function (skillcode){
+skc.getskillimage1Cadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/KIRc5Tq.png";
+            rep = "https://i.imgur.com/EuHZcud.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/RMd0Y9R.png";
+            rep = "https://i.imgur.com/0Y7kDcn.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/fgiLDgB.png";
+            rep = "https://i.imgur.com/NoklUuw.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/OZNWQGt.png";
+            rep = "https://i.imgur.com/Oih1sfL.png";
             break;
         case 4:
             rep = "";
@@ -387,20 +380,20 @@ skh.getskillimage1Hoyoung = function (skillcode){
     }
     return rep;
 };
-skh.getskillimage2Hoyoung = function (skillcode){
+skc.getskillimage2Cadena = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "https://i.imgur.com/bWpjqFQ.png";
+            rep = "https://i.imgur.com/iaJukbX.png";
             break;
         case 1:
-            rep = "https://i.imgur.com/WEjhbaw.png";
+            rep = "https://i.imgur.com/agbqM0J.png";
             break;
         case 2:
-            rep = "https://i.imgur.com/buJczGV.png";
+            rep = "https://i.imgur.com/RFKF7Eb.png";
             break;
         case 3:
-            rep = "https://i.imgur.com/g5qEif1.png";
+            rep = "https://i.imgur.com/0mSoDyY.png";
             break;
         case 4:
             rep = "";
@@ -454,4 +447,4 @@ skh.getskillimage2Hoyoung = function (skillcode){
     return rep;
 };
 
-module.exports = skh;
+module.exports = skc;

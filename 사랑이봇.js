@@ -27,18 +27,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(!getMinute()){ //분당 1회 동작 예상
       try{
       var testr = getTest();
-      var testr2 = getTest2();
       var notice1 = getNotice();
       var hournow = FileStream.read(path + "hour.txt");
       var minnow = FileStream.read(path + "min.txt");
-      getNotice();
       if(testr != "-"){
         Api.replyRoom("천한수", testr);
         Api.replyRoom("UniMaple", testr);
-      }
-      if(testr2 != "-"){
-        Api.replyRoom("천한수", testr2);
-        Api.replyRoom("UniMaple", testr2);
       }
       if(notice1 != "-"){
         Api.replyRoom("천한수", notice1);
@@ -1194,31 +1188,6 @@ function getRomaname(kname){
   return res;
 }
 function getTest(){
-  res = org.jsoup.Jsoup.connect("https://www.kmspatcher.com/patchfile/testworld").get();
-  res = res.toString();
-  var datatest = res.split("pageProps")[1].split("},")[0];
-  var postID = datatest.split("postID\":")[1].split(",")[0];
-  var prevID = FileStream.read(path + "test.txt");
-  var testrep = "";
-  if(postID != prevID){
-    FileStream.write(path + "test.txt", postID);
-    var datatest2 = org.jsoup.Jsoup.connect("https://www.kmspatcher.com/patchfile/testworld/" + postID + "?page=1").get().toString();
-    var tTitle = datatest2.split("<title>")[1].split("</title>")[0];
-    var tInfo = datatest2.split("용량 : ")[1].split("</div>")[0];
-    var tSize = tInfo.split("<br>")[0];
-    var tTime = tInfo.split("<br>")[1];
-    tSize = tSize.slice(0, tSize.length-11);
-    tTime = tTime.slice(0, tTime.length-10);
-
-    testrep = "새로운 테스트월드 패치가 발견되었습니다.\n\n" + tTitle + "\n용량 : " + tSize + "\n" + tTime;
-  }
-  else{
-    testrep = "-";
-  }
-
-  return testrep;
-}
-function getTest2(){
   var Tret = "-";
   var twURL = "https://maplestory.nexon.com/Testworld/Update/";
   res = org.jsoup.Jsoup.connect(twURL).get();
