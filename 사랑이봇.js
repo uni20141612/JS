@@ -286,7 +286,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply(unionrep);
               }
               else{
-                replier.reply("이 캐릭터는 대표캐릭터가 아니라서 유니온 조회가 되지 않습니다.");
+                replier.reply("이 캐릭터는 메지지에서 유니온 조회가 되지 않습니다.");
               }
             }
 
@@ -346,14 +346,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               var maple3dae = guitarM.getScouter(characlvl, mulvl, unionlvl);
               var scoutres = guitarM.get3Dae(maple3dae);
 
-              replier.reply(nickname + " 캐릭터의 메창력 수치 : " + maple3dae + "\n\n" + scoutres);
+              replier.reply(nickname + " 캐릭터의 메창력 수치\n\n캐릭터 레벨 : " + characlvl + "\n무릉 층수 : " + mulvl + "\n유니온 레벨 : " + unionlvl + "\n[총합 : " + maple3dae + "]\n\n" + scoutres);
             }
             else{
-              replier.reply(nickname + " >> 이 캐릭터는 무릉 기록이 없습니다.");
+              temparr = ["-", "-", "-", "-", "-", "-", "-"];
+              inforep = guitarM.getInform(temparr, dataC1);
+              characlvl = parseInt(inforep.split("Lv.")[1].split("("));
+              maple3dae = guitarM.getScouter(characlvl, 0, unionlvl);
+              scoutres = guitarM.get3Dae(maple3dae);
+              replier.reply(nickname + " >> 이 캐릭터는 무릉 기록이 없습니다. 무릉 층수는 0으로 계산됩니다.\n\n" + nickname + " 캐릭터의 메창력 수치\n\n캐릭터 레벨 : " + characlvl + "\n무릉 층수 : 0" + "\n유니온 레벨 : " + unionlvl + "\n[총합 : " + maple3dae + "]\n\n" + scoutres);
             }
           }
           else{
-            replier.reply("이 캐릭터는 본캐가 아니라서 메창력 조회가 되지 않습니다.(메지지에서 유니온레벨 조회가 되지 않습니다.)");
+            replier.reply("이 캐릭터는 메창력 조회가 되지 않습니다. (메지지에서 유니온레벨 조회가 되지 않습니다.)");
           }
         }
       }
@@ -1060,6 +1065,27 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.startsWith("!확률")){
       var raterep = guitarM.getRate(msg);
       replier.reply(raterep);
+    }
+    if(msg.startsWith("!마릿수") || msg.startsWith("!몹젠")){
+      const mapM = require('Map');
+      var maprep = mapM.getMap(msg);
+      if(maprep[0] != "*"){ replier.reply(maprep); }
+      else{
+        var mapn = maprep.split("*")[1];
+        var mapc = maprep.split("*")[2];
+        var mapcl = mapc.split(".com/")[1];
+        Kakao.send(room,
+          {
+            "link_ver" : "4.0",
+            "template_id" : 63410,
+            "template_args" : {
+                                  "imagetitle" : mapn,
+                                  "image" : mapc,
+                                  "imagelink" : mapcl
+                              }
+          },
+          "custom");
+      }
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
