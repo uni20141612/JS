@@ -1087,6 +1087,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           "custom");
       }
     }
+    if(msg == "!상태"){
+      var statusrep = "보마봇 상태\n";
+      statusrep += "구동 환경 : " + Utils.getPhoneBrand() + " " + Device.getPhoneModel() +" / 안드로이드 " + Utils.getAndroidVersionName() + "\n";
+      statusrep += "배터리 잔량 : " + Device.getBatteryLevel();
+      if(Device.isCharging()){ statusrep += "%(충전중)\n";}
+      else{ statusrep += "%(충전중이 아님)\n"; }
+      statusrep += "배터리 온도 : " + (Device.getBatteryTemperature()/10) + "°C";
+
+
+      replier.reply(statusrep);
+    }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
       var senderhash = java.lang.String(senderinfo).hashCode();

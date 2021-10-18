@@ -955,12 +955,12 @@ gt.getRate = function (msg){
           if(isNaN(rateCnt)){ rep = "횟수가 숫자가 아닌 다른 것을 입력하셨습니다. 확인 후 다시 입력해주세요."; }
           else if(rateCnt <= 0 || rateCnt > 100000){ rep = "횟수는 0 초과 100000 이하의 숫자만 입력하실 수 있습니다."; }
           else{
-            trycnt = 1;
+            trycnt = 0;
             var firstSuc = 0, succnt = 0;
             while(trycnt < rateCnt){
+              ++trycnt;
               randrate = Math.random() * 100;
               if(randrate < chance){ ++succnt; if(firstSuc == 0){ firstSuc = trycnt; }}
-              ++trycnt;
             }
 
             var ratechk = 0.0;
