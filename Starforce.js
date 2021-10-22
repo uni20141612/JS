@@ -12,7 +12,7 @@ sf.isSFready = function (A, B, C, D, E, F){
         else{chkSF = 2002;}
       }
       else{
-        if(A == 99 && B > 15){
+        if(A == 99 && B > 14){
           chkSF = 3000;
         }
         else if(A == 100 && B > 8){
@@ -34,35 +34,38 @@ sf.isSFready = function (A, B, C, D, E, F){
             else if(C < 1){ chkSF = 8002;}
             else {chksf = 8003;}
           }
+          else if(A == 99 && C > 15){
+            chkSF = 9000
+          }
           else if(A == 100 && C > 8){
-            chkSF = 9000;
+            chkSF = 9001;
           }
           else if(A == 110 && C > 10){
-            chkSF = 10000;
+            chkSF = 9002;
           }
           else if(A == 120 && C > 15){
-            chkSF = 11000;
+            chkSF = 9003;
           }
           else if(A == 130 && C > 20){
-            chkSF = 12000;
+            chkSF = 9004;
           }
           else{
             if(D < 0 || D > 1){
-              chkSF = 13000;
-              if(D < 0){chkSF = 13001;}
-              else {chkSF = 13002;}
+              chkSF = 10000;
+              if(D < 0){chkSF = 10001;}
+              else {chkSF = 10002;}
             }
             else{
               if(E < 0 || E > 3){
-                chkSF = 14000;
-                if(E < 0) {chkSF = 14001;}
-                else {chkSF = 14002;}
+                chkSF = 11000;
+                if(E < 0) {chkSF = 11001;}
+                else {chkSF = 11002;}
               }
               else{
                 if(F < 0 || F > 2){
-                  chkSF = 15000;
-                  if(F < 0) {chkSF = 15001;}
-                  else {chkSF = 15002;}
+                  chkSF = 12000;
+                  if(F < 0) {chkSF = 12001;}
+                  else {chkSF = 12002;}
                 }
               }
             }

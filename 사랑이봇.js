@@ -204,7 +204,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(informrep);
       }
     }
-    if(msg.startsWith("!무릉") || msg.startsWith("!시드 ") || msg.startsWith("!유니온") || msg.startsWith("!업적") || msg.startsWith("!길드")){
+    if(msg.startsWith("!무릉") || msg.startsWith("!시드랭킹") || msg.startsWith("!유니온") || msg.startsWith("!업적") || msg.startsWith("!길드")){
       nickname = msg.split(" ")[1];
       if(nickname == undefined){
         replier.reply("캐릭터 이름을 입력해주세요.\n\n!무릉,!시드,!유니온,!업적,!코디,!길드 + (캐릭터명) : 메이플지지 기준 캐릭터 관련 정보를 보여줍니다.");
@@ -267,7 +267,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
           else{ 
           
-            if(msg.startsWith("!시드 ")){
+            if(msg.startsWith("!시드랭킹")){
               dataS1 = dataC1.split("더시드 최고기록")[1].split("유니온")[0];
               if(dataS1.indexOf("user-summary-no-data") == -1){
                 var seedrep = guitarM.getSeed(dataS1);
@@ -389,6 +389,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                      "custom");
         replier.reply(seedeffect);
       }
+    }
+    if(msg.startsWith("!시드정보")){
+      const seedM2 = require('Seed');
+      seedrep = seedM2.getSeedInfo(msg);
+      replier.reply(seedrep);
     }
     if(msg.startsWith("!갱신")){
       nickname = msg.split(" ")[1];
@@ -1086,6 +1091,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           },
           "custom");
       }
+    }
+    if(msg.startsWith("!포스")){
+      const mapM2 = require('Map');
+      var forcerep = mapM2.getMapForce(msg);
+      replier.reply(forcerep);
     }
     if(msg == "!상태"){
       var statusrep = "보마봇 상태\n";
