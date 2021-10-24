@@ -86,10 +86,15 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var notices = msg.slice(4, msg.length);
       Api.replyRoom("UniMaple", notices);
     }
-    if(msg == "!도움말" || msg == "!명령어"){
+    if(msg == "!도움말"){
       const helpM = require('Help');
       var help = helpM.gethelp();
       replier.reply(help);
+    }
+    if(msg == "!명령어"){
+      const helpM2 = require('Help');
+      var inst = helpM2.getInst();
+      replier.reply(inst);
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
@@ -1107,6 +1112,30 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
 
 
       replier.reply(statusrep);
+    }
+    if(msg.startsWith("!유튜브")){
+      var utube = msg.split(" ")[1];
+      if(utube == undefined){ replier.reply("유튜브 링크를 입력해주세요."); }
+      else{
+        var uDefault = "forward?go=vnd.youtube://watch?v=";
+        var uback = "-";
+        if(utube.startsWith("https://youtu.be/")){ uback = utube.split("https://youtu.be/")[1]; }
+        else if(utube.startsWith("https://www.youtube.com/watch?v=")){ uback = utube.split("https://www.youtube.com/watch?v=")[1]; }
+        else{ replier.reply("링크가 잘못되었습니다."); }
+
+        if(uback != "-"){
+          Kakao.send(room,
+            {
+              "link_ver" : "4.0",
+              "template_id" : 64080,
+              "template_args" : {
+                                    "link" : uDefault + uback,
+                                    "image" : "http://i.ytimg.com/vi/" + uback + "/default.jpg"
+                                }
+            },
+             "custom");
+        }
+      }
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
