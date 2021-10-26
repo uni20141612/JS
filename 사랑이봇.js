@@ -600,7 +600,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg.startsWith("!똥캐")){
-      replier.reply("소울마스터\n\n자체 버프만으로도 풀공속 유지가 가능하며, 기본 크리 확률이 낮지 않다. 사냥기가 점샷이 가능하고, 원킬컷이 낮아서 낮은 스펙으로도 원킬 사냥이 쉽다. 광역 바인드와 공격 무시/반사 버프를 관통하는 스킬을 보유하고 있다. 상태에 따른 독자적인 모션과, 보스 주력기가 강제 점프를 동반하는 특이점을 가지고 있다.\n\n[2008년 12월 18일 출시]\n\n무적기 : 소울 이클립스 (3.5초), 솔루나 디바이드 (5초)\n뎀감기 : 초월자 시그너스의 축복[공용] (5%)\n바인드 : 소울 페네트레이션\n\n공격대원 효과 : 최대 HP 250/500/1000/2000/2500 증가\n\n링크 스킬 : 시그너스 블레스 - 공격력과 마력 25, 상태 이상 내성 15, 모든 속성 내성 15% 증가"); 
+      replier.reply("메르세데스\n\n연계기와 속사기를 주력으로 사용하는 궁수. 극딜에 특화된 스킬 구조 덕분에 강력한 순간 화력을 자랑하지만, 높은 피로도와 낮은 투자 효율이 발목을 잡는다.\n\n[2011년 7월 21일 출시]\n\n무적기 : 로얄 나이츠 (시전 및 해제시, 2초), 프리드의 가호[공용] (6중첩시 30초)\n뎀감기 : 실피디아 (탑승 중 25%)\n바인드 : 없음\n\n공격대원 효과 : 스킬 쿨타임 2/3/4/5/6% 감소(1초 미만으로 감소 불가)\n\n링크 스킬 : 엘프의 축복 - 경험치 획득량 15% 증가"); 
     }
     if(msg.startsWith("!로얄")){      
       const royalM = require('Royal');
@@ -745,7 +745,25 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg.startsWith("!스타포스")){
       var sfrep = guitarM.getStarforce(msg);
-      replier.reply(sfrep);
+      if(sfrep[1] != "☆"){ replier.reply(sfrep); }
+      else{
+        var sftitle = "";
+        var sfimage = sfrep.split("☆")[1];
+        var sflink = sfrep.split("com/")[1];
+        if(sfrep[0] == "a"){ sftitle = "스타포스 누적 수치 표"; }
+        else{ sftitle = "놀장 누적 수치 표"; }
+        Kakao.send(room,
+          {
+            "link_ver" : "4.0",
+            "template_id" : 63410,
+            "template_args" : {
+                                  "image" : sfimage,
+                                  "imagelink" : sflink,
+                                  "imagetitle" : sftitle
+                              }
+          },
+           "custom");
+      }
     }
     if(msg.startsWith("!결정석") || msg.startsWith("!결정")){
       const cryM = require('Crystal');
@@ -1137,6 +1155,19 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
+    if(msg.startsWith("!건의") && msg != "!건의확인"){
+      senderinfo = imageDB.getProfileImage();
+      senderhash = java.lang.String(senderinfo).hashCode();
+      var sendername = sender;
+      const sugM = require('Suggest');
+      var sugrep = sugM.getSuggest(senderhash, sendername, msg);
+      replier.reply(sugrep);
+    }
+    if(msg == "!건의확인" && (sender == myName || sender == adminNick || sender == "보마쟝")){
+      const sugM2 = require('Suggest');
+      sugrep = sugM2.printSuggest();
+      replier.reply(sugrep);
+    }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
       var senderhash = java.lang.String(senderinfo).hashCode();
@@ -1315,7 +1346,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/260/보마";
+var adminNick = "리부트/261/보마";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;

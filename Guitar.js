@@ -875,6 +875,17 @@ gt.getStarforce = function (msg){
     sfrep = sfrep.slice(0, sfrep.length - 1);
     rep = (sfrep);
   }
+  else if(msg.split(" ")[1] == "수치"){
+    var sfvalop = msg.split(" ")[2];
+    if(sfvalop == undefined){ rep = "수치를 알고싶은 항목을 입력해주세요.\n1 : 스타포스\n2 : 놀장"; }
+    else if(sfvalop == "1"){
+      rep = "a☆" + "https://i.imgur.com/0rA7faO.png";
+    }
+    else if(sfvalop == "2"){
+      rep = "b☆" + "https://i.imgur.com/fkUpVl5.png";      
+    }
+    else{ rep = sfvalop + " >> 항목을 잘못 입력하셨습니다. 수치를 알고싶은 항목을 입력해주세요.\n1 : 스타포스\n2 : 놀장"; }
+  }
   else{
     if(msg.split(" ").length < 7){
       rep = ("시뮬레이터를 돌리기 위한 요소들이 부족합니다.\n\n" + sfhelp);
