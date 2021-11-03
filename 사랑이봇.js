@@ -152,7 +152,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var exprep2 = guitarM.getexpInform(msg);
       replier.reply(exprep2);
     }
-    if (msg.startsWith("!날씨"))  {
+    if(msg.startsWith("!날씨")){
       if(msg.slice(4) == "" || msg.split(" ")[1] == undefined){
         replier.reply("!날씨 (지역) 형태로 다시 입력해주십시오.\n\n!날씨 (지역) : 그 지역 날씨를 보여줍니다.");
       }

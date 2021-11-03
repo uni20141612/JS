@@ -3,7 +3,8 @@ const sug = {};
 sug.getSuggest = function(senderhash, sendername, msg){
     var rep = "";
     var sugContent = msg.slice(4, msg.length);
-    if(sugContent == undefined){ rep = "건의사항을 입력해주세요.\n\n!건의 (내용) : 보마봇에게 건의사항을 입력합니다. 이전에 입력된 건의사항이 있으면 입력한 내용이 덮어쓰게됩니다. 해당 건의사항은 개발자가 간간히 보게 될수도...?"; }
+    var sugChk = msg.split(" ")[1];
+    if(sugChk == undefined){ rep = "건의사항을 입력해주세요.\n\n!건의 (내용) : 보마봇에게 건의사항을 입력합니다. 이전에 입력된 건의사항이 있으면 입력한 내용이 덮어쓰게됩니다. 해당 건의사항은 개발자가 간간히 보게 될수도...?"; }
     else if(sugContent == "확인"){ rep = this.findSuggest(senderhash); if(rep == "-"){ rep = "입력된 건의사항이 없습니다."; }}
     else if(sugContent == "삭제"){ rep = this.eraseSuggest(senderhash); }
     else{
