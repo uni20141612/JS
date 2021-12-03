@@ -26,21 +26,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       
     if(!getMinute()){ //분당 1회 동작 예상
       try{
-      var testr = getTest();
-      var notice1 = getNotice();
-      var hournow = FileStream.read(path + "hour.txt");
-      var minnow = FileStream.read(path + "min.txt");
-      if(testr != "-"){
-        Api.replyRoom("천한수", testr);
-        Api.replyRoom("UniMaple", testr);
-      }
-      if(notice1 != "-"){
-        Api.replyRoom("천한수", notice1);
-        Api.replyRoom("UniMaple", notice1);
-      }
+        var testr = getTest();
+        var notice1 = getNotice();
+        var hournow = FileStream.read(path + "hour.txt");
+        var minnow = FileStream.read(path + "min.txt");
+        if(testr != "-"){
+          Api.replyRoom("천한수", testr);
+          Api.replyRoom("UniMaple", testr);
+        }
+        if(notice1 != "-"){
+          Api.replyRoom("천한수", notice1);
+          Api.replyRoom("UniMaple", notice1);
+        }
       }
       catch(e){
-
+        Api.replyRoom("천한수", e);
       }
     }
     if(msg.startsWith("!보스")){
@@ -139,14 +139,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       else{replier.reply("유저 정보가 삭제되지 않았습니다.");}
       DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
     }
-    if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
-      replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
-    }
-    if(msg.startsWith("몬파/데일리/마일리지/")){
-      replier.reply("황금마차도 챙기라구!");
-    }
-    if(msg.startsWith("우르스 두 배 15분 전")){
+    if(sender == "방장봇"){
+      if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
+        replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
+      }
+      if(msg.startsWith("몬파/데일리/마일리지/")){
+      replier.reply("황금마차랑 아이돌 레벨업도 챙기라구!");
+      }
+      if(msg.startsWith("우르스 두 배 15분 전")){
       replier.reply("황금마차 얼른 탑승해~");
+      }
     }
     if(msg.startsWith("!경험치")){
       var exprep2 = guitarM.getexpInform(msg);
@@ -554,8 +556,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         dataSun = dataSun.toString();
         var dataSundate = dataSun.split("event_date\">")[1];
         dataSundate = dataSundate.split(" 00시 00분")[0];
-        dataSun = dataSun.split("썬데이 메이플!\" src=\"")[1];
-        dataSun = dataSun.split("\" usemap=")[0];
+        dataSun = dataSun.split("<!-- 카피영역 -->")[1].split("<img src=\"")[1];
+        dataSun = dataSun.split("\" alt=")[0];
 
         Kakao.send(room,
         {
