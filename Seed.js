@@ -208,6 +208,112 @@ sd.getSeedInfo = function(msg){
 
     return rep;
 };
+sd.getSeedQuestion = function(msg, room, num){
+    var seedData = org.jsoup.Jsoup.connect("http://39.theseed.ze.am/").get();
+    seedData = seedData.toString();
+    seedData = seedData.replace(/  /g, "").split("<tbody>")[1].replace(/ <td/g, "<td");
+    seedData = seedData.slice(99, seedData.length)
+    var seedqcnt = seedData.split("<tr>").length;
+    var isskip = 0; var seedtemp = ""; var skipnum = 0; var skiptemp = "";
+    var seedQ = [], seedA1 = [], seedA2 = [], seedA3 = [], seedA4 = [], seedA = [];
+    for(i = 1; i < seedqcnt; ++i){
+        seedtemp = seedData.split("<tr>")[i];
+        if(isskip == 0){
+            if(seedtemp.indexOf("rowspan") == -1){
+                seedQ.push(seedtemp.split("<td")[1].split("> ")[1].split(" </td")[0]);
+                seedA1.push(seedtemp.split("<td")[2].split("> ")[1].split(" </td")[0]);
+                seedA2.push(seedtemp.split("<td")[3].split("> ")[1].split(" </td")[0]);
+                seedA3.push(seedtemp.split("<td")[4].split("> ")[1].split(" </td")[0]);
+                seedA4.push(seedtemp.split("<td")[5].split("> ")[1].split(" </td")[0]);
+                seedA.push(seedtemp.split("<td")[6].split("> ")[1].split(" </td")[0]);
+            }
+            else{
+                var skipnumtemp = seedtemp.split("rowspan=\"")[1].split("\"")[0];
+                skipnum = parseInt(skipnumtemp) - 1; isskip = 1;
+                skiptemp = seedtemp.split("<td")[1].split("> ")[1].split(" </td")[0]
+                seedQ.push(seedtemp.split("<td")[1].split("> ")[1].split(" </td")[0]);
+                seedA1.push(seedtemp.split("<td")[2].split("> ")[1].split(" </td")[0]);
+                seedA2.push(seedtemp.split("<td")[3].split("> ")[1].split(" </td")[0]);
+                seedA3.push(seedtemp.split("<td")[4].split("> ")[1].split(" </td")[0]);
+                seedA4.push(seedtemp.split("<td")[5].split("> ")[1].split(" </td")[0]);
+                seedA.push(seedtemp.split("<td")[6].split("> ")[1].split(" </td")[0]);
+            }
+        }
+        else{
+            skipnum--
+            seedQ.push(skiptemp);
+            seedA1.push(seedtemp.split("<td")[1].split("> ")[1].split(" </td")[0]);
+            seedA2.push(seedtemp.split("<td")[2].split("> ")[1].split(" </td")[0]);
+            seedA3.push(seedtemp.split("<td")[3].split("> ")[1].split(" </td")[0]);
+            seedA4.push(seedtemp.split("<td")[4].split("> ")[1].split(" </td")[0]);
+            seedA.push(seedtemp.split("<td")[5].split("> ")[1].split(" </td")[0])
+            if(skipnum == 0){
+                isskip = 0;
+            }
+        }
+    }//268
+
+    var quesInfo = FileStream.read('sdcard/kakao/Bots/보마봇/' + "Question.txt");
+    if(num == 0){
+        if(quesInfo.indexOf(room) == -1){
+            var seedrand2 = getRandomInt(0, 268);
+            var seedwrite = quesInfo + room + "/" + seedrand2 + "\n";
+            FileStream.write('sdcard/kakao/Bots/보마봇/' + "Question.txt", seedwrite);  
+
+            seedtemp = "Q" + seedrand2 + " : " + seedQ[seedrand2] + "\n\n1. " + seedA1[seedrand2] + "\n2. " +  seedA2[seedrand2] + "\n3. " + seedA3[seedrand2] + "\n4. " + seedA4[seedrand2];
+            return seedtemp;
+        }
+        else{
+            return "이 채팅방에서 이미 문제풀이가 진행중입니다. !답 (숫자)를 이용하여 답을 맞춰주세요.";
+        }
+    }
+    else if(num == 1){
+        if(quesInfo.indexOf(room) == -1){
+            return "이 채팅방에서는 문제풀이가 진행되고있지 않습니다. !문제를 이용하여 문제풀이를 시작해주세요.";
+        }
+        else{
+            rep = "";
+            var quesnum = quesInfo.split(room + "/")[1].split("\n")[0];
+            var userans = parseInt(msg.split(" ")[1]);
+            if(userans == undefined){
+                rep = "답을 숫자의 형태(1,2,3,4)로 입력해주세요.";          
+            }
+            else if(userans != 1 && userans != 2 && userans != 3 && userans != 4){
+                rep = "답을 1,2,3,4중에 하나로 선택해서 입력해주세요.";
+            }
+            else{
+                var quesans = getSeedAnswer(seedA[quesnum]);
+                if(userans == quesans){
+                    rep = "정답입니다!!\n\n" + seedQ[quesnum] + "\n" + seedA[quesnum] + " ";
+                    if(quesans == 1){ rep += seedA1[quesnum]; }
+                    else if(quesans == 2){ rep += seedA2[quesnum]; }
+                    else if(quesans == 3){ rep += seedA3[quesnum]; }
+                    else if(quesans == 4){ rep += seedA4[quesnum]; }
+
+                    var seederase = room + "/" + quesnum + "\n";
+                    quesInfo = quesInfo.replace(seederase, '');
+                    FileStream.write('sdcard/kakao/Bots/보마봇/' + "Question.txt", quesInfo);
+                }
+                else{
+                    if(userans == 1){ rep += seedA1[quesnum]; }
+                    else if(userans == 2){ rep += seedA2[quesnum]; }
+                    else if(userans == 3){ rep += seedA3[quesnum]; }
+                    else if(userans == 4){ rep += seedA4[quesnum]; }
+                    rep += " 은(는) 오답입니다. 다른 답을 골라주세요!\n\n";
+                    rep += "Q" + quesnum + " : " + seedQ[quesnum] + "\n\n1. " + seedA1[quesnum] + "\n2. " +  seedA2[quesnum] + "\n3. " + seedA3[quesnum] + "\n4. " + seedA4[quesnum]                
+                }
+            }
+            return rep;
+        }
+
+    }
+};
+function getSeedAnswer(seeda){
+    if(seeda == '①'){return 1;}
+    else if(seeda == '②'){return 2;}
+    else if(seeda == '③'){return 3;}
+    else if(seeda == '④'){return 4;}
+};
 
 var ringlevel = [41, 28, 20, 11];
 var i;

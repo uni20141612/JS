@@ -144,7 +144,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
       if(msg.startsWith("몬파/데일리/마일리지/")){
-      replier.reply("황금마차랑 아이돌 레벨업도 챙기라구!");
+      replier.reply("황금마차랑 토벤머리도 챙기라구!");
       }
       if(msg.startsWith("우르스 두 배 15분 전")){
       replier.reply("황금마차 얼른 탑승해~");
@@ -402,6 +402,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       seedrep = seedM2.getSeedInfo(msg);
       replier.reply(seedrep);
     }
+    if(msg.startsWith("!문제")){
+      const seedM3 = require('Seed');
+      seedrep = seedM3.getSeedQuestion(msg, room, 0);
+      replier.reply(seedrep);
+    }
+    if(msg.startsWith("!답")){
+      const seedM4 = require('Seed');
+      seedrep = seedM4.getSeedQuestion(msg, room, 1);
+      replier.reply(seedrep);
+    }
     if(msg.startsWith("!갱신")){
       nickname = msg.split(" ")[1];
       if(nickname == undefined){      replier.reply("캐릭터 이름을 입력해주세요.\n\n!갱신 (캐릭터이름) : 메이플gg를 갱신합니다.");    }
@@ -556,8 +566,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         dataSun = dataSun.toString();
         var dataSundate = dataSun.split("event_date\">")[1];
         dataSundate = dataSundate.split(" 00시 00분")[0];
-        dataSun = dataSun.split("<!-- 카피영역 -->")[1].split("<img src=\"")[1];
-        dataSun = dataSun.split("\" alt=")[0];
+        dataSun = dataSun.split("<!-- 카피영역 -->")[1].split("src=\"")[1];
+        dataSun = dataSun.split("\"")[0];
 
         Kakao.send(room,
         {
@@ -1076,6 +1086,27 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg == "?"){
       i = getRandomInt(0, 100);
       if(i < 30){ replier.reply("?"); }
+    }
+    if(msg.indexOf("아잉") != -1){
+      i = getRandomInt(0, 100);
+      if(i < 50){ replier.reply("아잉 시러"); }
+    }
+    if(msg.indexOf("민초") != -1 || msg.indexOf("민트초코") != -1){
+      i = getRandomInt(0, 100);
+      if(i < 50){ replier.reply("민초 조아"); }
+    }
+    if(msg.indexOf("로리") != -1){
+      rep = msg.replace("로리", "어머");
+      i = getRandomInt(0, 100);
+      if(i < 50){ replier.reply(rep); }
+    }
+    if(msg.indexOf("시발") != -1){
+      rep = msg.replace("시발", "이런");
+      i = getRandomInt(0, 100);
+      if(i < 30){ replier.reply(rep); }
+    }
+    if(msg.indexOf("히오스") != -1 || msg.indexOf("시공") != -1 || msg.indexOf("시 공") != -1  || msg.indexOf("레스토랑") != -1){
+      replier.reply("시공 조아");
     }
     if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");
