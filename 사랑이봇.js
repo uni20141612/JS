@@ -154,34 +154,76 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var exprep2 = guitarM.getexpInform(msg);
       replier.reply(exprep2);
     }
-    if(msg.startsWith("!날씨")){
-      if(msg.slice(4) == "" || msg.split(" ")[1] == undefined){
-        replier.reply("!날씨 (지역) 형태로 다시 입력해주십시오.\n\n!날씨 (지역) : 그 지역 날씨를 보여줍니다.");
-      }
+    if(msg.startsWith("!ㄴㅆ") || msg.startsWith("!날씨")){
+      var locW = msg.split(" ")[1];
+      if(locW == undefined){ replier.reply("지역명을 입력해주세요.\n\n!날씨 (지역) : 그 지역 날씨를 보여줍니다.")}
       else{
-    	let isarea = encodeURIComponent(msg.slice(4)+" 날씨");
-        let area = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=" + isarea;
-        let tempweather = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > p > span.todaytemp");
-        tempweather = tempweather.toString();
-        let firstT = tempweather.indexOf(">"); tempweather = tempweather.slice(firstT+1, tempweather.length);
-        let secondT = tempweather.indexOf("<"); tempweather = tempweather.slice(0, secondT);
+      try{ 
+      var searchW = "https://m.search.daum.net/search?w=tot&q=" + msg.split(" ")[1] + "+날씨";
+      var tempW0 = Utils.parse(searchW).select("div[id=weatherPanels]");
+      var tempW = tempW0.get(0);
 
-        let weatheretc = org.jsoup.Jsoup.connect(area).get().select("#main_pack > section.sc_new.cs_weather._weather > div > div.api_cs_wrap > div.weather_box > div.weather_area._mainArea > div.today_area._mainTabContent > div.main_info > div > ul > li:nth-child(1) > p");
-        weatheretc = weatheretc.toString();
-        let firstW = weatheretc.indexOf(">"); weatheretc = weatheretc.slice(firstW+1, weatheretc.length);
-        let secondW = weatheretc.indexOf("<"); weatheretc = weatheretc.slice(0, secondW);
-        if(tempweather != "" && weatheretc != "") {
-        replier.reply(msg.slice(4) + "의 날씨\n" + tempweather + "℃, " + weatheretc);
-        }
-        else{
-          replier.reply(msg.slice(4) + "에 대한 날씨정보를 찾는 것을 실패하였습니다.");
-        }
+        var resultW = "[" + locW + " 날씨]\n";
+        resultW += "상태 : " + tempW.select("p").text().split(", 오늘")[0] + "\n";
+        resultW += "온도 : " + tempW.select("em.txt_temp").get(0).ownText() + "℃\n";
+        tempW = tempW.select("dd");
+        resultW += "습도 : " + tempW.get(0).text() + "\n";
+        resultW += "바람 : " + tempW0.select("dt").get(1).text();
+        resultW += ", " + tempW.get(1).text() + "\n";
+        tempW = tempW0.select("ul.list_detail").select("li").get(1).select("span");
+        resultW += "미세먼지 : " + tempW.get(2).text();
+        resultW += " (" + tempW.get(3).ownText() + "μg/m³)";
+
+        replier.reply(resultW); 
+      }
+      catch(e){ replier.reply(locW + "의 날씨를 불러오는데 실패하였습니다."); }
       }
     }
     if(msg == "!한강" || msg == "!ㅎㄱ"){
       var riverTemp = Utils.getWebText("http://hangang.dkserver.wo.tc/");
       var river = guitarM.getHangang(riverTemp);
       replier.reply(river);
+    }
+    if(msg.startsWith("!로아")){
+      nickname = msg.split(" ")[1];
+      if(nickname == undefined){
+        replier.reply("캐릭터 이름을 입력해주세요.\n\n!로아 (캐릭터명) : 로아와 기준 로스트아크 관련 정보를 보여줍니다.");
+      }
+      else{
+        var roarep = "";
+        var roawa = "https://loawa.com/char/" + nickname;
+        var dataR1 = org.jsoup.Jsoup.connect(roawa).get();
+        dataR1 = dataR1.toString();
+        if(dataR1.indexOf("캐릭터 정보가 없습니다.") == -1){
+        dataR1 = dataR1.split("col pl-0 pr-0\">")[1].split("<h6>")[0].replace(/&nbsp;/g, "");
+
+        var roaserver = dataR1.split("tfs14\">")[1].split("</span>")[0];
+        var roaguild = dataR1.split("tfs14\">")[2].split("</span>")[0];
+        var roaclass = dataR1.split("tfs14\">")[3].split("</span>")[0];
+        var roatitle = dataR1.split("tfs14\">")[4].split("</span>")[0];
+        var roafight = dataR1.split("tfs14\">")[5].split("</span>")[0];
+        var roaitem = dataR1.split("tfs14\">")[6].split("</span>")[0];
+        var roaexped = dataR1.split("tfs14\">")[7].split("</span>")[0];
+        var roapvp = dataR1.split("tfs14\">")[8].split("</span>")[0];
+        var roaterri = dataR1.split("tfs14\">")[9].split("</span>")[0];
+
+        roarep = nickname + " 캐릭터의 로스트아크 정보\n\n";
+        roarep += "서 버 : " + roaserver;
+        roarep += "\n길 드 : " + roaguild;
+        roarep += "\n클래스 : " + roaclass;
+        roarep += "\n칭 호 : " + roatitle;
+        roarep += "\n전 투 : " + roafight;
+        roarep += "\n아이템 : " + roaitem;
+        roarep += "\n원정대 : " + roaexped;
+        roarep += "\nP V P : " + roapvp;
+        roarep += "\n영 지 : " + roaterri;
+        }
+        else{
+          roarep = "캐릭터 정보가 없습니다.";
+        }
+        replier.reply(roarep);
+        
+      }
     }
     if(msg.startsWith("!캐릭터") || msg.startsWith("!정보")){      
       nickname = msg.split(" ")[1];
@@ -1103,7 +1145,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.indexOf("시발") != -1){
       rep = msg.replace("시발", "이런");
       i = getRandomInt(0, 100);
-      if(i < 30){ replier.reply(rep); }
+      if(i < 50){ replier.reply(rep); }
+    }
+    if(msg.indexOf("씨발") != -1){
+      rep = msg.replace("씨발", "이런");
+      i = getRandomInt(0, 100);
+      if(i < 50){ replier.reply(rep); }
     }
     if(msg.indexOf("히오스") != -1 || msg.indexOf("시공") != -1 || msg.indexOf("시 공") != -1  || msg.indexOf("레스토랑") != -1){
       replier.reply("시공 조아");
@@ -1152,6 +1199,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const mapM2 = require('Map');
       var forcerep = mapM2.getMapForce(msg);
       replier.reply(forcerep);
+    }
+    if(msg.startsWith("!놀긍")){
+      var Pcrep = guitarM.getPoschaos(msg);
+      replier.reply(Pcrep);
     }
     if(msg == "!상태"){
       var statusrep = "보마봇 상태\n";

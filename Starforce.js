@@ -16,16 +16,16 @@ sf.isSFready = function (A, B, C, D, E, F){
           chkSF = 3000;
         }
         else if(A == 100 && B > 8){
-          chkSF = 4000;
+          chkSF = 3001;
         }
         else if(A == 110 && B > 10){
-          chkSF = 5000;
+          chkSF = 3002;
         }
         else if(A == 120 && B > 15){
-          chkSF = 6000;
+          chkSF = 3003;
         }
         else if(A == 130 && B > 20){
-          chkSF = 7000;
+          chkSF = 3004;
         }
         else{
           if(C < B || C < 1 || C > 25){
