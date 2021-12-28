@@ -10,7 +10,7 @@ sug.getSuggest = function(senderhash, sendername, msg){
     else{
         var dataS = DataBase.getDataBase("UserSuggest.txt");
         if(this.findSuggest(senderhash) == "-"){
-            DataBase.appendDataBase("UserSuggest.txt", "[" + senderhash + " / " + sendername + "] : " + sugContent + "\n");
+            DataBase.appendDataBase("UserSuggest.txt", "[" + senderhash + " * " + sendername + "] : " + sugContent + "\n");
         }
         else{
             var sugind = dataS.indexOf(senderhash);
@@ -19,7 +19,7 @@ sug.getSuggest = function(senderhash, sendername, msg){
             dataS = dataS.replace(tempSug, "");
             DataBase.setDataBase("UserSuggest.txt", dataS);
             rep += "이전에 입력한 건의사항 [" + tempSug.split(" : ")[1].split("\n")[0] + "] 이(가) 삭제됩니다.\n";
-            DataBase.appendDataBase("UserSuggest.txt", "[" + senderhash + " / " + sendername + "] : " + sugContent + "\n");
+            DataBase.appendDataBase("UserSuggest.txt", "[" + senderhash + " * " + sendername + "] : " + sugContent + "\n");
         }
         rep += sugContent + " >> 가 입력되었습니다. 감사합니다.";
     }
@@ -33,7 +33,7 @@ sug.findSuggest = function(senderhash){
     dataS = DataBase.getDataBase("UserSuggest.txt");
     if(dataS.indexOf(senderhash) != -1){
         var dataS2 = dataS.split(senderhash)[1].split("\n")[0];
-        var senderN = dataS2.split(" / ")[1].split("]")[0];
+        var senderN = dataS2.split(" * ")[1].split("]")[0];
         var senderC = dataS2.split("] : ")[1].split("\n")[0];
         repF = senderN + " 님께서 남겨주신 건의사항은 [" + senderC + "] 입니다.";
     }
@@ -60,10 +60,14 @@ sug.eraseSuggest = function(senderhash){
 };
 
 sug.printSuggest = function(){
-    repP = "";
+    repP = "보마봇 유저 건의사항\n\n";
     
     dataS = DataBase.getDataBase("UserSuggest.txt");
-    repP = dataS;
+    for(var j = 1; j < dataS.split("* ").length; ++j){
+        repP += "[";
+        repP += dataS.split("* ")[j].split("\n")[0];
+        repP += "\n";
+    }
     return repP;
 };
 

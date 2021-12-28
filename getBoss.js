@@ -439,7 +439,9 @@ gB.getBoss = function (boss){
         case "카오스 가디언 엔젤슬라임":
         case "카오스 가디언엔젤 슬라임":
         case "카오스가디언엔젤슬라임":
+        case "카오스가엔슬":
         case "카가엔슬":
+        case "카엔슬":
         case "카오스 슬라임":
         case "카오스슬라임":
         case "카슬":
