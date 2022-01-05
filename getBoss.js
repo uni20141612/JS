@@ -393,11 +393,21 @@ gB.getBoss = function (boss){
         case "진 힐라":
         case "진힐라":
         case "진힐":
+        case "하드 진 힐라":
+        case "하드 진힐라":
+        case "하드진힐라":
+        case "하진힐라":
+        case "하진힐":
           chkboss = 49;
           break;
         case "선택받은 세렌":
         case "선택받은세렌":
         case "세렌":
+        case "하드 선택받은 세렌":
+        case "하드 선택받은세렌":
+        case "하드선택받은세렌":
+        case "하드 세렌":
+        case "하드세렌":
           chkboss = 50;
           break;
         case "검은 마법사":
@@ -451,6 +461,31 @@ gB.getBoss = function (boss){
         case "마왕발록":
         case "발록":
           chkboss = 55;
+          break;
+        case "이지 윌":
+        case "이지윌":
+        case "이윌":
+          chkboss = 56;
+          break;
+        case "노멀 진힐라":
+        case "노말 진힐라":
+        case "노멀진힐라":
+        case "노말진힐라":
+        case "노진힐라":
+        case "노진힐":
+          chkboss = 57;
+          break;
+        case "노말 선택받은 세렌":
+        case "노멀 선택받은 세렌":
+        case "노말선택받은세렌":
+        case "노멀선택받은세렌":
+        case "노말 세렌":
+        case "노멀 세렌":
+        case "노말세렌":
+        case "노멀세렌":
+        case "노세렌":
+        case "세렌":
+          chkboss = 58;
           break;
         default:
           rep = "그런 보스는 없습니다.";
@@ -549,6 +584,7 @@ gB.getBossimage = function (ind){
         break;
       case 40:
       case 47:
+      case 56:
         rep = "https://i.imgur.com/DXL2K99.png";
         break;
       case 41:
@@ -560,9 +596,11 @@ gB.getBossimage = function (ind){
         rep = "https://i.imgur.com/cCnCDJG.png";
         break;
       case 49:
+      case 57:
         rep = "https://i.imgur.com/fMTHRN8.png";
         break;
       case 50:
+      case 58:
         rep = "https://i.imgur.com/6dOgp7P.png";
         break;
       case 51:
@@ -671,6 +709,7 @@ gB.getBossimage2 = function (ind){
         break;
       case 40:
       case 47:
+      case 56:
         rep = "https://i.imgur.com/wi6UdG3.png";
         break;
       case 41:
@@ -682,9 +721,11 @@ gB.getBossimage2 = function (ind){
         rep = "https://i.imgur.com/AcsixrM.png";
         break;
       case 49:
+      case 57:
         rep = "https://i.imgur.com/yGlqSFc.png";
         break;
       case 50:
+      case 58:
         rep = "https://i.imgur.com/oFVIOwp.png";
         break;
       case 51:
@@ -857,7 +898,7 @@ gB.getBossHP = function (ind){
         rep = "176조 / 110,450,000메소";  //진 힐라
         break;
       case 50:
-        rep = "132조ㆍ???조 / 151,250,000메소"; //선택받은 세렌
+        rep = "126조ㆍ330조 / 151,250,000메소"; //선택받은 세렌
         break;
       case 51:
         rep = "63조ㆍ115.5조ㆍ157.5조ㆍ150조 / 500,000,000메소";  //검은 마법사
@@ -871,9 +912,19 @@ gB.getBossHP = function (ind){
       case 54:
         rep = "115.5조 / 90,312,500메소"; //카오스 가디언 엔젤 슬라임
         break;
-      case 44:
+      case 55:
         rep = "478만";  //마왕 발록
         break;
+      case 56:
+        rep = "5.4조ㆍ4.16조ㆍ6.94조 / 51,138,596메소"; //이지 윌
+        break;
+      case 57:
+        rep = "132조 / 139,668,296메소"; //노멀 진힐라
+        break;
+      case 58:
+        rep = "84조ㆍ220조 / 181,116,193메소"; //노멀 선택받은 세렌
+        break;
+        
     }
     return rep;
 };
@@ -1225,7 +1276,7 @@ gB.getBossinfo = function (ind){
           rep = "300%, 반감, 포스 900, 수에큐 10개";
           break;
         case 50:
-          rep = "380%, 반감, 어센틱포스 150ㆍ200, 수에큐 ?개";
+          rep = "380%, 반감, 어센틱포스 150ㆍ200, 수에큐 11개";
           break;
         case 51:
           rep = "300%, 반감, 포스 1320, 수에큐 30개";
@@ -1241,6 +1292,16 @@ gB.getBossinfo = function (ind){
           break;
         case 55:
           rep = "25%, 비반감, 3분간 무적ㆍ5만이하 데미지시 패배";
+          break;
+        case 56:
+          rep = "300%, 반감, 포스 560, 수에큐 3개";
+          break;
+        case 57:
+          rep = "300%, 반감, 포스 900, 수에큐 9개";
+          break;
+        case 58:
+          rep = "380%, 반감, 어센틱포스 150ㆍ200, 수에큐 10개";
+          break;          
     }
     return rep;
   };
@@ -1295,13 +1356,16 @@ var bossList = [
     "카오스 거대 괴수 더스크 Lv.255\n126조, 300%, 반감, 포스 730\n92,450,000메소", //46
     "하드 윌 Lv.250\n42조ㆍ31.5조ㆍ52.5조\n300%, 반감, 포스 760\n88,200,000메소", //47
     "하드 친위대장 듄켈 Lv.265\n155조, 300%, 반감, 포스 850\n96,800,000메소", //48
-    "진 힐라 Lv.250\n176조, 300%, 반감, 포스 900\n110,450,000메소", //49
-    "선택받은 세렌 Lv.275\n132조ㆍ???조\n380%, 반감, 포스 150ㆍ200\n151,250,000메소", //50
+    "하드 진 힐라 Lv.250\n176조, 300%, 반감, 포스 900\n110,450,000메소", //49
+    "하드 선택받은 세렌 Lv.275\n132조ㆍ???조\n380%, 반감, 포스 150ㆍ200\n151,250,000메소", //50
     "검은 마법사 Lv.275\n63조ㆍ115.5조ㆍ157.5조ㆍ150조\n300%, 반감, 포스 1320\n500,000,000메소", //51
     "아르카누스 Lv.101\n60억ㆍ150억ㆍ1500억ㆍ1.5조ㆍ10.5조ㆍ900조\n50%ㆍ100%ㆍ150%ㆍ200%ㆍ250%ㆍ300%, 반감", //52
     "노멀 가디언 엔젤 슬라임 Lv.220\n5조, 300%, 반감\n34,422,000메소", //53
     "카오스 가디언 엔젤 슬라임 Lv.250\n115.5조, 300%, 반감\n90,312,500메소", //54
-    "마왕 발록 Lv.65\n478만, 25%, 비반감, 3분간 무적"//55
+    "마왕 발록 Lv.65\n478만, 25%, 비반감, 3분간 무적",//55
+    "이지 윌 Lv.235\n",//56
+    "노멀 진 힐라 Lv.250\n",//57
+    "노멀 선택받은 세렌 Lv.275\n"//58
 ];
 
 module.exports = gB;

@@ -43,9 +43,45 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         Api.replyRoom("천한수", e);
       }
     }
-    if((sender == myName || sender == adminNick) && msg.startsWith("테스트")){
-      //const fM = require('Food');      replier.reply(fM.foodList.length);
-    }    
+    if((sender == myName || sender == adminNick)/*관리자전용*/){
+      if((msg.startsWith("!답장"))){
+        var notices = msg.slice(4, msg.length);
+        Api.replyRoom("UniMaple", notices);
+      }
+      if((msg == "!리로드" || msg == "!ㄹㄹ")){
+        if(Api.reload(scriptName)){     replier.reply("리로드 성공");      }
+        else{  replier.reply("리로드 실패");   }
+      }
+      if(msg == "!유저정보"){
+        var dataB = DataBase.getDataBase("Userdata.txt");  
+        replier.reply(dataB);
+      }
+      if(msg.startsWith("!유저정보삭제")){
+        var nicks = msg.split(" ")[1];
+        var dataB = DataBase.getDataBase("Userdata.txt");  
+        var userinfoind = dataB.indexOf(nicks);
+        if(userinfoind != -1){
+          var temps = dataB.slice(userinfoind-20, userinfoind.length).split("[")[1].split("]")[0];
+          temps = "[" + temps + "]\n";
+          dataB = dataB.replace(temps, "");
+          DataBase.setDataBase("Userdata.txt", dataB); 
+          replier.reply(dataB);
+        }
+        else{
+          replier.reply(nicks + " >> 닉네임이 유저 정보에 없습니다.");
+        }
+      }
+      if(msg == "!유저정보전체삭제"){
+        var isdataB = DataBase.removeDataBase("Userdata.txt");  
+        if(isdataB){replier.reply("유저 정보가 삭제되었습니다.");}
+        else{replier.reply("유저 정보가 삭제되지 않았습니다.");}
+        DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
+      }
+      if(msg.startsWith("테스트")){
+        dates = gettoday();
+        replier.reply(dates);
+      }  
+    }  
     if(msg.startsWith("!강환") || msg.startsWith("!강환불")){
       var addtitle = ["!"];
       var addn = ["-","-","-","-","-","-","-","-","-","-"];
@@ -220,42 +256,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       nickname = msg.split(" ")[1];
       if(nickname == undefined){      replier.reply("캐릭터 이름을 입력해주세요.\n\n!갱신 (캐릭터이름) : 메이플gg를 갱신합니다.");    }
       else{ replier.reply(mapleupdate(nickname)); }
-    }
-    if((sender == myName || sender == adminNick)/*관리자전용*/){
-      if((msg.startsWith("!답장"))){
-        var notices = msg.slice(4, msg.length);
-        Api.replyRoom("UniMaple", notices);
-      }
-      if((msg == "!리로드" || msg == "!ㄹㄹ")){
-        if(Api.reload(scriptName)){     replier.reply("리로드 성공");      }
-        else{  replier.reply("리로드 실패");   }
-      }
-      if(msg == "!유저정보"){
-        var dataB = DataBase.getDataBase("Userdata.txt");  
-        replier.reply(dataB);
-      }
-      if(msg.startsWith("!유저정보삭제")){
-        var nicks = msg.split(" ")[1];
-        var dataB = DataBase.getDataBase("Userdata.txt");  
-        var userinfoind = dataB.indexOf(nicks);
-        if(userinfoind != -1){
-          var temps = dataB.slice(userinfoind-20, userinfoind.length).split("[")[1].split("]")[0];
-          temps = "[" + temps + "]\n";
-          dataB = dataB.replace(temps, "");
-          DataBase.setDataBase("Userdata.txt", dataB); 
-          replier.reply(dataB);
-        }
-        else{
-          replier.reply(nicks + " >> 닉네임이 유저 정보에 없습니다.");
-        }
-      }
-      if(msg == "!유저정보전체삭제"){
-        var isdataB = DataBase.removeDataBase("Userdata.txt");  
-        if(isdataB){replier.reply("유저 정보가 삭제되었습니다.");}
-        else{replier.reply("유저 정보가 삭제되지 않았습니다.");}
-        DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
-      }
-
     }
     if(msg.startsWith("!날씨") || msg.startsWith("!ㄴㅆ")){
       var locW = msg.split(" ")[1];
@@ -473,7 +473,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           dataMeso = org.jsoup.Jsoup.connect('https://commapi.gamemarket.kr/comm/graph').userAgent('Mozilla/5.0').ignoreContentType(true).post().wholeText();
           dataMeso = dataMeso.toString();
           var dates = gettoday();
-          var mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0].split(dates)[1].split("},")[0];
+          var mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0];//.split(dates)[1].split("},")[0];
+          if(mesomarket.indexOf(dates) == -1){ dates = getyesterday(); }
+          mesomarket = mesomarket.split(dates)[1];
+          mesomarket = mesomarket.split("},")[0];
+          //if(mesomarket.length == 0){ dates = getyesterday(); mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0].split(dates)[1].split("},")[0]; }
           var mutong = dataMeso.split("reverse2")[1].split(dates)[1].split("},")[0];
 
           var mm = [];
@@ -698,9 +702,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
       //if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차랑 토벤머리도 챙기라구!");  }
-      if(msg.startsWith("우르스 두 배 15분 전")){
-      replier.reply("황금마차 얼른 탑승해~");
-      }
+      //if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 탑승해~"); }
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
@@ -1133,6 +1135,37 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         },
          "custom");
     }
+    if(msg.startsWith("!직업추천")){
+      const jobM2 = require('Job');
+      chkjob = jobM2.getJobRecommend(msg);
+      jobmention = "-";
+      if(chkjob != -1){
+        var jobname = jobM2.getJobname(chkjob);
+        var jobdesc = jobM2.getJobdesc(chkjob);
+        var jobimage = jobM2.getJobimage(chkjob);
+        var jobweb = jobM2.getJobweb(chkjob);
+        jobmention = jobM2.mentions[chkjob];
+        Kakao.send(room,
+        {
+          "link_ver" : "4.0",
+          "template_id" : 59546,
+          "template_args" : {
+                              "jobname" : jobname,
+                              "jobdesc" : jobdesc,
+                              "jobimage" : jobimage,
+                              "jobmobweb" : jobweb,
+                              "jobpcweb" : jobweb
+                            }
+        },
+          "custom");
+        }
+      else{
+        replier.reply("입력하신 옵션이 올바르지 않습니다. 확인 후 다시 입력해주세요.\n\n!직업추천 [옵션] : 메이플스토리에 존재하는 직업 중에 무작위로 추첨을 하여 보여줍니다. 옵션은 전사, 마법사, 궁수, 도적, 해적, 힘(STR), 인트(INT), 덱스(DEX), 럭(LUK), 특수 중에서 고를수 있습니다. 생략하면 전체 중에서 무작위로 추첨합니다.");
+      }
+        if(jobmention != "-"){
+          replier.reply(jobmention);
+        }
+    }
     if(msg.startsWith("!최종뎀") || msg.startsWith("!최종데미지") || msg.startsWith("!최종")){
       var finaldam = guitarM.getFinal(msg);
       replier.reply(finaldam);
@@ -1353,11 +1386,36 @@ function gettoday(){
   else {todayday = (day.getDate() - 1);}
   todaydate += todayday;
 
-  if(todaydate == "2021-09-00"){todaydate = "2021-08-31";}
-  if(todaydate == "2021-10-00"){todaydate = "2021-09-30";}
-  if(todaydate == "2021-11-00"){todaydate = "2021-10-31";}
   if(todaydate == "2021-12-00"){todaydate = "2021-11-30";}
+  if(todaydate == "2022-01-00"){todaydate = "2021-12-31";}
+  if(todaydate == "2022-02-00"){todaydate = "2022-01-31";}
+  if(todaydate == "2022-03-00"){todaydate = "2022-02-28";}
+  if(todaydate == "2022-04-00"){todaydate = "2022-03-31";}
   return todaydate;
+}
+function getyesterday(){
+  day = new Date();
+  var yesterdaydate = ""; yesterdaydate += day.getFullYear() + "-";
+  var yesterdaymonth = "";
+  var yesterdayday = "";
+  if(day.getMonth() + 1 < 10){ yesterdaymonth = "0" + (day.getMonth()+1);}
+  else {yesterdaymonth = (day.getMonth() + 1);}
+  yesterdaydate += yesterdaymonth + "-";
+  if(day.getDate() - 1 < 10 && day.getDate() > 1){ yesterdayday = "0" + (day.getDate()-2); }
+  else if(day.getDate() == 1){ yesterdayday = "0$"; }
+  else {yesterdayday = (day.getDate() - 1);}
+  yesterdaydate += yesterdayday;
+
+  if(yesterdaydate == "2021-12-00"){yesterdaydate = "2021-11-30";}
+  if(yesterdaydate == "2022-01-00"){yesterdaydate = "2021-12-31";}
+  if(yesterdaydate == "2022-01-0$"){yesterdaydate = "2021-12-30";}
+  if(yesterdaydate == "2022-02-00"){yesterdaydate = "2022-01-31";}
+  if(yesterdaydate == "2022-02-0$"){yesterdaydate = "2022-01-30";}
+  if(yesterdaydate == "2022-03-00"){yesterdaydate = "2022-02-28";}
+  if(yesterdaydate == "2022-03-0$"){yesterdaydate = "2022-02-27";}
+  if(yesterdaydate == "2022-04-00"){yesterdaydate = "2022-03-31";}
+  if(yesterdaydate == "2022-04-0$"){yesterdaydate = "2022-03-30";}
+  return yesterdaydate;
 }
 function papagoT(lang1, lang2, value){
   var res = org.jsoup.Jsoup.connect("https://openapi.naver.com/v1/papago/n2mt")
@@ -1458,7 +1516,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/-/보마";
+var adminNick = "리부트/0/보마<봇잘알>";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;

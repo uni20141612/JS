@@ -1237,6 +1237,78 @@ job.getJobweb = function (ind){
     }
     return rep;
 };
+job.getJobRecommend = function(msg){
+  chkjob = -1;
+  var jdesc = msg.split(" ")[1];
+  if(jdesc == undefined){
+    do{
+    chkjob = getRandomInt(1, 48);
+    }while(chkjob == 16 || chkjob == 23)
+  }
+  else{
+    var jrand = 0;
+    if(jdesc == "전사"){
+      var jwarrior = [1, 2, 3, 17, 22, 24, 29, 30, 31, 37, 41, 46];
+      jrand = getRandomInt(0, jwarrior.length);
+      chkjob = jwarrior[jrand];
+    }
+    else if(jdesc == "마법사"){
+      var jmagic = [4, 5, 6, 18, 25, 32, 33, 42, 44, 47];
+      jrand = getRandomInt(0, jmagic.length);
+      chkjob = jmagic[jrand];
+    }
+    else if(jdesc == "궁수"){
+      var jarcher = [7, 8, 9, 19, 26, 34, 38];
+      jrand = getRandomInt(0, jarcher.length);
+      chkjob = jarcher[jrand];
+    }
+    else if(jdesc == "도적"){
+      var jthief = [10, 11, 12, 20, 28, 35, 39, 45];
+      jrand = getRandomInt(0, jthief.length);
+      chkjob = jthief[jrand];
+    }
+    else if(jdesc == "해적"){
+      var jpirate = [13, 14, 15, 21, 27, 28, 36, 40, 43];
+      jrand = getRandomInt(0, jpirate.length);
+      chkjob = jpirate[jrand];
+    }
+    else if(jdesc == "힘" || jdesc == "STR"){
+      var jstr = [1, 2, 3, 13, 15, 17, 21, 22, 24, 29, 31, 36, 37, 41, 43, 46];
+      jrand = getRandomInt(0, jstr.length);
+      chkjob = jstr[jrand];
+    }
+    else if(jdesc == "인트" || jdesc == "INT"){
+      var jint = [4, 5, 6, 18, 25, 32, 33, 42, 44, 47];
+      jrand = getRandomInt(0, jint.length);
+      chkjob = jint[jrand];
+    }
+    else if(jdesc == "덱스" || jdesc == "DEX"){
+      var jdex = [7, 8, 9, 14, 19, 26, 27, 34, 38, 40];
+      jrand = getRandomInt(0, jdex.length);
+      chkjob = jdex[jrand];
+    }
+    else if(jdesc == "럭" || jdesc == "LUK"){
+      var jluk = [10, 11, 12, 20, 28, 35, 39, 45];
+      jrand = getRandomInt(0, jluk.length);
+      chkjob = jluk[jrand];
+    }
+    else if(jdesc == "특수"){
+      var jspecial = [0, 16, 23, 28, 30];
+      jrand = getRandomInt(0, jspecial.length);
+      chkjob = jspecial[jrand];
+    }    
+    else{
+      chkjob = -1;
+    }
+  }
+  return chkjob;
+};
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+}
 
 var chkjob = -1;
 var jobMentionList = [
@@ -1292,6 +1364,7 @@ var jobMentionList = [
     "예티\n\n이벤트 직업 특성 상 핑크빈처럼 기간 한정 캐릭터이다. 또한 이벤트 기간에만 열리는 예티X핑크빈 월드에서만 캐릭터를 생성할 수 있으며 예티X핑크빈 스탭업 이벤트로 첫 출시되었다.\n\n[2021년 3월 25일 최초 출시]\n\n보상 : 예아일체 - 보스 공격 시 데미지 증가 + 10%, 공격력/마력 +5, 올스탯 +10", // 49 예티
     "\n\n" // 50
   ];
+job.mentions = jobMentionList;
 var jobList = ["!초보자", "!히어로", "!팔라딘", "!다크나이트", "!불독", "!썬콜", "!비숍", "!보우마스터", "!신궁", "!패스파인더", "!나이트로드", "!섀도어", "!듀얼블레이드", "!바이퍼", "!캡틴", "!캐논슈터", "!노블레스", "!소울마스터", "!플레임위자드", "!윈드브레이커", "!나이트워커", "!스트라이커", "!미하일", "!시티즌", "!블래스터", "!배틀메이지", "!와일드헌터", "!메카닉", "!제논", "!데몬슬레이어", "!데몬어벤져", "!아란", "!에반", "!루미너스", "!메르세데스", "!팬텀", "!은월", "!카이저", "!카인", "!카데나", "!엔젤릭버스터", "!아델", "!일리움", "!아크", "!라라", "!호영", "!제로", "!키네시스", "!핑크빈", "!예티" ];
 
 module.exports = job;
