@@ -498,24 +498,25 @@ gt.getEXP = function (nickname, dataC1){
     var dataHis2 = dataHis1.split("c3.generate")[0];
 
     var dataHisLevel = [];
-    for(i = 0; i < 7; ++i){
+    var hiscnt = dataHis2.split("level\":\"").length-1;
+    for(i = 0; i < hiscnt; ++i){
       var tempHisLevel = dataHis2.split("level\":\"")[i+1];
       dataHisLevel[i] = tempHisLevel.split("\",")[0];
     }
 
     var dataHisExp = [];
-    for(i = 0; i < 7; ++i){
+    for(i = 0; i < hiscnt; ++i){
       var tempHisExp = dataHis2.split("exp\":")[i+1];
       dataHisExp[i] = tempHisExp.split("}")[0];
     }
 
     var dataHis3 = dataHis1.split("columns: [[")[1].split("exp")[0];
     var dataHisYear = [];
-    for(i = 0; i < 7; ++i){
-      dataHisYear[i] = "21";
+    for(i = 0; i < hiscnt; ++i){
+      dataHisYear[i] = "22";
     }
     var dataHisMonth = [];
-    for(i = 0; i < 7; ++i){
+    for(i = 0; i < hiscnt; ++i){
       var tempHisMonth = dataHis3.split(",\"")[i+1];
       tempHisMonth = tempHisMonth.split("\\uc6d4")[0];
       if(tempHisMonth.length > 2){
@@ -526,13 +527,13 @@ gt.getEXP = function (nickname, dataC1){
     }
 
     var dataHisDay = [];
-    for(i = 0; i < 7; ++i){
+    for(i = 0; i < hiscnt; ++i){
       var tempHisDay = dataHis3.split("uc6d4 ")[i+1];
       dataHisDay[i] = tempHisDay.split("\\")[0];
     }
     var history = "";
     history += "[";  history += nickname; history += "]\n";
-    for(i = 0; i < 7; ++i){
+    for(i = 0; i < hiscnt; ++i){
       history += dataHisYear[i]; history += "년 ";
       history += dataHisMonth[i]; history += "월 ";
       history += dataHisDay[i]; history += "일: Lv.";
@@ -556,13 +557,14 @@ gt.getLevel = function (nickname, dataC1){
     try{
       var dataLvHis = dataC1.split("columns: [[\"x\"")[2];
       dataLvHis = dataLvHis.split("]]")[0];
-
+      
+      hiscnt = dataLvHis.split("\\uc6d4").length - 1;
       var dataLvHisYear = [];
-      for(i = 0; i < 7; ++i){
-        dataLvHisYear[i] = "21";
+      for(i = 0; i < hiscnt; ++i){
+        dataLvHisYear[i] = "22";
       }
       var dataLvHisMonth = [];
-      for(i = 0; i < 7; ++i){
+      for(i = 0; i < hiscnt; ++i){
         var tempLvMonth = dataLvHis.split(",\"")[i+1];
         tempLvMonth = tempLvMonth.split("\\uc6d4")[0];
         if(tempLvMonth.length > 2){
@@ -573,21 +575,21 @@ gt.getLevel = function (nickname, dataC1){
       }
 
       var dataLvHisDay = [];
-      for(i = 0; i < 7; ++i){
+      for(i = 0; i < hiscnt; ++i){
         var tempLvDay = dataLvHis.split("uc6d4 ")[i+1];
         dataLvHisDay[i] = tempLvDay.split("\\")[0];
       }
 
       var dataLvHisLv = dataLvHis.split("level")[1];
       var dataLvHisLevel = [];
-      for(i = 0; i < 7; ++i){
+      for(i = 0; i < hiscnt; ++i){
         var tempLv = dataLvHisLv.split(",\"")[i+1];
         dataLvHisLevel[i] = tempLv.split("\"")[0];
       }
 
       var hisLv = "";
       hisLv += "[";  hisLv += nickname; hisLv += "]\n";
-      for(i = 0; i < 7; ++i){
+      for(i = 0; i < hiscnt; ++i){
         hisLv += dataLvHisYear[i]; hisLv += "년 ";
         hisLv += dataLvHisMonth[i]; hisLv += "월 ";
         hisLv += dataLvHisDay[i]; hisLv += "일: Lv.";
