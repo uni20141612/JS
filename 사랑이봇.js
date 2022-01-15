@@ -473,16 +473,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           dataMeso = org.jsoup.Jsoup.connect('https://commapi.gamemarket.kr/comm/graph').userAgent('Mozilla/5.0').ignoreContentType(true).post().wholeText();
           dataMeso = dataMeso.toString();
           var dates = gettoday();
-          var mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0];//.split(dates)[1].split("},")[0];
+          var mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0];
           if(mesomarket.indexOf(dates) == -1){ dates = getyesterday(); }
-          mesomarket = mesomarket.split(dates)[1];
-          mesomarket = mesomarket.split("},")[0];
-          //if(mesomarket.length == 0){ dates = getyesterday(); mesomarket = dataMeso.split("reverse")[1].split("reverse2")[0].split(dates)[1].split("},")[0]; }
-          var mutong = dataMeso.split("reverse2")[1].split(dates)[1].split("},")[0];
+          mesomarket = mesomarket.split("[{")[1].split("}")[0];
+          var mutong = dataMeso.split("reverse2")[1];
+          mutong = mutong.split("[{")[1].split("}")[0];
+          dates = mesomarket.split("reg_date\":\"")[1].split(" ")[0];
 
           var mm = [];
           var mt = [];
-          for(i = 1; i < mesomarket.split(":\"").length; ++i){
+          for(i = 2; i < mesomarket.split(":\"").length; ++i){
             var tempmeso = mesomarket.split(":\"")[i].split("\"")[0];
             mm.push(tempmeso);
             tempmeso = mutong.split(":\"")[i].split("\"")[0];
