@@ -818,7 +818,7 @@ gt.getCube = function (msg){
 gt.getStarforce = function (msg){
   rep = "";
   const sfM = require('Starforce');
-  var sfhelp = "!스타포스 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 스타포스 개수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
+  var sfhelp = "!스타포스 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 스타포스 개수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
   if(msg.split(" ")[1] == "비용"){
     var sfrep = "";
     var sfcost = [];

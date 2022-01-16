@@ -78,8 +78,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
       }
       if(msg.startsWith("테스트")){
-        dates = gettoday();
-        replier.reply(dates);
       }  
     }  
     if(msg.startsWith("!강환") || msg.startsWith("!강환불")){

@@ -2,7 +2,7 @@ const sf = {};
 
 sf.isSFready = function (A, B, C, D, E, F){
     var chkSF = 0;
-    if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 140 && A != 150 && A != 160 && A != 200){
+    if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200){
       chkSF = 1000;
     }
     else{
@@ -56,7 +56,7 @@ sf.isSFready = function (A, B, C, D, E, F){
               else {chkSF = 10002;}
             }
             else{
-              if(E < 0 || E > 3){
+              if(E < 0 || E > 4){
                 chkSF = 11000;
                 if(E < 0) {chkSF = 11001;}
                 else {chkSF = 11002;}
@@ -82,6 +82,8 @@ sf.simulation = function (A, B, C, D, E, F){
     var sfmeso = 0, sfsuccessCnt = 0, sffailCnt = 0, sfdestroyCnt = 0, two100 = 0;
     var currentsf = B, destsf = C;
     var costarr = [], successarr= [], keeparr = [], downarr = [], destroyarr = [];
+    var saveA = A;
+    if(A == 135){ A = 130; }else if(A == 145){ A = 140; }
     switch(A){
         case 99:
             arrcopy(costarr, costtile);
@@ -133,13 +135,13 @@ sf.simulation = function (A, B, C, D, E, F){
         arrcopy(downarr, Tdownrate);
         arrcopy(destroyarr, Tdestroyrate);
     }
-    if(A != 99){ sfrep += A + "제 장비 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n";}
+    if(A != 99){ sfrep += saveA + "제 장비 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n";}
     else {sfrep += "타일런트 벨트 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n";}
 
     while(currentsf < destsf){        //sfrep += currentsf + "성에서 " + (currentsf+1) + "성 강화시도, 결과 : ";
-        if(E != 1){ sfmeso += costarr[currentsf];}
+        if(E != 1 && E != 4){ sfmeso += costarr[currentsf];}
         else { sfmeso += costarr[currentsf] * 0.7;} //30%할인
-        if((A != 99 && two100 == 2) || (A != 99 && E == 2 && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
+        if((A != 99 && two100 == 2) || (A != 99 && (E == 2 || E == 4) && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
             sfsuccessCnt++;
             currentsf += 1; //sfrep += "찬스타임!\n";
             two100 = 0;
@@ -205,6 +207,7 @@ sf.simulation = function (A, B, C, D, E, F){
     if(A != 99 && E == 1){ sfrep += "\n*30% 할인 이벤트 적용";}
     else if(A != 99 && E == 2){ sfrep += "\n*5,10,15성 100% 이벤트 적용";}
     else if(A != 99 && E == 3){ sfrep += "\n*10성이하 1+1 이벤트 적용";}
+    else if(A != 99 && E == 4){ sfrep += "\n*5,10,15성 100% 이벤트 적용\n*10성이하 1+1 이벤트 적용";}
     if(A != 99 && F == 1){ sfrep += "\n*12~17성 파괴방지 적용";}
     else if(A != 99 && F == 2){ sfrep += "\n*15~17성 파괴방지 적용";}
     return sfrep;
