@@ -335,7 +335,7 @@ function getsnmeso(lvl){
 }
 function getsncumulmeso(lvl){
     var snmeso = [];
-    for(i = 0; i < lvl; ++i){
+    for(i = 1; i < lvl; ++i){
         var tempsn = getsnmeso(i);
         snmeso.push(tempsn);
     }
@@ -346,7 +346,7 @@ function getarmeso(lvl){
 }
 function getarcumulmeso(lvl){
     var armeso = [];
-    for(i = 0; i < lvl; ++i){
+    for(i = 1; i < lvl; ++i){
         var tempar = getarmeso(i);
         armeso.push(tempar);
     }

@@ -5,7 +5,7 @@ abil.getAbil = function(msg){
     var rep = "";
 
     var firstAbil = msg.split(" ")[1];
-    if(firstAbil == undefined){rep = "어빌리티 목록중 하나를 입력하여주세요.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지";}
+    if(firstAbil == undefined){rep = "어빌리티 목록중 하나와 수치를 입력하여주세요.\n\n목록 : 보공, 패시브, 다수, 일몹뎀, 상추뎀, 아획, 메획, 크확, 공속, 재사용, 벞지";}
     else{
         var fnum = msg.split(" ")[2];
         var firstAbilnum = parseInt(fnum);

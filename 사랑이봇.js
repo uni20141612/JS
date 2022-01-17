@@ -994,6 +994,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           else if(symbollevel < 1 || symbollevel > 19){
             replier.reply(symbollevel + " >> 심볼 레벨이 범위(1~19)를 초과하였습니다.");
           }
+          else if((symbolind == 6 || symbolind == 7) && symbollevel > 10){
+            replier.reply(symbollevel + " >> 심볼 레벨이 범위(1~10)를 초과하였습니다.");
+          }
           else if(symbolexp == undefined){
             symbolexp = 0;
             replier.reply("현재 성장치가 누락되어 0으로 계산됩니다.");
@@ -1132,6 +1135,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             }
         },
          "custom");
+    }
+    if(msg.startsWith("!익성비")){
+      var extremerep = guitarM.getExtreme(sender, msg);
+      replier.reply(extremerep);
     }
     if(msg.startsWith("!직업추천")){
       const jobM2 = require('Job');
