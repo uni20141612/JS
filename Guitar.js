@@ -22,6 +22,40 @@ gt.getCodi = function (codi){
     rep = "모자: " + dataMoja + "\n헤어: " + dataHair + "\n성형: " + dataFace + "\n상의: " + dataTshirt + "\n하의: " + dataPants + "\n신발: " + dataShoe + "\n무기: " + dataWeapon;
     return rep;
 };
+gt.getConvenience = function (msg){
+  rep = "";
+  var conrand = getRandomInt(0, 100);
+
+  if(conrand < 50){
+    var condata = org.jsoup.Jsoup.connect("http://cu.bgfretail.com/product/productAjax.do").get().toString();
+    var prodlist = [];
+    var pricelist = [];
+    var contemp = "";
+    for(i = 1; i < condata.split("cursor:pointer\">").length; ++i){
+      contemp = condata.split("cursor:pointer\">")[i].split(")")[1].split("</span>")[0];
+      prodlist.push(contemp);
+      contemp = condata.split("prodPrice")[i].split("<span>")[1].split("</span>")[0];
+      pricelist.push(contemp);
+    }
+    conrand = getRandomInt(0, prodlist.length);
+    rep += "보마봇의 추천 메뉴(CU)\n\n" + prodlist[conrand] + ", " + pricelist[conrand] + "원";
+  }
+  else if(conrand >= 50){
+    condata = FileStream.read(path + "Convenience.txt");
+    prodlist = [];
+    pricelist = [];
+    contemp = "";
+    for(i = 1; i < condata.split("(").length; ++i){
+      contemp = condata.split("(")[i];
+      prodlist.push(contemp.split("$")[0]);
+      pricelist.push(contemp.split("$")[1]);
+    }
+    conrand = getRandomInt(0, prodlist.length);
+    rep += "보마봇의 추천 메뉴(7-ELEVEN)\n\n" + prodlist[conrand] + ", " + pricelist[conrand] + "원";
+  }
+
+  return rep;
+};
 gt.getCube = function (msg){
   rep = "";
   const cubeM = require('Cube');

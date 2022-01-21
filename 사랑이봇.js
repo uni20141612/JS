@@ -744,15 +744,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg == "!썬데이" || msg == "!선데이"){
       var mapleeventurl = "https://maplestory.nexon.com/News/Event";
       var SundayMaple = org.jsoup.Jsoup.connect(mapleeventurl).get().toString();
-      //SundayMaple = SundayMaple.split("이벤트 전체보기")[1].split("</div>")[0];
       SundayMaple = SundayMaple.split("event_board")[1].split("</ul>")[0];
       if(SundayMaple.indexOf("썬데이 메이플") == -1){
         replier.reply("아직 썬데이 메이플 이벤트 공지가 올라오지 않았습니다. 금요일 오전 10시쯤 다시 시도해주세요.");
       }
       else{
-        //var sunlink = SundayMaple.split("\">썬데이 메이플")[0];
-        //sunlink = sunlink.slice(sunlink.length - 30, sunlink.length).split("<a href=\"")[1];
-        var sunlink = SundayMaple.split("썬데이 메이플")[0].split("<p><a href=\"")[1].split("\">")[0];
+        var sunlink = SundayMaple.split("썬데이 메이플")[0]//
+        var suntemp = sunlink.split("<a href=\"").length; 
+        sunlink = sunlink.split("<a href=\"")[suntemp-1].split("\">")[0];
         var Sundayurl = "https://maplestory.nexon.com" + sunlink;
         var dataSun = org.jsoup.Jsoup.connect(Sundayurl).get();
         dataSun = dataSun.toString();
@@ -1238,13 +1237,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply("https://maple.gazua.in/coordi\n\nhttps://maple-r.github.io/\n\nhttp://maples.im/");
     }
     if(msg.startsWith("!큐브")){
-      //if(sender == myName || sender == adminNick){
       var cuberep = guitarM.getCube(msg);
-      replier.reply(cuberep);/*
-      }
-      else{
-        replier.reply("현재 메이플스토리 홈페이지의 큐브 확률 표기방식이 바뀌어 !큐브 기능이 잠정 중단되었습니다.");
-      }*/
+      replier.reply(cuberep);
+    }
+    if(msg == "!편의점"){
+      var conrep = guitarM.getConvenience(msg);
+      replier.reply(conrep);
     }
     if(msg.startsWith("!포스")){
       const mapM2 = require('Map');
@@ -1305,6 +1303,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.startsWith("!확률")){
       var raterep = guitarM.getRate(msg);
       replier.reply(raterep);
+    }
+    if(msg.endsWith("확률")){
+      var rateRand = getRandomInt(0, 10001);
+      var ratrep = parseFloat(rateRand/100);
+      replier.reply(msg + " : " + ratrep + "%");
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
