@@ -1304,7 +1304,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var raterep = guitarM.getRate(msg);
       replier.reply(raterep);
     }
-    if(msg.endsWith("확률")){
+    if(!msg.startsWith("!") && msg.endsWith("확률")){      
       var rateRand = getRandomInt(0, 10001);
       var ratrep = parseFloat(rateRand/100);
       replier.reply(msg + " : " + ratrep + "%");

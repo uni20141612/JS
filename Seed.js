@@ -196,7 +196,7 @@ sd.getSeedInfo = function(msg){
     rep = "";
 
     var seedFirst = msg.split(" ")[1];
-    if(seedFirst == undefined){ rep = "정보를 알고싶은 층수를 입력하세요.\n\n!시드 (층수) : 더 시드 컨텐츠의 해당 층수의 정보를 보여줍니다."; }
+    if(seedFirst == undefined){ rep = "정보를 알고싶은 층수를 입력하세요.\n\n!시드정보 (층수) : 더 시드 컨텐츠의 해당 층수의 정보를 보여줍니다."; }
     else{
         var seedRound = parseInt(seedFirst);
         if(isNaN(seedRound)){ rep = seedFirst + " >> 숫자로 층수를 입력해주세요."; }
