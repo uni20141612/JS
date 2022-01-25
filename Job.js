@@ -134,7 +134,6 @@ job.getjobmention = function(msg){
         case "!나이트워커":
         case "!나워":
         case "!점샷필수":
-        case "!코로나":
         case "!박쥐":
           jobmention = jobMentionList[20];
           chkjob = 20;
@@ -445,7 +444,6 @@ job.getchkjob = function(msg){
         case "!나이트워커":
         case "!나워":
         case "!점샷필수":
-        case "!코로나":
         case "!박쥐":
           chkjob = 20;
           break;
@@ -932,46 +930,46 @@ job.getJobimage = function (ind){
         rep = "https://i.imgur.com/XpXANhr.png";
         break;
       case 1:
-        rep = "https://imgur.com/klHKF2a.png";
+        rep = "https://i.imgur.com/yR64BSJ.png";
         break;
       case 2:
-        rep = "https://i.imgur.com/5wFjFFn.png";
+        rep = "https://i.imgur.com/AxFfbzt.png";
         break;
       case 3:
-        rep = "https://i.imgur.com/TgCKlxu.png";
+        rep = "https://i.imgur.com/Eu9GYYQ.png";
         break;
       case 4:        
-        rep = "https://i.imgur.com/qXupciY.png";
+        rep = "https://i.imgur.com/qexcEQ1.png";
         break;
       case 5:
-        rep = "https://i.imgur.com/rE1kN9M.png";
+        rep = "https://i.imgur.com/e489bkU.png";
         break;
       case 6:
-        rep = "https://i.imgur.com/mfc0D41.png";
+        rep = "https://i.imgur.com/3JFD7eb.png";
         break;
       case 7:
-        rep = "https://i.imgur.com/ivsMOxx.png";
+        rep = "https://i.imgur.com/1C8n9fu.png";
         break;
       case 8:
-        rep = "https://i.imgur.com/s6vCs3Y.png";
+        rep = "https://i.imgur.com/pjYNxI2.png";
         break;
       case 9:
         rep = "https://i.imgur.com/ylp7Asx.png";
         break;
       case 10:
-        rep = "https://i.imgur.com/zzUvD3W.png";
+        rep = "https://i.imgur.com/1c0vBdq.png";
         break;
       case 11:
-        rep = "https://i.imgur.com/YJnu3IP.png";
+        rep = "https://i.imgur.com/c99CM6o.png";
         break;
       case 12:
-        rep = "https://i.imgur.com/FK9uHS1.png";
+        rep = "https://i.imgur.com/8573cCm.png";
         break;
       case 13:
-        rep = "https://i.imgur.com/3YKnvZv.png";
+        rep = "https://i.imgur.com/lA4gf07.png";
         break;
       case 14:
-        rep = "https://i.imgur.com/mHAOG6L.png";
+        rep = "https://i.imgur.com/YpJuszE.png";
         break;
       case 15:
         rep = "https://i.imgur.com/a2dj0SC.png";

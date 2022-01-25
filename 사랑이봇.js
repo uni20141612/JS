@@ -322,7 +322,29 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(help);
     }
     if(msg.startsWith("!똥캐")){
-      replier.reply("메르세데스\n\n연계기와 속사기를 주력으로 사용하는 궁수. 극딜에 특화된 스킬 구조 덕분에 강력한 순간 화력을 자랑하지만, 높은 피로도와 낮은 투자 효율이 발목을 잡는다.\n\n[2011년 7월 21일 출시]\n\n무적기 : 로얄 나이츠 (시전 및 해제시, 2초), 프리드의 가호[공용] (6중첩시 30초)\n뎀감기 : 실피디아 (탑승 중 25%)\n바인드 : 없음\n\n공격대원 효과 : 스킬 쿨타임 2/3/4/5/6% 감소(1초 미만으로 감소 불가)\n\n링크 스킬 : 엘프의 축복 - 경험치 획득량 15% 증가"); 
+      //replier.reply("메르세데스\n\n연계기와 속사기를 주력으로 사용하는 궁수. 극딜에 특화된 스킬 구조 덕분에 강력한 순간 화력을 자랑하지만, 높은 피로도와 낮은 투자 효율이 발목을 잡는다.\n\n[2011년 7월 21일 출시]\n\n무적기 : 로얄 나이츠 (시전 및 해제시, 2초), 프리드의 가호[공용] (6중첩시 30초)\n뎀감기 : 실피디아 (탑승 중 25%)\n바인드 : 없음\n\n공격대원 효과 : 스킬 쿨타임 2/3/4/5/6% 감소(1초 미만으로 감소 불가)\n\n링크 스킬 : 엘프의 축복 - 경험치 획득량 15% 증가"); 
+      const jobM3 = require('Job');
+      chkjob = getRandomInt(0, 48);
+      if(chkjob != -1){
+        var jobname = jobM3.getJobname(chkjob);
+        var jobdesc = jobM3.getJobdesc(chkjob);
+        var jobimage = jobM3.getJobimage(chkjob);
+        var jobweb = jobM3.getJobweb(chkjob);
+        Kakao.send(room,
+        {
+            "link_ver" : "4.0",
+            "template_id" : 59546,
+            "template_args" : {
+                                "jobname" : jobname,
+                                "jobdesc" : jobdesc,
+                                "jobimage" : jobimage,
+                                "jobmobweb" : jobweb,
+                                "jobpcweb" : jobweb
+                              }
+        },
+           "custom");
+        }
+
     }
     if(msg.startsWith("!로마자")){
       var korname = msg.split(" ")[1];
@@ -1236,6 +1258,30 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg == "!코디시뮬"){
       replier.reply("https://maple.gazua.in/coordi\n\nhttps://maple-r.github.io/\n\nhttp://maples.im/");
     }
+    if(msg == "!코로나"){
+      var corona = "";
+      corona = org.jsoup.Jsoup.connect("http://ncov.mohw.go.kr/").get().toString();
+      corona = corona.split("occurrenceStatus\">")[1].split("<!-- 발생현황 -->")[0];
+      var cDate = corona.split("livedate\">(")[1].split(",")[0];
+      var cDay = corona.split("<span>일일")[1].split("</tr>")[0];
+      var cDeath = cDay.split("<span>")[1].split("</span>")[0];
+      var coldsick = cDay.split("<span>")[2].split("</span>")[0];
+      var cnewsick = cDay.split("<span>")[3].split("</span>")[0];
+      var cDiag = cDay.split("<span>")[4].split("</span>")[0];
+      var cCumul = corona.split("occur_num\">")[1];
+      var ccDiag = cCumul.split("</span>")[2].split("<a")[0];
+      var ccDeath = cCumul.split("</span>")[1].split("</div>")[0];
+      ccDeath = ccDeath.trim();
+
+      var cRep = cDate + " 코로나 일일 발생현황\n\n";
+      cRep += "확진 : " + cDiag;
+      cRep += "\n재원 위중증 : " + coldsick;
+      cRep += "\n신규 입원 : " + cnewsick;
+      cRep += "\n사망 : " + cDeath;
+      cRep += "\n\n누적 확진 : " + ccDiag;
+      cRep += "\n누적 사망 : " + ccDeath;
+      replier.reply(cRep);
+    }
     if(msg.startsWith("!큐브")){
       var cuberep = guitarM.getCube(msg);
       replier.reply(cuberep);
@@ -1338,7 +1384,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
            "custom");
         }
         if(jobmention != "-"){
-          replier.reply(jobmention);
+          //replier.reply(jobmention);
+          replier.reply("※현재 밸런스패치가 진행중이며 하단 내용은 패치이전을 설명하고 있습니다.\n\n" + jobmention);
         }
     }  
 }
