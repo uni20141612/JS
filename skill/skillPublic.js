@@ -220,7 +220,7 @@ skp.getskilldesc1Public = function (skillcode){
             rep = " HP 3%, 랜덤위치 순간이동 / 공중 키다운시 최대5초동안 부유";
             break;
         case 5:
-            rep = "HP 15%, 330% 데미지로 5번 공격하고 10초 동안 행동 불가 상태";
+            rep = "HP 15%, 10명,330%,5번 공격하고 10초 동안 행동 불가 상태";
             break;
         case 6:
             rep = "상태 이상으로부터 벗어난다. 사용 후 3초 동안 상태 이상 면역";
@@ -277,7 +277,7 @@ skp.getskilldesc2Public = function (skillcode){
             rep = "[패시브 효과 : 공격력, 마력 30 증가]";
             break;
         case 5:
-            rep = "재사용 대기시간 310초";
+            rep = "재사용 대기시간 100초";
             break;
         case 6:
             rep = "최대 HP의 5% 소비, 재사용 대기시간 330초";
@@ -334,7 +334,7 @@ skp.getskillimage1Public = function (skillcode){
             rep = "https://i.imgur.com/9ZT5hQE.png";
             break;
         case 5:
-            rep = "https://i.imgur.com/fYr6WD6.png";
+            rep = "https://i.imgur.com/lZ8tzSK.png";
             break;
         case 6:
             rep = "https://i.imgur.com/HIaZ1Y2.png";
@@ -343,25 +343,25 @@ skp.getskillimage1Public = function (skillcode){
             rep = "https://i.imgur.com/egMLkwu.png";
             break;
         case 8:
-            rep = "https://i.imgur.com/iEiUw4q.png";
+            rep = "https://i.imgur.com/s61ufUn.png";
             break;
         case 9:
-            rep = "https://i.imgur.com/DK90MWL.png";
+            rep = "https://i.imgur.com/pbSFpfb.png";
             break;
         case 10:
-            rep = "https://i.imgur.com/N4dKgSC.png";
+            rep = "https://i.imgur.com/OleWL4L.png";
             break;
         case 11:
-            rep = "https://i.imgur.com/yImkdxx.png";
+            rep = "https://i.imgur.com/ZdupD3I.png";
             break;
         case 12:
-            rep = "https://i.imgur.com/ZBAw0Ha.png";
+            rep = "https://i.imgur.com/cymB2Du.png";
             break;
         case 13:
-            rep = "https://i.imgur.com/4jPoApp.png";
+            rep = "https://i.imgur.com/GFfN3Jg.png";
             break;
         case 14:
-            rep = "https://i.imgur.com/IBU2KW4.png";
+            rep = "https://i.imgur.com/iGTWaNo.png";
             break;
         case 15:
             rep = "https://i.imgur.com/Z4ePkVB.png";
@@ -391,7 +391,7 @@ skp.getskillimage2Public = function (skillcode){
             rep = "https://i.imgur.com/oBtK7SL.png";
             break;
         case 5:
-            rep = "https://i.imgur.com/RBt94pk.png";
+            rep = "https://i.imgur.com/9XE4uso.png";
             break;
         case 6:
             rep = "https://i.imgur.com/hSYTGf6.png";
@@ -400,25 +400,25 @@ skp.getskillimage2Public = function (skillcode){
             rep = "https://i.imgur.com/6F2D8Cf.png";
             break;
         case 8:
-            rep = "https://i.imgur.com/0dlVucc.png";
+            rep = "https://i.imgur.com/VsLq1hy.png";
             break;
         case 9:
-            rep = "https://i.imgur.com/UQw2uW7.png";
+            rep = "https://i.imgur.com/xkhLzwr.png";
             break;
         case 10:
             rep = "https://i.imgur.com/Ws9SsLD.png";
             break;
         case 11:
-            rep = "https://i.imgur.com/b11O1Cr.png";
+            rep = "https://i.imgur.com/FifBPE1.png";
             break;
         case 12:
-            rep = "https://i.imgur.com/QRNE2Ut.png";
+            rep = "https://i.imgur.com/wQfmG1H.png";
             break;
         case 13:
-            rep = "https://i.imgur.com/jVK5Xv9.png";
+            rep = "https://i.imgur.com/qXcYNkB.png";
             break;
         case 14:
-            rep = "https://i.imgur.com/uarNTjm.png";
+            rep = "https://i.imgur.com/orVzSXP.png";
             break;
         case 15:
             rep = "https://i.imgur.com/l2TFFIi.png";

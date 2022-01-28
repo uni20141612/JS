@@ -255,6 +255,23 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(nickname == undefined){      replier.reply("캐릭터 이름을 입력해주세요.\n\n!갱신 (캐릭터이름) : 메이플gg를 갱신합니다.");    }
       else{ replier.reply(mapleupdate(nickname)); }
     }
+    if(msg.startsWith("!곳폽")){
+      var nickrep = "";
+      var nicknum = msg.split(" ")[1];
+      if(nicknum == undefined){ nicknum = 2; }  
+      else if(isNaN(nicknum) || (nicknum < 2 || nicknum > 6) || nicknum % 1 != 0){ replier.reply("2~6 사이의 숫자를 입력해주세요."); nickrep = "-";}
+      
+      if(nickrep != "-"){      
+        const dataM2 = require('bomadata');
+        var nickdata = dataM2.bomaNick;
+        var nickrand = 0;
+        for(i = 0; i < nicknum; ++i){
+          nickrand = getRandomInt(0, nickdata.length);
+          nickrep += nickdata[nickrand];
+        }
+        replier.reply("곳폽 제조기 결과 : " + nickrep);
+      }
+    }
     if(msg.startsWith("!날씨") || msg.startsWith("!ㄴㅆ")){
       var locW = msg.split(" ")[1];
       if(locW == undefined){ replier.reply("지역명을 입력해주세요.\n\n!날씨 (지역) : 그 지역 날씨를 보여줍니다.")}

@@ -18,10 +18,13 @@ ska.getskillAdele = function (skillname){
         case "스톰":
             aret = 3;
             break;
-        /*case "":
+        case "디바이드":
+        case "디바":
+        case "그 스킬":
+        case "그스킬":
             aret = 4;
             break;
-        case "":
+        /*case "":
             aret = 5;
             break;
         case "":
@@ -85,7 +88,7 @@ ska.getskillnameAdele = function (skillcode){
             rep = "스톰";
             break;
         case 4:
-            rep = "";
+            rep = "디바이드";
             break;
         case 5:
             rep = "";
@@ -151,7 +154,7 @@ ska.getskilldesc1Adele = function (skillcode){
             rep = "14초간 일정주기마다 주변 7명,550%,2번 자동 공격/ 쿨90초";
             break;
         case 4:
-            rep = "";
+            rep = "MP 40 소비, 최대 7명의 적을 375% 데미지로 6번 공격";
             break;
         case 5:
             rep = "";
@@ -217,7 +220,7 @@ ska.getskilldesc2Adele = function (skillcode){
             rep = "소멸된 에테르소드 1쌍초과시 1쌍당 공격횟수 2번 증가";
             break;
         case 4:
-            rep = "";
+            rep = "[트리거 스킬] 거대한 대검을 생성하여 전방의 적을 절단한다.";
             break;
         case 5:
             rep = "";
@@ -313,7 +316,7 @@ ska.getskillimage1Adele = function (skillcode){
             rep = "https://i.imgur.com/21l8iX3.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/iKKAZIz.png";
             break;
         case 5:
             rep = "";
@@ -379,7 +382,7 @@ ska.getskillimage2Adele = function (skillcode){
             rep = "https://i.imgur.com/kUTj5Cg.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/H4HBSeR.png";
             break;
         case 5:
             rep = "";

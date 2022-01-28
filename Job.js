@@ -15,7 +15,6 @@ job.getjobmention = function(msg){
           break;
         case "!팔라딘":
         case "!팔라":
-        case "!곳폽":
         case "!괄라딘":
         case "!팔퀴벌레":
         case "!망치나가신다":
@@ -340,7 +339,6 @@ job.getchkjob = function(msg){
           break;
         case "!팔라딘":
         case "!팔라":
-        case "!곳폽":
         case "!괄라딘":
         case "!팔퀴벌레":
         case "!망치나가신다":

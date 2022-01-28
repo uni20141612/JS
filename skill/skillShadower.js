@@ -23,10 +23,12 @@ sks.getskillShadower = function (skillname){
         case "멸참":
             cret = 3;
             break;
-        /*case "":
+        case "크루얼 스탭":
+        case "크루얼스탭":
+        case "크스":
             cret = 4;
             break;
-        case "":
+        /*case "":
             cret = 5;
             break;
         case "":
@@ -90,7 +92,7 @@ sks.getskillnameShadower = function (skillcode){
             rep = "멸귀참영진";
             break;
         case 4:
-            rep = "";
+            rep = "크루얼 스탭";
             break;
         case 5:
             rep = "";
@@ -156,7 +158,7 @@ sks.getskilldesc1Shadower = function (skillcode){
             rep = " 6명,935%,8번 공격 협력자 12번 출현후 우두머리 등장/ 방무20%";
             break;
         case 4:
-            rep = "";
+            rep = "MP 40 소비, 8명의 적에게 250% 데미지로 6번 공격";
             break;
         case 5:
             rep = "";
@@ -222,7 +224,7 @@ sks.getskilldesc2Shadower = function (skillcode){
             rep = "우두머리: 8명,1375%,15번 참격 4번 발동/ 쿨90초";
             break;
         case 4:
-            rep = "";
+            rep = "[패시브 효과 : 최종 데미지 25% 증가]";
             break;
         case 5:
             rep = "";
@@ -321,7 +323,7 @@ sks.getskillimage1Shadower = function (skillcode){
             rep = "https://i.imgur.com/Ew2lf8i.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/PZMnBP8.png";
             break;
         case 5:
             rep = "";
@@ -387,7 +389,7 @@ sks.getskillimage2Shadower = function (skillcode){
             rep = "https://i.imgur.com/4bkZZoF.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/VQyLUDf.png";
             break;
         case 5:
             rep = "";

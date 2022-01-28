@@ -414,7 +414,7 @@ skal.getskilldesc1All = function (skillcode){
             rep = "300초간 크리티컬확률 20%, 크리티컬데미지 15% 증가";
             break;
         case 5:
-            rep = "60초간 영혼의 화살 생성, 주변의적 1명,880%,90번 공격";
+            rep = "영혼의 화살 생성, 주변의적 1명,880%/ 온오프스킬";
             break;
         case 6:
             rep = "30초간 크확이 100% 초과가능, 크확의 50%만큼 크뎀 증가";
@@ -513,7 +513,7 @@ skal.getskilldesc2All = function (skillcode){
             rep = "메르세데스와 카인을 제외한 모든 궁수 직업군의 공통스킬";
             break;
         case 5:
-            rep = "일반 몬스터 공격 시 데미지 20% 증가/ 쿨60초";
+            rep = "일반 몬스터 공격 시 데미지 20% 증가";
             break;
         case 6:
             rep = "공격스킬의 추가크확은 반영되지 않음/ 쿨120초";
