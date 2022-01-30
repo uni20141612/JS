@@ -304,7 +304,7 @@ skam.getskillimage1AdvMagician = function (skillcode){
             rep = "";
             break;
         case 13:
-            rep = "https://i.imgur.com/Gex9hzq.png";
+            rep = "https://i.imgur.com/5uXAbRV.png";
             break;
         case 14:
             rep = "https://i.imgur.com/lrG5vB4.png";
@@ -358,7 +358,7 @@ skam.getskillimage2AdvMagician = function (skillcode){
             rep = "https://i.imgur.com/sjJZJqF.png";
             break;
         case 13:
-            rep = "https://i.imgur.com/gfmmil0.png";
+            rep = "https://i.imgur.com/uX7dFZP.png";
             break;
         case 14:
             rep = "https://i.imgur.com/r94C1di.png";

@@ -121,7 +121,7 @@ skaw.getskilldesc1AdvWarrior = function (skillcode){
             rep = "스탠스 확률 60% 증가.";
             break;
         case 8:
-            rep = " 60초 동안 데미지 10% 증가/ 쿨120초";
+            rep = "60초 동안 데미지 10% 증가/ 쿨120초";
             break;
         case 9:
             rep = "HP21%만큼 보호막 5초동안 생성/ 다시사용시 12명,1100%,5번 공격";
@@ -193,7 +193,7 @@ skaw.getskillimage1AdvWarrior = function (skillcode){
             rep = "";
             break;
         case 8:
-            rep = "https://i.imgur.com/O8MbOqU.png";
+            rep = "https://i.imgur.com/D0bO8a4.png";
             break;
         case 9:
             rep = "https://i.imgur.com/vrrSDaf.png";
@@ -229,7 +229,7 @@ skaw.getskillimage2AdvWarrior = function (skillcode){
             rep = "https://i.imgur.com/r3uVL5z.png";
             break;
         case 8:
-            rep = "https://i.imgur.com/7j6K6Lf.png";
+            rep = "https://i.imgur.com/t8bYAcn.png";
             break;
         case 9:
             rep = "https://i.imgur.com/wLgvxMz.png";

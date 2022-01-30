@@ -185,7 +185,7 @@ skap.getskillimage1AdvPirate = function (skillcode){
             rep = "";
             break;
         case 7:
-            rep = "https://i.imgur.com/nAh3ADU.png";
+            rep = "https://i.imgur.com/Rrvb0MH.png";
             break;
         case 8:
             rep = "https://i.imgur.com/GYQkRsI.png";
@@ -218,7 +218,7 @@ skap.getskillimage2AdvPirate = function (skillcode){
             rep = "https://i.imgur.com/0KQeMon.png";
             break;
         case 7:
-            rep = "https://i.imgur.com/v3qEcou.png";
+            rep = "https://i.imgur.com/WEa1P2S.png";
             break;
         case 8:
             rep = "https://i.imgur.com/u08jZNG.png";

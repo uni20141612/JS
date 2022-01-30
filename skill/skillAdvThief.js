@@ -234,7 +234,7 @@ skat.getskillimage1AdvThief = function (skillcode){
             rep = "";
             break;
         case 10:
-            rep = "https://i.imgur.com/L96DySp.png";
+            rep = "https://i.imgur.com/zWrNNAu.png";
             break;
         case 11:
             rep = "https://i.imgur.com/iFX73Mo.png";
@@ -276,7 +276,7 @@ skat.getskillimage2AdvThief = function (skillcode){
             rep = "https://i.imgur.com/Ao2qkpe.png";
             break;
         case 10:
-            rep = "https://i.imgur.com/FdNa26p.png";
+            rep = "https://i.imgur.com/HWUHue7.png";
             break;
         case 11:
             rep = "https://i.imgur.com/HjCznUp.png";

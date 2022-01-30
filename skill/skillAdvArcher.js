@@ -104,7 +104,7 @@ skaa.getskilldesc2AdvArcher = function (skillcode){
             rep = "신체 단련을 통해 영구적으로 힘과 민첩성을 증가시킨다.";
             break;
         case 3:
-            rep = "회피 성공 후 1초 동안 이어지는 공격은 반드시 크리티컬로 적중한다.";
+            rep = "회피후 1초간 크리100%, 스탠스 40%";
             break;
         case 4:
             rep = "민첩성과 회피율을 크게 증가시키며 받는 피해를 감소시킨다.";
@@ -136,7 +136,7 @@ skaa.getskillimage1AdvArcher = function (skillcode){
             rep = "";
             break;
         case 5:
-            rep = "https://i.imgur.com/iby6MpA.png";
+            rep = "https://i.imgur.com/s9kwNeW.png";
             break;
         case 6:
             rep = "https://i.imgur.com/oVTS7YZ.png";
@@ -162,7 +162,7 @@ skaa.getskillimage2AdvArcher = function (skillcode){
             rep = "https://i.imgur.com/OM8BT17.png";
             break;
         case 5:
-            rep = "https://i.imgur.com/gIdVVkp.png";
+            rep = "https://i.imgur.com/sDFcWl9.png";
             break;
         case 6:
             rep = "https://i.imgur.com/XWl9J6U.png";

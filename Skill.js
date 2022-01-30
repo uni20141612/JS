@@ -476,7 +476,7 @@ sk.getJobskillList = function(ind) {
         rep = "패스파인더\n\n5차 : 얼티밋 블래스트, 레이븐 템페스트, 옵시디언 배리어(디스차지, 블래스트, 트랜지션), 렐릭 언바운드(디스차지, 블래스트, 트랜지션)";
         break;
     case 10:
-        rep = "나이트로드\n\n5차 : 스프레드 스로우, 풍마수리검, 다크로드의 비전서, 스로우 블래스팅";
+        rep = "나이트로드\n\n1차 : 다크 사이트\n2차 : 윈드 탈리스만, 마크 오브 어쌔신, 쉐도우 러시, 쉐도우 리프\n3차 : 다크 플레어, 쉐도우 파트너, 스피릿 자벨린, 래디컬 다크니스, 베놈, 숙련된 표창술, 아드레날린\n4차 : 쿼드러플 스로우, 쇼다운 챌린지, 마크 오브 나이트로드, 써든레이드, 퍼지 에어리어, 다크 세레니티, 페이크, 페이탈 베놈\n하이퍼 스킬 : 블리딩 톡신, 포 시즌\n5차 : 스프레드 스로우, 풍마수리검, 다크로드의 비전서, 스로우 블래스팅";
         break;
     case 11:
         rep = "섀도어\n\n4차 : 크루얼 스탭\n5차 : 쉐도우 어썰트, 절개, 소닉 블로우, 멸귀참영진";
@@ -1771,7 +1771,11 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
         case 15:
             jobM = require('skillCannonshooter');
             rep = jobM.getskilldesc3Cannonshooter(skillcode);
-            break;     
+            break;   
+        case 16:
+            jobM = require('skillSoulmaster');
+            rep = jobM.getskilldesc3Soulmaster(skillcode);
+            break;       
         case 17:
             jobM = require('skillFlame');
             rep = jobM.getskilldesc3Flame(skillcode);
@@ -1819,6 +1823,10 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
         case 30:            
             jobM = require('skillEvan');
             rep = jobM.getskilldesc3Evan(skillcode);
+            break;
+        case 31:            
+            jobM = require('skillLumi');
+            rep = jobM.getskilldesc3Lumi(skillcode);
             break;
         case 33:
             jobM = require('skillPhantom');            

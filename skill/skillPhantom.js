@@ -343,7 +343,7 @@ skpt.getskilldesc1Phantom = function (skillcode){
             rep = "훔친 다른 모험가의 스킬 중 1차 이하의 것을 사용한다.";
             break;
         case 7:
-            rep = "MP 20 소비, 일정 거리 트리플 점프";
+            rep = "MP 20 소비, 일정 거리 트리플 점프/ 위 방향키와 함께 사용해 윗점가능";
             break;
         case 8:
             rep = "회피율 20% 증가";
@@ -367,7 +367,7 @@ skpt.getskilldesc1Phantom = function (skillcode){
             rep = "사망방지, HP 100%회복. 부활시 4초간 무적/ 쿨1800초";
             break;
         case 15:
-            rep = "최대 HP 30% 증가, 최대 MP 30% 증가";
+            rep = "최대 HP 30% 증가, 최대 MP 30% 증가, 스탠스 40% 증가";
             break;
         case 16:
             rep = "공격력 40 증가";
@@ -499,7 +499,7 @@ skpt.getskilldesc2Phantom = function (skillcode){
             rep = "-";
             break;
         case 25:
-            rep = "아리아의 영혼 등장";
+            rep = "스탠스 60% / 아리아의 영혼 등장";
             break;
         case 26:
             rep = "추천: 새크로생티티, 불스아이, 프리퍼레이션";

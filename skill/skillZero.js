@@ -395,7 +395,7 @@ skz.getskilldesc1Zero = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "대기 중인 제로의 스킬을 사용하여 공격자 교체";
+            rep = "공격자 교체 / 전진 태그 온오프 : 마우스 우클릭";
             break;
         case 1:
             rep = "공마 20, 방어력 500, 모든 속성 내성 10%, 상태 이상 내성 10 증가";
@@ -458,7 +458,7 @@ skz.getskilldesc1Zero = function (skillcode){
             rep = "알파 타임포스 회복속도 30% 증가, 공격시 25%확률 타임포스 10 회복";
             break;
         case 21:
-            rep = "알파 최대HP 30%, 내성 10, 속성내성 10%, 최대TF 30%, 크확 40% 증가";
+            rep = "알파 최대HP 30%, 내성 10, 속성내성 10%, 최대TF 30%, 크확 30% 증가";
             break;
         case 22:
             rep = "알파 크뎀 50% 증가 / 공격시 15%확률 1초간격 10초동안 200% 도트뎀";
@@ -620,7 +620,7 @@ skz.getskilldesc2Zero = function (skillcode){
             rep = "타임포스 회복 보조 패시브.";
             break;
         case 21:
-            rep = "크리티컬 확률 및 방어 능력치 증가 패시브.";
+            rep = "스탠스 100% 증가";
             break;
         case 22:
             rep = "공격시 15% 확률로 최대 HP의 5%만큼 HP 회복";
