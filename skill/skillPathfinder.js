@@ -319,6 +319,42 @@ skpf.getskilldesc2Pathfinder = function (skillcode){
     }
     return rep;
 };
+skpf.getskilldesc3Pathfinder = function (skillcode){
+    rep = "";
+    switch(skillcode){
+        case 0:
+            rep = "";
+            break;
+        case 1:
+            rep = "";
+            break;
+        case 2:
+            rep = "";
+            break;
+        case 3:
+            rep = "";
+            break;
+        case 4:
+            rep = "";
+            break;
+        case 5:
+            rep = "";
+            break;
+        case 6:
+            rep = "";
+            break;
+        case 7:
+            rep = "";
+            break;
+        case 8:
+            rep = "";
+            break;
+        case 9:
+            rep = "";
+            break;
+    }
+    return rep;
+};
 skpf.getskillimage1Pathfinder = function (skillcode){
     rep = "";
     switch(skillcode){

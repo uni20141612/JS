@@ -76,6 +76,64 @@ sf.isSFready = function (A, B, C, D, E, F){
   
     return chkSF;
 };
+sf.isSFready2 = function (A, B, C, D, E, F){
+  var chkSF = 0;
+  if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200){
+    chkSF = 1000;
+  }
+  else{
+    if(B < 0 || B > 25){
+      chkSF = 2000;
+      if(B < 0){chkSF = 2001;}
+      else{chkSF = 2002;}
+    }
+    else{
+      if(A == 99 && B > 14){
+        chkSF = 3000;
+      }
+      else if(A == 100 && B > 8){
+        chkSF = 3001;
+      }
+      else if(A == 110 && B > 10){
+        chkSF = 3002;
+      }
+      else if(A == 120 && B > 15){
+        chkSF = 3003;
+      }
+      else if(A == 130 && B > 20){
+        chkSF = 3004;
+      }
+      else{
+        if(C > 50000 || C < 1){
+          chkSF = 4001;
+        }
+        else{
+          if(D < 0 || D > 1){
+            chkSF = 6000;
+            if(D < 0){chkSF = 6001;}
+            else {chkSF = 6002;}
+          }
+          else{
+            if(E < 0 || E > 4){
+              chkSF = 7000;
+              if(E < 0) {chkSF = 7001;}
+              else {chkSF = 7002;}
+            }
+            else{
+              if(F < 0 || F > 2){
+                chkSF = 8000;
+                if(F < 0) {chkSF = 8001;}
+                else {chkSF = 8002;}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return chkSF;
+};
 
 sf.simulation = function (A, B, C, D, E, F){
     var sfrep = "";
@@ -135,8 +193,8 @@ sf.simulation = function (A, B, C, D, E, F){
         arrcopy(downarr, Tdownrate);
         arrcopy(destroyarr, Tdestroyrate);
     }
-    if(A != 99){ sfrep += saveA + "제 장비 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n";}
-    else {sfrep += "타일런트 벨트 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n";}
+    if(A != 99){ sfrep += saveA + "제 장비 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n\n";}
+    else {sfrep += "타일런트 벨트 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n\n";}
 
     while(currentsf < destsf){        //sfrep += currentsf + "성에서 " + (currentsf+1) + "성 강화시도, 결과 : ";
         if(E != 1 && E != 4){ sfmeso += costarr[currentsf];}
@@ -211,6 +269,161 @@ sf.simulation = function (A, B, C, D, E, F){
     if(A != 99 && F == 1){ sfrep += "\n*12~17성 파괴방지 적용";}
     else if(A != 99 && F == 2){ sfrep += "\n*15~17성 파괴방지 적용";}
     return sfrep;
+};
+sf.simulation2 = function (A, B, C, D, E, F){
+  var sfrep = "";
+  var sfmeso = 0, sfsuccessCnt = 0, sffailCnt = 0, sfmaintainCnt = 0; sfdestroyCnt = 0, two100 = 0;
+  var currentsf = B, currentCnt = 0; targetCnt = C; maxsf = 0, highsf = 0;
+  var costarr = [], successarr= [], keeparr = [], downarr = [], destroyarr = [];
+  var saveA = A, destsavearr = [];
+  if(A == 135){ A = 130; }else if(A == 145){ A = 140; }
+  switch(A){
+      case 99:
+          arrcopy(costarr, costtile);
+          maxsf = 15;
+          break;
+      case 100:
+          arrcopy(costarr, cost100);
+          maxsf = 8;
+          break;
+      case 110:
+          arrcopy(costarr, cost110);
+          maxsf = 10;
+          break;
+      case 120:
+          arrcopy(costarr, cost120);
+          maxsf = 15;
+          break;
+      case 130:
+          arrcopy(costarr, cost130);
+          maxsf = 20;
+          break;
+      case 140:
+          arrcopy(costarr, cost140);
+          maxsf = 25;
+          break;
+      case 150:
+          arrcopy(costarr, cost150);
+          maxsf = 25;
+          break;
+      case 160:
+          arrcopy(costarr, cost160);
+          maxsf = 25;
+          break;
+      case 200:
+          arrcopy(costarr, cost200);
+          maxsf = 25;
+          break;    
+  }
+  if(A != 99){
+      switch(D){
+          case 0:
+              arrcopy(successarr, successrate);
+              arrcopy(keeparr, keeprate);
+              arrcopy(downarr, downrate);
+              arrcopy(destroyarr, destroyrate);
+              break;
+          case 1: //스타캐치
+              arrcopy(successarr, SCsuccessrate);
+              arrcopy(keeparr, SCkeeprate);
+              arrcopy(downarr, SCdownrate);
+              arrcopy(destroyarr, SCdestroyrate);
+              break;
+      }
+  }
+  else{
+      arrcopy(successarr, Tsuccessrate);
+      arrcopy(keeparr, Tkeeprate);
+      arrcopy(downarr, Tdownrate);
+      arrcopy(destroyarr, Tdestroyrate);
+  }
+  if(A != 99){ sfrep += saveA + "제 장비 " + currentsf + "성 부터 " + targetCnt + "회의 스타포스 시뮬레이션 결과\n\n";}
+  else {sfrep += "타일런트 벨트 " + currentsf + "성 부터 " + targetCnt + "회의 스타포스 시뮬레이션 결과\n\n";}
+
+  while(currentsf < maxsf && currentCnt < targetCnt){        //sfrep += currentsf + "성에서 " + (currentsf+1) + "성 강화시도, 결과 : ";
+      currentCnt++;
+      if(highsf < currentsf){highsf = currentsf; }
+      if(E != 1 && E != 4){ sfmeso += costarr[currentsf];}
+      else { sfmeso += costarr[currentsf] * 0.7;} //30%할인
+      if((A != 99 && two100 == 2) || (A != 99 && (E == 2 || E == 4) && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
+          sfsuccessCnt++;
+          currentsf += 1; //sfrep += "찬스타임!\n";
+          two100 = 0;
+          continue;
+      }
+      var starRate = [successarr[currentsf], keeparr[currentsf], downarr[currentsf], destroyarr[currentsf]];
+      var sfsf = -1;
+      var sfrand = getRandomInt(0, 10000);
+      for(var j = 0; j < 4; j++){
+          if(sfrand < cumulate(starRate, j)){
+              sfsf = j;
+              break;
+          }
+      }
+      if(A != 99 && F == 1){  //12~17 파괴방지
+          if(currentsf > 11 && currentsf < 17){
+              sfmeso += costarr[currentsf];
+              if(sfsf == 3) {sfsf = 2;}
+          }
+      }
+      else if(A != 99 && F == 2){ //15~17파괴방지
+          if(currentsf > 14 && currentsf < 17){
+              sfmeso += costarr[currentsf];
+              if(sfsf == 3) {sfsf = 2;}
+          }
+      }
+      
+      if(sfsf == 0){
+          currentsf += 1;            //sfrep += "성공\n";
+          sfsuccessCnt++;
+          if(A != 99 && E == 3 && currentsf < 11){currentsf += 1;}    //10성이하 1+1
+          two100 = 0;
+          continue;
+      }
+      else if(sfsf == 1){            //sfrep += "유지\n";
+        sfmaintainCnt++;
+        continue;
+      }
+      else if(sfsf == 2){
+          currentsf -= 1;
+          two100++;            //sfrep += "하락\n";
+          sffailCnt++;
+          continue;
+      }
+      else{
+        sfdestroyCnt++;
+        if(sfdestroyCnt > 300){
+          sfrep += "파괴횟수가 300회가 넘어 시뮬레이션이 종료됩니다.\n";
+          sfrep += "최종 결과 : " + currentsf + "성\n";
+          break;
+        }
+        destsavearr.push(currentsf);
+          currentsf = 12;
+          if(A == 99){currentsf = 0;}            //sfrep += "파괴\n";
+          two100 = 0;
+          continue;
+      }        
+  }
+
+  sfrep += "시행횟수 : " + currentCnt + "\n";
+  sfrep += "최종 결과 : " + currentsf + "성\n";
+  if(currentCnt < targetCnt){highsf = currentsf; }
+  sfrep += "최고 강화 : " + highsf + "성\n";
+  sfrep += "소모메소 : " + numberWithCommas(sfmeso);
+  sfrep += "메소\n성공횟수 : " + sfsuccessCnt;
+  sfrep += "\n유지횟수 : " + sfmaintainCnt;
+  sfrep += "\n실패(하락)횟수 : " + sffailCnt;
+  sfrep += "\n파괴횟수 : " + sfdestroyCnt;
+  sfrep += "\n파괴시점 : ";
+  for(i = 0; i < destsavearr.length; ++i){ sfrep += "(" + destsavearr[i] + ")"; if(i==9){break;}}
+  if(D == 1){ sfrep += "\n*스타캐치 적용";}
+  if(A != 99 && E == 1){ sfrep += "\n*30% 할인 이벤트 적용";}
+  else if(A != 99 && E == 2){ sfrep += "\n*5,10,15성 100% 이벤트 적용";}
+  else if(A != 99 && E == 3){ sfrep += "\n*10성이하 1+1 이벤트 적용";}
+  else if(A != 99 && E == 4){ sfrep += "\n*5,10,15성 100% 이벤트 적용\n*10성이하 1+1 이벤트 적용";}
+  if(A != 99 && F == 1){ sfrep += "\n*12~17성 파괴방지 적용";}
+  else if(A != 99 && F == 2){ sfrep += "\n*15~17성 파괴방지 적용";}
+  return sfrep;
 };
 
 function arrcopy(arr1, arr2){

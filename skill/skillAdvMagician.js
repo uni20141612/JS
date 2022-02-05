@@ -118,7 +118,7 @@ skam.getskillnameAdvMagician = function (skillcode){
             rep = "MP 증가";
             break;
         case 5:
-            rep = "매직 부스터";
+            rep = "매직 부스터(대체)";
             break;
         case 6:
             rep = "스펠 마스터리";
@@ -199,7 +199,7 @@ skam.getskilldesc1AdvMagician = function (skillcode){
             rep = "60초 동안 데미지 10% 증가/ 쿨120초";
             break;
         case 14:
-            rep = "특정1~4차, 하이퍼액티브 스킬중 하나 사용/ 쿨9초";
+            rep = "기억해둔 스킬 사용/ 확률따라 쿨타임 적용";
             break;
         case 15:
             rep = "최종뎀 70%/ 일정시간당 HP,MP 10%회복, 최종뎀 3%(합)";
@@ -253,7 +253,7 @@ skam.getskilldesc2AdvMagician = function (skillcode){
             rep = "파티원 중 모험가 직업군에만 효과";
             break;
         case 14:
-            rep = "[패시브: INT 30]/ MP소비 및 쿨타임 무시/ 메용,의지제외";
+            rep = "[패시브: INT 30]/ MP소비 및 쿨타임 무시/ 쿨 345초";
             break;
         case 15:
             rep = "스탠스 70% 증가/ 40초간 지속/  마나소모량 제거/ 쿨180초";
@@ -310,7 +310,7 @@ skam.getskillimage1AdvMagician = function (skillcode){
             rep = "https://i.imgur.com/lrG5vB4.png";
             break;
         case 15:
-            rep = "https://i.imgur.com/uahjBF8.png";
+            rep = "https://i.imgur.com/7wRnzZj.png";
             break;
     }
     return rep;
@@ -364,7 +364,7 @@ skam.getskillimage2AdvMagician = function (skillcode){
             rep = "https://i.imgur.com/r94C1di.png";
             break;
         case 15:
-            rep = "https://i.imgur.com/CL5Ok5M.png";
+            rep = "https://i.imgur.com/6Ap4Mb9.png";
             break;
     }
     return rep;

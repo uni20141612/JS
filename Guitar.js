@@ -207,6 +207,51 @@ gt.getCube = function (msg){
   }
   return rep;
 };
+gt.getDday = function (msg){
+  rep = "";
+
+  var mDate = msg.split(" ")[1];
+  if(mDate == undefined){
+    rep = "날짜를 입력하지 않으셨습니다.\n!디데이 (날짜) : 입력한 날짜까지의 D-Day를 보여줍니다. 날짜는 yyyymmdd 형식으로 입력해주세요 (예 : 20220205)";
+  }
+  else if(mDate.length != 8){
+    rep = "날짜를 yyyymmdd 형식으로 입력하지 않으셨습니다. (길이가 8글자가 아닙니다.)";
+  }
+  else{
+    var mYear = mDate.slice(0,4);
+    var mMonth = mDate.slice(4,6);
+    var mDay = mDate.slice(6,8);    
+    //rep = mYear + " " + mMonth + " " + mDay;
+    if(isNaN(mYear) || isNaN(mMonth) || isNaN(mDay)){
+      rep = "입력한 날짜가 숫자가 아닙니다. yyyymmdd 형식으로 입력해주세요.";
+    }
+    else{
+      var iYear = parseInt(mYear);
+      var iMonth = parseInt(mMonth);
+      var iDay = parseInt(mDay);
+      var todaydate = new Date();
+      if(iMonth < 1 || iMonth > 12 || iDay < 1 || iDay > 31){
+        rep = "성립될 수 없는 날짜를 입력하셨습니다. (예 : 13월 32일)";
+      }
+      else if((iMonth == 2 && iDay > 29) || (iMonth == 4 && iDay > 30) || (iMonth == 6 && iDay > 30) || (iMonth == 9 && iDay > 30) || (iMonth == 11 && iDay > 30)){
+        rep = "성립될 수 없는 날짜를 입력하셨습니다. (예 : 2월 30일)";
+      }
+      else{
+        var dday = new Date(iYear, iMonth-1, iDay);
+        var dgap = dday.getTime() - todaydate.getTime();
+        if(dgap < 0){
+          rep = "구하려는 디데이 날짜가 오늘 날짜보다 과거입니다.";
+        }
+        else{
+          var dres = Math.ceil(dgap / (1000 * 60 * 60 * 24));
+          rep = iYear + "년 " + iMonth + "월 " + iDay + "일까지 D-" + dres + " 입니다.";
+        }
+      }
+    }
+  }
+
+  return rep;
+};
 gt.getDefense = function (mobdef, mydef, msg){
     rep = "";
     if(mobdef == undefined){
@@ -929,6 +974,42 @@ gt.getStarforce = function (msg){
         else{
           rep = sfM.simulation(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend);
         }
+      }
+    }
+  }
+  return rep;
+};
+gt.getSFsimulation = function (msg){
+  rep = "";
+  const sfsM = require('Starforce');
+  sfhelp = "!스타시뮬 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 시행 횟수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
+  
+  if(msg.split(" ").length < 7){
+    rep = ("시뮬레이터를 돌리기 위한 요소들이 부족합니다.\n\n" + sfhelp);
+  }
+  else{
+    chkN = false;
+    for(i = 1; i < 7; ++i){
+      if(isNaN(msg.split(" ")[i])){
+        chkN = true;
+      }
+      else{
+        if(msg.split(" ")[i] % 1 != 0){
+          chkN = true;
+        }
+      }
+    }
+    if(chkN){
+      rep = ("숫자가 아니거나 정수가 아닌 요소가 있습니다.\n\n" + sfhelp);
+    }
+    else{
+      var sfLevel = 0, sfStart = 0, sfDest = 0, sfCatch = 0, sfEvent = 0, sfDefend = 0;
+      sfLevel = parseInt(msg.split(" ")[1]); sfStart = parseInt(msg.split(" ")[2]); sfDest = parseInt(msg.split(" ")[3]); sfCatch = parseInt(msg.split(" ")[4]); sfEvent = parseInt(msg.split(" ")[5]); sfDefend = parseInt(msg.split(" ")[6]);
+      if(sfsM.isSFready2(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend) != 0){
+        rep = ("조건에 맞지않는 요소가 있습니다.\n\n" + sfhelp + "\n오류코드 : " + sfsM.isSFready2(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend));
+      }
+      else{
+        rep = sfsM.simulation2(sfLevel, sfStart, sfDest, sfCatch, sfEvent, sfDefend);
       }
     }
   }

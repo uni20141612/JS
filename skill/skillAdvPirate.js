@@ -74,7 +74,7 @@ skap.getskillnameAdvPirate = function (skillcode){
             rep = "파이렛 블레스";
             break;
         case 3:
-            rep = "옥토 푸시(몽키 푸시)";
+            rep = "파이렛 리프(캐논 리프)";
             break;
         case 4:
             rep = "피지컬 트레이닝(파이렛 트레이닝)";
@@ -173,16 +173,16 @@ skap.getskillimage1AdvPirate = function (skillcode){
             rep = "";
             break;
         case 3:
-            rep = "https://i.imgur.com/D3yO9Ey.png";
+            rep = "https://i.imgur.com/sHuQkZ5.png";
             break;
         case 4:
             rep = "";
             break;
         case 5:
-            rep = "https://i.imgur.com/TifOidJ.png";
+            rep = "https://i.imgur.com/hHjindn.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/lCO0zu3.png";
             break;
         case 7:
             rep = "https://i.imgur.com/Rrvb0MH.png";
@@ -212,10 +212,10 @@ skap.getskillimage2AdvPirate = function (skillcode){
             rep = "https://i.imgur.com/pZghF81.png";
             break;
         case 5:
-            rep = "https://i.imgur.com/4QibIAv.png";
+            rep = "https://i.imgur.com/hUuBeRH.png";
             break;
         case 6:
-            rep = "https://i.imgur.com/0KQeMon.png";
+            rep = "https://i.imgur.com/gRG8mHl.png";
             break;
         case 7:
             rep = "https://i.imgur.com/WEa1P2S.png";

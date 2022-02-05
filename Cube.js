@@ -110,7 +110,9 @@ cb.getCubeclass = function (classname){
             rep = 2;
             break;
         case "레전드리등급":
+        case "레전더리등급":
         case "레전드리":
+        case "레전더리":
         case "레전":
         case "ㄹㅈㄷㄹ":
         case "ㄹㅈ":

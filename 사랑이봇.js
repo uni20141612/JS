@@ -338,6 +338,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var help = helpM.gethelp();
       replier.reply(help);
     }
+    if(msg.startsWith("!디데이")){
+      var ddayrep = guitarM.getDday(msg);
+      replier.reply(ddayrep);
+    }
     if(msg.startsWith("!똥캐")){
       //replier.reply("메르세데스\n\n연계기와 속사기를 주력으로 사용하는 궁수. 극딜에 특화된 스킬 구조 덕분에 강력한 순간 화력을 자랑하지만, 높은 피로도와 낮은 투자 효율이 발목을 잡는다.\n\n[2011년 7월 21일 출시]\n\n무적기 : 로얄 나이츠 (시전 및 해제시, 2초), 프리드의 가호[공용] (6중첩시 30초)\n뎀감기 : 실피디아 (탑승 중 25%)\n바인드 : 없음\n\n공격대원 효과 : 스킬 쿨타임 2/3/4/5/6% 감소(1초 미만으로 감소 불가)\n\n링크 스킬 : 엘프의 축복 - 경험치 획득량 15% 증가"); 
       const jobM3 = require('Job');
@@ -862,7 +866,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const skillM = require('Skill');
       var skilljob = msg.split(" ")[1];
       if(skilljob == undefined){
-        replier.reply("직업을 입력해주세요.\n\n직업 목록 : 히어로, 팔라딘, 다크나이트, 불독, 썬콜, 비숍, [보우마스터], [신궁], 패스파인더, [나이트로드], 섀도어, 듀얼블레이드, 바이퍼, 캡틴, 캐논슈터, [소울마스터], 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], 에반, [루미너스], 메르세데스, [팬텀], 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], 모험가, [공용]");
+        replier.reply("직업을 입력해주세요.\n\n직업 목록 : [히어로], 팔라딘, 다크나이트, 불독, [썬콜], [비숍], [보우마스터], [신궁], 패스파인더, [나이트로드], 섀도어, 듀얼블레이드, 바이퍼, [캡틴], 캐논슈터, [소울마스터], 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], 에반, [루미너스], 메르세데스, [팬텀], 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], 모험가, [공용]");
       }
       else{
         var jobcode = skillM.getJobcode(skilljob);
@@ -909,6 +913,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
         }
       }
+    }
+    if(msg.startsWith("!스타시뮬")){
+      var sfsrep = guitarM.getSFsimulation(msg);
+      replier.reply(sfsrep);
     }
     if(msg.startsWith("!스타포스")){
       var sfrep = guitarM.getStarforce(msg);
@@ -1588,7 +1596,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/261/보마<봇잘알>";
+var adminNick = "리부트/220/나로";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;
