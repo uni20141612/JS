@@ -240,7 +240,8 @@ gt.getDday = function (msg){
         var dday = new Date(iYear, iMonth-1, iDay);
         var dgap = dday.getTime() - todaydate.getTime();
         if(dgap < 0){
-          rep = "구하려는 디데이 날짜가 오늘 날짜보다 과거입니다.";
+          var dres = Math.ceil(-dgap / (1000 * 60 * 60 * 24));
+          rep = iYear + "년 " + iMonth + "월 " + iDay + "일까지 D+" + dres + " 입니다.";
         }
         else{
           var dres = Math.ceil(dgap / (1000 * 60 * 60 * 24));

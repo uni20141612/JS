@@ -16,6 +16,7 @@ wpa.getaddop = function (weaponName){
       case "나워":
       case "나이트워커":
       case "표창":
+      case "가즈":
         w130 += "가즈\n(57) "; w130 += weapon130[0];
         w140 += "가즈\n(62) "; w140 += weapon140[0];
         w150 += "리스크홀더\n(86) "; w150 += weapon150[0];    
