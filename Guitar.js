@@ -764,6 +764,49 @@ gt.getMureung = function (nickname, dataM1, dataC1){
   rep = (nickname + " 캐릭터의 무릉 최신기록\n\n" +  dataMyear + " " + dataMdate + " 기준 : " + dataMlevel + ", " + dataMtime + "\n\n최고기록\n\n" + dataMdate2 + " 기준 : " + dataM3 + ", " + dataM4);
   return rep;
 };
+gt.getMustory = function (nickname, dataC1){
+  rep = "";
+
+  if(dataC1.indexOf("검색결과 없음") != -1){
+    rep = ("그런 캐릭터는 없습니다.");
+  }
+  else{ 
+      var datamus = dataC1.split("무릉 히스토리")[1].split("</div>")[0];
+      var muscnt = datamus.split("d-block\">2").length;
+      /*var muscnt2 = datamus.split("<b>").length;
+      var muscnt3 = datamus.split("d-block mb-1\">").length;
+      var muscnt4 = datamus.split(".5px\">").length;
+      var muscnt5 = datamus.split("<small>").length;
+      rep = muscnt + " " + muscnt2 + " " + muscnt3 + " " + muscnt4 + " " + muscnt5;*/
+
+      if(muscnt <= 1){
+        rep = "이 캐릭터는 무릉 히스토리가 없습니다.";
+      }
+      else{
+        var musYear = [], musDate = [], musFloor = [], musTime = [], musLevel = [];
+        for(i = 1; i < muscnt; ++i){
+          musYear.push(datamus.split("d-block\">2")[i].split("</span>")[0]);
+          musDate.push(datamus.split("<b>")[i].split("</b>")[0]);
+          musFloor.push(datamus.split("d-block mb-1\">")[i].split("</h5>")[0]);
+          musTime.push(datamus.split(".5px\">")[i].split("</span>")[0]);
+          musLevel.push(datamus.split("<small>")[i].split("</small>")[0]);
+        }
+        rep += nickname + " 캐릭터의 무릉 히스토리\n\n";
+        for(i = 0; i < musYear.length; ++i){
+          rep += "(" + (i+1) + ")";
+          rep += " 2" + musYear[i];
+          rep += musDate[i];
+          rep += " : " + musFloor[i];
+          rep += ", " + musTime[i];
+          rep += " " + musLevel[i] + "\n";
+        }
+        rep = rep.slice(0, rep.length-1);
+      }
+
+  }
+
+  return rep;
+};
 gt.getPoschaos = function (msg){
   rep = "";
   var pcchk = msg.split(" ")[1];

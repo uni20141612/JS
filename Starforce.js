@@ -256,8 +256,9 @@ sf.simulation = function (A, B, C, D, E, F){
             continue;
         }        
     }
+    const jari = require('Jari');
 
-    sfrep += "소모메소 : " + numberWithCommas(sfmeso);
+    sfrep += "소모메소 : " + jari.Jari(sfmeso);
     sfrep += "메소\n성공횟수 : " + sfsuccessCnt;
     sfrep += "\n실패(하락)횟수 : " + sffailCnt;
     sfrep += "\n파괴횟수 : " + sfdestroyCnt;
@@ -404,12 +405,13 @@ sf.simulation2 = function (A, B, C, D, E, F){
           continue;
       }        
   }
+  const jari2 = require('Jari');
 
   sfrep += "시행횟수 : " + currentCnt + "\n";
   sfrep += "최종 결과 : " + currentsf + "성\n";
   if(currentCnt < targetCnt){highsf = currentsf; }
   sfrep += "최고 강화 : " + highsf + "성\n";
-  sfrep += "소모메소 : " + numberWithCommas(sfmeso);
+  sfrep += "소모메소 : " + jari2.Jari(sfmeso);
   sfrep += "메소\n성공횟수 : " + sfsuccessCnt;
   sfrep += "\n유지횟수 : " + sfmaintainCnt;
   sfrep += "\n실패(하락)횟수 : " + sffailCnt;
