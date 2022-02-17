@@ -40,7 +40,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
       catch(e){
-        Api.replyRoom("천한수", e);
+        ;
+        //Api.replyRoom("천한수", e);
       }
     }
     if((sender == myName || sender == adminNick)/*관리자전용*/){
@@ -464,7 +465,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       else{
         var lolnick = msg.slice(5);
-        var opgg = "https://www.op.gg/summoner/userName=" + lolnick;
+        var opgg = "https://www.op.gg/summoners/kr/" + lolnick;
         var dataL = org.jsoup.Jsoup.connect(opgg).get().toString();
         var lolrep = guitarM.getLol(dataL, lolnick);
         replier.reply(lolrep);
@@ -684,7 +685,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       seedrep = seedM3.getSeedQuestion(msg, room, 0);
       replier.reply(seedrep);
     }
-    if(msg.startsWith("!답")){
+    if(msg.startsWith("!답") && !msg.startsWith("!답장")){
       const seedM4 = require('Seed');
       seedrep = seedM4.getSeedQuestion(msg, room, 1);
       replier.reply(seedrep);
@@ -701,6 +702,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var myDef = msg.split(" ")[2];
       var defrep = guitarM.getDefense(mobDef, myDef, msg);
       replier.reply(defrep);
+    }
+    if(msg.startsWith("!비약")){
+      var medrep = guitarM.getMedicine(msg);
+      replier.reply(medrep);
     }
     if(msg.startsWith("!번역")){ 
       var l1 = msg.split(" ")[1];
@@ -888,12 +893,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const skillM = require('Skill');
       var skilljob = msg.split(" ")[1];
       if(skilljob == undefined){
-        replier.reply("직업을 입력해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], 바이퍼, [캡틴], 캐논슈터, [소울마스터], 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], 에반, [루미너스], 메르세데스, [팬텀], 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
+        replier.reply("직업을 입력해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], 카이저, 카인, 카데나, 엔젤릭버스터, [아델], 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
       }
       else{
         var jobcode = skillM.getJobcode(skilljob);
         if(jobcode == -1){
-          replier.reply(skilljob + " >> 입력한 직업이 데이터베이스에 존재하지 않습니다. 다시 확인해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], 바이퍼, [캡틴], 캐논슈터, [소울마스터], 플레임위자드, 윈드브레이커, 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], 에반, [루미너스], 메르세데스, [팬텀], 은월, 카이저, 카인, 카데나, 엔젤릭버스터, 아델, 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
+          replier.reply(skilljob + " >> 입력한 직업이 데이터베이스에 존재하지 않습니다. 다시 확인해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], 카이저, 카인, 카데나, 엔젤릭버스터, [아델], 일리움, 아크, 라라, 호영, [제로], 키네시스, [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
         }
         else{
           var chkskillname = msg.split(" ")[2];
@@ -1148,6 +1153,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       replier.reply(engrep);
     }
+    if(msg.startsWith("!운빨")){
+      var lukrep = guitarM.getLucky(msg);
+      replier.reply(lukrep);
+    }
     if(msg.startsWith("!원주율") || msg.startsWith("!파이")){
       const bomaM = require('bomadata');
       var pirep = bomaM.bomaPI;
@@ -1305,7 +1314,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg == "!코디시뮬"){
       replier.reply("https://maple.gazua.in/coordi\n\nhttps://maple-r.github.io/\n\nhttp://maples.im/");
     }
-    if(msg == "!코로나"){
+    if(msg == "!코로나" || msg == "!우한폐렴"){
       var corona = "";
       corona = org.jsoup.Jsoup.connect("http://ncov.mohw.go.kr/").get().toString();
       corona = corona.split("occurrenceStatus\">")[1].split("<!-- 발생현황 -->")[0];
@@ -1389,9 +1398,13 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
     }
     if(msg == "!한강" || msg == "!ㅎㄱ"){
-      var riverTemp = Utils.getWebText("http://hangang.dkserver.wo.tc/");
-      var river = guitarM.getHangang(riverTemp);
-      replier.reply(river);
+      //var riverTemp = Utils.getWebText("http://hangang.dkserver.wo.tc/");
+      //var river = guitarM.getHangang(riverTemp);
+      var rivertem = org.jsoup.Jsoup.connect("https://hangang.ivlis.kr/aapi.php?type=dgr").get().toString();
+      var rivertime = org.jsoup.Jsoup.connect("https://hangang.ivlis.kr/aapi.php?type=time").get().toString();
+      rivertem = rivertem.split("<body>")[1].split("</body>")[0].trim();
+      rivertime = rivertime.split("<body>")[1].split("</body>")[0].split("에서 ")[1].split("시")[0].replace("\n", "");
+      replier.reply(rivertime + "시 기준\n" + rivertem);
     }
     if(msg.startsWith("!확률")){
       var raterep = guitarM.getRate(msg);

@@ -21,54 +21,164 @@ skew.getskillEunwol = function (skillname){
         case "파연":
             ewret = 3;
             break;
-        /*case "":
+        case "축지":
             ewret = 4;
             break;
-        case "":
+        case "정령 결속 1식":
+        case "정령결속 1식":
+        case "정령결속1식":
+        case "정령 결속 1":
+        case "정령결속 1":
+        case "정령결속1":
+        case "정결1":
             ewret = 5;
             break;
-        case "":
+        case "정령친화":
+        case "친화":
             ewret = 6;
             break;
-        case "":
+        case "도약":
+        case "더블 점프":
+        case "더블점프":
+        case "윗점":
             ewret = 7;
             break;
-        case "":
+        case "건곤 일체":
+        case "건곤일체":
+        case "건곤":
             ewret = 8;
             break;
-        case "":
+        case "파쇄철조-하":
+        case "파쇄철조하":
+        case "파쇄하":
+        case "파하":
             ewret = 9;
             break;
-        case "":
+        case "파쇄철조-전":
+        case "파쇄철조전":
+        case "파쇄전":
+        case "파전":
             ewret = 10;
             break;
-        case "":
+        case "후방 이동":
+        case "후방이동":
             ewret = 11;
             break;
-        case "":
+        case "정령 결속 2식":
+        case "정령결속 2식":
+        case "정령결속2식":
+        case "정령 결속 2":
+        case "정령결속 2":
+        case "정령결속2":
+        case "정결2":
             ewret = 12;
             break;
-        case "":
+        case "여우령":
+        case "사출기":
             ewret = 13;
             break;
-        case "":
+        case "여우령 숙련":
+        case "여우령숙련":
+        case "여숙":
             ewret = 14;
             break;
-        case "":
+        case "파쇄철조-회":
+        case "파쇄철조회":
+        case "파쇄회":
+        case "파회":
             ewret = 15;
             break;
-        case "":
+        case "소혼 장막":
+        case "소혼장막":
             ewret = 16;
             break;
-        case "":
+        case "속박술":
+        case "바인드":
             ewret = 17;
             break;
-        case "":
+        case "정령 결속 3식":
+        case "정령결속 3식":
+        case "정령결속3식":
+        case "정령 결속 3":
+        case "정령결속 3":
+        case "정령결속3":
+        case "정결3":
             ewret = 18;
             break;
-        case "":
+        case "강혼 체식":
+        case "강혼체식":
+        case "강혼":
+        case "강체":
             ewret = 19;
-            break;*/
+            break;
+        case "환령 강신":
+        case "환령강신":
+        case "환령":
+        case "환강":
+            ewret = 20;
+            break;
+        case "약화":
+            ewret = 21;
+            break;
+        case "폭류권":
+        case "폭류":
+            ewret = 22;
+            break;
+        case "귀참":
+            ewret = 23;
+            break;
+        case "사혼 각인":
+        case "사혼각인":
+        case "사각":
+        case "사혼":
+            ewret = 24;
+            break;
+        case "분혼 격참":
+        case "분혼격참":
+        case "분혼":
+        case "분격":
+            ewret = 25;
+            break;
+        case "소혼 결계":
+        case "소혼결계":
+        case "소결":
+            ewret = 26;
+            break;
+        case "불여우령 숙련":
+        case "불여우령숙련":
+        case "불여우령":
+        case "불여우":
+            ewret = 27;
+            break;
+        case "정령 결속 4식":
+        case "정령결속 4식":
+        case "정령결속4식":
+        case "정령 결속 4":
+        case "정령결속 4":
+        case "정령결속4":
+        case "정결4":
+            ewret = 28;
+            break;
+        case "약점 간파":
+        case "약점간파":
+        case "크뎀":
+            ewret = 29;
+            break;
+        case "정령 결속 극대화":
+        case "정령결속 극대화":
+        case "정령결속극대화":
+        case "극대화":
+        case "정결극":
+            ewret = 30;
+            break;
+        case "정령의 화신":
+        case "정령의화신":
+        case "화신":
+            ewret = 31;
+            break;
+        case "":
+            ewret = 32;
+            break;
     }
     return ewret;
 };
@@ -88,51 +198,90 @@ skew.getskillnameEunwol = function (skillcode){
             rep = "파쇄 연권";
             break;
         case 4:
-            rep = "";
+            rep = "축지";
             break;
         case 5:
-            rep = "";
+            rep = "정령 결속 1식";
             break;
         case 6:
-            rep = "";
+            rep = "정령친화";
             break;
         case 7:
-            rep = "";
+            rep = "도약";
             break;
         case 8:
-            rep = "";
+            rep = "건곤 일체";
             break;
         case 9:
-            rep = "";
+            rep = "파쇄철조-하";
             break;
         case 10:
-            rep = "";
+            rep = "파쇄철조-전";
             break;
         case 11:
-            rep = "";
+            rep = "후방 이동";
             break;
         case 12:
-            rep = "";
+            rep = "정령 결속 2식";
             break;
         case 13:
-            rep = "";
+            rep = "여우령";
             break;
         case 14:
-            rep = "";
+            rep = "여우령 숙련";
             break;
         case 15:
-            rep = "";
+            rep = "파쇄철조-회";
             break;
         case 16:
-            rep = "";
+            rep = "소혼 장막";
             break;
         case 17:
-            rep = "";
+            rep = "속박술";
             break;
         case 18:
-            rep = "";
+            rep = "정령 결속 3식";
             break;
         case 19:
+            rep = "강혼 체식";
+            break;
+        case 20:
+            rep = "환령 강신";
+            break;
+        case 21:
+            rep = "약화";
+            break;
+        case 22:
+            rep = "폭류권";
+            break;
+        case 23:
+            rep = "귀참";
+            break;
+        case 24:
+            rep = "사혼 각인";
+            break;
+        case 25:
+            rep = "분혼 격참";
+            break;
+        case 26:
+            rep = "소혼 결계";
+            break;
+        case 27:
+            rep = "불여우령 숙련";
+            break;
+        case 28:
+            rep = "정령 결속 4식";
+            break;
+        case 29:
+            rep = "약점 간파";
+            break;
+        case 30:
+            rep = "정령 결속 극대화";
+            break;
+        case 31:
+            rep = "정령의 화신";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -148,57 +297,96 @@ skew.getskilldesc1Eunwol = function (skillcode){
             rep = "하단 참조";
             break;
         case 2:
-            rep = " 10명,720%,12번 공격, 방무 50%/ 귀참 사용시 발동";
+            rep = "10명의 적을 720% 데미지로 12번 공격/ 방무 50%";
             break;
         case 3:
             rep = "하단 참조";
             break;
         case 4:
-            rep = "";
+            rep = "범위 내에 적이 없을 경우 전방 300 만큼 순간 이동";
             break;
         case 5:
-            rep = "";
+            rep = "자신이 직접 공격하는 스킬 적중 시 HP 1% 회복";
             break;
         case 6:
-            rep = "";
+            rep = "소환수 지속시간 5% 증가";
             break;
         case 7:
-            rep = "";
+            rep = "전방으로 일정 거리 점프";
             break;
         case 8:
-            rep = "";
+            rep = "방어력 500, 최대 HP 20%, 최대 MP 20% 증가";
             break;
         case 9:
-            rep = "";
+            rep = "8명의 적을 앞으로 끌어내리면서 100%의 데미지로 4번 공격";
             break;
         case 10:
-            rep = "";
+            rep = "8명의 적을 앞으로 끌고 오면서 110%의 데미지로 4번 공격";
             break;
         case 11:
-            rep = "";
+            rep = "후방으로 일정 거리 이동";
             break;
         case 12:
-            rep = "";
+            rep = "공격 속도 1단계, 이동속도 20 증가";
             break;
         case 13:
-            rep = "";
+            rep = "공격 시 일정 확률로 여우령을 소환한다/ 온오프스킬";
             break;
         case 14:
-            rep = "";
+            rep = "공격시 10% 확률로 여우령 1마리 소환";
             break;
         case 15:
-            rep = "";
+            rep = "6명의 적을 앞으로 모으며 160%의 데미지로 4번 공격";
             break;
         case 16:
-            rep = "";
+            rep = "최대 10명의 적을 90% 데미지로 5회 공격";
             break;
         case 17:
-            rep = "";
+            rep = "10초 동안 속박의 영역 생성/ 700%로 3번 공격 받음";
             break;
         case 18:
-            rep = "";
+            rep = "영구적으로 데미지 20%, 공격력 20 증가";
             break;
         case 19:
+            rep = "방어력 1500, 상태 이상 내성 40";
+            break;
+        case 20:
+            rep = "죽음에 이르는 공격을 받을 때 죽지 않음/ 쿨 1800초";
+            break;
+        case 21:
+            rep = "공격시 10%확률 15초 동안 받는 데미지가 20% 증폭";
+            break;
+        case 22:
+            rep = "하단 참조";
+            break;
+        case 23:
+            rep = "최대 3명의 적을 265%의 데미지로 12번 공격";
+            break;
+        case 24:
+            rep = "하단 참조";
+            break;
+        case 25:
+            rep = "하단 참조";
+            break;
+        case 26:
+            rep = "30초간 지속 수호의정령 3마리 소환, 디버프,피격뎀 무효화";
+            break;
+        case 27:
+            rep = "공격시 25% 확률로 불여우령 1마리 소환";
+            break;
+        case 28:
+            rep = "적의 방어율 30% 무시";
+            break;
+        case 29:
+            rep = "HP가 50% 이하인 적에 대한 크확 75%, 크뎀 25% 증가";
+            break;
+        case 30:
+            rep = "하단 참조";
+            break;
+        case 31:
+            rep = "15명의 적에게 700%의 데미지로 1번 공격/ 쿨120초";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -214,57 +402,96 @@ skew.getskilldesc2Eunwol = function (skillcode){
             rep = "장판 설치형 공격기";
             break;
         case 2:
-            rep = "재강화 대기시간 6초";
+            rep = "귀참 사용시 발동/ 재강화 대기시간 6초";
             break;
         case 3:
             rep = "키다운형 극딜기";
             break;
         case 4:
-            rep = "";
+            rep = "가장 멀리 있는 적에게 순간 이동/ 위보다 아래 우선";
             break;
         case 5:
-            rep = "";
+            rep = "스탠스 확률 100% 증가, 받는 피해량 30% 감소";
             break;
         case 6:
-            rep = "";
+            rep = "소환수 판정 4차이하 스킬 없음";
             break;
         case 7:
-            rep = "";
+            rep = "위 방향키와 함께 사용해 위 방향으로도 이동할 수 있다.";
             break;
         case 8:
-            rep = "";
+            rep = "-";
             break;
         case 9:
-            rep = "";
+            rep = "파쇄철조-반 : 15초간 최종데미지 10% 증폭/ 쿨1초";
             break;
         case 10:
-            rep = "";
+            rep = "파쇄철조-반 : 15초간 최종데미지 10% 증폭/ 쿨1초";
             break;
         case 11:
-            rep = "";
+            rep = "[패시브 효과 : 영구적으로 회피율 15% 증가]";
             break;
         case 12:
-            rep = "";
+            rep = "-";
             break;
         case 13:
-            rep = "";
+            rep = "공격력과 소환 확률은 여우령 숙련과 불여우령 숙련을 따른다.";
             break;
         case 14:
-            rep = "";
+            rep = "1명의 적을 100%의 데미지로 1번 공격/ 2회 반복";
             break;
         case 15:
-            rep = "";
+            rep = "파쇄철조-반 : 15초간 최종데미지 10% 증폭/ 쿨1초";
             break;
         case 16:
-            rep = "";
+            rep = "재사용 대기시간: 10초/ 200레벨 이후 강화";
             break;
         case 17:
-            rep = "";
+            rep = "바인드 / 재사용 대기시간 210초";
             break;
         case 18:
-            rep = "";
+            rep = "-";
             break;
         case 19:
+            rep = "모든 속성 내성 40% 증가";
+            break;
+        case 20:
+            rep = "최대 15명의 적을 450% 데미지로 4번 공격하며 3초 동안 무적";
+            break;
+        case 21:
+            rep = "명중치 60%, 회피치 40%만큼 추가 감소";
+            break;
+        case 22:
+            rep = "다수 주력기";
+            break;
+        case 23:
+            rep = "보스전 주력기";
+            break;
+        case 24:
+            rep = "지속 공격형 디버프기";
+            break;
+        case 25:
+            rep = "핵심 파티 유틸";
+            break;
+        case 26:
+            rep = "디버프 걸리거나 피격시마다 수호의정령 1마리 소비/ 쿨60초";
+            break;
+        case 27:
+            rep = "1명의 적을 200%의 데미지로 1번 공격/ 3회 반복";
+            break;
+        case 28:
+            rep = "최종 데미지 15%, 보스 몬스터 공격 시 데미지 30% 증가";
+            break;
+        case 29:
+            rep = "영구적으로 크리티컬 확률 25% 증가";
+            break;
+        case 30:
+            rep = "200레벨에 강화 (하단에는 강화된 능력치)";
+            break;
+        case 31:
+            rep = "키다운 동안 유지되며 최대 8초 동안 공격 지속";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -279,22 +506,22 @@ skew.getskilldesc3Eunwol = function (skillcode){
         case 3:
             rep = "강령시킨 땅의 정령에 여우신의 힘을 더해 파괴적인 연타를 날린다.\n\n공격당 MP 60 소비, 키다운 동안 최대 10명의 적을 880%의 데미지로 5번 연속 공격, 최대 키다운 시간 1.3초\n키다운 종료 시 최대 10명의 적을 2090%의 데미지로 15번 공격하는 충격이 3번 발생하는 마무리 공격 발동, 마무리 공격 적중 시 여우령 15마리 추가 소환\n\n파쇄 연권 사용 중 최대 HP의 일정 비율로 피해를 입히는 공격을 포함한 피격 데미지 50% 감소, 공격 적중 시 여우령 100% 확률로 소환\n\n재사용 대기시간 : 90초";
             break;
-        case 4:
+        case 22:
+            rep = "땅의 정령을 강령시켜, 전방에 있는 다수의 적을 공격한다. 스킬을 연속으로 사용하여 최대 4타까지 연속 공격이 가능하다.\n\n1타당 MP 20 소비\n[1타]: 최대 8명의 적을 300%의 데미지로 3번 공격\n[2타]: 최대 8명의 적을 310%의 데미지로 3번 공격\n[3타]: 최대 8명의 적을 320%의 데미지로 3번 공격\n[4타]: 최대 8명의 적을 350%의 데미지로 3번 공격, 공격당한 적은 100% 확률로 2초 동안 기절";
+            break;
+        case 24:
+            rep = "죽음의 정령을 강령시켜, 전방에 있는 다수의 적을 공격한다. 공격 시 크리티컬로 적중하며 공격 받은 적은 죽음의 표식이 새겨져 지속적으로 피해를 입는다. 사혼 각인은 공격 반사 상태의 적을 공격해도 피해을 입지 않는다.\n죽음의 표식으로 인한 피해의 일정 비율만큼 자신의 HP가 회복된다.\n\nMP 100 소비, 최대 10명의 적을 700%의 데미지로 3번 크리티컬 공격\n[죽음의 표식]: 공격에 당한 적은 15초 동안 1초 간격으로 250%의 도트 데미지를 입으며, 도트 데미지를 입을 때 마다 피해량의 1%만큼 자신의 HP 회복\n\n재사용 대기시간: 60초";
+            break;
+        case 25:
+            rep = "화염의 정령을 강령시켜, 전방에 있는 적들을 공격한다.\n공격에 당한 적은 영혼이 분리된다.\n공격을 받은 적은 90초 동안 분혼 격참에 저항하여 분혼 격참으로 공격 당하더라도 영혼이 분리되지 않는다.\n\nMP 100 소비, 최대 6명의 적을 2000%의 데미지로 1번 공격\n공격에 당한 적은 영혼 분리\n단, 고정형 몬스터는 영혼이 분리되지 않지만 받는 최종 데미지가 20% 증가\n[분리된 영혼]: 본체와 HP 공유, 받는 최종 데미지 80% 감소, 공격 당한 위치에 10초 동안 생성.\n분혼 격참으로 적에게 준 데미지에 따라 영혼 지속시간 최대 100% 증가\n본체 또는 분리된 영혼 처치 시 획득 경험치 100%만큼 추가 획득.\n\n재사용 대기시간: 180초";
+            break;
+        case 30:
+            rep = "정령과 결속을 극대화시켜 일정 시간 동안 자신을 강화시키고, 은월이 랑을 그리워하는 마음에 반응하여 랑에게 받은 수호정령이 랑의 모습으로 나타나 도움을 준다. 은월의 공격이 적중할 때마다 일정 확률로 떨어지는 간을 습득하면 버프의 지속시간이 증가한다.\n\nMP 300 소비, 30초 동안에 정령 강령 시 데미지 35%, 공격력 20, 보스 몬스터 공격 시 데미지 20%, 공격 속도 1단계 증가, 적의 방어율 20% 무시, 랑의 모습을 한 수호정령 소환\n재사용 대기시간: 120초\n\n은월의 공격 적중 시 10% 확률로 간 생성, 간 습득 시 정령 결속 극대화의 지속시간 4초 증가, 정령 결속 극대화의 재사용 대기시간을 초과하여 증가하지 않음. 소환된 수호정령은 스스로의 판단으로 아래의 스킬 시전\n간간 수월래: 최대 6명의 적을 275% 데미지로 3번 공격, 재사용 대기시간 3초\n소혼 장막: 최대 10명의 적을 150% 데미지로 4.8초 동안 지속 공격, 수호 정령이 소혼 장막을 시전 하는 동안 은월이 시전하는 소혼 장막의 최종 데미지 700% 증가, 수호정령의 소혼 장막보다 먼저 시전한 소혼 장막에도 적용, 재사용 대기시간 60초\n소혼 결계: 은월의 소혼 결계로 인한 수호의 정령이 최대치가 아닐 경우 소혼 결계 재시전, 재사용 대기시간 100초";
+            break;
+        case 31:
             rep = "";
             break;
-        case 5:
-            rep = "";
-            break;
-        case 6:
-            rep = "";
-            break;
-        case 7:
-            rep = "";
-            break;
-        case 8:
-            rep = "";
-            break;
-        case 9:
+        case 32:
             rep = "";
             break;
     }
@@ -316,7 +543,7 @@ skew.getskillimage1Eunwol = function (skillcode){
             rep = "https://i.imgur.com/tLDrrLf.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/eNkySKV.png";
             break;
         case 5:
             rep = "";
@@ -325,19 +552,19 @@ skew.getskillimage1Eunwol = function (skillcode){
             rep = "";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/pdqv98U.png";
             break;
         case 8:
             rep = "";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/ORfYbeW.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/rcjsTpE.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/aq2nNuN.png";
             break;
         case 12:
             rep = "";
@@ -346,21 +573,60 @@ skew.getskillimage1Eunwol = function (skillcode){
             rep = "";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/a29IQcw.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/h0iUaqK.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/HmBtt2m.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/JjUJepa.png";
             break;
         case 18:
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "https://i.imgur.com/J4v39WV.png";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/whKnNwH.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/AAWtC5T.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/ouYuIX9.png";
+            break;
+        case 24:
+            rep = "https://i.imgur.com/nOSHiuu.png";
+            break;
+        case 25:
+            rep = "https://i.imgur.com/aUFcQ83.png";
+            break;
+        case 26:
+            rep = "https://i.imgur.com/n4YbfU0.png";
+            break;
+        case 27:
+            rep = "https://i.imgur.com/QcM0hK8.png";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "https://i.imgur.com/jNoxOqK.png";
+            break;
+        case 31:
+            rep = "https://i.imgur.com/CvKdXLm.png";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -382,51 +648,90 @@ skew.getskillimage2Eunwol = function (skillcode){
             rep = "https://i.imgur.com/cjkcTKD.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/DRqBWKd.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/g7Qj5dl.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/76RFuje.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/vAcNNJ8.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/HGpcGEg.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/9uWHdY9.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/p6e2zES.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/crPIvFB.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/PPzIEGp.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/Gw1MMIW.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/d4UliKa.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/JOSRovg.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/55RcBbz.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/s9K7SF7.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/4kQAK9Y.png";
             break;
         case 19:
+            rep = "https://i.imgur.com/khDid4n.png";
+            break;
+        case 20:
+            rep = "https://i.imgur.com/Ku8imYU.png";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/9CrXP1E.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/X3RMUdy.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/yi56wGT.png";
+            break;
+        case 24:
+            rep = "https://i.imgur.com/Qu4elEK.png";
+            break;
+        case 25:
+            rep = "https://i.imgur.com/42m3Tuj.png";
+            break;
+        case 26:
+            rep = "https://i.imgur.com/uZAEeSk.png";
+            break;
+        case 27:
+            rep = "https://i.imgur.com/IcYjFo3.png";
+            break;
+        case 28:
+            rep = "https://i.imgur.com/cqowU2i.png";
+            break;
+        case 29:
+            rep = "https://i.imgur.com/gEdq2Xk.png";
+            break;
+        case 30:
+            rep = "https://i.imgur.com/Weeh86X.png";
+            break;
+        case 31:
+            rep = "https://i.imgur.com/irRXNMe.png";
+            break;
+        case 32:
             rep = "";
             break;
     }

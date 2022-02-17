@@ -29,54 +29,166 @@ skwb.getskillWind = function (skillname){
         case "볼텍스":
             wbret = 3;
             break;
-        /*case "":
+        case "윈드 워크":
+        case "윈드워크":
+        case "윈워":
+        case "워크":
             wbret = 4;
             break;
-        case "":
+        case "엘리멘트 : 스톰":
+        case "엘리멘트:스톰":
+        case "엘리멘트스톰":
+        case "엘리멘트":
+        case "스톰":
             wbret = 5;
             break;
-        case "":
+        case "페어리 턴":
+        case "페어리턴":
+        case "페턴":
+        case "패턴":
             wbret = 6;
             break;
-        case "":
+        case "트라이플링 윔 I":
+        case "트라이플링윔 I":
+        case "트라이플링윔I":
+        case "트라이플링 윔 1":
+        case "트라이플링윔 1":
+        case "트라이플링윔1":
+        case "트라이플링 윔":
+        case "트라이플링윔":
+        case "트라이플링 웜 I":
+        case "트라이플링웜 I":
+        case "트라이플링웜I":
+        case "트라이플링 웜 1":
+        case "트라이플링웜 1":
+        case "트라이플링웜1":
+        case "트라이플링 웜":
+        case "트라이플링웜":
+        case "윔 1":
+        case "윔1":
+        case "윔":
+        case "웜":
             wbret = 7;
             break;
-        case "":
+        case "실프스 에이드":
+        case "실프스에이드":
+        case "실프스":
+        case "에이드":
             wbret = 8;
             break;
-        case "":
+        case "서리바람의 군무":
+        case "서리바람의군무":
+        case "군무":
+        case "서군":
             wbret = 9;
             break;
-        case "":
+        case "핀포인트 피어스":
+        case "핀포인트피어스":
+        case "핀포인트":
+        case "핀피":
             wbret = 10;
             break;
-        case "":
+        case "트라이플링 윔 II":
+        case "트라이플링윔 II":
+        case "트라이플링윔II":
+        case "트라이플링 윔 2":
+        case "트라이플링윔 2":
+        case "트라이플링윔2":
+        case "트라이플링 웜 II":
+        case "트라이플링웜 II":
+        case "트라이플링웜II":
+        case "트라이플링 웜 2":
+        case "트라이플링웜 2":
+        case "트라이플링웜2":
+        case "윔 2":
+        case "윔2":
             wbret = 11;
             break;
-        case "":
+        case "알바트로스":
+        case "알바":
             wbret = 12;
             break;
-        case "":
+        case "에메랄드 플라워":
+        case "에메랄드플라워":
+        case "플라워":
+        case "에플":
             wbret = 13;
             break;
-        case "":
+        case "페더리니스":
+        case "페더":
             wbret = 14;
             break;
-        case "":
+        case "세컨드 윈드":
+        case "세컨드윈드":
+        case "세컨드":
+        case "세컨":
+        case "세윈":
             wbret = 15;
             break;
-        case "":
+        case "천공의 노래":
+        case "천공의노래":
+        case "천노":
+        case "속사기":
             wbret = 16;
             break;
-        case "":
+        case "스파이럴 볼텍스":
+        case "스파이럴볼텍스":
+        case "볼텍스":
+        case "스볼":
             wbret = 17;
             break;
-        case "":
+        case "트라이플링 윔 III":
+        case "트라이플링윔 III":
+        case "트라이플링윔III":
+        case "트라이플링 윔 3":
+        case "트라이플링윔 3":
+        case "트라이플링윔3":
+        case "트라이플링 웜 III":
+        case "트라이플링웜 III":
+        case "트라이플링웜III":
+        case "트라이플링 웜 3":
+        case "트라이플링웜 3":
+        case "트라이플링웜3":
+        case "윔 3":
+        case "윔3":
             wbret = 18;
             break;
-        case "":
+        case "윈드 블레싱":
+        case "윈드블레싱":
+        case "블레싱":
+        case "윈블":
             wbret = 19;
-            break;*/
+            break;
+        case "에메랄드 더스트":
+        case "에메랄드더스트":
+        case "더스트":
+        case "에더":
+            wbret = 20;
+            break;
+        case "알바트로스 맥시멈":
+        case "알바트로스맥시멈":
+        case "맥시멈":
+        case "알맥":
+            wbret = 21;
+            break;
+        case "스톰 브링어":
+        case "스톰브링어":
+        case "브링어":
+        case "스브":
+            wbret = 22;
+            break;
+        case "몬순":
+            wbret = 23;
+            break;
+        case "":
+            wbret = 24;
+            break;
+        case "":
+            wbret = 25;
+            break;
+        case "":
+            wbret = 26;
+            break;
     }
     return wbret;
 };
@@ -95,54 +207,72 @@ skwb.getskillnameWind = function (skillcode){
         case 3:
             rep = "볼텍스 스피어";
             break;
-        /*case 4:
-            rep = "";
+        case 4:
+            rep = "윈드 워크";
             break;
         case 5:
-            rep = "";
+            rep = "엘리멘트 : 스톰";
             break;
         case 6:
-            rep = "";
+            rep = "페어리 턴";
             break;
         case 7:
-            rep = "";
+            rep = "트라이플링 윔 I";
             break;
         case 8:
-            rep = "";
+            rep = "실프스 에이드";
             break;
         case 9:
-            rep = "";
+            rep = "서리바람의 군무";
             break;
         case 10:
-            rep = "";
+            rep = "핀포인트 피어스";
             break;
         case 11:
-            rep = "";
+            rep = "트라이플링 윔 II";
             break;
         case 12:
-            rep = "";
+            rep = "알바트로스";
             break;
         case 13:
-            rep = "";
+            rep = "에메랄드 플라워";
             break;
         case 14:
-            rep = "";
+            rep = "페더리니스";
             break;
         case 15:
-            rep = "";
+            rep = "세컨드 윈드";
             break;
         case 16:
-            rep = "";
+            rep = "천공의 노래";
             break;
         case 17:
-            rep = "";
+            rep = "스파이럴 볼텍스";
             break;
         case 18:
-            rep = "";
+            rep = "트라이플링 윔 III";
             break;
         case 19:
+            rep = "윈드 블레싱";
+            break;
+        case 20:
+            rep = "에메랄드 더스트";
+            break;
+        case 21:
+            rep = "알바트로스 맥시멈";
+            break;
+        case 22:
+            rep = "스톰 브링어";
+            break;
+        case 23:
+            rep = "몬순";
+            break;
+        case 24:
             rep = "";
-            break;*/
+            break;
+        case 25:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -150,65 +280,83 @@ skwb.getskilldesc1Wind = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "기운은 20초마다1개,최대2개/1개,10초,10명,550%,3번/2개,10초,15명,1320%,3번";
+            rep = "하단 참조";
             break;
         case 1:
-            rep = "8초동안,1100%,3번공격 정령 10개생성, 9초동안 초당 1100%, 쿨10초";
+            rep = "하단 참조";
             break;
         case 2:
-            rep = "45초동안 300의 엘리멘트생성, 피격시 최대HP의 1%당 엘리멘트 1소모, 쿨90초";
+            rep = "하단 참조";
             break;
         case 3:
-            rep = "일정간격마다 10명,880%,6번 공격 충돌발생 볼텍스 스피어 생성, 쿨30초";
+            rep = "하단 참조";
             break;
-        /*case 4:
-            rep = "";
+        case 4:
+            rep = "하단 참조";
             break;
         case 5:
-            rep = "";
+            rep = "활성화 시 데미지 10% 증가";
             break;
         case 6:
-            rep = "";
+            rep = "6명, 뒤로 밀쳐내며 175%의 데미지로 3번 공격";
             break;
         case 7:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 8:
-            rep = "";
+            rep = "화살 소비 없이 공격 가능하며";
             break;
         case 9:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 10:
-            rep = "";
+            rep = "최대 1명의 적을 340% 데미지로 2번 공격";
             break;
         case 11:
-            rep = "";
+            rep = "30%확률 정령의기운 4개, 215% 데미지";
             break;
         case 12:
-            rep = "";
+            rep = "200초 동안 알바트로스의 망토 장착";
             break;
         case 13:
-            rep = "";
+            rep = "60초 동안 HP 20000을 가진 수정 꽃을 소환";
             break;
         case 14:
-            rep = "";
+            rep = "피격 데미지 30% 감소, 상태 이상 내성 10";
             break;
         case 15:
-            rep = "";
+            rep = "회피 확률 30%, 방어력 1000 증가";
             break;
         case 16:
-            rep = "";
+            rep = "최대 4명의 적을 발 당 345% 데미지로 공격.";
             break;
         case 17:
-            rep = "";
+            rep = "7명의 적을 밀며 380%, 5번/ [군무 275%p 증가]";
             break;
         case 18:
-            rep = "";
+            rep = "50%확률 정령의기운 5개, 290% 데미지";
             break;
         case 19:
+            rep = "공격력 10%, 민첩성 15%, 최대 HP 20%";
+            break;
+        case 20:
+            rep = "수정 꽃의 최대 HP 40000로 증가";
+            break;
+        case 21:
+            rep = "[패시브 효과 : 공30, 뎀25%, 방무 15%, 크확 15%";
+            break;
+        case 22:
+            rep = "200초 동안 공격 시 30% 확률로 거대한 화살을 소환";
+            break;
+        case 23:
+            rep = "15명의 적에게 430% 데미지로 12번 공격/ 쿨 30초";
+            break;
+        case 24:
             rep = "";
-            break;*/
+            break;
+        case 25:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -216,19 +364,115 @@ skwb.getskilldesc2Wind = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = " 소환시 바람의기운 1개소모, ↓키같이누르면 바람의기운 모두소모";
+            rep = "다단히트형 광범위 공격기";
             break;
         case 1:
-            rep = "하나의 몬스터를 공격하면 2번째 정령의 기운부터 최종 데미지 25% 감소";
+            rep = "오브젝트 사출형 공격기";
             break;
         case 2:
-            rep = "2초마다 1210%,5번 돌개바람 3개발사, 1명공격하면 최종데미지 50% 감소";
+            rep = "다른 무적기와는 장단점이 명확함";
             break;
         case 3:
-            rep = "보스몬스터 공격시 1초동안 이동속도 50% 감소, 한명에게 최대20번충돌";
+            rep = "설치 및 전진형 공격기";
             break;
-        /*case 4:
+        case 4:
+            rep = "전방 이동기";
+            break;
+        case 5:
+            rep = "온오프 스킬";
+            break;
+        case 6:
+            rep = "윈드브레이커의 주력 사냥스킬";
+            break;
+        case 7:
+            rep = "ㅇㅜㅣㅁ(O) ㅇㅜㅓㅁ(X)";
+            break;
+        case 8:
+            rep = "공격력 20, 크리티컬 확률 10% 증가";
+            break;
+        case 9:
+            rep = "스탠스 적용";
+            break;
+        case 10:
+            rep = "60초간 데미지 15%, 방무 15% 증가하는 디버프 발생";
+            break;
+        case 11:
+            rep = "10%확률, 270% 데미지 강화된 정령의 기운 발생";
+            break;
+        case 12:
+            rep = "[패시브: 공20, 최대HP 1500, 크확10%, 공속 1단계]";
+            break;
+        case 13:
+            rep = "주위의 적들을 유혹. 유혹 당한 적들은 슬로우 상태 이상";
+            break;
+        case 14:
+            rep = "모든 속성 내성 10% 증가, 스탠스 40% 증가";
+            break;
+        case 15:
+            rep = "회피 성공 시 5초 동안 공격력 15 증가";
+            break;
+        case 16:
+            rep = "최대 공격 수보다 적을 때 1명당 데미지 20%만큼 증가(곱)";
+            break;
+        case 17:
+            rep = "230% 데미지로 2번 공격하는 스플래시 데미지 발생";
+            break;
+        case 18:
+            rep = "20%확률, 390% 데미지 강화된 정령의 기운 발생";
+            break;
+        case 19:
+            rep = "추가 회피율 30% 증가, 스탠스 60% 증가";
+            break;
+        case 20:
+            rep = "주변 몬스터방어율 10% 감소, 피격데미지 20% 감소";
+            break;
+        case 21:
+            rep = "상태이상내성 15, 모든속성내성 15%, 공속 1단계 증가]";
+            break;
+        case 22:
+            rep = "500% 데미지로 추가 공격";
+            break;
+        case 23:
+            rep = "30초 동안 1초마다 200% 도트 데미지를 입히는 디버프 발생";
+            break;
+        case 24:
             rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+    }
+    return rep;
+};
+skwb.getskilldesc3Wind = function (skillcode){
+    rep = "";
+    switch(skillcode){
+        case 0:
+            rep = "적을 응징하는 사나운 돌풍을 소환한다. 소환 시 가지고 있는 바람의 기운을 1개 소모하며 아래 방향키와 함께 사용하면 가지고 있는 바람의 기운을 모두 소모하여 더 강한 돌풍을 소환할 수 있다. 돌풍은 지속적으로 주변의 최대 HP가 가장 높은 보스 몬스터를 찾아 추적하며 이동하며 적을 공격할 때 이동속도가 감소한다. 돌풍은 1개만 존재할 수 있고 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n감속 모드 온오프 : 마우스 우클릭\n\nMP 500 소비, 바람의 기운은 20초마다 1개씩 증가하며 최대 2개까지 소지 가능\n1개 소비 시 10초 동안 최대 10명의 적을 715%의 데미지로 3번 공격, 2개 소비 시 최대 15명의 적을 1715%로 3번 공격";
+            break;
+        case 1:
+            rep = "자고 있는 바람의 정령을 깨워 난동을 부리게 한다. 바람의 정령은 최대 HP가 높은 보스 몬스터를 우선 추적한다.\n\nMP 500 소비, 8초 동안 적을 찾아 1210% 데미지로 3번 공격하는 정령의 기운 10개 생성\n여러 개의 정령의 기운이 하나의 몬스터를 공격하면 2번째 정령의 기운부터 최종 데미지 15% 감소\n정령의 기운에 공격당한 적은 9초 동안 1초당 1100%의 지속 피해\n\n재사용 대기시간 10초";
+            break;
+        case 2:
+            rep = "바람의 엘리멘트를 자신의 주위에서 활성화하여 공방일체의 바람 장벽을 생성한다. 공격 시 돌개바람이 생성되어 적을 추가 공격한다.\n공격을 방어하면 엘리멘트가 소모되고, 모두 소모하면 바람 장벽이 사라진다. 돌개바람은 공격 반사 상태의 적을 공격해도 피해를 입지 않는다\n\nMP 1000 소비, 45초 동안 300의 엘리멘트를 지닌 바람 장벽 생성\n피격 시 최대 HP의 1%에 해당하는 데미지당 엘리멘트를 1 소모하여 데미지 무효화, 최대 HP의 일정 비율로 피해를 입히는 공격에도 적용\n공격 시 2초마다 1210%의 데미지로 5번 공격하는 돌개바람 3개 발사, 여러 개의 돌개바람이 1명의 적을 공격하면 돌개바람의 최종 데미지 50% 감소\n\n재사용 대기시간 90초\n\n막을 수 있는 것\nHP 비례 데미지를 포함한 대부분의 피해\n공격 판정 있는 낙하물이 거는 상태 이상\n\n막을 수 없는 것\n(슈퍼)넉백\n데미지가 있는 낙하물이 거는 상태 이상 외의 모든 상태 이상\n비율과 상관없이 고정된 값이거나, 한도 이상의 피해를 주는 공격";
+            break;
+        case 3:
+            rep = "거센 바람을 구 형태로 응축시켜 날려 보낸다. 볼텍스 스피어를 중심으로 일정 시간마다 돌풍이 발생하여 주변 적들을 끌어들인다. 볼텍스 스피어는 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 750 소비, 일정 간격마다 최대 10명의 적에게 880%의 데미지로 6번 공격하는 충돌이 발생하는 볼텍스 스피어 생성\n보스 몬스터를 공격했다면 1초 동안 볼텍스 스피어의 이동속도 50% 감소\n한명의 적에게는 최대 20번까지만 충돌 발생\n\n재사용 대기시간 : 30초";
+            break;
+        case 4:
+            rep = "바람의 힘을 빌려 전방으로 빠르게 전진한다. 전진 시 몬스터와 충돌하지 않는다.\n\nMP 10 소비, 지상에서는 발판을 따라 움직이며 발판이 끊어져 있을 경우 그 자리에서 정지. 공중에서는 엘리멘탈 쉬프트와 같이 사용 가능\n[패시브 효과 : 이동속도 35, 점프력 15, 최대 이동속도 20만큼 증가]";
             break;
         case 5:
             rep = "";
@@ -237,44 +481,14 @@ skwb.getskilldesc2Wind = function (skillcode){
             rep = "";
             break;
         case 7:
-            rep = "";
+            rep = "바람의 정령이 변덕을 부려 주위 적들을 혼란에 빠뜨린다. 정령의 기운은 윈드브레이커가 바라보는 방향의 일정 영역으로 발생한다. 단, 일부 스킬로 타격 시 바라보는 방향과 관계없이 발생한다.\n스킬 사용 시 효과가 활성화되고 재사용 시 비활성화되는 온오프 스킬\n\n적을 타격할 때 20% 확률로 정령의 기운이 최대 3개 발생하여 170% 데미지로 주위의 적을 랜덤하게 공격. 5%의 확률로 210% 데미지를 주는 강화된 정령의 기운 발생";
             break;
         case 8:
             rep = "";
             break;
         case 9:
-            rep = "";
+            rep = "차가운 냉기를 담은 화살을 바람에 날려 전방을 무차별적으로 공격한다. 스킬 키를 누른 상태로 방향키를 조작하여 타격 범위를 움직일 수 있다.\n\nMP 8 소비, 6명의 적을 165%의 데미지로 공격. 스킬 키를 누른 상태로 ↑,↓,←,→키를 사용하여 영역을 이동. 상하좌우 최대 350 거리까지 이동 가능. 트라이플링 윔과 스톰 브링어 발동 불가";
             break;
-        case 10:
-            rep = "";
-            break;
-        case 11:
-            rep = "";
-            break;
-        case 12:
-            rep = "";
-            break;
-        case 13:
-            rep = "";
-            break;
-        case 14:
-            rep = "";
-            break;
-        case 15:
-            rep = "";
-            break;
-        case 16:
-            rep = "";
-            break;
-        case 17:
-            rep = "";
-            break;
-        case 18:
-            rep = "";
-            break;
-        case 19:
-            rep = "";
-            break;*/
     }
     return rep;
 };
@@ -293,35 +507,35 @@ skwb.getskillimage1Wind = function (skillcode){
         case 3:
             rep = "https://i.imgur.com/PDDKstL.png";
             break;
-        /*case 4:
-            rep = "";
+        case 4:
+            rep = "https://i.imgur.com/MuH8ex3.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/qah7Lzs.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/D8VsO4F.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/a162awy.png";
             break;
         case 8:
             rep = "";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/jHMOGGJ.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/I6bhnMo.png";
             break;
         case 11:
             rep = "";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/GAF66Js.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/hPM51x1.png";
             break;
         case 14:
             rep = "";
@@ -330,17 +544,47 @@ skwb.getskillimage1Wind = function (skillcode){
             rep = "";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/29aRB8C.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/7xl2vFv.png";
             break;
         case 18:
             rep = "";
             break;
         case 19:
             rep = "";
-            break;*/
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/EDRpiun.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/hLHTa3Z.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/0BTP5wc.png";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -359,54 +603,84 @@ skwb.getskillimage2Wind = function (skillcode){
         case 3:
             rep = "https://i.imgur.com/4PwcStc.png";
             break;
-        /*case 4:
-            rep = "";
+        case 4:
+            rep = "https://i.imgur.com/lW5LN1R.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/U0pUZSq.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/VR4KSYz.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/0WsCmCT.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/ZuIDjWw.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/aVLUTQk.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/a8CSUON.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/1TWlcMb.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/mla3ov6.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/Y8NLq7I.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/21Z28Du.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/VM9slgc.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/DulsEba.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/LQ6IpPB.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/3SxT172.png";
             break;
         case 19:
+            rep = "https://i.imgur.com/KjY81nD.png";
+            break;
+        case 20:
+            rep = "https://i.imgur.com/csvMANr.png";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/EO7dqkC.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/j1IDRSg.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/OrnDS4P.png";
+            break;
+        case 24:
             rep = "";
-            break;*/
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
     }
     return rep;
 };
