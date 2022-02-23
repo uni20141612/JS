@@ -487,6 +487,18 @@ gB.getBoss = function (boss){
         case "세렌":
           chkboss = 58;
           break;
+        case "카오스 감시자 칼로스":
+        case "카오스 감시자칼로스":
+        case "카오스감시자칼로스":
+        case "카감시자칼로스":
+        case "카칼로스":
+        case "카칼":
+        case "감시자 칼로스":
+        case "감시자칼로스":
+        case "칼로스":
+        case "카로테":
+          chkboss = 59;
+          break;
         default:
           rep = "그런 보스는 없습니다.";
           chkboss = -1;
@@ -616,6 +628,9 @@ gB.getBossimage = function (ind){
       case 55:
         rep = "https://i.imgur.com/GZlQaTV.png";
         break;
+      case 59:
+        rep = "https://i.imgur.com/dgFN4eT.png";
+        break;
     }
     return rep;
 };
@@ -740,6 +755,9 @@ gB.getBossimage2 = function (ind){
         break;
       case 55:
         rep = "https://i.imgur.com/h8hDBfG.png";
+        break;
+      case 59:
+        rep = "https://i.imgur.com/pVGYfH7.png";
         break;
     }
     return rep;
@@ -923,6 +941,9 @@ gB.getBossHP = function (ind){
         break;
       case 58:
         rep = "84조ㆍ220조 / 181,116,193메소"; //노멀 선택받은 세렌
+        break;
+      case 59:
+        rep = "???조ㆍ???조 / 300,000,000메소"; //카오스 감시자 칼로스
         break;
         
     }
@@ -1301,7 +1322,10 @@ gB.getBossinfo = function (ind){
           break;
         case 58:
           rep = "380%, 반감, 어센틱포스 150ㆍ200, 수에큐 10개";
-          break;          
+          break;     
+        case 59:
+          rep = "330%ㆍ380%, 반감, 어센틱포스 250ㆍ300, 수에큐 ?개";
+          break;     
     }
     return rep;
   };
@@ -1365,7 +1389,8 @@ var bossList = [
     "마왕 발록 Lv.65\n478만, 25%, 비반감, 3분간 무적",//55
     "이지 윌 Lv.235\n",//56
     "노멀 진 힐라 Lv.250\n",//57
-    "노멀 선택받은 세렌 Lv.275\n"//58
+    "노멀 선택받은 세렌 Lv.275\n",//58
+    "감시자 칼로스 Lv.275/Lv.280\n"//59
 ];
 
 module.exports = gB;

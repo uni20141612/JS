@@ -94,6 +94,8 @@ bgm.getBGMlist = function(listname){
         brep += " -선택받은 세렌 (2페,석양)\n";
         brep += " -선택받은 세렌 (2페,자정)\n";
         brep += " -선택받은 세렌 (2페,여명)\n";
+        brep += " -감시자 칼로스 (1페)\n";
+        brep += " -감시자 칼로스 (2페)\n";
         brep += " -";
     }
     else if(listname == "마을"){
@@ -159,6 +161,8 @@ bgm.getBGMlist = function(listname){
         brep += " -불타는 세르니움\n";
         brep += " -해방된 에델슈타인\n";
         brep += " -호텔 아르크스\n";
+        brep += " -멈추지 않는 탑, 카로테\n";
+        brep += " -카로테 마천루\n";
         brep += " -판테온\n";
         brep += " -판테온 대신전\n";
         brep += " -헬리시움 탈환 본부\n";
@@ -575,6 +579,52 @@ bgm.getBossCode = function(bossname){
         case "벨룸":
             ret = 41;
             break;
+        case "감시자 칼로스 (1페이즈)":
+        case "감시자칼로스 (1페이즈)":
+        case "감시자 칼로스(1페이즈)":
+        case "감시자칼로스(1페이즈)":
+        case "감시자 칼로스 1페이즈":
+        case "감시자칼로스 1페이즈":
+        case "감시자 칼로스1페이즈":
+        case "감시자 칼로스 (1페)":
+        case "감시자칼로스 (1페)":
+        case "감시자칼로스(1페)":
+        case "감시자 칼로스 1페":
+        case "감시자칼로스 1페":
+        case "감시자칼로스1페":
+        case "칼로스 (1페이즈)":
+        case "칼로스(1페이즈)":
+        case "칼로스 1페이즈":
+        case "칼로스1페이즈":
+        case "칼로스 (1페)":
+        case "칼로스(1페)":
+        case "칼로스 1페":
+        case "칼로스1페":
+            ret = 42;
+            break;
+        case "감시자 칼로스 (2페이즈)":
+        case "감시자칼로스 (2페이즈)":
+        case "감시자 칼로스(2페이즈)":
+        case "감시자칼로스(2페이즈)":
+        case "감시자 칼로스 2페이즈":
+        case "감시자칼로스 2페이즈":
+        case "감시자 칼로스2페이즈":
+        case "감시자 칼로스 (2페)":
+        case "감시자칼로스 (2페)":
+        case "감시자칼로스(2페)":
+        case "감시자 칼로스 2페":
+        case "감시자칼로스 2페":
+        case "감시자칼로스2페":
+        case "칼로스 (2페이즈)":
+        case "칼로스(2페이즈)":
+        case "칼로스 2페이즈":
+        case "칼로스2페이즈":
+        case "칼로스 (2페)":
+        case "칼로스(2페)":
+        case "칼로스 2페":
+        case "칼로스2페":
+            ret = 43;
+            break;
     }
     return ret;
 };
@@ -621,6 +671,8 @@ var BGMboss = [
     "피에르 - Joyful Tea Party\n\nhttps://youtu.be/2rMJrisBFJI", //39 
     "블러디 퀸 - Queen Palace\n\nhttps://youtu.be/LKxvLvnxWPc", //40  
     "벨룸 - Abyss Cave\n\nhttps://youtu.be/iU--7d3GLn8", //41  
+    "감시자 칼로스 (1페) - Occupied Fortress\n\nhttps://youtu.be/Tr2DH10nKI8", //42  
+    "감시자 칼로스 (2페) - Fury of the Watcher\n\nhttps://youtu.be/fwLnfRHqicI", //42  
 ];
 
 bgm.getTownCode = function(townname){
@@ -1075,6 +1127,22 @@ bgm.getTownCode = function(townname){
         case "세후":
             ret = 81;
             break;
+        case "멈추지 않는 탑, 카로테":
+        case "멈추지않는 탑, 카로테":
+        case "멈추지않는탑, 카로테":
+        case "멈추지않는탑,카로테":
+        case "멈추지 않는 탑 카로테":
+        case "멈추지않는 탑 카로테":
+        case "멈추지않는탑 카로테":
+        case "멈추지않는탑카로테":
+        case "카로테":
+            ret = 82;
+            break;
+        case "카로테 마천루":
+        case "카로테마천루":
+        case "마천루":
+            ret = 83;
+            break;
     }
     return ret;
 };
@@ -1161,8 +1229,8 @@ var BGMtown = [
     "거울세계 루디브리엄 - Fantastic Thinking In Mirror\n\nhttps://youtu.be/qHgtsdnPkx0", //79
     "거울세계 시간의 신전 - Time Temple In Mirror\n\nhttps://youtu.be/xVY16wiTTPA", //80
     "불타는 세르니움 - Burning City\n\nhttps://youtu.be/ML5_pLW-MSc", //81
-    " - \n\n", //72
-    " - \n\n", //73
+    "멈추지 않는 탑, 카로테 - Once Upon a Time in Karotte\n\nhttps://youtu.be/MN9OrjESFgA", //82
+    "카로테 마천루 - Preparation for Breakthrough\n\nhttps://youtu.be/-lWcKfl9FfE", //83
     " - \n\n", //74
     " - \n\n", //75
     " - \n\n", //76

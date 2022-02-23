@@ -195,7 +195,11 @@ sb.getSymbolmeso = function(sbind, level){
             meso = getsbYRmeso(level);
             break;
         case 1:
+            meso = getsbCCmeso(level);
+            break;
         case 2:
+            meso = getsbRHmeso(level);
+            break;
         case 3:
         case 4:
         case 5:
@@ -217,7 +221,11 @@ sb.getSymbolcumulmeso = function(sbind, level){
             meso = getsbcumulYRmeso(level);
             break;
         case 1:
+            meso = getsbcumulCCmeso(level);
+            break;
         case 2:
+            meso = getsbcumulRHmeso(level);
+            break;
         case 3:
         case 4:
         case 5:
@@ -309,7 +317,7 @@ function getascumulexp2(lvlc){
     return cumulate(asexp, lvlc-1);
 }
 function getsbYRmeso(lvl){
-    return (2370000 + 7130000*lvl);
+    return (3110000 + 3960000*lvl);    
 }
 function getsbcumulYRmeso(lvl){
     var sbmesoy = [];
@@ -317,10 +325,32 @@ function getsbcumulYRmeso(lvl){
         var tempmesoy = getsbYRmeso(i);
         sbmesoy.push(tempmesoy);
     }
-    return 1399730000 - cumulate(sbmesoy, lvl-2);
+    return 811490000 - cumulate(sbmesoy, lvl-2);
+}
+function getsbCCmeso(lvl){
+    return (6220000 + 4620000*lvl);    
+}
+function getsbcumulCCmeso(lvl){
+    var sbmesoc = [];
+    for(var i = 1; i < lvl; ++i){
+        var tempmesoc = getsbCCmeso(i);
+        sbmesoc.push(tempmesoc);
+    }
+    return 995980000 - cumulate(sbmesoc, lvl-2);
+}
+function getsbRHmeso(lvl){
+    return (9330000 + 5280000*lvl);    
+}
+function getsbcumulRHmeso(lvl){
+    var sbmesor = [];
+    for(var i = 1; i < lvl; ++i){
+        var tempmesor = getsbRHmeso(i);
+        sbmesor.push(tempmesor);
+    }
+    return 1180470000 - cumulate(sbmesor, lvl-2);
 }
 function getsbmeso(lvl){
-    return (12440000 + 6600000*lvl);
+    return (11196000 + 5940000*lvl);
 }
 function getsbcumulmeso(lvl){
     var sbmeso = [];
@@ -328,7 +358,7 @@ function getsbcumulmeso(lvl){
         var tempmeso = getsbmeso(i);
         sbmeso.push(tempmeso);
     }
-    return 1490360000 - cumulate(sbmeso, lvl-2);
+    return 1341324000 - cumulate(sbmeso, lvl-2);
 }
 function getsnmeso(lvl){
     return (96900000 + 88500000*lvl);
