@@ -466,7 +466,7 @@ ski.getskillnameIllium = function (skillcode){
             rep = "끊임없는 연구";
             break;
         case 30:
-            rep = "크리스탈 차지 오나성";
+            rep = "크리스탈 차지 완성";
             break;
         case 31:
             rep = "크래프트:자벨린 II";
@@ -529,118 +529,118 @@ ski.getskilldesc1Illium = function (skillcode){
             rep = "하단 참조";
             break;
         case 5:
-            rep = "";
+            rep = "무기제외 장비의 공격력 중 50%를 마력으로 전환";
             break;
         case 6:
-            rep = "";
+            rep = "최대 4명의 적을 100%의 데미지로 2번 공격";
             break;
         case 7:
-            rep = "";
+            rep = "최대 3명의 적을 50%의 데미지로 1번 공격";
             break;
         case 8:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 9:
-            rep = "";
+            rep = "좌우 195만큼, 상하 275만큼 순간이동";
             break;
         case 10:
-            rep = "";
+            rep = "최대 3회 중첩 가능, 지속시간 10초/ 중첩당 공마2";
             break;
         case 11:
-            rep = "";
+            rep = "크리스탈 차지 최대치: 30";
             break;
         case 12:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 13:
-            rep = "";
+            rep = "최대 9명의 적을 400%의 데미지로 4번 공격";
             break;
         case 14:
-            rep = "";
+            rep = "최대 9명의 적을 400%의 데미지로 1번 공격";
             break;
         case 15:
-            rep = "";
+            rep = "최대 12명의 적을 500%의 데미지로 10번 공격";
             break;
         case 16:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 17:
-            rep = "";
+            rep = "피격 시 블레스 마크 1개를 소모하여 피격 데미지 50% 감소";
             break;
         case 18:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 19:
-            rep = "";
+            rep = "크리스탈 차지 최대치: 150";
             break;
         case 20:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 21:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 22:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 23:
-            rep = "";
+            rep = "최대 5명을 300% 데미지로 6번 공격";
             break;
         case 24:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 25:
-            rep = "";
+            rep = "크리스탈 포탈의 이동 거리 좌우 60, 상하 45 증가";
             break;
         case 26:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 27:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 28:
-            rep = "";
+            rep = "지력 40, 마력 10% 증가";
             break;
         case 29:
-            rep = "";
+            rep = "마력 50, 크리티컬 데미지 30%";
             break;
         case 30:
-            rep = "";
+            rep = "크리스탈 차지 최대치: 150";
             break;
         case 31:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 32:
-            rep = "";
+            rep = "최대 공격 가능 몬스터 수 2명, 데미지 250% 증가";
             break;
         case 33:
-            rep = "";
+            rep = "최대 10명의 적을 950%의 데미지로 8번 공격";
             break;
         case 34:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 35:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 36:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 37:
-            rep = "";
+            rep = "MP 100 소비, 크리스탈 즉시 완충";
             break;
         case 38:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 39:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 40:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 41:
-            rep = "";
+            rep = "자신과 파티원 4초 무적 / 쿨 180초";
             break;
         case 42:
-            rep = "";
+            rep = "최대 12명, 1500%, 3번 공격하는 폭발이 4번 발동";
             break;
         case 43:
             rep = "";
@@ -667,118 +667,118 @@ ski.getskilldesc2Illium = function (skillcode){
             rep = "3개까지 설치할 수 있고, 2개가 설치되면 작동하기 시작";
             break;
         case 5:
-            rep = "";
+            rep = "착용 중인 무기 순수 마력의 20%까지 전환 가능.";
             break;
         case 6:
-            rep = "";
+            rep = "일반 몬스터 공격 시 데미지 20% 증가/ 오브와 연계가능";
             break;
         case 7:
-            rep = "";
+            rep = "사용 후 2초 동안 크래프트:자벨린의 데미지 15% 증가";
             break;
         case 8:
-            rep = "";
+            rep = "공허 포격기";
             break;
         case 9:
-            rep = "";
+            rep = "공중에서 키다운으로 짧은 시간 자유롭게 비행할 수 있다.";
             break;
         case 10:
-            rep = "";
+            rep = "[패시브 효과 : 최대 HP, 최대 MP 10% 증가, 데미지 10% 증가]";
             break;
         case 11:
-            rep = "";
+            rep = "크래프트:자벨린 차지량 1 / 크래프트:오브 차지량 2";
             break;
         case 12:
-            rep = "";
+            rep = "일리움 운용의 핵심";
             break;
         case 13:
-            rep = "";
+            rep = "재발동 대기시간 6초";
             break;
         case 14:
-            rep = "";
+            rep = "재발동 대기시간 6초 / 커스 마크를 새김";
             break;
         case 15:
-            rep = "";
+            rep = "필요 크리스탈 차지 30 이상 / 차지 초기화후 재사용가능";
             break;
         case 16:
-            rep = "";
+            rep = "크리스탈이 소환된 상태에서만 사용할 수 있다.";
             break;
         case 17:
-            rep = "";
+            rep = "발동 시 스탠스 100% / *절대 배우면 안되는 스킬";
             break;
         case 18:
-            rep = "";
+            rep = "리액션:도미네이션에 적용";
             break;
         case 19:
-            rep = "";
+            rep = "크래프트:자벨린 차지량 1 / 크래프트:오브 차지량 2";
             break;
         case 20:
-            rep = "";
+            rep = "디스트럭션 강화 패시브";
             break;
         case 21:
-            rep = "";
+            rep = "도미네이션 강화 패시브";
             break;
         case 22:
-            rep = "";
+            rep = "https://youtu.be/W_7Rx3xW7as";
             break;
         case 23:
-            rep = "";
+            rep = "적을 자동으로 추적하여 폭발하며 막대한 피해를 입힌다";
             break;
         case 24:
-            rep = "";
+            rep = "파티 버프 겸 디버프기";
             break;
         case 25:
-            rep = "";
+            rep = "온오프 스킬";
             break;
         case 26:
-            rep = "";
+            rep = "블레스 마크 강화";
             break;
         case 27:
-            rep = "";
+            rep = "커스 마크 강화";
             break;
         case 28:
-            rep = "";
+            rep = "-";
             break;
         case 29:
-            rep = "";
+            rep = "크리티컬 확률 20% 증가";
             break;
         case 30:
-            rep = "";
+            rep = "크래프트:롱기누스 차지량 3";
             break;
         case 31:
-            rep = "";
+            rep = "크래프트:자벨린 강화";
             break;
         case 32:
-            rep = "";
+            rep = "크래프트:오브 강화";
             break;
         case 33:
-            rep = "";
+            rep = "보공 20%, 추가크확 100% / 쿨 15초";
             break;
         case 34:
-            rep = "";
+            rep = "집정관(아칸)";
             break;
         case 35:
-            rep = "";
+            rep = "단 1회!";
             break;
         case 36:
-            rep = "";
+            rep = "-";
             break;
         case 37:
-            rep = "";
+            rep = "재사용 대기시간 180초";
             break;
         case 38:
-            rep = "";
+            rep = "블레스 마크 최종강화";
             break;
         case 39:
-            rep = "";
+            rep = "커스 마크 최종강화";
             break;
         case 40:
-            rep = "";
+            rep = "컴뱃오더스 미적용";
             break;
         case 41:
-            rep = "";
+            rep = "블레스 마크 중첩당 0.6초 증가";
             break;
         case 42:
-            rep = "";
+            rep = "재사용 대기시간 120초 / 시전 중 무적";
             break;
         case 43:
             rep = "";
@@ -804,91 +804,58 @@ ski.getskilldesc3Illium = function (skillcode){
         case 4:
             rep = "크리스탈 기술을 발전시켜 자유롭게 이동할 수 있는 통로를 설치한다.\n작동을 시작한 자신의 크리스탈 게이트에서 위쪽 방향키를 누르면 해당 크리스탈 다음에 설치한 크리스탈 게이트로 이동할 수 있고 마지막에 설치한 크리스탈 게이트를 사용하면 처음 설치한 크리스탈 게이트로 이동한다.\n1회 사용 후 다시 이용하기 위해 충전 시간이 필요하고 직접 사용한 크리스탈 게이트는 충전 시간이 더 길다. 크리스탈 게이트 주변에서 강화 및 공격 지원 버프를 받을 수 있고 공중에도 설치할 수 있다.\n크리스탈 게이트는 버프 프리저의 효과를 받지 않고 통로를 사용한 이동은 전투의 흐름 발동에 필요한 이동 거리에 포함된다.\n\nMP 500 소비, 160초 동안 최대 3개의 크리스탈 게이트 설치 가능, 2개 이상 설치 시 작동 시작, 설치 가능한 시간과 크리스탈 게이트의 지속 시간 동일\n1회 이용 후 모든 크리스탈 게이트 2초 이용 불가, 직접 사용한 크리스탈 게이트 5초 이용 불가\n크리스탈 게이트 주변에서 일정 간격으로 25초 동안 지속되는 마력 65 증가 버프 획득\n\n버프 지속 중 직접 공격하는 스킬 적중 시 크리스탈 게이트를 통해 최대 3명의 적을 990%의 데미지로 공격하는 폭격 5번 발생, 재발동 대기시간 1.5초\n\n재사용 대기시간 : 180초";
             break;
-        case 5:
-            rep = "";
-            break;
-        case 6:
-            rep = "";
-            break;
-        case 7:
-            rep = "";
-            break;
         case 8:
-            rep = "";
+            rep = "든든한 기계친구 리요를 소환한다.\n리요는 한 명의 적에게 일정 시간 공격을 하며 시간에 비례해 공격력이 점차 증가한다.\n리요는 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 90 소비, 180초 동안 소환, 공격 목표에게 이동하여 일정 간격으로 공격하며 일정 횟수 공격하면 공격력 증가.\n1단계:60%의 데미지로 공격, 10회 공격 시 공격력 강화\n2단계:100%의 데미지로 공격, 10회 공격 시 공격력 강화\n3단계:200%의 데미지로 공격, 20회 공격 시 공격 종료";
             break;
-        case 9:
-            rep = "";
+        case 12:
+            rep = "고대의 신비를 간직한 크리스탈을 소환하여 자유롭게 조작한다.\n스킬 사용 시 크리스탈을 소환하고, 크리스탈이 소환된 상태에서는 자신의 전방 일정 지점으로 이동시킨다.\n↓방향키와 함께 사용하면 자신의 전방 일정 지점으로 ↑방향키와 함께 사용하면 자신의 현재 위치로 크리스탈을 순간이동 시킨다.\n\n크리스탈 차지가 완료되면 300초 후 크리스탈 차지가 '0'으로 초기화 된다.";
+            break;
+        case 16:
+            rep = "기계친구 마키나를 소환한다.\n마키나는 크리스탈 근처에 소환되어 크리스탈을 수호하며 적을 끌어모은다.\n크리스탈이 이동하면 함께 이동하며 경로상의 적들을 공격하나 공격 횟수가 1로 감소한다.\n마키나는 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 100 소비, 180초 동안 소환\n최대 5명의 적을 250%의 데미지로 4번 공격";            
+            break;
+        case 18:
+            rep = "대상의 힘을 빼앗고 약화시키는 저주의 표식을 새긴다.\n커스 마크가 새겨진 적은 방어율이 감소되고 크래프트:오브를 제외한 일리움의 공격에 추가 타격을 받는다.\n\n지속시간 10초, 방어율 4% 감소\n마크가 새겨진 적을 일리움이 공격하면 20% 데미지의 추가 타격 발생";
             break;
         case 20:
-            rep = "";
+            rep = "리액션:디스트럭션을 강화시킨다.\n크리스탈이 크래프트:자벨린 또는 크래프트:롱기누스에 닿으면 공명하여 크리스탈 주변의 적들에게 파괴적인 기운을 2차례 내뿜는다.\n\nMP 130 소비, 최대 9명의 적을 610%의 데미지로 4번 공격하는 기운이 2번 발동, 보스 몬스터 공격 시 데미지 20% 증가\n재발동 대기시간 4초";
             break;
         case 21:
-            rep = "";
+            rep = "리액션:도미네이션을 강화시킨다\n크리스탈이 크래프트:오브에 닿으면 공명하여 크리스탈 주변의 적들을 공격하고 공격한 적에게 커스 마크를 새긴다.\n\nMP 50 소비, 최대 12명의 적을 610%의 데미지로 2번 공격\n재발동 대기시간 4초";
             break;
         case 22:
-            rep = "";
-            break;
-        case 23:
-            rep = "";
+            rep = "크리스탈에 가득찬 마법의 힘을 날개에 깃들게 한다. 크래프트:자벨린이 글로리 윙:자벨린으로 강화되어 적을 추적하여 폭발한다.\n글로리 윙 중에는 방향키와 함께 크리스탈 포탈을 사용하면 해당 방향으로 빠르게 순간이동 할 수 있고 스킬을 재사용하여 바로 스킬을 종료할 수 있다.\n글로리 윙은 버프 지속 시간 증가 효과를 받지 않고 종료 시 크리스탈과 마키나가 자동 소환된다.\n필요 크리스탈 차지: 150\n\n지속시간 20초\n최종 데미지 25%, 스탠스 100%, 보스 몬스터 공격 시 데미지 30% 증가\n글로리 윙:자벨린 : 명중 시 폭발하며 최대 5명의 적을 300%의 데미지로 6번 공격, 일반 몬스터 공격 시 데미지 20% 증가\n공격 받는 적이 스킬의 최대 공격 가능한 몬스터의 수보다 적을 때 1명당 최종 데미지 10% 증가, 최종 데미지는 최대 40%까지 증가";
             break;
         case 24:
-            rep = "";
-            break;
-        case 25:
-            rep = "";
+            rep = "크리스탈과 일리움이 축복의 기운으로 연결된다. 기운은 일리움과 기운에 닿은 파티원에게 블레스 마크를 남기고 체력을 회복시키며, 적에게는 커스 마크를 남긴다.\n필요 크리스탈 차지 60 이상\n※사용 후 크리스탈 차지가 초기화 돼야 재사용 가능\n\nMP 200 소비, 15번 기운으로 연결, 기운이 연결될 때마다 블레스 마크를 얻고 최대 HP의 10% 회복\n[패시브 효과 : 상태 이상 내성 30, 모든 속성 내성 30% 증가]";
             break;
         case 26:
-            rep = "";
+            rep = "강력해진 블레스 마크를 남긴다.\n\n최대 6회 중첩 가능, 지속 시간 10초\n각 중첩의 수치가 모두 더해짐\n1~3중첩:공격력/마력 2 증가\n4~6중첩:공격력/마력 4 증가\n\n[패시브 효과 : 크래프트:자벨린 데미지 200%p 증가]";
             break;
         case 27:
-            rep = "";
-            break;
-        case 28:
-            rep = "";
-            break;
-        case 29:
-            rep = "";
-            break;
-        case 30:
-            rep = "";
+            rep = "강력해진 커스 마크를 새긴다.\n\n최대 3회 중첩 가능, 지속시간 10초\n방어율 감소는 각 중첩의 수치가 모두 더해짐\n1중첩:방어율 4% 감소\n2~3중첩:방어율 4%감소\n마크가 새겨진 적을 일리움이 공격하면 30% 데미지의 추가 타격 발생\n커스 마크 중첩에 비례하여 추가 타격의 최종 데미지 3배까지 증가";
             break;
         case 31:
-            rep = "";
-            break;
-        case 32:
-            rep = "";
-            break;
-        case 33:
-            rep = "";
+            rep = "크래프트:자벨린을 강화시킨다. 크래프트:자벨린이 적을 명중하면 작은 파편으로 갈라져 추가 공격한다.\n크래프트:오브와 연계하여 사용 가능하고 다수 공격 스킬의 공격 대상 증가 효과를 받지 않는다.\n\nMP 소비량 6, 최대 공격 가능한 몬스터 수 1명, 데미지 75%p, 공격 횟수 1번 증가\n명중 시 130%의 데미지를 입히는 파편 2개 생성,\n글로리 윙:자벨린을 사용했을 때는 파편 대신 적을 추적하여 250%의 데미지로 3번 공격하는 매직 미사일 3개 생성\n\n[패시브 효과 : 글로리 윙:자벨린의 데미지 165%p 증가]";
             break;
         case 34:
-            rep = "";
+            rep = "리요와 마키나의 힘을 하나로 합쳐 최강의 소환수 데우스를 불러낸다. 데우스는 주변의 적을 추적하여 공격하는 위성을 최대 5기 까지 소환한다.\n필요 크리스탈 차지 90 이상\n※사용 후 크리스탈 차지가 초기화 돼야 재사용 가능\n\nMP 300 소비, 30초 동안 소환\n최대 10명의 적을 500%의 데미지로 5번 공격, 위성의 공격력은 리요와 동일\n\n[패시브 효과 : 리요의 데미지 100%p 증가]";
             break;
         case 35:
-            rep = "";
+            rep = "모든 마력을 날개 끝에 집중한 뒤 빠르게 회전하며 주변을 휩쓴다.\n글로리 윙 중 1회 사용 가능.\n\nMP 200 소비, 최대 12명의 적을 1070%의 데미지로 15번 공격\n[패시브 효과 : 리액션:디스트럭션Ⅱ과 리액션:도미네이션Ⅱ의 데미지 100%p 증가]";
             break;
         case 36:
-            rep = "";
-            break;
-        case 37:
-            rep = "";
+            rep = "글로리 윙 중 자동 발동\n강력한 기운을 내뿜어 적에게는 커스 마크를 새기고 파티원에게는 블레스 마크를 남긴다.\n\n최대 12명의 적과 파티원에게 각각 커스마크와 블레스 마크를 남김.\n[패시브 효과 : 크리스탈 스킬: 모탈스윙 데미지 100%p 증가]";
             break;
         case 38:
-            rep = "";
+            rep = "완벽한 블레스 마크를 남긴다.\n\n최대 10회 중첩 가능, 지속 시간 10초\n각 중첩의 수치가 모두 더해짐\n1~3중첩:공격력/마력 2 증가\n4~6중첩:공격력/마력 4 증가\n7~9중첩:공격력/마력 6 증가\n10중첩:공격력/마력 10 증가\n\n[패시브 효과 : 마키나 데미지 100%p 증가]";
             break;
         case 39:
-            rep = "";
+            rep = "완벽한 커스 마크를 새긴다.\n\n최대 5회 중첩 가능, 지속시간 10초\n방어율 감소는 각 중첩의 수치가 모두 더해짐\n1중첩:방어율 4% 감소\n2~3중첩:방어율 4%감소\n4~5중첩:방어율 4%감소\n\n마크가 새겨진 적을 일리움이 공격하면 40% 데미지의 추가 타격 발생, 커스 마크 중첩에 비례하여 추가 타격의 최종 데미지 5배까지 증가";
             break;
         case 40:
-            rep = "";
+            rep = "고대 크리스탈의 힘을 완전히 파악하여 강력한 전투력을 이끌어 낸다.\n\n매직 건틀렛의 숙련도 70%로 증가\n공격 속도 1단계, 스탠스 60% 증가\n보스 몬스터 공격 시 데미지 30%, 방어율 무시 25%, 최종 데미지 40% 증가";
             break;
         case 41:
-            rep = "";
-            break;
-        case 42:
-            rep = "";
-            break;
-        case 43:
             rep = "";
             break;
     }
@@ -916,64 +883,64 @@ ski.getskillimage1Illium = function (skillcode){
             rep = "";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/xEptkjB.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/0XC5Ez7.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/biB6YRG.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/h0t6zdl.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/M9B96hZ.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/N0sijKj.png";
             break;
         case 12:
             rep = "";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/fm0ENKH.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/HeiXyrn.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/5KNJSaj.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/U9Hz4IT.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/yWI6LXl.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/lAbhABD.png";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/Yp0qNxw.png";
             break;
         case 20:
-            rep = "";
+            rep = "https://i.imgur.com/zgGNBML.png";
             break;
         case 21:
-            rep = "";
+            rep = "https://i.imgur.com/yz7C280.png";
             break;
         case 22:
-            rep = "";
+            rep = "https://i.imgur.com/5aMdjE4.png";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/wHTa3O7.png";
             break;
         case 24:
-            rep = "";
+            rep = "https://i.imgur.com/hdiTpbM.png";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/EgGGanX.png";
             break;
         case 26:
             rep = "";
@@ -991,28 +958,28 @@ ski.getskillimage1Illium = function (skillcode){
             rep = "";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/rg0fa0d.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/vdwOhNl.png";
             break;
         case 33:
-            rep = "";
+            rep = "https://i.imgur.com/ZsAUatX.png";
             break;
         case 34:
-            rep = "";
+            rep = "https://i.imgur.com/TevEL5s.png";
             break;
         case 35:
-            rep = "";
+            rep = "https://i.imgur.com/DKvHwS2.png";
             break;
         case 36:
-            rep = "";
+            rep = "https://i.imgur.com/VerMNGo.png";
             break;
         case 37:
-            rep = "";
+            rep = "https://i.imgur.com/pvm5XJs.png";
             break;
         case 38:
-            rep = "";
+            rep = "https://i.imgur.com/blUsAuN.png";
             break;
         case 39:
             rep = "";
@@ -1021,10 +988,10 @@ ski.getskillimage1Illium = function (skillcode){
             rep = "";
             break;
         case 41:
-            rep = "";
+            rep = "https://i.imgur.com/PSwVCeW.png";
             break;
         case 42:
-            rep = "";
+            rep = "https://i.imgur.com/QXUDGc8.png";
             break;
         case 43:
             rep = "";
@@ -1051,118 +1018,118 @@ ski.getskillimage2Illium = function (skillcode){
             rep = "https://i.imgur.com/5DE6bvt.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/U8QiBoz.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/R5f7klG.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/RY9vvLu.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/EM0lheJ.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/rQfvU2g.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/F3Upy3H.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/Y3J1p1g.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/GK8j1x2.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/TZCxqtz.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/fS5awmv.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/doN0Vj2.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/DcNELXg.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/VL650Wa.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/BHsr4qB.png";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/oSzGuB0.png";
             break;
         case 20:
-            rep = "";
+            rep = "https://i.imgur.com/xcFkvYe.png";
             break;
         case 21:
-            rep = "";
+            rep = "https://i.imgur.com/ryiA1Xz.png";
             break;
         case 22:
-            rep = "";
+            rep = "https://i.imgur.com/O506Gxp.png";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/3nnfmGB.png";
             break;
         case 24:
-            rep = "";
+            rep = "https://i.imgur.com/1LqzAj2.png";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/tluctEF.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/aHUVuDs.png";
             break;
         case 27:
-            rep = "";
+            rep = "https://i.imgur.com/JdLHvma.png";
             break;
         case 28:
-            rep = "";
+            rep = "https://i.imgur.com/jKLERXy.png";
             break;
         case 29:
-            rep = "";
+            rep = "https://i.imgur.com/hdPL8ia.png";
             break;
         case 30:
-            rep = "";
+            rep = "https://i.imgur.com/e6QnIUa.png";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/tsqil0m.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/rEaXdDZ.png";
             break;
         case 33:
-            rep = "";
+            rep = "https://i.imgur.com/FO29cPC.png";
             break;
         case 34:
-            rep = "";
+            rep = "https://i.imgur.com/oCVYCqd.png";
             break;
         case 35:
-            rep = "";
+            rep = "https://i.imgur.com/NOeo8PG.png";
             break;
         case 36:
-            rep = "";
+            rep = "https://i.imgur.com/NBBQaDY.png";
             break;
         case 37:
-            rep = "";
+            rep = "https://i.imgur.com/qMr0oPB.png";
             break;
         case 38:
-            rep = "";
+            rep = "https://i.imgur.com/HBOI0Vo.png";
             break;
         case 39:
-            rep = "";
+            rep = "https://i.imgur.com/yoV3Qb1.png";
             break;
         case 40:
-            rep = "";
+            rep = "https://i.imgur.com/9VSSdzr.png";
             break;
         case 41:
-            rep = "";
+            rep = "https://i.imgur.com/VNnN78R.png";
             break;
         case 42:
-            rep = "";
+            rep = "https://i.imgur.com/2FnxWPR.png";
             break;
         case 43:
             rep = "";

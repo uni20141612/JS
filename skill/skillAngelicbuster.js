@@ -337,7 +337,7 @@ skab.getskilldesc1Angelicbuster = function (skillcode){
             rep = "하단 참조";
             break;
         case 13:
-            rep = "180초 동안 스탠스 확률 40% 증가";
+            rep = "스탠스 확률 40% 증가, 민첩 20 증가";
             break;
         case 14:
             rep = "공격력 40 증가";
@@ -433,7 +433,7 @@ skab.getskilldesc2Angelicbuster = function (skillcode){
             rep = "시커 원킬 시 압도적인 사냥 성능";
             break;
         case 13:
-            rep = "파워 트랜스퍼의 보호막 유지 시 효과 두 배.";
+            rep = "-";
             break;
         case 14:
             rep = "-";

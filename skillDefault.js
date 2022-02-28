@@ -159,6 +159,36 @@ skxx.getskillname = function (skillcode){
         case 29:
             rep = "";
             break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
     }
     return rep;
 };

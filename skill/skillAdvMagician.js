@@ -253,7 +253,7 @@ skam.getskilldesc2AdvMagician = function (skillcode){
             rep = "파티원 중 모험가 직업군에만 효과";
             break;
         case 14:
-            rep = "[패시브: INT 30]/ MP소비 및 쿨타임 무시/ 쿨 345초";
+            rep = "[패시브: INT 30]/ MP소비 및 쿨타임 무시/ 쿨 340초";
             break;
         case 15:
             rep = "스탠스 70% 증가/ 40초간 지속/  마나소모량 제거/ 쿨180초";

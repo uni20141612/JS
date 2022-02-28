@@ -100,49 +100,118 @@ ska.getskillnameArk = function (skillcode){
             rep = "영원히 굶주리는 짐승";
             break;
         case 5:
-            rep = "";
+            rep = "컨택트 카라반";
             break;
         case 6:
-            rep = "";
+            rep = "매직 서킷";
             break;
         case 7:
-            rep = "";
+            rep = "스펙터 잠식";
             break;
         case 8:
-            rep = "";
+            rep = "정신력 고갈";
             break;
         case 9:
-            rep = "";
+            rep = "잊혀지지 않는 악몽";
             break;
         case 10:
-            rep = "";
+            rep = "잊혀지지 않는 흉몽";
             break;
         case 11:
-            rep = "";
+            rep = "플레인 차지드라이브";
             break;
         case 12:
-            rep = "";
+            rep = "스펠 불릿";
             break;
         case 13:
-            rep = "";
+            rep = "미스틱 리프";
             break;
         case 14:
-            rep = "";
+            rep = "인스팅트 리프";
             break;
         case 15:
-            rep = "";
+            rep = "미스틱 아츠 마스터리";
             break;
         case 16:
-            rep = "";
+            rep = "잠식 제어";
             break;
         case 17:
-            rep = "";
+            rep = "스칼렛 차지드라이브";
             break;
         case 18:
-            rep = "";
+            rep = "지워지지 않는 상처";
             break;
         case 19:
-            rep = "";
+            rep = "멈출 수 없는 충동";
+            break;
+        case 20:
+            rep = "멈출 수 없는 본능";
+            break;
+        case 21:
+            rep = "다가오는 죽음";
+            break;
+        case 22:
+            rep = "융합 개시";
+            break;
+        case 23:
+            rep = "되살아나는 악몽";
+            break;
+        case 24:
+            rep = "되살아나는 흉몽";
+            break;
+        case 25:
+            rep = "거스트 차지드라이브";
+            break;
+        case 26:
+            rep = "채워지지 않는 굶주림";
+            break;
+        case 27:
+            rep = "기어 다니는 공포";
+            break;
+        case 28:
+            rep = "돌아오는 증오";
+            break;
+        case 29:
+            rep = "미스틱 아츠 트레이닝";
+            break;
+        case 30:
+            rep = "인스팅트 아츠 트레이닝";
+            break;
+        case 31:
+            rep = "융합 진행";
+            break;
+        case 32:
+            rep = "끝나지 않는 악몽";
+            break;
+        case 33:
+            rep = "끝나지 않는 흉몽";
+            break;
+        case 34:
+            rep = "어비스 차지드라이브";
+            break;
+        case 35:
+            rep = "걷잡을 수 없는 혼돈";
+            break;
+        case 36:
+            rep = "황홀한 구속";
+            break;
+        case 37:
+            rep = "어드밴스드 미스틱 아츠";
+            break;
+        case 38:
+            rep = "어드밴스드 인스팅트 아츠";
+            break;
+        case 39:
+            rep = "융합 완성";
+            break;
+        case 40:
+            rep = "전투 광란";
+            break;
+        case 41:
+            rep = "차지 스펠 앰플리피케이션";
+            break;
+        case 42:
+            rep = "끝없는 고통";
             break;
     }
     return rep;
@@ -208,6 +277,75 @@ ska.getskilldesc1Ark = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
             rep = "";
             break;
     }
@@ -276,6 +414,75 @@ ska.getskilldesc2Ark = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -310,6 +517,75 @@ ska.getskilldesc3Ark = function (skillcode){
             rep = "";
             break;
         case 9:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
             rep = "";
             break;
     }
@@ -378,6 +654,75 @@ ska.getskillimage1Ark = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -442,6 +787,75 @@ ska.getskillimage2Ark = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
             rep = "";
             break;
     }

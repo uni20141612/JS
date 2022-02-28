@@ -292,7 +292,7 @@ skc.getskilldesc1Captain = function (skillcode){
     rep = "";
     switch(skillcode){
         case 0:
-            rep = "12초간 일정시간마다 주변 15명,500%,5번 공격/ 쿨75초";
+            rep = "12초간 일정시간마다 주변 15명,545%,5번 공격/ 쿨75초";
             break;
         case 1:
             rep = "하단 참조";
@@ -346,7 +346,7 @@ skc.getskilldesc1Captain = function (skillcode){
             rep = "발 당 375% 데미지, 지속 중 이동속도 120으로 고정";
             break;
         case 18:
-            rep = "1185%의 데미지로 13번 연속 크리티컬 공격";
+            rep = "980%의 데미지로 13번 연속 크리티컬 공격";
             break;
         case 19:
             rep = "불릿 4개 소비, 649% 데미지로 최대 8명의 적 4번 공격";
@@ -475,7 +475,7 @@ skc.getskilldesc2Captain = function (skillcode){
             rep = "[패시브 효과 : 캡틴 디그니티의 최종 데미지 30% 증가]";
             break;
         case 25:
-            rep = "스탠스 확률 60% 증가, 회피율 감소";
+            rep = "[패시브 : 스탠스 확률 60% 증가], 회피율 300 감소";
             break;
         case 26:
             rep = "버프 지속 중 공격 적중 시 지속 시간 갱신 가능";

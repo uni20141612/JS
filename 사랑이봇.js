@@ -79,6 +79,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
       }
       if(msg.startsWith("테스트")){
+        replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
       }  
     }  
     if(msg.startsWith("!강환") || msg.startsWith("!강환불")){
@@ -168,8 +169,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         if(bossind == -1){
           replier.reply("입력한 값으로 검색되는 보스가 없습니다. 다시 확인해주세요.");
         }
-        else{
-          bname = gbM.getBossname2(bossind);  
+        else{  
           var pricelen = cryM.crystalprice[bossind].length; 
           var prevprice = cryM.crystalprice[bossind][pricelen - 2];
           var curprice = cryM.crystalprice[bossind][pricelen - 1];
@@ -1631,7 +1631,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/220/나로";
+var adminNick = "리부트/267/보마";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;

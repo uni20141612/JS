@@ -534,7 +534,7 @@ skb.getskilldesc2Bishop = function (skillcode){
             rep = "추가 크리티컬 확률 20%, 재사용 대기시간 45초";
             break;
         case 24:
-            rep = "불독, 썬콜과 다르게 점샷 가능";
+            rep = "일몹뎀 50% 증가 / 점샷 가능";
             break;
         case 25:
             rep = "블레싱 앙상블의 효과를 증가시킨다.";
