@@ -594,6 +594,105 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
                 switch(abcode2){
                     case 0:
@@ -748,6 +847,105 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                         break;
                     case 46:
                         cool += 1;
+                        break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
                         break;
                 }
                 switch(abcode3){
@@ -904,6 +1102,105 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
 
                 if(true){
@@ -920,6 +1217,18 @@ cb.getCuberateOneabil = function (cubename, abilind, abilval, p1, p2, p3, r1, r2
                 if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
                 }
 
                 if(abilind == 0){ tempcomp = str; }
@@ -984,6 +1293,18 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                 if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
                 }
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
@@ -1143,6 +1464,105 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
                 switch(abcode2){
                     case 0:
@@ -1298,6 +1718,105 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -1452,6 +1971,105 @@ cb.getCuberateTwoabil = function (cubename, abilind, abilval, abilind2, abilval2
                         break;
                     case 46:
                         cool += 1;
+                        break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
                         break;
                 }
 
@@ -1568,6 +2186,18 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                 if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){continue;}}}
                 if(abcode3 == 27 || abcode3 == 28 || abcode3 == 29 || abcode3 == 30){ if(abcode2 == 27 || abcode2 == 28 || abcode2 == 29 || abcode2 == 30){ if(abcode1 == 27 || abcode1 == 28 || abcode1 == 29 || abcode1 == 30){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode3 == 63 || abcode3 == 64){continue;}}}
+                if(abcode2 == 63 || abcode2 == 64){ if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode1 == 63 || abcode1 == 64){ if(abcode2 == 63 || abcode2 == 64){continue;}}}
+                if(abcode3 == 63 || abcode3 == 64){ if(abcode2 == 63 || abcode2 == 64){ if(abcode1 == 63 || abcode1 == 64){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){continue;}}}
+                if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode3 == 65 || abcode3 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){continue;}}}
+                if(abcode3 == 65 || abcode2 == 66 || abcode3 == 67){ if(abcode2 == 65 || abcode2 == 66 || abcode2 == 67){ if(abcode1 == 65 || abcode1 == 66 || abcode1 == 67){continue;}}}
                 }
                 temprate = 1.0;
                 temprate *= parseFloat(r1[a]) * parseFloat(r2[b]) * parseFloat(r3[c]);
@@ -1727,6 +2357,105 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
                 switch(abcode2){
                     case 0:
@@ -1882,6 +2611,105 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                     case 46:
                         cool += 1;
                         break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
+                        break;
                 }
                 switch(abcode3){
                     case 0:
@@ -2036,6 +2864,105 @@ cb.getCuberateThreeabil = function (cubename, abilind, abilval, abilind2, abilva
                         break;
                     case 46:
                         cool += 1;
+                        break;
+                    case 47:
+                        str += 2;
+                        break;
+                    case 48:
+                        str += 4;
+                        break;
+                    case 49:
+                        str += 5;
+                        break;
+                    case 50:
+                        str += 7;
+                        break;
+                    case 51:
+                        dex += 2;
+                        break;
+                    case 52:
+                        dex += 4;
+                        break;
+                    case 53:
+                        dex += 5;
+                        break;
+                    case 54:
+                        dex += 7;
+                        break;
+                    case 55:
+                        ints += 2;
+                        break;
+                    case 56:
+                        ints += 4;
+                        break;
+                    case 57:
+                        ints += 5;
+                        break;
+                    case 58:
+                        ints += 7;
+                        break;
+                    case 59:
+                        luk += 2;
+                        break;
+                    case 60:
+                        luk += 4;
+                        break;
+                    case 61:
+                        luk += 5;
+                        break;
+                    case 62:
+                        luk += 7;
+                        break;
+                    case 63:
+                        bossa += 12;
+                        break;
+                    case 64:
+                        bossa += 18;
+                        break;
+                    case 65:
+                        defig += 3;
+                        break;
+                    case 66:
+                        defig += 4;
+                        break;
+                    case 67:
+                        defig += 5;
+                        break;
+                    case 68:
+                        cridam += 3;
+                        break;
+                    case 69:
+                        alls += 2;
+                        str += 2;
+                        dex += 2;
+                        ints += 2;
+                        luk += 2;
+                        break;
+                    case 70:
+                        alls += 4;
+                        str += 4;
+                        dex += 4;
+                        ints += 4;
+                        luk += 4;
+                        break;
+                    case 71:
+                        alls += 5;
+                        str += 5;
+                        dex += 5;
+                        ints += 5;
+                        luk += 5;
+                        break;
+                    case 72:
+                        hps += 2;
+                        break;
+                    case 73:
+                        hps += 5;
+                        break;
+                    case 74:
+                        hps += 7;
+                        break;
+                    case 75:
+                        hps += 10;
                         break;
                 }
 
@@ -2374,6 +3301,93 @@ function getabilityCode(poten){
         case "모든 스킬의 재사용 대기시간 : -1초(10초 이하는 5%감소, 5초 미만으로 감소 불가)":
         case "모든 스킬의 재사용 대기시간 : -1초(10초 이하는 5%감소 5초 미만으로 감소 불가)":
             ret = 46;
+            break;
+        case "STR : +2%":
+            ret = 47;
+            break;
+        case "STR : +4%":
+            ret = 48;
+            break;
+        case "STR : +5%":
+            ret = 49;
+            break;
+        case "STR : +7%":
+            ret = 50;
+            break;
+        case "DEX : +2%":
+            ret = 51;
+            break;
+        case "DEX : +4%":
+            ret = 52;
+            break;
+        case "DEX : +5%":
+            ret = 53;
+            break;
+        case "DEX : +7%":
+            ret = 54;
+            break;
+        case "INT : +2%":
+            ret = 55;
+            break;
+        case "INT : +4%":
+            ret = 56;
+            break;
+        case "INT : +5%":
+            ret = 57;
+            break;
+        case "INT : +7%":
+            ret = 58;
+            break;
+        case "LUK : +2%":
+            ret = 59;
+            break;
+        case "LUK : +4%":
+            ret = 60;
+            break;
+        case "LUK : +5%":
+            ret = 61;
+            break;
+        case "LUK : +7%":
+            ret = 62;
+            break;
+        case "보스 몬스터 공격 시 데미지 : +12%":
+            ret = 63;
+            break;
+        case "보스 몬스터 공격 시 데미지 : +18%":
+            ret = 64;
+            break;
+        case "몬스터 방어율 무시 : +3%":
+            ret = 65;
+            break;
+        case "몬스터 방어율 무시 : +4%":
+            ret = 66;
+            break;
+        case "몬스터 방어율 무시 : +5%":
+            ret = 67;
+            break;
+        case "크리티컬 데미지 : +3%":
+            ret = 68;
+            break;
+        case "올스탯 : +2%":
+            ret = 69;
+            break;
+        case "올스탯 : +4%":
+            ret = 70;
+            break;
+        case "올스탯 : +5%":
+            ret = 71;
+            break;
+        case "최대 HP : +2%":
+            ret = 72;
+            break;
+        case "최대 HP : +5%":
+            ret = 73;
+            break;
+        case "최대 HP : +7%":
+            ret = 74;
+            break;
+        case "최대 HP : +10%":
+            ret = 75;
             break;
     }
     return ret;
