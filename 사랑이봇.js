@@ -82,6 +82,34 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
       }  
     }  
+    if(msg == "!대선" || msg == "!개표" || msg == "!투표"){
+      var elecrep = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFY&x_csa=%7B%22isMapTab%22%3Afalse%7D&pkid=7001&qvt=0&query=%EC%A0%9C20%EB%8C%80%20%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0%20%EC%A0%84%EA%B5%AD%20%EA%B0%9C%ED%91%9C%ED%98%84%ED%99%A9").get().toString();
+      var elecrep2 = elecrep.split("number_area")[1].split("선거인수")[0];
+      var gaepyo = elecrep2.split("\">")[1].split("</span>")[0];
+      var etime = elecrep2.split("time_info\">")[1].split("</span>")[0];
+      var gaepyosum = elecrep2.split("count_num\">")[1].split("<span")[0];
+
+      var elecrep3 = "제 20대 대통령선거 개표현황\n";
+      elecrep3 += etime;
+      elecrep3 += "\n\n개표율 : " + gaepyo;
+      elecrep3 += "%\n개표수 : " + gaepyosum + "표";
+
+      var elec2 = elecrep.split("윤석열")[1].split("심상정")[0];
+      var duc1 = elec2.split("득표율</span>")[1].split("</span><span")[0];
+      var duc2 = elec2.split("득표율</span>")[2].split("</span><span")[0];
+      var duc11 = parseFloat(duc1);
+      var duc22 = parseFloat(duc2);
+      var duc0 = parseFloat(gaepyosum.replace(/,/g, ''));
+      var duc111 = Math.round(duc0 * duc11 / 100); 
+      var duc222 = Math.round(duc0 * duc22 / 100); 
+      
+      elecrep3 += "\n\n윤석열 후보 득표율 : " + duc1 + "%";
+      elecrep3 += "\n이재명 후보 득표율 : " + duc2 + "%";
+      elecrep3 += "\n표차 : " + (duc111 - duc222) + "표";
+      elecrep3 += "\n\n본 결과는 네이버에서 제공하는 결과로서 보마봇은 중립을 지킬것입니다.";
+      replier.reply(elecrep3);
+      //replier.reply(elec2);
+    }
     if(msg.startsWith("!강환") || msg.startsWith("!강환불")){
       var addtitle = ["!"];
       var addn = ["-","-","-","-","-","-","-","-","-","-"];
@@ -726,6 +754,18 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       
     }
+    if(msg == "!무토"){
+      var mutorep = "무토 요리와 재료 목록\n\n";
+      mutorep += "깔깔만두/앗볶음 : 바나나 5 + 발바닥 10\n";
+      mutorep += "낄낄볶음밥/헉튀김 : 발굽 5 + 갈기 10\n";
+      mutorep += "오잉피클/허허말이 : 갈기 5 + 물갈퀴 5 + 깃털 10\n";
+      mutorep += "이런면/휴피자 : 갈기 5 + 물갈퀴 10 + 발굽 5\n";
+      mutorep += "저런찜/하빵 : 바나나 5 + 발바닥 5 + 등껍질 10\n";
+      mutorep += "큭큭죽/호호탕 : 물갈퀴 5 + 발톱 10 + 등껍질 5\n";
+      mutorep += "크헉구이/흑흑화채 : 깃털 10 + 발바닥 5 + 바나나 5 + 열매 1\n";
+      mutorep += "엉엉순대/으악샐러드 : 발톱 10 + 갈기 5 + 등껍질 5 + 열매 1";
+      replier.reply(mutorep);
+    }
     if(msg.startsWith("!방무")){
       var mobDef = msg.split(" ")[1];
       var myDef = msg.split(" ")[2];
@@ -922,12 +962,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const skillM = require('Skill');
       var skilljob = msg.split(" ")[1];
       if(skilljob == undefined){
-        replier.reply("직업을 입력해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], [카이저], [카인], [카데나], [엔젤릭버스터], [아델], [일리움], [아크], [라라], [호영], [제로], [키네시스], [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
+        replier.reply("직업을 입력해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, [데몬슬레이어], [데몬어벤져], [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], [카이저], [카인], [카데나], [엔젤릭버스터], [아델], [일리움], [아크], [라라], [호영], [제로], [키네시스], [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
       }
       else{
         var jobcode = skillM.getJobcode(skilljob);
         if(jobcode == -1){
-          replier.reply(skilljob + " >> 입력한 직업이 데이터베이스에 존재하지 않습니다. 다시 확인해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, 데몬슬레이어, 데몬어벤져, [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], [카이저], [카인], [카데나], [엔젤릭버스터], [아델], [일리움], [아크], [라라], [호영], [제로], [키네시스], [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
+          replier.reply(skilljob + " >> 입력한 직업이 데이터베이스에 존재하지 않습니다. 다시 확인해주세요.\n\n직업 목록 : [히어로], [팔라딘], [다크나이트], [불독], [썬콜], [비숍], [보우마스터], [신궁], [패스파인더], [나이트로드], [섀도어], [듀얼블레이드], [바이퍼], [캡틴], [캐논슈터], [소울마스터], 플레임위자드, [윈드브레이커], 나이트워커, 스트라이커, 미하일, 블래스터, 배틀메이지, 와일드헌터, 메카닉, 제논, [데몬슬레이어], [데몬어벤져], [아란], [에반], [루미너스], [메르세데스], [팬텀], [은월], [카이저], [카인], [카데나], [엔젤릭버스터], [아델], [일리움], [아크], [라라], [호영], [제로], [키네시스], [모험가 전사], [모험가 마법사], [모험가 궁수], [모험가 도적], [모험가 해적], [시그너스 기사단], [레지스탕스], [데몬], [영웅], [노바], [레프], [아니마], [전사], [마법사], [궁수], [도적], [해적], [모험가], [공용]");
         }
         else{
           var chkskillname = msg.split(" ")[2];
@@ -1443,6 +1483,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var rateRand = getRandomInt(0, 10001);
       var ratrep = parseFloat(rateRand/100);
       replier.reply(msg + " : " + ratrep + "%");
+    }
+    if(msg == "!후원"){
+      replier.reply("여러분의 후원은 보마봇에게 큰 힘이 됩니다.\n언제나 감사합니다.\n\nhttps://toss.me/bomabot");
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();

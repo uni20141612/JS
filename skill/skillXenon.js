@@ -97,51 +97,120 @@ skx.getskillnameXenon = function (skillcode){
             rep = "포톤 레이";
             break;
         case 4:
-            rep = "";
+            rep = "서플러스 서플라이";
             break;
         case 5:
-            rep = "";
+            rep = "멀티래터럴 I";
             break;
         case 6:
-            rep = "";
+            rep = "멀티 모드 링커";
             break;
         case 7:
-            rep = "";
+            rep = "에비에이션 리버티";
             break;
         case 8:
-            rep = "";
+            rep = "카모플라쥬";
             break;
         case 9:
-            rep = "";
+            rep = "컨버전 스타포스";
             break;
         case 10:
-            rep = "";
+            rep = "서든 프로펠";
             break;
         case 11:
-            rep = "";
+            rep = "인클라인 파워";
             break;
         case 12:
-            rep = "";
+            rep = "멀티래터럴 II";
             break;
         case 13:
-            rep = "";
+            rep = "핀포인트 로켓";
             break;
         case 14:
-            rep = "";
+            rep = "퀵실버 소드 : 도약";
             break;
         case 15:
-            rep = "";
+            rep = "이온 쓰러스터";
             break;
         case 16:
-            rep = "";
+            rep = "리니어 퍼스펙티브";
             break;
         case 17:
-            rep = "";
+            rep = "마이너리티 서포트";
             break;
         case 18:
-            rep = "";
+            rep = "멀티래터럴 III";
             break;
         case 19:
+            rep = "컴뱃 스위칭 : 분열";
+            break;
+        case 20:
+            rep = "다이아그널 체이스";
+            break;
+        case 21:
+            rep = "이지스 시스템";
+            break;
+        case 22:
+            rep = "트라이앵글 포메이션";
+            break;
+        case 23:
+            rep = "버추얼 프로젝션";
+            break;
+        case 24:
+            rep = "멀티래터럴 IV";
+            break;
+        case 25:
+            rep = "엑스트라 서플라이";
+            break;
+        case 26:
+            rep = "블레이드 댄싱";
+            break;
+        case 27:
+            rep = "퍼지롭 매스커레이드 : 저격";
+            break;
+        case 28:
+            rep = "퍼지롭 매스커레이드 : 포격";
+            break;
+        case 29:
+            rep = "퍼지롭 매스커레이드 : 폭격";
+            break;
+        case 30:
+            rep = "홀로그램 그래피티 : 관통";
+            break;
+        case 31:
+            rep = "홀로그램 그래피티 : 역장";
+            break;
+        case 32:
+            rep = "홀로그램 그래피티 : 지원";
+            break;
+        case 33:
+            rep = "오파츠 코드";
+            break;
+        case 34:
+            rep = "인스턴트 셔크";
+            break;
+        case 35:
+            rep = "타임 캡슐";
+            break;
+        case 36:
+            rep = "오펜시브 매트릭스";
+            break;
+        case 37:
+            rep = "멀티래터럴 V";
+            break;
+        case 38:
+            rep = "멀티래터럴 VI";
+            break;
+        case 39:
+            rep = "아마란스 제네레이터";
+            break;
+        case 40:
+            rep = "컨파인 인탱글";
+            break;
+        case 41:
+            rep = "멜트다운 익스플로젼";
+            break;
+        case 42:
             rep = "";
             break;
     }
@@ -210,6 +279,75 @@ skx.getskilldesc1Xenon = function (skillcode){
         case 19:
             rep = "";
             break;
+            case 20:
+                rep = "";
+                break;
+            case 21:
+                rep = "";
+                break;
+            case 22:
+                rep = "";
+                break;
+            case 23:
+                rep = "";
+                break;
+            case 24:
+                rep = "";
+                break;
+            case 25:
+                rep = "";
+                break;
+            case 26:
+                rep = "";
+                break;
+            case 27:
+                rep = "";
+                break;
+            case 28:
+                rep = "";
+                break;
+            case 29:
+                rep = "";
+                break;
+            case 30:
+                rep = "";
+                break;
+            case 31:
+                rep = "";
+                break;
+            case 32:
+                rep = "";
+                break;
+            case 33:
+                rep = "";
+                break;
+            case 34:
+                rep = "";
+                break;
+            case 35:
+                rep = "";
+                break;
+            case 36:
+                rep = "";
+                break;
+            case 37:
+                rep = "";
+                break;
+            case 38:
+                rep = "";
+                break;
+            case 39:
+                rep = "";
+                break;
+            case 40:
+                rep = "";
+                break;
+            case 41:
+                rep = "";
+                break;
+            case 42:
+                rep = "";
+                break;
     }
     return rep;
 };
@@ -276,6 +414,75 @@ skx.getskilldesc2Xenon = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -310,6 +517,75 @@ skx.getskilldesc3Xenon = function (skillcode){
             rep = "";
             break;
         case 9:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
             rep = "";
             break;
     }
@@ -378,6 +654,75 @@ skx.getskillimage1Xenon = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -442,6 +787,75 @@ skx.getskillimage2Xenon = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
+        case 34:
+            rep = "";
+            break;
+        case 35:
+            rep = "";
+            break;
+        case 36:
+            rep = "";
+            break;
+        case 37:
+            rep = "";
+            break;
+        case 38:
+            rep = "";
+            break;
+        case 39:
+            rep = "";
+            break;
+        case 40:
+            rep = "";
+            break;
+        case 41:
+            rep = "";
+            break;
+        case 42:
             rep = "";
             break;
     }
