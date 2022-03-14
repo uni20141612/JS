@@ -81,6 +81,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(msg.startsWith("테스트")){
         replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
       }  
+      if(msg == "!후원목록"){
+        moneyrep = "언제나 감사합니다. (^_^)\n\n";
+        moneyrep += "스카윈브 님\n";
+        moneyrep += "레드비숍 님\n";
+        replier.reply(moneyrep);
+      }
     }  
     if(msg == "!대선" || msg == "!개표" || msg == "!투표"){
       var elecrep = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFY&x_csa=%7B%22isMapTab%22%3Afalse%7D&pkid=7001&qvt=0&query=%EC%A0%9C20%EB%8C%80%20%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0%20%EC%A0%84%EA%B5%AD%20%EA%B0%9C%ED%91%9C%ED%98%84%ED%99%A9").get().toString();
@@ -838,8 +844,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
-      //if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차랑 토벤머리도 챙기라구!");  }
-      //if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 탑승해~"); }
+      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차도 챙기라구!");  }
+      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 탑승해~"); }
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
@@ -1703,7 +1709,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/267/보마";
+var adminNick = "리부트/270/보마";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;
