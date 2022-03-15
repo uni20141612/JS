@@ -1709,7 +1709,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/270/보마";
+var adminNick = "리부트/271/보마";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;

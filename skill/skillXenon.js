@@ -30,22 +30,44 @@ skx.getskillXenon = function (skillname){
         case "포레":
             xret = 3;
             break;
-        /*case "":
+        case "서플러스 서플라이":
+        case "서플러스서플라이":
+        case "서플서플":
+        case "서서플":
+        case "서플":
+        case "서서":
             xret = 4;
             break;
-        case "":
+        case "멀티래터럴 I":
+        case "멀티래터럴I":
+        case "멀티래터럴 1":
+        case "멀티래터럴1":
+        case "멀티I":
+        case "멀티1":
             xret = 5;
             break;
-        case "":
+        case "멀티 모드 링커":
+        case "멀티모드 링커":
+        case "멀티모드링커":
+        case "링커":
             xret = 6;
             break;
-        case "":
+        case "에비에이션 리버티":
+        case "에비에이션리버티":
+        case "에비에이션":
+        case "리버티":
+        case "체공":
             xret = 7;
             break;
-        case "":
+        case "카모플라쥬":
+        case "카모플라주":
+        case "카모":
             xret = 8;
             break;
-        case "":
+        case "컨버전 스타포스":
+        case "컨버전스타포스":
+        case "컨버전":
+        case "스타포스":
             xret = 9;
             break;
         case "":
@@ -77,7 +99,76 @@ skx.getskillXenon = function (skillname){
             break;
         case "":
             xret = 19;
-            break;*/
+            break;
+        case "":
+            xret = 20;
+            break;
+        case "":
+            xret = 21;
+            break;
+        case "":
+            xret = 22;
+            break;
+        case "":
+            xret = 23;
+            break;
+        case "":
+            xret = 24;
+            break;
+        case "":
+            xret = 25;
+            break;
+        case "":
+            xret = 26;
+            break;
+        case "":
+            xret = 27;
+            break;
+        case "":
+            xret = 28;
+            break;
+        case "":
+            xret = 29;
+            break;
+        case "":
+            xret = 30;
+            break;
+        case "":
+            xret = 31;
+            break;
+        case "":
+            xret = 32;
+            break;
+        case "":
+            xret = 33;
+            break;
+        case "":
+            xret = 34;
+            break;
+        case "":
+            xret = 35;
+            break;
+        case "":
+            xret = 36;
+            break;
+        case "":
+            xret = 37;
+            break;
+        case "":
+            xret = 38;
+            break;
+        case "":
+            xret = 39;
+            break;
+        case "":
+            xret = 40;
+            break;
+        case "":
+            xret = 41;
+            break;
+        case "":
+            xret = 42;
+            break;
     }
     return xret;
 };
