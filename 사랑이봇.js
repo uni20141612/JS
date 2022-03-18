@@ -402,6 +402,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
 
     }
+    if(msg.startsWith("!렙반감")){
+      var levhalfrep = "";
+      var levhalf = msg.split(" ")[1];
+      if(levhalf == undefined){
+        levhalfrep = "알고싶은 렙반감 항목을 입력하세요.\n\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표";
+      }
+      else if(levhalf == "데미지"){ levhalfrep = guitarM.levdam;   }
+      else if(levhalf == "리부트"){ levhalfrep = guitarM.levdamre; }
+      else if(levhalf == "경험치"){ levhalfrep = guitarM.levexp;   }
+      else if(levhalf == "메소"){   levhalfrep = guitarM.levmeso;  }
+      else{
+        levhalf = "항목 키워드를 잘못 입력하셨습니다.\n\n!렙반감 (항목) : 레벨별 해당 항목의 증감표를 보여줍니다.\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표";
+      }
+      replier.reply(levhalfrep);
+    }
     if(msg.startsWith("!로마자")){
       var korname = msg.split(" ")[1];
       if(korname == undefined){
