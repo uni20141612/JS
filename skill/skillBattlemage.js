@@ -27,7 +27,9 @@ skbm.getskillBattlemage = function (skillname){
         case "어라":
             bmret = 3;
             break;
-        /*case "":
+        case "피니쉬 블로우":
+        case "피니쉬블로우":
+        case "피블":
             bmret = 4;
             break;
         case "":
@@ -74,7 +76,7 @@ skbm.getskillBattlemage = function (skillname){
             break;
         case "":
             bmret = 19;
-            break;*/
+            break;
     }
     return bmret;
 };
@@ -94,7 +96,7 @@ skbm.getskillnameBattlemage = function (skillcode){
             rep = "어비셜 라이트닝";
             break;
         case 4:
-            rep = "";
+            rep = "피니쉬 블로우";
             break;
         case 5:
             rep = "";
@@ -160,7 +162,7 @@ skbm.getskilldesc1Battlemage = function (skillcode){
             rep = "하단 참조";
             break;
         case 4:
-            rep = "";
+            rep = "최대 6명의 적을 330% 데미지로 6번 공격";
             break;
         case 5:
             rep = "";
@@ -226,7 +228,7 @@ skbm.getskilldesc2Battlemage = function (skillcode){
             rep = "스킬이 지속되는 동안 징표가 6번째 공격하기 전까지 유지";
             break;
         case 4:
-            rep = "";
+            rep = "추가 크리티컬 확률 25%, 추가 방어율 무시 20%";
             break;
         case 5:
             rep = "";
@@ -325,7 +327,7 @@ skbm.getskillimage1Battlemage = function (skillcode){
             rep = "https://i.imgur.com/WAsIpBi.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/u5FusUA.png";
             break;
         case 5:
             rep = "";
@@ -391,7 +393,7 @@ skbm.getskillimage2Battlemage = function (skillcode){
             rep = "https://i.imgur.com/cvRP3nQ.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/ccdJ8MW.png";
             break;
         case 5:
             rep = "";

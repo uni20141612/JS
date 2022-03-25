@@ -443,7 +443,7 @@ skk.getskilldesc1Kinesis = function (skillcode){
             rep = "하단 참조";
             break;
         case 13:
-            rep = "180초 동안 방어력 300, 회피율 20% 증가";
+            rep = "방어력 300, 회피율 20% 증가";
             break;
         case 14:
             rep = "데미지 20%, 공격 속도 1단계 증가";
@@ -467,7 +467,7 @@ skk.getskilldesc1Kinesis = function (skillcode){
             rep = "공격성공시 70%확률 350%의 데미지로 1번 자동 공격한다.";
             break;
         case 21:
-            rep = "싸이킥 실드의 방어력 500으로 증가";
+            rep = "방어력 200, 스탠스 확률 100% 증가";
             break;
         case 22:
             rep = "상향으로 빠르게 이동, 방향 조정 가능";
@@ -605,7 +605,7 @@ skk.getskilldesc2Kinesis = function (skillcode){
             rep = "얼티메이트류, 싸이킥포스, 싸이킥샷, 싸이킥드레인, 에버싸이킥 제외";
             break;
         case 21:
-            rep = "스탠스 확률 100% 증가";
+            rep = "-";
             break;
         case 22:
             rep = "스킬 사용 중 이동하면 싸이킥 포인트 2칸 소비/ 쿨10초";
