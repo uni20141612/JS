@@ -87,6 +87,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         moneyrep += "레드비숍 님\n";
         replier.reply(moneyrep);
       }
+      if(msg == "!코인"){
+        var coinrep = guitarM.getCoin(msg);
+        replier.reply(coinrep);
+      }
     }  
     if(msg == "!대선" || msg == "!개표" || msg == "!투표"){
       var elecrep = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFY&x_csa=%7B%22isMapTab%22%3Afalse%7D&pkid=7001&qvt=0&query=%EC%A0%9C20%EB%8C%80%20%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0%20%EC%A0%84%EA%B5%AD%20%EA%B0%9C%ED%91%9C%ED%98%84%ED%99%A9").get().toString();
@@ -1431,6 +1435,26 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.startsWith("!큐브")){
       var cuberep = guitarM.getCube(msg);
       replier.reply(cuberep);
+    }
+    if(msg.startsWith("!퀴즈")){
+      const quizM = require('Quiz');
+      var qzrep = quizM.getQuiz(msg, room, sender);
+      if(qzrep[0] == "☆"){
+        var qzimage = qzrep.split("☆")[1];
+        var qznum = qzrep.split("☆")[2];
+        Kakao.send(room,
+                    {
+                      "link_ver" : "4.0",
+                      "template_id" : 63410,
+                      "template_args" : {
+                                            "image" : qzimage,
+                                            "imagetitle" : "인물퀴즈 #" + qznum,
+                                            "imagelink" : qzimage
+                                        }
+                    },
+                     "custom");                    
+      }
+      else{ replier.reply(qzrep); }
     }
     if(msg == "!편의점"){
       var conrep = guitarM.getConvenience(msg);

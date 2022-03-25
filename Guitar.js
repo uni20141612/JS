@@ -14,13 +14,18 @@ gt.getCodi = function (codi){
     var dataMoja = codi.split("모자</span>")[1].split(">")[1].split("</span")[0];
     var dataHair = codi.split("헤어</span>")[1].split(">")[1].split("</span")[0];
     var dataFace = codi.split("성형</span>")[1].split(">")[1].split("</span")[0];
-    var dataTshirt = codi.split("상의</span>")[1].split(">")[1].split("</span")[0];
     var dataPants = codi.split("하의</span>")[1].split(">")[1].split("</span")[0];
     var dataShoe = codi.split("신발</span>")[1].split(">")[1].split("</span")[0];
     var dataWeapon = codi.split("무기</span>")[1].split(">")[1].split("</span")[0];
 
     rep = "모자: " + dataMoja + "\n헤어: " + dataHair + "\n성형: " + dataFace + "\n상의: " + dataTshirt + "\n하의: " + dataPants + "\n신발: " + dataShoe + "\n무기: " + dataWeapon;
     return rep;
+};
+gt.getCoin = function (msg){
+  var datacoin = org.jsoup.Jsoup.connect("https://api.upbit.com/v1/candles/days").data("market", "KRW-BTC").data("count", 7).ignoreHttpErrors(true).ignoreContentType(true).get().text();
+  //var datacoin = org.jsoup.Jsoup.connect("https://api.upbit.com/v1/market/all").ignoreHttpErrors(true).ignoreContentType(true).get().text();
+  //비트코인 KRW-BTC / 이더리움 KRW-ETH / 리플 BTC-XRP / 도지 BTC-DOGE / 이더리움클래식 BTC-ETC
+  return datacoin;
 };
 gt.getConvenience = function (msg){
   rep = "";
