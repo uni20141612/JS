@@ -510,73 +510,73 @@ skx.getskilldesc1Xenon = function (skillcode){
             rep = "하단 참조";
             break;
         case 19:
-            rep = "";
+            rep = "최대 8명의 적을 271%의 데미지로 3번 공격";
             break;
         case 20:
-            rep = "";
+            rep = "6명의 적 260% 데미지를 주며 밀어냄";
             break;
         case 21:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 22:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 23:
-            rep = "";
+            rep = "자신과 동일한 행동을 하는 환영을 투사, 최대 HP1000%";
             break;
         case 24:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 25:
-            rep = "";
+            rep = "MP 75 소비, 서플러스 에너지 10개 충전";
             break;
         case 26:
-            rep = "";
+            rep = "최대 8명의 적을 260% 데미지로 1번 공격";
             break;
         case 27:
-            rep = "";
+            rep = "최대 1명의 적에게 360% 데미지로 7번 공격";
             break;
         case 28:
-            rep = "";
+            rep = "최대 8명의 적에게 350% 데미지로 4번 공격";
             break;
         case 29:
-            rep = "";
+            rep = "최대 15명의 적에게 405% 데미지로 5번 공격";
             break;
         case 30:
-            rep = "";
+            rep = "20초간 볼이 몬스터에게 닿을 때마다 213% 데미지.";
             break;
         case 31:
-            rep = "";
+            rep = "20초간 볼이 홀로그램 필드에 닿을 때마다 8명, 400% 데미지";
             break;
         case 32:
-            rep = "";
+            rep = "20초간 파티원 최대 HP 10% 증가, 회피 시 에너지 1개 충전.";
             break;
         case 33:
-            rep = "";
+            rep = "에너지 20 소비, 40초 동안 최종 데미지 30%";
             break;
         case 34:
-            rep = "";
+            rep = "40% 확률로 추가 회피";
             break;
         case 35:
-            rep = "";
+            rep = "60초 동안 주위 파티원들의 재사용 대기시간 감소";
             break;
         case 36:
-            rep = "";
+            rep = "스탠스 확률 50%";
             break;
         case 37:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 38:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 39:
-            rep = "";
+            rep = "에너지 최대치까지 충전, 10초 동안 감소하지 않는다.";
             break;
         case 40:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 41:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 42:
             rep = "";
@@ -645,73 +645,73 @@ skx.getskilldesc2Xenon = function (skillcode){
             rep = "2차 강화";
             break;
         case 19:
-            rep = "";
+            rep = "다이아그널 체이스와 연계해서 사용할 수 있다.";
             break;
         case 20:
-            rep = "";
+            rep = "필라 스크램블과 연계하여 사용할 수 있다.";
             break;
         case 21:
-            rep = "";
+            rep = "지나가는 길에 치지않게 조심";
             break;
         case 22:
-            rep = "";
+            rep = "추가타 발동 패시브";
             break;
         case 23:
-            rep = "";
+            rep = "환영의 최종 데미지의 70%로 추가 타격.";
             break;
         case 24:
-            rep = "";
+            rep = "3차 강화";
             break;
         case 25:
-            rep = "";
+            rep = "재사용 대기시간 30초";
             break;
         case 26:
-            rep = "";
+            rep = "속사형 다수 공격기";
             break;
         case 27:
-            rep = "";
+            rep = "공격 시 적의 방어율 30% 추가 무시, HP↑ 추적";
             break;
         case 28:
-            rep = "";
+            rep = "효과음이 매우 큼";
             break;
         case 29:
-            rep = "";
+            rep = "노쿨 스킬중 이례적으로 15마리 타격";
             break;
         case 30:
-            rep = "";
+            rep = "재사용 대기시간 30초";
             break;
         case 31:
-            rep = "";
+            rep = "재사용 대기시간 30초";
             break;
         case 32:
-            rep = "";
+            rep = "재사용 대기시간 30초";
             break;
         case 33:
-            rep = "";
+            rep = "[서플라이] / 보공 30%";
             break;
         case 34:
-            rep = "";
+            rep = "이지스 시스템으로 발사되는 미사일 데미지 20% 증가.";
             break;
         case 35:
-            rep = "";
+            rep = "재사용 대기시간 120초.";
             break;
         case 36:
-            rep = "";
+            rep = "공격 시 적의 방어율 무시 30% 증가";
             break;
         case 37:
-            rep = "";
+            rep = "4차 강화";
             break;
         case 38:
-            rep = "";
+            rep = "최종 강화";
             break;
         case 39:
-            rep = "";
+            rep = "재사용 대기시간 90초";
             break;
         case 40:
-            rep = "";
+            rep = "바인드";
             break;
         case 41:
-            rep = "";
+            rep = "무적 광범위 공격기 / 성별따라 다름";
             break;
         case 42:
             rep = "";
@@ -752,71 +752,26 @@ skx.getskilldesc3Xenon = function (skillcode){
         case 18:
             rep = "STR 90 이상 시 : 스탠스 확률 7%\nDEX 90 이상 시 : 모든 속성 내성 7%, 상태 이상 내성 7\nLUK 90 이상 시 : 회피율 7%\nSTR/DEX/LUK 모두 90 이상 시 : 데미지 7% 증가, 최대 HP/최대 MP 5% 증가\n\n총 스탠스 15%, 모든 속성 내성 15%, 상태 이상 내성 15, 회피율 15%, 데미지 15%, 최대 HP/MP 10%";
             break;
-        case 20:
-            rep = "";
-            break;
         case 21:
-            rep = "";
+            rep = "피격/회피 시 일정 확률로 공격한 적에게 미사일을 발사한다. 발사된 미사일은 적의 공격 무시 및 공격 반사 상태의 적에게도 피해를 입힌다. 발동 시 짧은 시간 동안 발사 준비 시간이 필요하다. 스킬 사용 시 효과가 활성화되고 재사용 시 비활성화 되는 온오프 스킬\n\n피격/회피 시 100% 확률로 공격한 적에게 120%의 데미지를 입히는 미사일 3개 발사. 재사용 대기시간 1.5초";
             break;
         case 22:
-            rep = "";
-            break;
-        case 23:
-            rep = "";
+            rep = "공격 시 일정 확률로 적에게 에어프레임을 출격시킨다. 에어프레임은 적의 주의를 끌어 적의 명중치를 감소시킨다. 에어프레임이 3개 중첩된 적을 한 번 더 공격하면 3개의 에어프레임이 적을 공격하며 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n공격 시 30% 확률로 적에게 에어프레임을 추가. 최대 3개까지 중첩되며 3개가 중첩된 적을 공격하면 340%의 데미지로 세 번 공격. 에어플레임 중첩 당 적의 명중치 8% 감소";
             break;
         case 24:
-            rep = "";
-            break;
-        case 25:
-            rep = "";
-            break;
-        case 26:
-            rep = "";
-            break;
-        case 27:
-            rep = "";
-            break;
-        case 28:
-            rep = "";
-            break;
-        case 29:
-            rep = "";
-            break;
-        case 30:
-            rep = "";
-            break;
-        case 31:
-            rep = "";
-            break;
-        case 32:
-            rep = "";
-            break;
-        case 33:
-            rep = "";
-            break;
-        case 34:
-            rep = "";
-            break;
-        case 35:
-            rep = "";
-            break;
-        case 36:
-            rep = "";
+            rep = "STR 150 이상 시 : 스탠스 확률 10%\nDEX 150 이상 시 : 모든 속성 저항 10%, 상태 이상 내성 10\nLUK 150 이상 시 : 회피율 10%\nSTR/DEX/LUK 모두 150 이상 시 : 데미지 10% 증가, 최대 HP/최대 MP 10% 증가\n\n총 스탠스 25%, 모든 속성 내성 25%, 상태 이상 내성 25, 회피율 25%, 데미지 25%, 최대 HP/MP 20%";
             break;
         case 37:
-            rep = "";
+            rep = "STR 260 이상 시 : 스탠스 확률 10%\nDEX 260 이상 시 : 모든 속성 내성 10%, 상태 이상 내성 10\nLUK 260 이상 시 : 회피율 10%\nSTR/DEX/LUK 모두 260 이상 시 : 데미지 10% 증가, 최대 HP/최대 MP 10% 증가\n\n총 스탠스 35%, 모든 속성 내성 35%, 상태 이상 내성 35, 회피율 35%, 데미지 35%, 최대 HP/MP 30%";
             break;
         case 38:
-            rep = "";
-            break;
-        case 39:
-            rep = "";
+            rep = "영구적으로 최종 데미지 15% 증가\nSTR 330 이상 시 : 스탠스 확률 15%\nDEX 330 이상 시 : 모든 속성 내성 15%, 상태 이상 내성 5\nLUK 330 이상 시 : 회피율 5%\nSTR/DEX/LUK 모두 330 이상 시 : 데미지 5% 증가\n\n총 스탠스 50%, 모든 속성 내성 50%, 상태 이상 내성 40, 회피율 40%, 데미지 40%, 최대 HP/MP 30%";
             break;
         case 40:
-            rep = "";
+            rep = "전방 다수의 적들에게 에너지 소드를 휘둘러 일부 버프를 해제하고 결박하여 행동 불가 상태로 만든다. 결박된 적은 행동 불가 시간 동안 버프 효과가 적용될 수 없도록 제한된다. 해제되는 버프는 공격력/마력 증가, 방어력 증가, 하드 스킨이다.\n공격을 받은 적은 90초 동안 행동 불가 상태 이상에 저항하여 컨파인 인탱글 및 다른 스킬로 인한 행동 불가 상태 이상에 걸리지 않는다.\n\nMP 200 소비, 최대 15명의 적에게 700% 데미지로 4번 공격. 100% 확률로 대상의 모든 버프를 해제하고 10초 동안 행동 불가.\n컨파인 인탱글로 적에게 준 데미지에 따라 행동 불가 지속시간 최대 100% 증가\n\n재사용 대기시간 180초";
             break;
         case 41:
-            rep = "";
+            rep = "우주로부터 지상의 모든 것을 태워버리는 강력한 레이저 포격을 한다. 사용 후 일정 시간 동안 데미지가 증가한다.\n\nMP 200 소비, 최대 15명의 적에게 1500% 데미지로 6번 공격, 공격을 받은 적은 10초 동안 방어력 30% 감소, 시전 동작 중 무적.\n사용 후 25초 동안 데미지 10% 증가\n\n재사용 대기시간 50초";
             break;
         case 42:
             rep = "";
@@ -846,10 +801,10 @@ skx.getskillimage1Xenon = function (skillcode){
             rep = "";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/rIykcqy.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/PQ0hsf8.png";
             break;
         case 8:
             rep = "";
@@ -858,22 +813,22 @@ skx.getskillimage1Xenon = function (skillcode){
             rep = "";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/RvRONeD.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/lAczXGb.png";
             break;
         case 12:
             rep = "";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/giZC45b.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/nm42zuH.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/3EbiKEM.png";
             break;
         case 16:
             rep = "";
@@ -885,55 +840,55 @@ skx.getskillimage1Xenon = function (skillcode){
             rep = "";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/sSH6WoY.png";
             break;
         case 20:
-            rep = "";
+            rep = "https://i.imgur.com/F9rSVCI.png";
             break;
         case 21:
-            rep = "";
+            rep = "https://i.imgur.com/dr2Y02v.png";
             break;
         case 22:
-            rep = "";
+            rep = "https://i.imgur.com/lpoSBKu.png";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/mr8K52d.png";
             break;
         case 24:
             rep = "";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/cuXOu3d.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/c82jD9g.png";
             break;
         case 27:
-            rep = "";
+            rep = "https://i.imgur.com/8v3acCT.png";
             break;
         case 28:
-            rep = "";
+            rep = "https://i.imgur.com/wNtvECb.png";
             break;
         case 29:
-            rep = "";
+            rep = "https://i.imgur.com/pPLHJSE.png";
             break;
         case 30:
-            rep = "";
+            rep = "https://i.imgur.com/0QMj5Sq.png";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/iqFSlG2.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/S4Xm5dI.png";
             break;
         case 33:
-            rep = "";
+            rep = "https://i.imgur.com/xRFhq2e.png";
             break;
         case 34:
-            rep = "";
+            rep = "https://i.imgur.com/hah1Fu1.png";
             break;
         case 35:
-            rep = "";
+            rep = "https://i.imgur.com/K3DxiRX.png";
             break;
         case 36:
             rep = "";
@@ -945,13 +900,13 @@ skx.getskillimage1Xenon = function (skillcode){
             rep = "";
             break;
         case 39:
-            rep = "";
+            rep = "https://i.imgur.com/iTH1Ht2.png";
             break;
         case 40:
-            rep = "";
+            rep = "https://i.imgur.com/90uUEII.png";
             break;
         case 41:
-            rep = "";
+            rep = "https://i.imgur.com/TSBnLV5.png";
             break;
         case 42:
             rep = "";
@@ -975,118 +930,118 @@ skx.getskillimage2Xenon = function (skillcode){
             rep = "https://i.imgur.com/3dnNtaZ.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/XnYoLfj.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/369wff0.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/iJqpsoU.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/yekggJK.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/UkBtNSd.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/EUTYLJG.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/GHutVoW.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/MRqDZ4L.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/hXvdDZX.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/RfJWMZz.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/ckbpLBE.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/yPvn4mv.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/84kY7qT.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/sPnTNwq.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/UR7ppe6.png";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/6hj2jJp.png";
             break;
         case 20:
-            rep = "";
+            rep = "https://i.imgur.com/PbzPiEY.png";
             break;
         case 21:
-            rep = "";
+            rep = "https://i.imgur.com/wmJhSid.png";
             break;
         case 22:
-            rep = "";
+            rep = "https://i.imgur.com/FPlTbU6.png";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/1jl4qFL.png";
             break;
         case 24:
-            rep = "";
+            rep = "https://i.imgur.com/m5Lfta1.png";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/DXfwT1R.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/yg4spGE.png";
             break;
         case 27:
-            rep = "";
+            rep = "https://i.imgur.com/DfPa6RD.png";
             break;
         case 28:
-            rep = "";
+            rep = "https://i.imgur.com/8vXhnyz.png";
             break;
         case 29:
-            rep = "";
+            rep = "https://i.imgur.com/VhAvpYO.png";
             break;
         case 30:
-            rep = "";
+            rep = "https://i.imgur.com/eykFpab.png";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/zflkBgS.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/P2Hga8y.png";
             break;
         case 33:
-            rep = "";
+            rep = "https://i.imgur.com/2SZLxWG.png";
             break;
         case 34:
-            rep = "";
+            rep = "https://i.imgur.com/0m0avA4.png";
             break;
         case 35:
-            rep = "";
+            rep = "https://i.imgur.com/JjblZnb.png";
             break;
         case 36:
-            rep = "";
+            rep = "https://i.imgur.com/jBfGhTw.png";
             break;
         case 37:
-            rep = "";
+            rep = "https://i.imgur.com/gN6quhw.png";
             break;
         case 38:
-            rep = "";
+            rep = "https://i.imgur.com/cY4V8RG.png";
             break;
         case 39:
-            rep = "";
+            rep = "https://i.imgur.com/RWOu5GA.png";
             break;
         case 40:
-            rep = "";
+            rep = "https://i.imgur.com/3GMT9Ut.png";
             break;
         case 41:
-            rep = "";
+            rep = "https://i.imgur.com/R3Vn2kD.png";
             break;
         case 42:
             rep = "";

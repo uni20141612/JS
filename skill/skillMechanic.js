@@ -31,7 +31,7 @@ skm.getskillMechanic = function (skillname){
         case "메캐":
             mret = 3;
             break;
-        /*case "":
+        case "":
             mret = 4;
             break;
         case "":
@@ -78,7 +78,49 @@ skm.getskillMechanic = function (skillname){
             break;
         case "":
             mret = 19;
-            break;*/
+            break;
+        case "":
+            mret = 20;
+            break;
+        case "":
+            mret = 21;
+            break;
+        case "":
+            mret = 22;
+            break;
+        case "":
+            mret = 23;
+            break;
+        case "":
+            mret = 24;
+            break;
+        case "":
+            mret = 25;
+            break;
+        case "":
+            mret = 26;
+            break;
+        case "":
+            mret = 27;
+            break;
+        case "":
+            mret = 28;
+            break;
+        case "":
+            mret = 29;
+            break;
+        case "":
+            mret = 30;
+            break;
+        case "":
+            mret = 31;
+            break;
+        case "":
+            mret = 32;
+            break;
+        case "":
+            mret = 33;
+            break;
     }
     return mret;
 };
@@ -98,51 +140,93 @@ skm.getskillnameMechanic = function (skillcode){
             rep = "메카 캐리어";
             break;
         case 4:
-            rep = "";
+            rep = "제트 부스터";
             break;
         case 5:
-            rep = "";
+            rep = "히든 피스";
             break;
         case 6:
-            rep = "";
+            rep = "메탈아머 : 휴먼";
             break;
         case 7:
-            rep = "";
+            rep = "드릴 러쉬";
             break;
         case 8:
-            rep = "";
+            rep = "로켓 부스터";
             break;
         case 9:
-            rep = "";
+            rep = "호밍 미사일";
             break;
         case 10:
-            rep = "";
+            rep = "오픈 게이트 : GX-9";
             break;
         case 11:
-            rep = "";
+            rep = "로봇 런처 : RM7";
             break;
         case 12:
-            rep = "";
+            rep = "메탈아머 : 탱크";
             break;
         case 13:
-            rep = "";
+            rep = "서포트 웨이버 : H-EX";
             break;
         case 14:
-            rep = "";
+            rep = "로켓 펀치";
             break;
         case 15:
-            rep = "";
+            rep = "오버 튜닝";
             break;
         case 16:
-            rep = "";
+            rep = "럭키 다이스";
             break;
         case 17:
-            rep = "";
+            rep = "마그네틱 필드";
             break;
         case 18:
-            rep = "";
+            rep = "어드밴스드 호밍 미사일";
             break;
         case 19:
+            rep = "메카닉 디펜스 시스템";
+            break;
+        case 20:
+            rep = "전투 프로그램 셋업";
+            break;
+        case 21:
+            rep = "매시브 파이어 : SPLASH-F";
+            break;
+        case 22:
+            rep = "매시브 파이어 : IRON-B";
+            break;
+        case 23:
+            rep = "워머신 : 타이탄";
+            break;
+        case 24:
+            rep = "서포트 웨이버 강화";
+            break;
+        case 25:
+            rep = "로봇 팩토리 : RM1";
+            break;
+        case 26:
+            rep = "호밍 미사일 시스템 연구";
+            break;
+        case 27:
+            rep = "로봇 마스터리";
+            break;
+        case 28:
+            rep = "더블 럭키 다이스";
+            break;
+        case 29:
+            rep = "메탈아머 합금 연구";
+            break;
+        case 30:
+            rep = "봄버 타임";
+            break;
+        case 31:
+            rep = "디스토션 필드";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
             rep = "";
             break;
     }
@@ -211,6 +295,48 @@ skm.getskilldesc1Mechanic = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -277,6 +403,48 @@ skm.getskilldesc2Mechanic = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -305,6 +473,48 @@ skm.getskilldesc3Mechanic = function (skillcode){
             rep = "";
             break;
         case 9:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
             rep = "";
             break;
     }
@@ -373,6 +583,48 @@ skm.getskillimage1Mechanic = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -437,6 +689,48 @@ skm.getskillimage2Mechanic = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
+        case 33:
             rep = "";
             break;
     }
