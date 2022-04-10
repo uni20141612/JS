@@ -85,6 +85,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         moneyrep = "언제나 감사합니다. (^_^)\n\n";
         moneyrep += "스카윈브 님\n";
         moneyrep += "레드비숍 님\n";
+        moneyrep += "나랑사귀자 님\n";
         replier.reply(moneyrep);
       }
       if(msg == "!코인"){
@@ -1748,7 +1749,7 @@ function getMinute(){
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
-var adminNick = "리부트/271/보마";
+var adminNick = "리부트/273/보마";
 var nickname = "";
 var jobmention = "";
 var chkjob = -1;
