@@ -633,16 +633,36 @@ gt.getInform = function (dataarr, dataC1){
     rep = ("그런 캐릭터는 없습니다.");
   }
   else{ 
+    var iIndex = 0;
     dataarr[6] = dataC1.split("<meta property=\"og:description\" content=\"")[0];
     var dataC2 = dataC1.split("<meta property=\"og:description\" content=\"")[1];
     var dataC3 = dataC2.split("\">")[0];
-    var dataC4_nameandServer = dataC3.split(",")[0];
-    var dataC4_mureung = dataC3.split(",")[1];  if(dataC4_mureung == undefined){ dataC4_mureung = "-";}
-    if(dataC4_mureung.slice(0,2) == "최고"){dataC4_mureung = dataC4_mureung.slice(2,dataC4_mureung.length);}
-    var dataC4_seed = dataC3.split(",")[2];   if(dataC4_seed == undefined)  {dataC4_seed = "-";}
-    if(dataC4_seed.slice(0,2) == "최고"){dataC4_seed = dataC4_seed.slice(2, dataC4_seed.length);}
-    var dataC4_union = dataC3.split(",")[3];    if(dataC4_union == undefined)   {dataC4_union = "-";}
-    var dataC4_achievement = dataC3.split(",")[4];  if(dataC4_achievement == undefined) {dataC4_achievement = "-";}
+    var dataC4_nameandServer = dataC3.split(",")[iIndex]; iIndex++;
+
+    var dataC4_mureung = dataC3.split(",")[iIndex];  if(dataC4_mureung == undefined){ dataC4_mureung = "-";}
+    if(dataC4_mureung.slice(0,2) == "최고"){dataC4_mureung = dataC4_mureung.slice(2,dataC4_mureung.length); iIndex++;}
+    else{dataC4_mureung = "무릉:기록없음";}
+
+    var dataC4_seed = dataC3.split(",")[iIndex];   if(dataC4_seed == undefined){dataC4_seed = "-";}
+    if(dataC4_seed.slice(0,2) == "최고"){dataC4_seed = dataC4_seed.slice(2, dataC4_seed.length); iIndex++}
+    else{dataC4_seed = "시드:기록없음";}
+
+    var dataC4_union = dataC3.split(",")[iIndex];
+    if(dataC4_union == undefined){dataC4_union = "유니온:기록없음";}
+    else if(dataC4_union.slice(0,3) != "유니온"){ dataC4_union = "-";}
+    else{
+      iIndex++;
+      dataU1 = dataC1.split("유니온 <i")[1];
+      dataU2 = dataU1.split("업적")[0];
+      var unionrep = this.getUnion(dataU1, dataU2);
+      dataC4_union = dataC4_union + ", " + unionrep.split(", ")[1].split("\n")[0];
+    }
+    var dataC4_achievement = dataC3.split(",")[iIndex];  if(dataC4_achievement == undefined) {dataC4_achievement = "업적:기록없음";}
+    else{      
+      dataA1 = dataC1.split("업적 <i")[1].split("</section>")[0];
+      var achieverep = guitarM.getAchieve(dataA1);
+      dataC4_achievement = dataC4_achievement + ", " + achieverep.split(", ")[1];
+    }
     dataarr[2] = dataC1.split("<li class=\"user-summary-item\">")[1].split("</li>")[0];
     dataarr[1] = dataC1.split("<li class=\"user-summary-item\">")[2].split("</li>")[0];
 

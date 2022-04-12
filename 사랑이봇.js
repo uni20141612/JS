@@ -79,7 +79,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
       }
       if(msg.startsWith("테스트")){
-        replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
+        //replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
+             
       }  
       if(msg == "!후원목록"){
         moneyrep = "언제나 감사합니다. (^_^)\n\n";
@@ -1532,6 +1533,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(msg == "!후원"){
       replier.reply("여러분의 후원은 보마봇에게 큰 힘이 됩니다.\n언제나 감사합니다.\n\nhttps://toss.me/bomabot");
+      moneyrep = "언제나 감사합니다. (^_^)\n\n";
+      moneyrep += "스카윈브 님\n";
+      moneyrep += "레드비숍 님\n";
+      moneyrep += "나랑사귀자 님\n";
+      replier.reply(moneyrep);
     }
     if(msg.startsWith("!")){
       var senderinfo = imageDB.getProfileImage();
