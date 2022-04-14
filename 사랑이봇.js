@@ -1478,6 +1478,9 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           Api.reload(scriptName);
         }
       }
+      if(msg.indexOf("시!") != -1){
+        Api.markAsRead(room);
+      }
       if(msg == "와!" || msg == "!와" || msg == "와"){
       i = getRandomInt(0, 100);
       if(i < 30){  replier.reply("샌즈!"); }

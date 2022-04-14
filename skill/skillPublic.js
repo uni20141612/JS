@@ -138,6 +138,7 @@ skp.getskillPublic = function (skillname){
             break;
         case "크레스트 오브 더 솔라":
         case "크레스트오브더솔라":
+        case "크오솔":
         case "세렌":
             pret = 16;
             break;

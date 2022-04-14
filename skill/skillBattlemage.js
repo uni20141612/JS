@@ -30,52 +30,198 @@ skbm.getskillBattlemage = function (skillname){
         case "피니쉬 블로우":
         case "피니쉬블로우":
         case "피블":
+        case "6연타":
             bmret = 4;
             break;
-        case "":
+        case "트리플 블로우":
+        case "트리플블로우":
+        case "트리플":
+        case "트블":
+        case "3연타":
             bmret = 5;
             break;
-        case "":
+        case "텔레포트 Ver.2":
+        case "텔레포트Ver.2":
+        case "텔레포트 2":
+        case "텔레포트2":
+        case "텔레포트":
+        case "텔포":
             bmret = 6;
             break;
-        case "":
+        case "옐로우 오라":
+        case "옐로우오라":
+        case "옐오라":
+        case "옐오":
+        case "노랑 오라":
+        case "노랑오라":
+        case "노란 오라":
+        case "노란오라":
+        case "이속 오라":
+        case "이속오라":
+        case "공속 오라":
+        case "공속오라":
             bmret = 7;
             break;
-        case "":
+        case "데스":
+        case "소환수":
             bmret = 8;
             break;
-        case "":
+        case "아트 오브 스태프":
+        case "아트오브 스태프":
+        case "아트오브스태프":
             bmret = 9;
             break;
-        case "":
+        case "쿼드 블로우":
+        case "쿼드블로우":
+        case "쿼드":
+        case "쿼블":
+        case "4연타":
             bmret = 10;
             break;
-        case "":
+        case "다크 체인":
+        case "다크체인":
+        case "다체":
+        case "닼체":
+        case "끌격기":
+        case "끌격":
             bmret = 11;
             break;
-        case "":
+        case "드레인 오라":
+        case "드레인오라":
+        case "빨강 오라":
+        case "빨강오라":
+        case "빨간 오라":
+        case "빨간오라":
+        case "흡혈 오라":
+        case "흡혈오라":
+        case "드오":
             bmret = 12;
             break;
-        case "":
+        case "데스 컨트랙트":
+        case "데스컨트랙트":
+        case "데스 컨트랙트1":
+        case "데스컨트랙트1":
+        case "데컨1":
+        case "데컨":
             bmret = 13;
             break;
-        case "":
+        case "데스 블로우":
+        case "데스블로우":
+        case "데블":
+        case "5연타":
             bmret = 14;
             break;
-        case "":
+        case "배틀 스퍼트":
+        case "배틀스퍼트":
+        case "스퍼트":
+        case "밀격기":
+        case "밀격":
+        case "돌진기":
+        case "돌진":
             bmret = 15;
             break;
-        case "":
+        case "블루 오라":
+        case "블루오라":
+        case "파랑 오라":
+        case "파랑오라":
+        case "파란 오라":
+        case "파란오라":
+        case "파오":
+        case "내성 오라":
+        case "내성오라":
             bmret = 16;
             break;
-        case "":
+        case "다크 라이트닝":
+        case "다크라이트닝":
+        case "라이트닝":
+        case "인사":
+        case "피블텔":
+        case "징표":
             bmret = 17;
             break;
-        case "":
+        case "텔레포트 부스트":
+        case "텔레포트부스트":
+        case "텔포 부스트":
+        case "텔포부스트":
+        case "부스트":
             bmret = 18;
             break;
-        case "":
+        case "배틀 마스터리":
+        case "배틀마스터리":
             bmret = 19;
+            break;
+        case "너브 스티뮬레이션":
+        case "너브스티뮬레이션":
+        case "스티뮬레이션":
+        case "너브":
+        case "너스":
+            bmret = 20;
+            break;
+        case "데스 컨트랙트2":
+        case "데스컨트랙트2":
+        case "데컨2":
+            bmret = 21;
+            break;
+        case "다크 제네시스":
+        case "다크제네시스":
+        case "닼제네":
+        case "닥제네":
+        case "닥제네":
+        case "제네시스":
+        case "제네":
+            bmret = 22;
+            break;
+        case "다크 오라":
+        case "다크오라":
+        case "검은 오라":
+        case "검은오라":
+        case "까만 오라":
+        case "까만오라":
+        case "데미지 오라":
+        case "데미지오라":
+        case "뎀지 오라":
+        case "뎀지오라":
+            bmret = 23;
+            break;
+        case "디버프 오라":
+        case "디버프오라":
+        case "디벞 오라":
+        case "디벞오라":
+        case "방깎 오라":
+        case "방깎오라":
+            bmret = 24;
+            break;
+        case "배틀 레이지":
+        case "배틀레이지":
+        case "레이지":
+            bmret = 25;
+            break;
+        case "쉘터":
+        case "쉘":
+            bmret = 26;
+            break;
+        case "스펠 부스트":
+        case "스펠부스트":
+            bmret = 27;
+            break;
+        case "데스 컨트랙트3":
+        case "데스컨트랙트3":
+        case "데컨3":
+            bmret = 28;
+            break;
+        case "마스터 오브 데스":
+        case "마스터오브 데스":
+        case "마스터오브데스":
+        case "마오데":
+            bmret = 29;
+            break;
+        case "배틀킹 바":
+        case "배틀킹바":
+        case "배바":
+            bmret = 30;
+            break;
+        case "":
+            bmret = 31;
             break;
     }
     return bmret;
@@ -99,48 +245,84 @@ skbm.getskillnameBattlemage = function (skillcode){
             rep = "피니쉬 블로우";
             break;
         case 5:
-            rep = "";
+            rep = "트리플 블로우";
             break;
         case 6:
-            rep = "";
+            rep = "텔레포트 Ver.2";
             break;
         case 7:
-            rep = "";
+            rep = "옐로우 오라";
             break;
         case 8:
-            rep = "";
+            rep = "데스";
             break;
         case 9:
-            rep = "";
+            rep = "아트 오브 스태프";
             break;
         case 10:
-            rep = "";
+            rep = "쿼드 블로우";
             break;
         case 11:
-            rep = "";
+            rep = "다크 체인";
             break;
         case 12:
-            rep = "";
+            rep = "드레인 오라";
             break;
         case 13:
-            rep = "";
+            rep = "데스 컨트랙트";
             break;
         case 14:
-            rep = "";
+            rep = "데스 블로우";
             break;
         case 15:
-            rep = "";
+            rep = "배틀 스퍼트";
             break;
         case 16:
-            rep = "";
+            rep = "블루 오라";
             break;
         case 17:
-            rep = "";
+            rep = "다크 라이트닝";
             break;
         case 18:
-            rep = "";
+            rep = "텔레포트 부스트";
             break;
         case 19:
+            rep = "배틀 마스터리";
+            break;
+        case 20:
+            rep = "너브 스티뮬레이션";
+            break;
+        case 21:
+            rep = "데스 컨트랙트2";
+            break;
+        case 22:
+            rep = "다크 제네시스";
+            break;
+        case 23:
+            rep = "다크 오라";
+            break;
+        case 24:
+            rep = "디버프 오라";
+            break;
+        case 25:
+            rep = "배틀 레이지";
+            break;
+        case 26:
+            rep = "쉘터";
+            break;
+        case 27:
+            rep = "스펠 부스트";
+            break;
+        case 28:
+            rep = "데스 컨트랙트3";
+            break;
+        case 29:
+            rep = "마스터 오브 데스";
+            break;
+        case 30:
+            rep = "배틀킹 바";
+            break;
+        case 31:
             rep = "";
             break;
     }
@@ -209,6 +391,42 @@ skbm.getskilldesc1Battlemage = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -275,6 +493,42 @@ skbm.getskilldesc2Battlemage = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -308,6 +562,42 @@ skbm.getskilldesc3Battlemage = function (skillcode){
         case 9:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -330,48 +620,84 @@ skbm.getskillimage1Battlemage = function (skillcode){
             rep = "https://i.imgur.com/u5FusUA.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/yUpsasj.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/Kyx1KiD.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/AlEWU7K.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/7VWGswv.png";
             break;
         case 9:
             rep = "";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/19SiNzC.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/yeBx5dV.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/SMxA13F.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/46lRhlS.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/eXPAORG.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/RF2CdOA.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/2uHhAjO.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/vjEztf5.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/E95Fm3R.png";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/XhEOI2f.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/jULBuRw.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/i0WjE1u.png";
+            break;
+        case 24:
+            rep = "https://i.imgur.com/t9d6Cvf.png";
+            break;
+        case 25:
+            rep = "https://i.imgur.com/PZcmVUe.png";
+            break;
+        case 26:
+            rep = "https://i.imgur.com/rtv7PbD.png";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "https://i.imgur.com/mXFBwCF.png";
+            break;
+        case 29:
+            rep = "https://i.imgur.com/jpVwZg8.png";
+            break;
+        case 30:
+            rep = "https://i.imgur.com/hUXkYRR.png";
+            break;
+        case 31:
             rep = "";
             break;
     }
@@ -396,48 +722,84 @@ skbm.getskillimage2Battlemage = function (skillcode){
             rep = "https://i.imgur.com/ccdJ8MW.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/KKGdMi8.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/51tx9OM.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/0GVkNwR.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/pviBhhL.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/26OJraj.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/5CKitX2.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/tAIEwkO.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/e57cPpJ.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/YrgQHt5.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/umu08pg.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/4Jwf7Jm.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/GInRWMK.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/a3RUsSW.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/okZhV6U.png";
             break;
         case 19:
+            rep = "https://i.imgur.com/ShighnV.png";
+            break;
+        case 20:
+            rep = "https://i.imgur.com/DZjbVm0.png";
+            break;
+        case 21:
+            rep = "https://i.imgur.com/RQ8sIT3.png";
+            break;
+        case 22:
+            rep = "https://i.imgur.com/7h3LKA9.png";
+            break;
+        case 23:
+            rep = "https://i.imgur.com/XhBV1KL.png";
+            break;
+        case 24:
+            rep = "https://i.imgur.com/hb2ddQK.png";
+            break;
+        case 25:
+            rep = "https://i.imgur.com/2DXlgKg.png";
+            break;
+        case 26:
+            rep = "https://i.imgur.com/00WP1Pk.png";
+            break;
+        case 27:
+            rep = "https://i.imgur.com/Hrpqk7p.png";
+            break;
+        case 28:
+            rep = "https://i.imgur.com/niXjbEk.png";
+            break;
+        case 29:
+            rep = "https://i.imgur.com/2SwacVW.png";
+            break;
+        case 30:
+            rep = "https://i.imgur.com/Ijg37lG.png";
+            break;
+        case 31:
             rep = "";
             break;
     }
