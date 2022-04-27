@@ -670,10 +670,19 @@ gt.getInform = function (dataarr, dataC1){
     dataarr[5] = dataC2.split("<div class=\"col-lg-8\">")[1];
     dataarr[5] = dataarr[5].split("\" alt=")[0].split("src=\"")[1];
     dataarr[6] = dataarr[6].split("<meta property=\"og:image\" content=\"")[1].split("\">")[0];
-    dataarr[3] = "무릉:기록없음";
-    dataarr[4] = "시드:기록없음";
-    if(dataC4_mureung.slice(0,2) == "무릉") {dataarr[3] = dataC4_mureung;}
-    if(dataC4_seed.slice(0,2) == "시드") {dataarr[4] = dataC4_seed;}
+
+    dataGuild = dataC1.split("col-lg-2")[1];
+    if(dataGuild.indexOf("(없음)") != -1){ dataGuild = "길드 : 없음"; }
+    else{
+      dataGuild = dataGuild.split("underline\">")[1].split("</a>")[0];
+      dataGuild = "길드 : " + dataGuild;
+    }
+    dataRank = dataC1.split("col-lg-2")[2];
+    dataRank = dataRank.split("<span>")[1].split("</span>")[0];
+    dataRank = "종합랭킹 : " + dataRank;
+
+    dataarr[3] = dataGuild;
+    dataarr[4] = dataRank;
     rep = (dataC4_nameandServer + "\n" + dataarr[2] + " " + dataarr[1] + "\n" + dataC4_mureung + "\n" + dataC4_seed + "\n" + dataC4_union + "\n" + dataC4_achievement);
   }
   return rep;
