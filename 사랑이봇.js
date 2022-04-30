@@ -446,47 +446,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
-    if(msg.startsWith("!로아")){
-      nickname = msg.split(" ")[1];
-      if(nickname == undefined){
-        replier.reply("캐릭터 이름을 입력해주세요.\n\n!로아 (캐릭터명) : 로아와 기준 로스트아크 관련 정보를 보여줍니다.");
-      }
-      else{
-        var roarep = "";
-        var roawa = "https://loawa.com/char/" + nickname;
-        var dataR1 = org.jsoup.Jsoup.connect(roawa).get();
-        dataR1 = dataR1.toString();
-        if(dataR1.indexOf("캐릭터 정보가 없습니다.") == -1){
-        dataR1 = dataR1.split("col pl-0 pr-0\">")[1].split("<h6>")[0].replace(/&nbsp;/g, "");
-
-        var roaserver = dataR1.split("tfs14\">")[1].split("</span>")[0];
-        var roaguild = dataR1.split("tfs14\">")[2].split("</span>")[0];
-        var roaclass = dataR1.split("tfs14\">")[3].split("</span>")[0];
-        var roatitle = dataR1.split("tfs14\">")[4].split("</span>")[0];
-        var roafight = dataR1.split("tfs14\">")[5].split("</span>")[0];
-        var roaitem = dataR1.split("tfs14\">")[6].split("</span>")[0];
-        var roaexped = dataR1.split("tfs14\">")[7].split("</span>")[0];
-        var roapvp = dataR1.split("tfs14\">")[8].split("</span>")[0];
-        var roaterri = dataR1.split("tfs14\">")[9].split("</span>")[0];
-
-        roarep = nickname + " 캐릭터의 로스트아크 정보\n\n";
-        roarep += "서 버 : " + roaserver;
-        roarep += "\n길 드 : " + roaguild;
-        roarep += "\n클래스 : " + roaclass;
-        roarep += "\n칭 호 : " + roatitle;
-        roarep += "\n전 투 : " + roafight;
-        roarep += "\n아이템 : " + roaitem;
-        roarep += "\n원정대 : " + roaexped;
-        roarep += "\nP V P : " + roapvp;
-        roarep += "\n영 지 : " + roaterri;
-        }
-        else{
-          roarep = "캐릭터 정보가 없습니다.";
-        }
-        replier.reply(roarep);
-        
-      }
-    }
     if(msg.startsWith("!로얄")){      
       const royalM = require('Royal');
       if(msg.split(" ")[1] == undefined){
@@ -959,7 +918,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             var unionlvl = parseInt(unirep.split("Lv.")[1].split("유니온")[0]);
 
             dataM1 = dataC1.split("무릉 히스토리")[1].split("</section")[0];
-            if(dataM1.indexOf("기록이 없습니다.") == -1){
+            if(dataM1.indexOf("기록이 없습니다.") == -1 && dataC1.indexOf("user-summary-floor font-weight-bold") != -1){
               var murep = guitarM.getMureung(nickname, dataM1, dataC1);
               var mulvl = parseInt(murep.split("최고기록")[1].split("기준 : ")[1].split("층")[0]);
               var temparr = ["-", "-", "-", "-", "-", "-", "-"];
@@ -977,7 +936,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               characlvl = parseInt(inforep.split("Lv.")[1].split("("));
               maple3dae = guitarM.getScouter(characlvl, 0, unionlvl);
               scoutres = guitarM.get3Dae(maple3dae);
-              replier.reply(nickname + " >> 이 캐릭터는 무릉 기록이 없습니다. 무릉 층수는 0으로 계산됩니다.\n\n" + nickname + " 캐릭터의 메창력 수치\n\n캐릭터 레벨 : " + characlvl + "\n무릉 층수 : 0" + "\n유니온 레벨 : " + unionlvl + "\n[총합 : " + maple3dae + "]\n\n" + scoutres);
+              replier.reply(nickname + " >> 이 캐릭터는 최근 무릉 기록이 없습니다. 무릉 층수는 0으로 계산됩니다.\n\n" + nickname + " 캐릭터의 메창력 수치\n\n캐릭터 레벨 : " + characlvl + "\n무릉 층수 : 0" + "\n유니온 레벨 : " + unionlvl + "\n[총합 : " + maple3dae + "]\n\n" + scoutres);
             }
           }
           else{
