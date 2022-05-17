@@ -36,10 +36,12 @@ gt.getConvenience = function (msg){
     var prodlist = [];
     var pricelist = [];
     var contemp = "";
-    for(i = 1; i < condata.split("cursor:pointer\">").length; ++i){
-      contemp = condata.split("cursor:pointer\">")[i].split(")")[1].split("</span>")[0];
+   for(i = 1; i < condata.split("view(").length/2; ++i){
+      contemp = condata.split("view(")[i*2]
+      .split("<p>")[1]
+      .split("</p>")[0];
       prodlist.push(contemp);
-      contemp = condata.split("prodPrice")[i].split("<span>")[1].split("</span>")[0];
+      contemp = condata.split("<strong>")[i].split("</strong>")[0];
       pricelist.push(contemp);
     }
     conrand = getRandomInt(0, prodlist.length);
