@@ -1056,13 +1056,18 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(seedrep);
     }
     if(msg == "!실시간검색어" || msg == "!실검"){
-      dataRT = org.jsoup.Jsoup.connect("https://api.signal.bz/news/realtime").get().toString();
-      dataRT = dataRT.split("top10")[1].split("articles")[0];
-      replier.reply(dataRT);
+      dataRT = "";
+      try{
+        dataRT = org.jsoup.Jsoup.connect("https://api.signal.bz/news/realtime").ignoreContentType(true).get().toString();
+        dataRT = dataRT.split("top10")[1].split("articles")[0];
+      }
+      catch(e){
+        replier.reply(e);
+      }
       dataRTarr = [];
-      /*var tempRT = "";
+      var tempRT = "";
       for(i = 0; i < 10; ++i){
-        tempRT = dataRT.split("<span class=\"word\">")[i+1].split("</span>")[0];
+        tempRT = dataRT.split("keyword\":\"")[i+1].split("\",\"")[0];
         dataRTarr.push(tempRT);
       }
       Kakao.send(room,
@@ -1084,7 +1089,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
                             }
         },
-         "custom");   */
+         "custom");
     }
     if(msg.startsWith("!심볼")){
       const symbolM = require('Symbol');
