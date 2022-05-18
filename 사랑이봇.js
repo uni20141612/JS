@@ -1056,12 +1056,20 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(seedrep);
     }
     if(msg == "!실시간검색어" || msg == "!실검"){
-      dataRT = org.jsoup.Jsoup.connect("https://search.namu.wiki/api/ranking").get();
+      dataRT = org.jsoup.Jsoup.connect("https://search.namu.wiki/api/ranking")
+      .header("origin", "https://namu.wiki")
+      .header("referer", "https://namu.wiki")
+      .header("accept-encoding", "gzip, deflate, br")
+      .data("_callback", "")
+      .data("r_format", "json")
+      .userAgent("Mozilla/5.0")
+      .ignoreContentType(true)
+      .get();
       dataRT = dataRT.toString();
       dataRTarr = [];
       var tempRT = "";
       for(i = 0; i < 10; ++i){
-        tempRT = dataRT.split("\"")[i*2+1];
+        tempRT = dataRT.split("<span class=\"word\">")[i+1].split("</span>")[0];
         dataRTarr.push(tempRT);
       }
       Kakao.send(room,
