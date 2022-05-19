@@ -1260,8 +1260,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       dataE = dataE.toString();
       day = new Date();
       var eventtitle = day.getFullYear() + "년 " + (day.getMonth() + 1) + "월 이벤트 일정!";
-      dataE3 = dataE.split("alt=\"\" src=\"")[1];
-      var eventimage = dataE3.split("\" style")[0];
+      dataE3 = dataE.split("tbl_col")[1];
+      var eventimage = dataE3.split("img src=\"")[1].split("\"")[0];
       var eventlink = eventimage.split("http://help.nexon.com")[1];
       Kakao.send(room,
         {
