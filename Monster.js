@@ -14,7 +14,7 @@ mon.getMonster = function (msg){
             rep = "잘못된 지역을 입력하셨습니다. 지역은 아케인리버와 그란디스 260레벨이상 지역에 한정하며, 1부터 13까지의 정수로도 입력하실 수 있습니다.";
         }
         else if(monnamechk == undefined){
-            if(monareanum < 14 && monareanum > 0){
+            if(monareanum < 14 && monareanum > -1){
                 rep = this.getMonlist(monareanum);
             }
             else{
