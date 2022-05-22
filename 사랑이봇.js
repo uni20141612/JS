@@ -581,7 +581,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                        
         if(msg.startsWith("!무릉")){
           var stair = parseInt(nickname);
-          if(nickname.length < 3 && stair > 0 && stair < 81){
+          if(nickname.length < 4 && stair > 0 && stair < 101){
             const mrM = require('Mureung');
             const jariM = require('Jari');
             var mname = mrM.monstername[stair];
@@ -612,7 +612,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
           else{
             if(dataC1.indexOf("검색결과 없음") != -1){
-              replier.reply(nickname + " >> 그런 캐릭터는 없습니다.\n\n!무릉 (캐릭터명) : 메이플지지 기준 캐릭터의 최근 무릉 기록과 최고 무릉 기록을 보여줍니다\n\n!무릉 (층수) : 1~80사이의 숫자를 넣으면 해당 층수의 몬스터 정보를 보여줍니다.");
+              replier.reply(nickname + " >> 그런 캐릭터는 없습니다.\n\n!무릉 (캐릭터명) : 메이플지지 기준 캐릭터의 최근 무릉 기록과 최고 무릉 기록을 보여줍니다\n\n!무릉 (층수) : 1~100사이의 숫자를 넣으면 해당 층수의 몬스터 정보를 보여줍니다.");
             }
             else{
               dataM1 = dataC1.split("무릉 히스토리")[1].split("</section")[0];
