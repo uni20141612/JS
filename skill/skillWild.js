@@ -587,52 +587,52 @@ skwd.getskillimage1Wild = function (skillcode){
             rep = "https://i.imgur.com/uTi22Hb.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/DlCBytW.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/nWnjsXV.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/CRvVZLC.png";
             break;
         case 7:
             rep = "";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/GVVQocb.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/tsLxXNf.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/XNITLgx.png";
             break;
         case 11:
             rep = "";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/7DINGaP.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/Mn4IMX6.png";
             break;
         case 14:
             rep = "";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/dvUQqpZ.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/5g9HfmU.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/i9ZGY5A.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/HXu0X3i.png";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/J3zTa82.png";
             break;
         case 20:
             rep = "";
@@ -644,16 +644,16 @@ skwd.getskillimage1Wild = function (skillcode){
             rep = "";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/ZNCBC0D.png";
             break;
         case 24:
-            rep = "";
+            rep = "https://i.imgur.com/Mty8DOL.png";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/QDHBeYt.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/F50PYgp.png";
             break;
         case 27:
             rep = "";
@@ -665,13 +665,13 @@ skwd.getskillimage1Wild = function (skillcode){
             rep = "";
             break;
         case 30:
-            rep = "";
+            rep = "https://i.imgur.com/uPCklZb.png";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/dZTIxvl.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/FLlSLLT.png";
             break;
         case 33:
             rep = "";
@@ -695,91 +695,91 @@ skwd.getskillimage2Wild = function (skillcode){
             rep = "https://i.imgur.com/VG22it3.png";
             break;
         case 4:
-            rep = "";
+            rep = "https://i.imgur.com/Psa4m67.png";
             break;
         case 5:
-            rep = "";
+            rep = "https://i.imgur.com/jpIJHVj.png";
             break;
         case 6:
-            rep = "";
+            rep = "https://i.imgur.com/dRAtaY9.png";
             break;
         case 7:
-            rep = "";
+            rep = "https://i.imgur.com/AiysxcX.png";
             break;
         case 8:
-            rep = "";
+            rep = "https://i.imgur.com/SN7B9VT.png";
             break;
         case 9:
-            rep = "";
+            rep = "https://i.imgur.com/8hKNXf8.png";
             break;
         case 10:
-            rep = "";
+            rep = "https://i.imgur.com/8YcxZQO.png";
             break;
         case 11:
-            rep = "";
+            rep = "https://i.imgur.com/1Tx2gw6.png";
             break;
         case 12:
-            rep = "";
+            rep = "https://i.imgur.com/R8iTBt6.png";
             break;
         case 13:
-            rep = "";
+            rep = "https://i.imgur.com/7y9bM9O.png";
             break;
         case 14:
-            rep = "";
+            rep = "https://i.imgur.com/HcYRIcJ.png";
             break;
         case 15:
-            rep = "";
+            rep = "https://i.imgur.com/Qi4cjph.png";
             break;
         case 16:
-            rep = "";
+            rep = "https://i.imgur.com/kcWYS4a.png";
             break;
         case 17:
-            rep = "";
+            rep = "https://i.imgur.com/WOYRFcV.png";
             break;
         case 18:
-            rep = "";
+            rep = "https://i.imgur.com/i6AC5SA.png";
             break;
         case 19:
-            rep = "";
+            rep = "https://i.imgur.com/iE5Sb0T.png";
             break;
         case 20:
-            rep = "";
+            rep = "https://i.imgur.com/dGy3UaC.png";
             break;
         case 21:
-            rep = "";
+            rep = "https://i.imgur.com/U30IsH2.png";
             break;
         case 22:
-            rep = "";
+            rep = "https://i.imgur.com/72AnTyL.png";
             break;
         case 23:
-            rep = "";
+            rep = "https://i.imgur.com/2z43L9E.png";
             break;
         case 24:
-            rep = "";
+            rep = "https://i.imgur.com/HyRGaZw.png";
             break;
         case 25:
-            rep = "";
+            rep = "https://i.imgur.com/7cSYLcB.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/SYUh6VN.png";
             break;
         case 27:
-            rep = "";
+            rep = "https://i.imgur.com/HtOLD3n.png";
             break;
         case 28:
-            rep = "";
+            rep = "https://i.imgur.com/3nPG6Gg.png";
             break;
         case 29:
-            rep = "";
+            rep = "https://i.imgur.com/WA1VtYR.png";
             break;
         case 30:
-            rep = "";
+            rep = "https://i.imgur.com/FUCGmy4.png";
             break;
         case 31:
-            rep = "";
+            rep = "https://i.imgur.com/s18Z5rV.png";
             break;
         case 32:
-            rep = "";
+            rep = "https://i.imgur.com/IQV1JKX.png";
             break;
         case 33:
             rep = "";

@@ -28,54 +28,202 @@ skb.getskillBlaster = function (skillname){
         case "애쇼":
             bret = 3;
             break;
-        /*case "":
+        case "매그넘 펀치":
+        case "매그넘펀치":
+        case "매펀":
+        case "펀치":
+        case "매그넘":
             bret = 4;
             break;
-        case "":
+        case "리볼빙 캐논":
+        case "리볼빙캐논":
+        case "리볼빙":
+        case "리캐":
             bret = 5;
             break;
-        case "":
+        case "릴리즈 파일 벙커":
+        case "릴리즈 파일벙커":
+        case "릴리즈파일 벙커":
+        case "릴리즈파일벙커":
+        case "릴파벙":
             bret = 6;
             break;
-        case "":
+        case "더블 점프":
+        case "더블점프":
+        case "더점":
+        case "덥점":
             bret = 7;
             break;
-        case "":
+        case "익스플로젼 무브":
+        case "익스플로젼무브":
+        case "익스플로젼":
+        case "윗점":
             bret = 8;
             break;
-        case "":
+        case "인듀어런스 실드":
+        case "인듀어런스실드":
+        case "인듀어런스":
+        case "인실":
+        case "실드":
             bret = 9;
             break;
-        case "":
+        case "더블 팡":
+        case "더블팡":
+        case "덥팡":
+        case "팡":
             bret = 10;
             break;
-        case "":
+        case "더킹":
+        case "덬":
+        case "덕":
             bret = 11;
             break;
-        case "":
+        case "차지 마스터리":
+        case "차지마스터리":
+        case "차마":
             bret = 12;
             break;
-        case "":
+        case "리볼빙 캐논 업그레이드":
+        case "리볼빙캐논 업그레이드":
+        case "리볼빙캐논업그레이드":
+        case "리캐업":
             bret = 13;
             break;
-        case "":
+        case "해머 스매시":
+        case "해머스매시":
+        case "해스":
+        case "해머":
+        case "스매시":
             bret = 14;
             break;
-        case "":
+        case "스웨이":
             bret = 15;
             break;
-        case "":
+        case "리프트 프레스":
+        case "리프트프레스":
+        case "리프트":
+        case "프레스":
+        case "잡기":
+        case "돌진기":
+        case "돌진":
             bret = 16;
             break;
-        case "":
+        case "매그넘 캐논":
+        case "매그넘캐논":
+        case "매캐":
             bret = 17;
             break;
-        case "":
+        case "리볼빙 캐논 업그레이드 II":
+        case "리볼빙캐논 업그레이드 II":
+        case "리볼빙캐논업그레이드 II":
+        case "리볼빙캐논업그레이드II":
+        case "리캐업II":
+        case "리볼빙 캐논 업그레이드 2":
+        case "리볼빙캐논 업그레이드 2":
+        case "리볼빙캐논업그레이드 2":
+        case "리볼빙캐논업그레이드2":
+        case "리캐업2":
             bret = 18;
             break;
-        case "":
+        case "인듀어런스 트레이닝":
+        case "인듀어런스트레이닝":
+        case "인트":
             bret = 19;
-            break;*/
+            break;
+        case "콤비네이션 트레이닝":
+        case "콤비네이션트레이닝":
+        case "콤비네이션":
+        case "콤트":
+            bret = 20;
+            break;
+        case "쇼크 웨이브 펀치":
+        case "쇼크웨이브 펀치":
+        case "쇼크웨이브펀치":
+        case "쇼웨펀":
+        case "쇽웨펀":
+        case "숔웨펀":
+        case "숔펀":
+        case "쇽펀":
+            bret = 21;
+            break;
+        case "플래시 무브":
+        case "플래시무브":
+        case "플래시":
+        case "무브":
+            bret = 22;
+            break;
+        case "허리케인 믹서":
+        case "허리케인믹서":
+        case "허리케인":
+        case "믹서":
+        case "허믹":
+            bret = 23;
+            break;
+        case "리볼빙 벙커":
+        case "리볼빙벙커":
+        case "리벙":
+        case "바인드":
+        case "셀프바인드":
+            bret = 24;
+            break;
+        case "슈퍼 인듀어런스":
+        case "슈퍼인듀어런스":
+        case "슈인":
+            bret = 25;
+            break;
+        case "리볼빙 캐논 업그레이드 III":
+        case "리볼빙캐논 업그레이드 III":
+        case "리볼빙캐논업그레이드 III":
+        case "리볼빙캐논업그레이드III":
+        case "리캐업III":
+        case "리볼빙 캐논 업그레이드 3":
+        case "리볼빙캐논 업그레이드 3":
+        case "리볼빙캐논업그레이드 3":
+        case "리볼빙캐논업그레이드3":
+        case "리캐업3":
+            bret = 26;
+            break;
+        case "인듀어런스 트레이닝 II":
+        case "인듀어런스트레이닝 II":
+        case "인듀어런스트레이닝II":
+        case "인트II":
+        case "인듀어런스 트레이닝 2":
+        case "인듀어런스트레이닝 2":
+        case "인듀어런스트레이닝2":
+        case "인트2":
+            bret = 27;
+            break;
+        case "어드밴스드 차지 마스터리":
+        case "어드밴스드차지 마스터리":
+        case "어드밴스드차지마스터리":
+        case "어차마":
+            bret = 28;
+            break;
+        case "콤비네이션 트레이닝 II":
+        case "콤비네이션트레이닝 II":
+        case "콤비네이션트레이닝II":
+        case "콤트II":
+        case "콤비네이션 트레이닝 2":
+        case "콤비네이션트레이닝 2":
+        case "콤비네이션트레이닝2":
+        case "콤트2":
+            bret = 29;
+            break;
+        case "맥시마이즈 캐논":
+        case "맥시마이즈캐논":
+        case "맥마캐":
+        case "맥캐":
+            bret = 30;
+            break;
+        case "하이퍼 매그넘 펀치":
+        case "하이퍼 매그넘펀치":
+        case "하이퍼매그넘펀치":
+        case "하매펀":
+            bret = 31;
+            break;
+        case "":
+            bret = 32;
+            break;
     }
     return bret;
 };
@@ -95,51 +243,90 @@ skb.getskillnameBlaster = function (skillcode){
             rep = "애프터이미지 쇼크";
             break;
         case 4:
-            rep = "";
+            rep = "매그넘 펀치";
             break;
         case 5:
-            rep = "";
+            rep = "리볼빙 캐논";
             break;
         case 6:
-            rep = "";
+            rep = "릴리즈 파일 벙커";
             break;
         case 7:
-            rep = "";
+            rep = "더블 점프";
             break;
         case 8:
-            rep = "";
+            rep = "익스플로젼 무브";
             break;
         case 9:
-            rep = "";
+            rep = "인듀어런스 실드";
             break;
         case 10:
-            rep = "";
+            rep = "더블 팡";
             break;
         case 11:
-            rep = "";
+            rep = "더킹";
             break;
         case 12:
-            rep = "";
+            rep = "차지 마스터리";
             break;
         case 13:
-            rep = "";
+            rep = "리볼빙 캐논 업그레이드";
             break;
         case 14:
-            rep = "";
+            rep = "해머 스매시";
             break;
         case 15:
-            rep = "";
+            rep = "스웨이";
             break;
         case 16:
-            rep = "";
+            rep = "리프트 프레스";
             break;
         case 17:
-            rep = "";
+            rep = "매그넘 캐논";
             break;
         case 18:
-            rep = "";
+            rep = "리볼빙 캐논 업그레이드 II";
             break;
         case 19:
+            rep = "인듀어런스 트레이닝";
+            break;
+        case 20:
+            rep = "콤비네이션 트레이닝";
+            break;
+        case 21:
+            rep = "쇼크 웨이브 펀치";
+            break;
+        case 22:
+            rep = "플래시 무브";
+            break;
+        case 23:
+            rep = "허리케인 믹서";
+            break;
+        case 24:
+            rep = "리볼빙 벙커";
+            break;
+        case 25:
+            rep = "슈퍼 인듀어런스";
+            break;
+        case 26:
+            rep = "리볼빙 캐논 업그레이드 III";
+            break;
+        case 27:
+            rep = "인듀어런스 트레이닝 II";
+            break;
+        case 28:
+            rep = "어드밴스드 차지 마스터리";
+            break;
+        case 29:
+            rep = "콤비네이션 트레이닝 II";
+            break;
+        case 30:
+            rep = "맥시마이즈 캐논";
+            break;
+        case 31:
+            rep = "하이퍼 매그넘 펀치";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -208,6 +395,45 @@ skb.getskilldesc1Blaster = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -274,6 +500,45 @@ skb.getskilldesc2Blaster = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -305,6 +570,75 @@ skb.getskilldesc3Blaster = function (skillcode){
             rep = "";
             break;
         case 9:
+            rep = "";
+            break;
+        case 10:
+            rep = "";
+            break;
+        case 11:
+            rep = "";
+            break;
+        case 12:
+            rep = "";
+            break;
+        case 13:
+            rep = "";
+            break;
+        case 14:
+            rep = "";
+            break;
+        case 15:
+            rep = "";
+            break;
+        case 16:
+            rep = "";
+            break;
+        case 17:
+            rep = "";
+            break;
+        case 18:
+            rep = "";
+            break;
+        case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -373,6 +707,45 @@ skb.getskillimage1Blaster = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -437,6 +810,45 @@ skb.getskillimage2Blaster = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
             rep = "";
             break;
     }
