@@ -976,22 +976,22 @@ job.getJobimage = function (ind){
         rep = "https://i.imgur.com/SrvHcpk.png";
         break;
       case 17:
-        rep = "https://i.imgur.com/c3oMgME.png";
+        rep = "https://i.imgur.com/86G8G81.png";
         break;
       case 18:
-        rep = "https://i.imgur.com/SHPksem.png";
+        rep = "https://i.imgur.com/r2odYMI.png";
         break;
       case 19:
-        rep = "https://i.imgur.com/6UZgdML.png";
+        rep = "https://i.imgur.com/QvVENG6.png";
         break;
       case 20:
-        rep = "https://i.imgur.com/njtVD3y.png";
+        rep = "https://i.imgur.com/UA7GQR5.png";
         break;
       case 21:
-        rep = "https://i.imgur.com/o6QN9AG.png";
+        rep = "https://i.imgur.com/iRzwyya.png";
         break;
       case 22:
-        rep = "https://i.imgur.com/RD8GIsG.png";
+        rep = "https://i.imgur.com/a1XocML.png";
         break;
       case 23:
         rep = "https://i.imgur.com/tPXbBkl.png";
