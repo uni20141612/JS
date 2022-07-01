@@ -94,7 +94,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(coinrep);
       }
     }
-    if(sender == "니아봇"){      if(msg.indexOf("\u200B") != -1){        niamsg = msg.replace(/\u200B/g, "");   java.lang.Thread.sleep(30*1000);    replier.reply(niamsg);      }     }  
+    if(sender == "니아봇"){      if(msg.indexOf("\u200B") != -1){        niamsg = msg.replace(/\u200B/g, "");   java.lang.Thread.sleep(20*1000);    replier.reply(niamsg);      }     }  
     if(msg == "!대선" || msg == "!개표" || msg == "!투표"){
       var elecrep = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFY&x_csa=%7B%22isMapTab%22%3Afalse%7D&pkid=7001&qvt=0&query=%EC%A0%9C20%EB%8C%80%20%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0%20%EC%A0%84%EA%B5%AD%20%EA%B0%9C%ED%91%9C%ED%98%84%ED%99%A9").get().toString();
       var elecrep2 = elecrep.split("number_area")[1].split("선거인수")[0];
@@ -581,7 +581,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                        
         if(msg.startsWith("!무릉")){
           var stair = parseInt(nickname);
-          if(nickname.length < 4 && stair > 0 && stair < 101){
+          if((nickname.length < 3 || nickname == '100') && stair > 0 && stair < 101){
             const mrM = require('Mureung');
             const jariM = require('Jari');
             var mname = mrM.monstername[stair];
@@ -825,8 +825,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
-      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차도 챙기라구!"); Api.replyRoom("나랑사귀자(스카니아)", "황금마차도 챙기라구!"); }
-      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 탑승해~"); Api.replyRoom("나랑사귀자(스카니아)", "황금마차 얼른 탑승해~");}
+      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("이그니션 이벤트도 챙기라구!"); Api.replyRoom("나랑사귀자(스카니아)", "이그니션 이벤트도 챙기라구!"); }
+      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("이그니션 이벤트 얼른 탑승해~"); Api.replyRoom("나랑사귀자(스카니아)", "이그니션 이벤트 얼른 탑승해~");}
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
@@ -1229,30 +1229,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       else if(parseInt(pidigit) < 2 || parseInt(pidigit) > 10000){ replier.reply("2~10000사이의 숫자를 입력해주세요."); }
       else{
         replier.reply(pirep.slice(0, 2+parseInt(pidigit)));
-      }
-    }
-    if(msg.startsWith("!유튜브")){
-      var utube = msg.split(" ")[1];
-      if(utube == undefined){ replier.reply("유튜브 링크를 입력해주세요."); }
-      else{
-        var uDefault = "forward?go=vnd.youtube://watch?v=";
-        var uback = "-";
-        if(utube.startsWith("https://youtu.be/")){ uback = utube.split("https://youtu.be/")[1]; }
-        else if(utube.startsWith("https://www.youtube.com/watch?v=")){ uback = utube.split("https://www.youtube.com/watch?v=")[1]; }
-        else{ replier.reply("링크가 잘못되었습니다."); }
-
-        if(uback != "-"){
-          Kakao.send(room,
-            {
-              "link_ver" : "4.0",
-              "template_id" : 64080,
-              "template_args" : {
-                                    "link" : uDefault + uback,
-                                    "image" : "http://i.ytimg.com/vi/" + uback + "/default.jpg"
-                                }
-            },
-             "custom");
-        }
       }
     }
     if(msg == "!이벤트" || msg == "!ㅇㅂㅌ"){      
