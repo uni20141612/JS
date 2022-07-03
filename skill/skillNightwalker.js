@@ -30,7 +30,7 @@ sknw.getskillNightwalker = function (skillname){
         case "래스":
             nwret = 3;
             break;
-        /*case "":
+        case "":
             nwret = 4;
             break;
         case "":
@@ -77,7 +77,46 @@ sknw.getskillNightwalker = function (skillname){
             break;
         case "":
             nwret = 19;
-            break;*/
+            break;
+        case "":
+            nwret = 20;
+            break;
+        case "":
+            nwret = 21;
+            break;
+        case "":
+            nwret = 22;
+            break;
+        case "":
+            nwret = 23;
+            break;
+        case "":
+            nwret = 24;
+            break;
+        case "":
+            nwret = 25;
+            break;
+        case "":
+            nwret = 26;
+            break;
+        case "":
+            nwret = 27;
+            break;
+        case "":
+            nwret = 28;
+            break;
+        case "":
+            nwret = 29;
+            break;
+        case "":
+            nwret = 30;
+            break;
+        case "":
+            nwret = 31;
+            break;
+        case "":
+            nwret = 32;
+            break;
     }
     return nwret;
 };
@@ -97,51 +136,90 @@ sknw.getskillnameNightwalker = function (skillcode){
             rep = "래피드 스로우";
             break;
         case 4:
-            rep = "";
+            rep = "엘리멘트 : 다크니스";
             break;
         case 5:
-            rep = "";
+            rep = "쉐도우 배트";
             break;
         case 6:
-            rep = "";
+            rep = "쉐도우 점프";
             break;
         case 7:
-            rep = "";
+            rep = "다크 사이트";
             break;
         case 8:
-            rep = "";
+            rep = "래피드 이베이젼";
             break;
         case 9:
-            rep = "";
+            rep = "헤이스트";
             break;
         case 10:
-            rep = "";
+            rep = "스타더스트";
             break;
         case 11:
-            rep = "";
+            rep = "배트 커뮤니온";
             break;
         case 12:
-            rep = "";
+            rep = "다크니스 어뎁팅";
             break;
         case 13:
-            rep = "";
+            rep = "쉐도우 서번트";
             break;
         case 14:
-            rep = "";
+            rep = "다크니스 어센션";
             break;
         case 15:
-            rep = "";
+            rep = "쉐도우 모멘텀";
             break;
         case 16:
-            rep = "";
+            rep = "배트 커뮤니온 II";
             break;
         case 17:
-            rep = "";
+            rep = "다크니스 어뎁팅 II";
             break;
         case 18:
-            rep = "";
+            rep = "스피릿 스로잉";
             break;
         case 19:
+            rep = "래디컬 다크니스";
+            break;
+        case 20:
+            rep = "아드레날린";
+            break;
+        case 21:
+            rep = "퀸터플 스로우";
+            break;
+        case 22:
+            rep = "다크니스 오멘";
+            break;
+        case 23:
+            rep = "쉐도우 스티치";
+            break;
+        case 24:
+            rep = "래버너스 배트";
+            break;
+        case 25:
+            rep = "배트 커뮤니온 III";
+            break;
+        case 26:
+            rep = "다크니스 어뎁팅 III";
+            break;
+        case 27:
+            rep = "사이펀 바이탈리티";
+            break;
+        case 28:
+            rep = "다크니스 블레싱";
+            break;
+        case 29:
+            rep = "쉐도우 어시밀레이션";
+            break;
+        case 30:
+            rep = "쉐도우 일루전";
+            break;
+        case 31:
+            rep = "도미니언";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -210,6 +288,45 @@ sknw.getskilldesc1Nightwalker = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -276,6 +393,45 @@ sknw.getskilldesc2Nightwalker = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -307,6 +463,45 @@ sknw.getskilldesc3Nightwalker = function (skillcode){
             rep = "";
             break;
         case 9:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
             rep = "";
             break;
     }
@@ -375,6 +570,45 @@ sknw.getskillimage1Nightwalker = function (skillcode){
         case 19:
             rep = "";
             break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
+            rep = "";
+            break;
     }
     return rep;
 };
@@ -439,6 +673,45 @@ sknw.getskillimage2Nightwalker = function (skillcode){
             rep = "";
             break;
         case 19:
+            rep = "";
+            break;
+        case 20:
+            rep = "";
+            break;
+        case 21:
+            rep = "";
+            break;
+        case 22:
+            rep = "";
+            break;
+        case 23:
+            rep = "";
+            break;
+        case 24:
+            rep = "";
+            break;
+        case 25:
+            rep = "";
+            break;
+        case 26:
+            rep = "";
+            break;
+        case 27:
+            rep = "";
+            break;
+        case 28:
+            rep = "";
+            break;
+        case 29:
+            rep = "";
+            break;
+        case 30:
+            rep = "";
+            break;
+        case 31:
+            rep = "";
+            break;
+        case 32:
             rep = "";
             break;
     }

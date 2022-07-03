@@ -63,6 +63,66 @@ skxx.getskill = function (skillname){
         case "":
             xxret = 19;
             break;
+        case "":
+            xxret = 20;
+            break;
+        case "":
+            xxret = 21;
+            break;
+        case "":
+            xxret = 22;
+            break;
+        case "":
+            xxret = 23;
+            break;
+        case "":
+            xxret = 24;
+            break;
+        case "":
+            xxret = 25;
+            break;
+        case "":
+            xxret = 26;
+            break;
+        case "":
+            xxret = 27;
+            break;
+        case "":
+            xxret = 28;
+            break;
+        case "":
+            xxret = 29;
+            break;
+        case "":
+            xxret = 30;
+            break;
+        case "":
+            xxret = 31;
+            break;
+        case "":
+            xxret = 32;
+            break;
+        case "":
+            xxret = 33;
+            break;
+        case "":
+            xxret = 34;
+            break;
+        case "":
+            xxret = 35;
+            break;
+        case "":
+            xxret = 36;
+            break;
+        case "":
+            xxret = 37;
+            break;
+        case "":
+            xxret = 38;
+            break;
+        case "":
+            xxret = 39;
+            break;
     }
     return xxret;
 };
