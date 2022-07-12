@@ -192,6 +192,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const sugM = require('Suggest');
       var sugrep = sugM.getSuggest(senderhash, sendername, msg);
       replier.reply(sugrep);
+      if(sugrep.indexOf('감사합니다.') != -1){
+        var sugnotice = sender + "님이 보내셨습니다.\n\n" + sugrep;
+        Api.replyRoom("천한수", sugnotice);
+      }
     }
     if(msg == "!건의확인" && (sender == myName || sender == adminNick || sender == "보마쟝")){
       const sugM2 = require('Suggest');
