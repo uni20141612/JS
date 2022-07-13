@@ -61,7 +61,7 @@ cb.getCubeupgrade = function (cubename){
             rep += "블랙 큐브 등급 상승 확률표\n\n";
             rep += "레어 → 에픽 : " + this.upblack[0] + ".0%\n";
             rep += "에픽 → 유니크 : " + this.upblack[1] + "%\n";
-            rep += "유니크 → 레전드리 : " + this.upblack[2] + ".0%";
+            rep += "유니크 → 레전드리 : " + this.upblack[2] + "%";
             break;
         case "addi":
             rep += "에디셔널 큐브 등급 상승 확률표\n\n";
