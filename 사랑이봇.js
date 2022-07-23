@@ -380,9 +380,21 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(sender + dicerep);
     }
     if(msg == "!도움말"){
-      const helpM = require('Help');
+      /*const helpM = require('Help');
       var help = helpM.gethelp();
-      replier.reply(help);
+      replier.reply(help);*/
+      var help = "redirect.html";
+      var helpweb = "help.html";
+      Kakao.send(room,
+        {
+          "link_ver" : "4.0",
+          "template_id" : 64077,
+          "template_args" : {
+                                "link" : help,
+                                "link2" : helpweb
+                            }
+        },
+         "custom");
     }
     if(msg.startsWith("!디데이")){
       var ddayrep = guitarM.getDday(msg);
@@ -1333,6 +1345,31 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(informrep);
       }
     }
+    if(msg.startsWith("!코디")){      
+      nickname = msg.split(" ")[1];
+      if(nickname == undefined){
+        replier.reply("캐릭터 이름을 입력해주세요.\n\n!캐릭터 (캐릭터명) : 메이플지지 기준 캐릭터 관련 정보를 보여줍니다.");
+      }
+      else{
+        var maplegg = "https://maple.gg/u/" + nickname;
+        var dataC1 = org.jsoup.Jsoup.connect(maplegg).get();
+        dataC1 = dataC1.toString();
+        var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
+        var informrep = guitarM.getInform(dataarr, dataC1);
+        if(informrep != "그런 캐릭터는 없습니다."){
+          Kakao.send(room,
+          {
+            "link_ver" : "4.0",
+            "template_id" : 59430,
+            "template_args" : {
+                                  "image" : dataarr[6]
+                              }
+          },
+           "custom");
+        }
+      }
+    }
+    /*
     if(msg.startsWith("!코디 ")){
       nickname = msg.split(" ")[1];
       if(nickname == undefined){
@@ -1353,9 +1390,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
-    if(msg == "!코디시뮬"){
+    */
+    /*if(msg == "!코디시뮬"){
       replier.reply("https://maple.gazua.in/coordi\n\nhttps://maple-r.github.io/\n\nhttp://maples.im/");
-    }
+    }*/
     if(msg == "!코로나" || msg == "!우한폐렴"){
       var corona = "";
       corona = org.jsoup.Jsoup.connect("http://ncov.mohw.go.kr/").get().toString();
