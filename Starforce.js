@@ -266,7 +266,7 @@ sf.simulation = function (A, B, C, D, E, F){
     if(A != 99 && E == 1){ sfrep += "\n*30% 할인 이벤트 적용";}
     else if(A != 99 && E == 2){ sfrep += "\n*5,10,15성 100% 이벤트 적용";}
     else if(A != 99 && E == 3){ sfrep += "\n*10성이하 1+1 이벤트 적용";}
-    else if(A != 99 && E == 4){ sfrep += "\n*5,10,15성 100% 이벤트 적용\n*10성이하 1+1 이벤트 적용";}
+    else if(A != 99 && E == 4){ sfrep += "\n*30% 할인 이벤트 적용\n*5,10,15성 100% 이벤트 적용";}
     if(A != 99 && F == 1){ sfrep += "\n*12~17성 파괴방지 적용";}
     else if(A != 99 && F == 2){ sfrep += "\n*15~17성 파괴방지 적용";}
     return sfrep;
