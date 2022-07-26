@@ -62,6 +62,11 @@ sb.getSymbol = function(sbname){
         case "8":
             ret = 7;
             break;
+        case "카탈리스트":
+        case "카탈":
+        case "9":
+            ret = 8;
+            break;
         default:
             ret = -1;
             break;
@@ -275,6 +280,38 @@ sb.getSymbolfinalexp = function(sbind, level){
     }
     return exp;
 };
+sb.getSymbolcatal1 = function(level, exp){
+    var ret = 0;
+    var catal = getsbcumulexp(level) + parseInt(exp);
+    ret = Math.round(catal*0.8);
+    var catlvl = 0;
+    for(var i = 2; i < 20; ++i){
+        var a = getsbcumulexp(i);
+        var b = getsbcumulexp(i+1);
+        if(ret >= a && ret < b){
+            catlvl = i;
+            break;
+        }
+    }
+    ret = catlvl;
+    return ret;
+}
+sb.getSymbolcatal2 = function(level, exp){
+    var ret = 0;
+    var catal = getsbcumulexp(level) + parseInt(exp);
+    ret = Math.round(catal*0.8);
+    var catlvl = 0;
+    for(var i = 2; i < 20; ++i){
+        var a = getsbcumulexp(i);
+        var b = getsbcumulexp(i+1);
+        if(ret >= a && ret < b){
+            catlvl = i;
+            break;
+        }
+    }
+    ret = ret - getsbcumulexp(catlvl);
+    return ret;
+}
 
 function getsbexp(lvl){
     return (lvl * lvl + 11);

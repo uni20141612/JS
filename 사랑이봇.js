@@ -429,14 +429,16 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var levhalfrep = "";
       var levhalf = msg.split(" ")[1];
       if(levhalf == undefined){
-        levhalfrep = "알고싶은 렙반감 항목을 입력하세요.\n\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표";
+        levhalfrep = "알고싶은 렙반감 항목을 입력하세요.\n\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표\n아케인 : 아케인 포스별 데미지 증감표\n어센틱 : 어센틱 포스별 데미지 증감표";
       }
       else if(levhalf == "데미지"){ levhalfrep = guitarM.levdam;   }
       else if(levhalf == "리부트"){ levhalfrep = guitarM.levdamre; }
       else if(levhalf == "경험치"){ levhalfrep = guitarM.levexp;   }
       else if(levhalf == "메소"){   levhalfrep = guitarM.levmeso;  }
+      else if(levhalf == "아케인"){   levhalfrep = guitarM.levarcane;  }
+      else if(levhalf == "어센틱"){   levhalfrep = guitarM.levauthentic;  }
       else{
-        levhalf = "항목 키워드를 잘못 입력하셨습니다.\n\n!렙반감 (항목) : 레벨별 해당 항목의 증감표를 보여줍니다.\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표";
+        levhalf = "항목 키워드를 잘못 입력하셨습니다.\n\n!렙반감 (항목) : 레벨별 해당 항목의 증감표를 보여줍니다.\n데미지 : 레벨별 데미지 증감표\n리부트 : 레벨별 리부트월드 데미지 증감표\n경험치 : 레벨별 경험치 증감표\n메소 : 레벨별 메소 증감표\n아케인 : 아케인 포스별 데미지 증감표\n어센틱 : 어센틱 포스별 데미지 증감표";
       }
       replier.reply(levhalfrep);
     }
@@ -1117,6 +1119,39 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var symbolind = symbolM.getSymbol(symbolinput);
         if(symbolind == -1){
           replier.reply(symbolinput + " >> 심볼 이름을 잘못 입력하셨습니다. 혹시 띄어쓰기를 포함하여 입력하셨다면, 띄어쓰기 없이 다시 입력하여주세요.\n\n아케인심볼 종류 : 소멸의 여로, 츄츄 아일랜드, 꿈의 도시 레헬른, 신비의 숲 아르카나, 기억의 늪 모라스, 태초의 바다 에스페라\n어센틱심볼 종류 : 신의 도시 세르니움, 호텔 아르크스\n\n!심볼 (심볼 이름) (현재 레벨) (현재 성장치) : 현재 심볼상태에서 다음 레벨까지 필요한 성장치, 만렙까지 필요한 성장치, 이번에 가능한 모든 레벨업을 하였을때 드는 세금, 만렙까지 드는 잔여 세금을 보여줍니다.\n(심볼 이름)은 띄어쓰기 없이 입력해주셔야 합니다.\n(현재 레벨)을 생략할 시 각 심볼의 일일퀘스트와 스페셜컨텐츠의 수급량을 알려줍니다.\n(현재 성장치)를 생략할 시 0으로 계산하여 보여줍니다.");
+        }
+        else if(symbolind == 8){
+          var symbollevel = msg.split(" ")[2];
+          var symbolexp = msg.split(" ")[3];
+          if(symbollevel == undefined){
+            replier.reply("심볼 레벨이 입력되지 않았습니다.");
+          }
+          else if(isNaN(symbollevel)){
+            replier.reply(symbollevel + " >> 심볼 레벨이 숫자가 아닙니다.");
+          }
+          else if(symbollevel < 2 || symbollevel > 20){
+            replier.reply(symbollevel + " >> 심볼 레벨이 범위(2~20)를 초과하였습니다.");
+          }
+          else{
+            if(symbolexp == undefined){
+              var symbolexp2 = 0;
+              replier.reply("현재 성장치가 누락되어 0으로 계산됩니다.");
+              var symcatal1 = symbolM.getSymbolcatal1(symbollevel, symbolexp2)
+              var symcatal2 = symbolM.getSymbolcatal2(symbollevel, symbolexp2)
+              replier.reply("아케인 심볼 " + symbollevel + " 레벨, 성장치 " + symbolexp2 + " 에서\n아케인 카탈리스트를 쓴 후 레벨은 " + symcatal1 + ", 성장치는 " + symcatal2 + " 입니다.");
+            }
+            else if(isNaN(symbolexp)){
+              replier.reply(symbolexp + " >> 심볼 성장치가 숫자가 아닙니다.");
+            }
+            else if(symbolexp < 0){
+              replier.reply(symbolexp + " >> 현재 성장치는 음수가 될 수 없습니다.");
+            }
+            else{
+              var symcatal1 = symbolM.getSymbolcatal1(symbollevel, symbolexp)
+              var symcatal2 = symbolM.getSymbolcatal2(symbollevel, symbolexp)
+              replier.reply("아케인 심볼 " + symbollevel + " 레벨, 성장치 " + symbolexp + " 에서\n아케인 카탈리스트를 쓴 후 레벨은 " + symcatal1 + ", 성장치는 " + symcatal2 + " 입니다.");
+            }
+          }
         }
         else{
           var symbollevel = msg.split(" ")[2];
