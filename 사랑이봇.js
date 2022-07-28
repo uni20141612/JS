@@ -504,7 +504,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         replier.reply(lolrep);
       }
     }
-    if(msg.startsWith("!마릿수") || msg.startsWith("!몹젠")){
+    if(msg.startsWith("!마릿수") || msg.startsWith("!젠")){
       const mapM = require('Map');
       var maprep = mapM.getMap(msg);
       if(maprep[0] != "*"){ replier.reply(maprep); }
