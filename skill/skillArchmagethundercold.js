@@ -148,7 +148,9 @@ sktc.getskillArchmagethundercold = function (skillname){
         case "라스":
             tcret = 25;
             break;
-        case "":
+        case "아이스 스트라이크":
+        case "아이스스트라이크":
+        case "아스":
             tcret = 26;
             break;
         case "":
@@ -245,7 +247,7 @@ sktc.getskillnameArchmagethundercold = function (skillcode){
             rep = "라이트닝 스피어";
             break;
         case 26:
-            rep = "";
+            rep = "아이스 스트라이크";
             break;
         case 27:
             rep = "";
@@ -341,7 +343,7 @@ sktc.getskilldesc1Archmagethundercold = function (skillcode){
             rep = "하단 참조";
             break;
         case 26:
-            rep = "";
+            rep = "최대 8명의 적에게 335% 데미지로 4번 공격";
             break;
         case 27:
             rep = "";
@@ -437,7 +439,7 @@ sktc.getskilldesc2Archmagethundercold = function (skillcode){
             rep = "다단히트형 극딜기";
             break;
         case 26:
-            rep = "";
+            rep = "8초 동안 빙결 / 복층 사냥터에서 애용";
             break;
         case 27:
             rep = "";
@@ -566,7 +568,7 @@ sktc.getskillimage1Archmagethundercold = function (skillcode){
             rep = "https://i.imgur.com/RcFbQzu.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/EGaDEre.png";
             break;
         case 27:
             rep = "";
@@ -662,7 +664,7 @@ sktc.getskillimage2Archmagethundercold = function (skillcode){
             rep = "https://i.imgur.com/VyA1wIR.png";
             break;
         case 26:
-            rep = "";
+            rep = "https://i.imgur.com/MFNxbKA.png";
             break;
         case 27:
             rep = "";
