@@ -931,7 +931,7 @@ gB.getBossHP = function (ind){
         rep = "좌:2400만 / 우:3000만";  //피아누스
         break;
       case 55:
-        rep = "6000억"; //불꽃늑대
+        rep = "100억/50조/100조"; //불꽃늑대
         break;
       case 56:
         rep = "8400억"; //도로시
