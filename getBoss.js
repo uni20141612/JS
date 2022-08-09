@@ -499,6 +499,22 @@ gB.getBoss = function (boss){
         case "발록":
           chkboss = 59;
           break;
+        case "익스트림 몬스터파크":
+        case "익스트림몬스터파크":
+        case "익스트림 몬파":
+        case "익스트림몬파":
+        case "익스트림":
+        case "익몬":
+        case "익몬파":
+        case "몬파":
+        case "익스몬파":
+        case "익스트림 빅풋":
+        case "익스트림빅풋":
+        case "익스 빅풋":
+        case "익스빅풋":
+        case "빅풋":
+          chkboss = 60;
+          break;
         default:
           rep = "그런 보스는 없습니다.";
           chkboss = -1;
@@ -631,6 +647,9 @@ gB.getBossimage = function (ind){
       case 59:
         rep = "https://i.imgur.com/GZlQaTV.png";  //마왕 발록
         break;
+      case 60:
+        rep = "https://i.imgur.com/tOvkioz.png";  //익스트림 빅풋
+        break;
     }
     return rep;
 };
@@ -758,6 +777,9 @@ gB.getBossimage2 = function (ind){
         break;
       case 59:
         rep = "https://i.imgur.com/h8hDBfG.png";  //마왕발록
+        break;
+      case 60:
+        rep = "https://i.imgur.com/AGEhxPJ.png";  //익스트림 빅풋
         break;
     }
     return rep;
@@ -901,7 +923,7 @@ gB.getBossHP = function (ind){
         rep = "42조ㆍ31.5조ㆍ52.5조 / 145,038,483메소";  //하드 윌
         break;
       case 45:
-        rep = "132조 / 148,112,376메소"; //노멀 진힐라
+        rep = "88조 / 148,112,376메소"; //노멀 진힐라
         break;
       case 46:
         rep = "115.5조 / 155,492,141메소"; //카오스 가디언 엔젤 슬라임
@@ -916,7 +938,7 @@ gB.getBossHP = function (ind){
         rep = "176조 / 190,159,452메소";  //진 힐라
         break;
       case 50:
-        rep = "84조ㆍ220조 / 196,904,752메소"; //노멀 선택받은 세렌
+        rep = "64.68조ㆍ169.4조 / 196,904,752메소"; //노멀 선택받은 세렌
         break;
       case 51:
         rep = "126조ㆍ330조 / 267,825,621메소"; //선택받은 세렌
@@ -944,6 +966,9 @@ gB.getBossHP = function (ind){
         break;
       case 59:
         rep = "478만";  //마왕 발록
+        break;
+      case 60:
+        rep = "15조";  //익스트림 빅풋
         break;
         
     }
@@ -1137,6 +1162,9 @@ gB.getBossinfo = function (ind){
         case 59:
           rep = "25%, 비반감, 3분간 무적ㆍ5만이하 데미지시 패배"; //마왕 발록
           break;
+        case 60:
+          rep = "300%, 반감, 바인드 면역";  //익스트림 빅풋
+          break;
     }
     return rep; 
   };
@@ -1202,6 +1230,7 @@ var bossList = [
     "우르스 Lv,130\n2조 6252억 2362만 4000, 10%", //57
     "아르카누스 Lv.101\n60억ㆍ150억ㆍ1500억ㆍ1.5조ㆍ10.5조ㆍ900조\n50%ㆍ100%ㆍ150%ㆍ200%ㆍ250%ㆍ300%, 반감", //58
     "마왕 발록 Lv.65\n478만, 25%, 비반감, 3분간 무적",//59
+    "익스트림 빅풋 Lv.260\n15조, 300%, 반감, 바인드 면역",//60
 ];
 
 module.exports = gB;
