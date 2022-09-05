@@ -349,7 +349,7 @@ skwb.getskilldesc1Wind = function (skillcode){
             rep = "회피 확률 30%, 방어력 1000 증가";
             break;
         case 16:
-            rep = "최대 4명의 적을 발 당 345% 데미지로 공격.";
+            rep = "최대 4명의 적을 발 당 390% 데미지로 공격.";
             break;
         case 17:
             rep = "최대 6명의 적을 밀며 175% 데미지로 3번 공격";
@@ -439,7 +439,7 @@ skwb.getskilldesc2Wind = function (skillcode){
             rep = "회피 성공 시 5초 동안 공격력 15 증가";
             break;
         case 16:
-            rep = "최대 공격 수보다 적을 때 1명당 데미지 20%만큼 증가(곱)";
+            rep = "이동 불가";
             break;
         case 17:
             rep = "2차 다수기, 밀격기";

@@ -14,7 +14,7 @@ mon.getMonster = function (msg){
             rep = "잘못된 지역을 입력하셨습니다. 지역은 아케인리버와 그란디스 260레벨이상 지역에 한정하며, 1부터 13까지의 정수로도 입력하실 수 있습니다.";
         }
         else if(monnamechk == undefined){
-            if(monareanum < 14 && monareanum > -1){
+            if(monareanum < 15 && monareanum > -1){
                 rep = this.getMonlist(monareanum);
             }
             else{
@@ -197,6 +197,18 @@ mon.getMonster = function (msg){
                         rep += this.getAreaIcon(monareanum);
                     }
                 }
+                else if(monareanum == 14){    //오디움
+                    if(monnum < 1 || monnum > 12){
+                        rep = "범위를 초과하였습니다. 다시 확인하여주세요.";
+                    }
+                    else{
+                        rep += getMonname14[monnum] + "★";
+                        rep += getMonimage14[monnum] + "★";
+                        if(isReboot == undefined){ rep += "HP : " + JariMm.Jari(Math.round(getMonHP14[monnum])) + "★"; rep += "경험치 : " + JariMm.Jari(getMonEXP14[monnum]) + "★"; }
+                        else{ rep += "HP : " + JariMm.Jari(Math.round(getMonHP14[monnum] * 1.4)) + " (리)★"; rep += "경험치 : " + JariMm.Jari(getMonEXP14[monnum] * 2.3) + " (리)★"; }
+                        rep += this.getAreaIcon(monareanum);
+                    }
+                }
                 else{
                     rep = "개발중";
                 }
@@ -304,6 +316,11 @@ mon.getArea = function(area){
         case "14":
             ret = 13;
             break;
+        case "눈을뜬실험실오디움":
+        case "오디움":
+        case "15":
+            ret = 14;
+            break;
         default:
             ret = -1;
             break;
@@ -320,43 +337,46 @@ mon.getAreaIcon = function(areanum){
             break;  
         case 1:
             rep = "https://i.imgur.com/P11N36f.png";
-            break
+            break;
         case 2:
             rep = "https://i.imgur.com/wzYswa8.png";
-            break
+            break;
         case 3:
             rep = "https://i.imgur.com/sb8sYSn.png";
-            break
+            break;
         case 4:
             rep = "https://i.imgur.com/E3oL6Yc.png";
-            break
+            break;
         case 5:
             rep = "https://i.imgur.com/iWNW0Qc.png";
-            break
+            break;
         case 6:
             rep = "https://i.imgur.com/UMxaotp.png";
-            break
+            break;
         case 7:
             rep = "https://i.imgur.com/ZrVtVhN.png";
-            break
+            break;
         case 8:
             rep = "https://i.imgur.com/9e1YyYF.png";
-            break
+            break;
         case 9:
             rep = "https://i.imgur.com/RJisgit.png";
-            break
+            break;
         case 10:
             rep = "https://i.imgur.com/5EDc01O.png";
-            break
+            break;
         case 11:
             rep = "https://i.imgur.com/rnWnkGO.png";
-            break
+            break;
         case 12:
             rep = "https://i.imgur.com/I9jX3nE.png";
-            break
+            break;
         case 13:
             rep = "https://i.imgur.com/zubYIYk.png";
-            break      
+            break;
+        case 14:
+            retp = "";
+            break;     
     }    
     return rep;
 };
@@ -405,6 +425,9 @@ mon.getMonlist = function(areanum){
             break;
         case 13:
             rep = "리멘\n\n1. 터비온(플라잉)\n2. 디스터비온(플라잉)\n\n3. 안세스티온\n4. 트랜센디온\n5. 어센시온\n\n6. 포어베리온\n7. 엠브리온\n\n8. 강력한 어센시온\n9. 강력한 포어베리온\n10. 강력한 엠브리온";
+            break;
+        case 14:
+            rep = "눈을 뜬 실험실 오디움\n\n1. 오디움의 척후병(플라잉)\n2. 망가진 오디움의 척후병(플라잉)\n\n3. 강화형 파수꾼 산호\n4. 강화형 파수꾼 감람\n5. 강화형 파수꾼 금강\n\n6. 앵글러 로봇 A형\n7. 앵글러 로봇 B형\n8. 앵글러 로봇 C형\n\n9. 경비병 강옥\n10. 경비병 마노\n\n11. 무너지는 실험체\n12. 실패한 피험체";
             break;
     }
     return rep;
@@ -656,6 +679,22 @@ var getMonname13 = [    //리멘
     "Lv. 263 강력한 포어베리온",   //9
     "Lv. 264 강력한 엠브리온",   //10
 ];
+var getMonname14 = [    //오디움
+    "", //0
+    "Lv. 275 오디움의 척후병(플)",   //1
+    "Lv. 278 망가진 오디움의 척후병(플)",   //2
+    "Lv. 275 강화형 파수꾼 산호",   //3
+    "Lv. 275 강화형 파수꾼 감람",   //4
+    "Lv. 275 강화형 파수꾼 금강",   //5
+    "Lv. 276 앵글러 로봇 A형",   //6
+    "Lv. 276 앵글러 로봇 B형",   //7
+    "Lv. 276 앵글러 로봇 C형",   //8
+    "Lv. 277 경비병 강옥",   //9
+    "Lv. 277 경비병 마노",   //10
+    "Lv. 278 무너지는 실험체",   //11
+    "Lv. 279 실패한 피험체",   //12
+];
+
 
 var getMonimage = [    //
     "", //0
@@ -902,6 +941,21 @@ var getMonimage13 = [    //리멘
     "https://i.imgur.com/NfKkSxc.png", //8
     "https://i.imgur.com/I4YwWHf.png", //9
     "https://i.imgur.com/zkR4ZLO.png", //10
+];
+var getMonimage14 = [    //오디움
+    "", //0
+    "https://i.imgur.com/QmNYHzo.png", //1
+    "https://i.imgur.com/8SJ8a6T.png", //2
+    "https://i.imgur.com/Y7S5RYq.png", //3
+    "https://i.imgur.com/dqMhqt9.png", //4
+    "https://i.imgur.com/eilPjRg.png", //5
+    "https://i.imgur.com/aw5nqwQ.png", //6
+    "https://i.imgur.com/y6OpwZ0.png", //7
+    "https://i.imgur.com/77BRemY.png", //8
+    "https://i.imgur.com/3aLDKzO.png", //9
+    "https://i.imgur.com/sPGde5S.png", //10
+    "https://i.imgur.com/e1yrh99.png", //11
+    "https://i.imgur.com/zlNly5r.png", //12
 ];
 
 var getMonHP = [   //
@@ -1150,6 +1204,21 @@ var getMonHP13 = [   //리멘
     1332658800,  //9
     1355525600,  //10
 ];
+var getMonHP14 = [   //오디움
+    0,  //0
+    10500341040,  //1
+    10994286240,  //2
+    10500341040,  //3
+    10500341040,  //4
+    10500341040,  //5
+    10663732800,  //6
+    10663732800,  //7
+    10663732800,  //8
+    10828381200,  //9
+    10828381200,  //10
+    10994286240,  //11
+    11161447920,  //12
+];
 
 var getMonEXP = [   //
     0,  //0
@@ -1396,6 +1465,21 @@ var getMonEXP13 = [   //리멘
     840290,  //8
     852145,  //9
     865496,  //10
+];
+var getMonEXP14 = [   //오디움
+    0,  //0
+    2903024,  //1
+    3017988,  //2
+    2903024,  //3
+    2903024,  //4
+    2903024,  //5
+    2939616,  //6
+    2939616,  //7
+    2939616,  //8
+    2981010,  //9
+    2981010,  //10
+    3017988,  //11
+    3059716,  //12
 ];
 
 module.exports = mon;

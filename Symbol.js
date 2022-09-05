@@ -62,10 +62,16 @@ sb.getSymbol = function(sbname){
         case "8":
             ret = 7;
             break;
-        case "카탈리스트":
-        case "카탈":
+        case "눈을뜬실험실오디움":
+        case "오디움":
+        case "어디움":
         case "9":
             ret = 8;
+            break;
+        case "카탈리스트":
+        case "카탈":
+        case "10":
+            ret = 9;
             break;
         default:
             ret = -1;
@@ -100,6 +106,9 @@ sb.getSymbolname = function(sbind){
         case 7:
             rep = "어센틱심볼 : 아르크스";
             break;
+        case 8:
+            rep = "어센틱심볼 : 오디움";
+            break;
     }
     return rep;
 };
@@ -130,6 +139,9 @@ sb.getSymboldaily = function(sbind){
         case 7:
             rep = "호텔 아르크스 주변 청소(1개)로 일일 최대 5개";
             break;
+        case 8:
+            rep = "오디움 일대 탐사(1개)로 일일 최대 5개";
+            break;
     }
     return rep;
 };
@@ -158,7 +170,10 @@ sb.getSymbolspecial = function(sbind){
             rep = "불타는 세르니움 일일 퀘스트(1개)로 일일 최대 5개";
             break;
         case 7:
-            rep = "미출시";
+            rep = "부가퀘스트 미출시";
+            break;
+        case 8:
+            rep = "부가퀘스트 미출시";
             break;
     }
     return rep;
@@ -189,6 +204,9 @@ sb.getSymbolimage = function(sbind){
             break;
         case 7:
             rep = "https://i.imgur.com/KLszwKH.png";
+            break;
+        case 8:
+            rep = "https://i.imgur.com/1IMJmqA.png";
             break;
     }
     return rep;
@@ -258,6 +276,7 @@ sb.getSymbolexp = function(sbind, level){
             break;
         case 6:
         case 7:
+        case 8:
             exp = getascumulexp2(level) - getascumulexp(level);
             break;
     }
@@ -276,6 +295,7 @@ sb.getSymbolfinalexp = function(sbind, level){
             break;
         case 6:
         case 7:
+        case 8:
             exp = 4565 - getascumulexp(level);
     }
     return exp;
@@ -418,6 +438,17 @@ function getarcumulmeso(lvl){
         armeso.push(tempar);
     }
     return 6417500000 - cumulate(armeso, lvl-2);
+}
+function getodimeso(lvl){
+    return (224500000 + 0*lvl);
+}
+function getodicumulmeso(lvl){
+    var odimeso = [];
+    for(i = 1; i < lvl; ++i){
+        var tempodi = getodimeso(i);
+        odimeso.push(tempodi);
+    }
+    return 0 - cumulate(odimeso, lvl-2);
 }
 function cumulate(arr, ind) {
     var ret = 0;

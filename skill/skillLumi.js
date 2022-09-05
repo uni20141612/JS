@@ -96,6 +96,9 @@ sklm.getskillLumi = function (skillname){
             break;
         case "라이프 타이달":
         case "라이프타이달":
+        case "셀프 리커버리":
+        case "셀프리커버리":
+        case "리커버리":
             lmret = 21;
             break;
         case "운명의 갈림길":
@@ -158,6 +161,11 @@ sklm.getskillLumi = function (skillname){
             break;
         case "리버레이션 오브":
         case "리버레이션오브":
+            lmret = 35;
+            break;
+        case "이퀄리브리엄 리버레이션":
+        case "이퀄리브리엄리버레이션":
+        case "리버레이션":
             lmret = 35;
             break;
     }
@@ -230,7 +238,7 @@ sklm.getskillnameLumi = function (skillcode){
             rep = "라이트쉐도우 가드";
             break;
         case 21:
-            rep = "라이프 타이달";
+            rep = "셀프 리커버리";
             break;
         case 22:
             rep = "운명의 갈림길";
@@ -273,6 +281,9 @@ sklm.getskillnameLumi = function (skillcode){
             break;
         case 35:
             rep = "리버레이션 오브";
+            break;
+        case 36:
+            rep = "이퀄리브리엄 리버레이션";
             break;
     }
     return rep;
@@ -320,7 +331,7 @@ sklm.getskilldesc1Lumi = function (skillcode){
             rep = "[빛 마법] 최대 10명의 적을 350만큼 밀어낸 후 100% 확률로 기절";
             break;
         case 13:
-            rep = "3초동안 공격받지않으면 암흑 구체를 생성, 구체 1개당 받는피해 70%감소";
+            rep = "마력 30 증가, 피격 데미지 50% 감소";
             break;
         case 14:
             rep = "마법숙련도 50%, 마력10, 데미지15%, 크확 20%, 공격 속도 1단계 증가";
@@ -344,7 +355,7 @@ sklm.getskilldesc1Lumi = function (skillcode){
             rep = "방어력 300 증가, 20% 확률로 피해를 무시";
             break;
         case 21:
-            rep = "HP 비율과 MP 비율 중 낮은 쪽을 일정 시간마다 최대치의 2.0% 회복";
+            rep = "일정시간 마다 최대 HP, 최대 MP의 2.0% 회복";
             break;
         case 22:
             rep = "빛의 길과 어둠의 길, 어떤 운명을 걸어갈지 다시 선택할 수 있다.";
@@ -365,7 +376,7 @@ sklm.getskilldesc1Lumi = function (skillcode){
             rep = "180초동안 내성10% 무시 / [패시브효과 : 최종뎀 40%증가, 방무 40%, 스탠스60%]";
             break;
         case 28:
-            rep = "스킬 적중시 80% 확률로 20초동안 데미지 4% 증가. 최대 10회까지 중첩가능";
+            rep = "스킬 적중시 80% 확률로 30초동안 데미지 8% 증가. 최대 5회까지 중첩가능";
             break;
         case 29:
             rep = "이퀄리브리엄 지속시간 7초증가/데스 사이드의 데미지 100% 증가";
@@ -377,15 +388,18 @@ sklm.getskilldesc1Lumi = function (skillcode){
             rep = "15명,1000%,3번 공격/ 10초동안 바인드, 시전 동작 중 무적";
             break;
         case 32:
-            rep = "40초동안 12명의 적을 660%의 데미지로 10번 공격 / 1명의 경우 825%";
+            rep = "40초동안 12명의 적을 990%의 데미지로 10번 공격";
             break;
         case 33:
             rep = "하단 참조";
             break;
         case 34:
-            rep = "990%,7번 검 13번 연속 발동 / 추가크확100%, 방무100%, 쿨45초";
+            rep = "하단 참조";
             break;
         case 35:
+            rep = "하단 참조";
+            break;
+        case 36:
             rep = "하단 참조";
             break;
     }
@@ -434,7 +448,7 @@ sklm.getskilldesc2Lumi = function (skillcode){
             rep = "데미지가 없는 순수 넉백기라서 라크니스 게이지에 영향을 주지 않는다.";
             break;
         case 13:
-            rep = "구체 1개 : 마력 15/ 2개 : 마력 24 / 3개 : 마력 30 / 온오프스킬";
+            rep = "어둠의 축복으로 마력이 증가하고 적에게서 받는 피해를 경감시킨다.";
             break;
         case 14:
             rep = "숙련도를 포함한 각종 능력치를 증가시키는 패시브.";
@@ -458,7 +472,7 @@ sklm.getskilldesc2Lumi = function (skillcode){
             rep = "피해를 무시하면 IGNORE라는 문구가 뜨며 캐릭터가 웃는다.";
             break;
         case 21:
-            rep = "어느 쪽이든 회복량이 체감하기 어려울 정도로 적다.";
+            rep = "일정 주기마다 HP와 MP를 회복한다.";
             break;
         case 22:
             rep = "마을에서만 스킬을 사용할 수 있다. / 쿨타임 6시간";
@@ -497,10 +511,13 @@ sklm.getskilldesc2Lumi = function (skillcode){
             rep = "설치형 다수 공격기";
             break;
         case 34:
-            rep = "앱솔루트 킬 12번 적중 시 빛과 어둠의 세례 쿨타임 즉시 초기화";
+            rep = "이퀄 연계형 공격기";
             break;
         case 35:
             rep = "균형 or 불균형";
+            break;
+        case 36:
+            rep = "온오프 스킬";
             break;
     }
     return rep;
@@ -514,8 +531,14 @@ sklm.getskilldesc3Lumi = function (skillcode){
         case 33:
             rep = "빛과 어둠에 공명하는 마법진을 소환한다. 라크니스의 상태에 따라 마법진이 변화하나 선파이어, 이클립스, 이퀄리브리엄 상태의 추가 효과를 받지 않는다. 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 6초 동안 최대 10명의 적을 일정 주기마다 공격하는 마법진 소환\n선파이어 : 990%의 데미지로 4번 공격\n이클립스 : 705%의 데미지로 5번 공격\n이퀄리브리엄 : 935%의 데미지로 6번 공격\n모든 공격은 추가 크리티컬 확률 15% 적용\n\n재사용 대기시간 30초";
             break;
+        case 34:
+            rep = "빛과 어둠의 검을 차례로 찔러 넣어 적에게 진리의 세례 의식을 집행한다. 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\nMP 1000 소비, 990% 데미지로 7번 공격하는 빛과 어둠의 검 13번 연속 발동\n추가 크리티컬 확률 100%, 몬스터 방어율 100% 추가 무시\n\n재사용 대기시간 45초\n\n이퀄리브리엄 상태에서 이퀄리브리엄 스킬을 적중시키면 빛과 어둠의 세례 재사용 대기시간 3초 감소\n이퀄리브리엄 발동 시 빛과 어둠의 세례의 재사용 대기시간 1회 초기화";
+            break;
         case 35:
             rep = "빛과 어둠의 힘을 오브를 통해 발현한다. 라크니스에 맞는 스킬이 적중하면 오브에서 속성에 맞는 공격이 발동되고 해당 속성 마력이 오브에 쌓인다. 마력이 1 이상 쌓이면 오브를 해방하여 공격할 수 있다. 최대 HP가 가장 높은 적을 우선 공격하고 빛과 어둠 마력의 수가 같아 균형을 이루거나 쌓인 마력이 많을수록 데미지가 증가한다.\n이퀄리브리엄 상태에서는 빛과 어둠의 공격이 함께 발동하고 오브에서 발생하는 모든 공격은 선파이어, 이클립스, 이퀄리브리엄의 효과를 받지 않고 공격 반사 상태의 적을 공격해도 피해를 입지 않는다.\n\n[패시브 효과] : 825%의 데미지로 4번 공격, 재발동 대기시간 6초, 속성 당 마력 4까지 획득 가능\n빛 : 최대 3명의 적을 공격하는 빛의 영역 1개 생성\n어둠 : 최대 7명의 적을 오가는 마력 탄환 발사\n\n[액티브 효과] : MP 1200 소비, 재사용 대기시간 : 180초\n45초 동안 자신이 직접 공격하는 스킬 적중 시 마력 구체가 10개 생성되어 적 1명을 공격, 최대 20번 공격 발동 가능, 추가 크리티컬 확률 100%, 쌓인 마력의 총합이 1 초과시 초과한 마력당 데미지 125%p 증가, 재생성 대기시간 0.9초, 불균형 : 1100% 데미지의 마력 구체 생성, 균형 : 1210% 데미지의 마력 구체 생성";
+            break;
+        case 36:
+            rep = "빛과 어둠의 힘을 자유롭게 다루게 된다. 활성화 시 라크니스가 한 상태로 가득차도 이퀄리브리엄이 자동으로 발동되지 않고, 이퀄리브리엄 스킬 적중 시 이퀄리브리엄이 발동하게 된다.\n\n활성화 시 라크니스가 반대 속성으로 가득 찼을 때 이퀄리브리엄이 자동으로 발동하지 않고 유예\n유예 상태에서 이퀄리브리엄 스킬 적중 시 이퀄리브리엄 발동\n유예 상태에서는 이퀄리브리엄 리버레이션 비활성화 시에도 이퀄리브리엄 스킬 적중 시에만 이퀄리브리엄 발동 가능\n\n재사용 대기시간 3초";
             break;
         case 9:
             rep = "";
@@ -599,7 +622,7 @@ sklm.getskillimage1Lumi = function (skillcode){
             rep = "https://i.imgur.com/oIJJ4k3.png";
             break;
         case 24:
-            rep = "https://i.imgur.com/7dwy8Ki.png";
+            rep = "https://i.imgur.com/n3z0oUT.png";
             break;
         case 25:
             rep = "https://i.imgur.com/iWHViqc.png";
@@ -633,6 +656,9 @@ sklm.getskillimage1Lumi = function (skillcode){
             break;
         case 35:
             rep = "https://i.imgur.com/CJwXO7W.png";
+            break;
+        case 36:
+            rep = "";
             break;
     }
     return rep;
@@ -680,7 +706,7 @@ sklm.getskillimage2Lumi = function (skillcode){
             rep = "https://i.imgur.com/1YqQPDH.png";
             break;
         case 13:
-            rep = "https://i.imgur.com/f6KmpIh.png";
+            rep = "https://i.imgur.com/WW2ss7j.png";
             break;
         case 14:
             rep = "https://i.imgur.com/71gKsIe.png";
@@ -713,7 +739,7 @@ sklm.getskillimage2Lumi = function (skillcode){
             rep = "https://i.imgur.com/oDkxBoB.png";
             break;
         case 24:
-            rep = "https://i.imgur.com/PtNChRY.png";
+            rep = "https://i.imgur.com/8mj5oOE.png";
             break;
         case 25:
             rep = "https://i.imgur.com/6AN1GHS.png";
@@ -747,6 +773,9 @@ sklm.getskillimage2Lumi = function (skillcode){
             break;
         case 35:
             rep = "https://i.imgur.com/wxsfvMT.png";
+            break;
+        case 36:
+            rep = "https://i.imgur.com/ySC5NmE.png";
             break;
     }
     return rep;

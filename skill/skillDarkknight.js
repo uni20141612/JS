@@ -391,7 +391,7 @@ skdk.getskilldesc1Darkknight = function (skillcode){
             rep = "스탠스 확률 60% 증가";
             break;
         case 29:
-            rep = "30초 동안 공격력 80 증가, 공격 시 최대 HP 9%의 회복";
+            rep = "25초 동안 공격력 80 증가, 공격 시 최대 HP 9%의 회복";
             break;
         case 30:
             rep = "주위의 10명의 적에게 330% 데미지로 10번 공격";
@@ -496,7 +496,7 @@ skdk.getskilldesc2Darkknight = function (skillcode){
             rep = "모전 공통 스탠스 패시브";
             break;
         case 29:
-            rep = "재사용 대기시간 120초";
+            rep = "재사용 대기시간 90초";
             break;
         case 30:
             rep = "재사용 대기시간 10초";
