@@ -786,7 +786,7 @@ skb.getskillimage2Bishop = function (skillcode){
             rep = "https://i.imgur.com/DiPyjEz.png";
             break;
         case 7:
-            rep = "https://i.imgur.com/mvrlP5P.png";
+            rep = "https://i.imgur.com/egDMd8R.png";
             break;
         case 8:
             rep = "https://i.imgur.com/pSS2JLc.png";
@@ -801,7 +801,7 @@ skb.getskillimage2Bishop = function (skillcode){
             rep = "https://i.imgur.com/MiixGQg.png";
             break;
         case 12:
-            rep = "https://i.imgur.com/7SNtnVw.png";
+            rep = "https://i.imgur.com/w5rSWL9.png";
             break;
         case 13:
             rep = "https://i.imgur.com/9JdFkAo.png";
@@ -813,7 +813,7 @@ skb.getskillimage2Bishop = function (skillcode){
             rep = "https://i.imgur.com/rEOvyI6.png";
             break;
         case 16:
-            rep = "https://i.imgur.com/Hqwzy2n.png";
+            rep = "https://i.imgur.com/xluDp2b.png";
             break;
         case 17:
             rep = "https://i.imgur.com/0VmUcJY.png";
@@ -846,7 +846,7 @@ skb.getskillimage2Bishop = function (skillcode){
             rep = "https://i.imgur.com/kbSTzDD.png";
             break;
         case 27:
-            rep = "https://i.imgur.com/wQb3eDu.png";
+            rep = "https://i.imgur.com/hhzwg5F.png";
             break;
         case 28:
             rep = "https://i.imgur.com/JZB4541.png";
