@@ -375,7 +375,7 @@ mon.getAreaIcon = function(areanum){
             rep = "https://i.imgur.com/zubYIYk.png";
             break;
         case 14:
-            retp = "";
+            rep = "https://i.imgur.com/c26lly0.png";
             break;     
     }    
     return rep;

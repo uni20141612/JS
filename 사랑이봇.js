@@ -590,6 +590,90 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         }
       }
     }
+    if(msg.startsWith("!몬파") || msg.startsWith("!몬스터파크")){
+      const monpaM = require('Map');
+      const jariMm = require('Jari');
+      var monpanum = msg.split(" ")[1];
+      if(monpanum == undefined){
+        replier.reply("정보를 알고싶은 몬스터파크 던전의 번호를 입력해주세요.\n\n1 : 초급 던전\n2 : 중급 던전\n3 : 고급 던전");
+      }
+      else{
+        var monpanum2 = msg.split(" ")[2];
+        var monparep = "";
+        if(monpanum2 == undefined){          
+          if(monpanum == 1){
+            monparep = "초급 던전 / 제한레벨 105~139\n\n";
+            for(i = 1; i < 6; ++i){
+              monparep += String(i);
+              monparep += ". ";
+              monparep += monpaM.monpaname1[i-1];
+              if(i != 5){ monparep += "\n"; }
+            }
+          }
+          else if(monpanum == 2){
+            monparep = "중급 던전 / 제한레벨 140~179\n\n";
+            for(i = 1; i < 7; ++i){
+              monparep += String(i);
+              monparep += ". ";
+              monparep += monpaM.monpaname2[i-1];
+              if(i != 6){ monparep += "\n"; }
+            }
+          }
+          else if(monpanum == 3){
+            monparep = "고급 던전 / 제한레벨 180~300\n\n";
+            for(i = 1; i < 13; ++i){
+              monparep += String(i);
+              monparep += ". ";
+              monparep += monpaM.monpaname3[i-1];
+              if(i != 12){ monparep += "\n"; }
+            }
+          }
+          else{ monparep = "잘못된 번호를 입력하였습니다.\n\n1 : 초급 던전\n2 : 중급 던전\n3 : 고급 던전"; }
+        }
+        else if(isNaN(monpanum2) || monpanum2 % 1 != 0){ monparep = "몬스터파크 던전 번호는 정수로 입력하셔야 합니다."; }
+        else{
+          if(monpanum == 1){
+            if(monpanum2 < 1 || monpanum2 > 5){ monparep = "초급 던전은 1이상 5이하의 번호만 입력하실 수 있습니다."; }
+            else{
+              monparep = "초급 던전 / 제한레벨 105~139\n\n";
+              monparep += "던전명 : ";
+              monparep += monpaM.monpaname1[monpanum2 - 1];
+              monparep += "\n적정 레벨 : ";
+              monparep += monpaM.monpalvl1[monpanum2 - 1];
+              monparep += "\n지급 경험치 : ";
+              monparep += jariMm.Jari(monpaM.monpaexp1[monpanum2 - 1]);
+            }
+          }
+          else if(monpanum == 2){
+            if(monpanum2 < 1 || monpanum2 > 6){ monparep = "중급 던전은 1이상 6이하의 번호만 입력하실 수 있습니다."; }
+            else{
+              monparep = "중급 던전 / 제한레벨 140~179\n\n";
+              monparep += "던전명 : ";
+              monparep += monpaM.monpaname2[monpanum2 - 1];
+              monparep += "\n적정 레벨 : ";
+              monparep += monpaM.monpalvl2[monpanum2 - 1];
+              monparep += "\n지급 경험치 : ";
+              monparep += jariMm.Jari(monpaM.monpaexp2[monpanum2 - 1]);
+            }
+          }
+          else if(monpanum == 3){
+            if(monpanum2 < 1 || monpanum2 > 12){ monparep = "고급 던전은 1이상 12이하의 번호만 입력하실 수 있습니다."; }
+            else{
+              monparep = "고급 던전 / 제한레벨 180~300\n\n";
+              monparep += "던전명 : ";
+              monparep += monpaM.monpaname3[monpanum2 - 1];
+              monparep += "\n적정 레벨 : ";
+              monparep += monpaM.monpalvl3[monpanum2 - 1];
+              monparep += "\n지급 경험치 : ";
+              monparep += jariMm.Jari(monpaM.monpaexp3[monpanum2 - 1]);
+            }
+          }
+          else{ monparep = "잘못된 번호를 입력하였습니다.\n\n1 : 초급 던전\n2 : 중급 던전\n3 : 고급 던전"; }
+        }
+
+        replier.reply(monparep);
+      }
+    }
     if((msg.startsWith("!무릉") || msg.startsWith("!시드랭킹") || msg.startsWith("!유니온") || msg.startsWith("!업적") || msg.startsWith("!길드") ) && !msg.startsWith("!무릉스토리")){
       nickname = msg.split(" ")[1];
       if(nickname == undefined){
@@ -846,8 +930,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
-      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("이그니션 이벤트도 챙기라구!"); }
-      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("이그니션 이벤트 얼른 탑승해~"); }
+      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차도 챙기라구!"); }
+      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 눌러~"); }
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
@@ -1123,7 +1207,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         if(symbolind == -1){
           replier.reply(symbolinput + " >> 심볼 이름을 잘못 입력하셨습니다. 혹시 띄어쓰기를 포함하여 입력하셨다면, 띄어쓰기 없이 다시 입력하여주세요.\n\n아케인심볼 종류 : 소멸의 여로, 츄츄 아일랜드, 꿈의 도시 레헬른, 신비의 숲 아르카나, 기억의 늪 모라스, 태초의 바다 에스페라\n어센틱심볼 종류 : 신의 도시 세르니움, 호텔 아르크스\n\n!심볼 (심볼 이름) (현재 레벨) (현재 성장치) : 현재 심볼상태에서 다음 레벨까지 필요한 성장치, 만렙까지 필요한 성장치, 이번에 가능한 모든 레벨업을 하였을때 드는 세금, 만렙까지 드는 잔여 세금을 보여줍니다.\n(심볼 이름)은 띄어쓰기 없이 입력해주셔야 합니다.\n(현재 레벨)을 생략할 시 각 심볼의 일일퀘스트와 스페셜컨텐츠의 수급량을 알려줍니다.\n(현재 성장치)를 생략할 시 0으로 계산하여 보여줍니다.");
         }
-        else if(symbolind == 8){
+        else if(symbolind == 9){
           var symbollevel = msg.split(" ")[2];
           var symbolexp = msg.split(" ")[3];
           if(symbollevel == undefined){
