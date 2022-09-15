@@ -10,7 +10,7 @@ const guitarM = require('Guitar');
 const naverID = Logindata.split("nID:")[1].split("/")[0];
 const naverSecret = Logindata.split("nsec:")[1].split("/")[0];
 const twitterAToken = Logindata.split("tActoken:")[1].split("/")[0]; const twitterATSecret = Logindata.split("tAcsec:")[1].split("/")[0]; const twitterAPIKey = Logindata.split("tAPIkey:")[1].split("/")[0]; const twitterAPISecret = Logindata.split("tAPIsec:")[1].split("/")[0]; const twitterBearerToken = Logindata.split("tBtoken:")[1].split("/")[0];
-//아이디어 : 코강/ 
+//아이디어 : 코강/익몬
 /*
 Kakao.send(room,
             {
