@@ -1315,7 +1315,26 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     if(msg.startsWith("!아이템")){
       const itemM = require("Item");
       var itemrep = itemM.getItem(msg);
-      replier.reply(itemrep);
+
+      if(itemrep[0] == "☆"){
+        wpn = itemrep.split("☆")[1];
+        wprep = itemrep.split("☆")[2];
+        Kakao.send(room,
+          {
+            "link_ver" : "4.0",
+            "template_id" : 61614,
+            "template_args" : {
+                                  "itemname" : wpn,
+                                  "itemdesc1" : "17성 : ",
+                                  "itemdesc2" : "22성 : "
+                              }
+          },
+           "custom", true);
+          replier.reply(wprep);
+      }
+      else{
+        replier.reply(itemrep);
+      }
     }
     if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");
