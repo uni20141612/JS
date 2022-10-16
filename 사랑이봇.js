@@ -1,11 +1,12 @@
 const scriptName = "보마봇";
 const path = 'sdcard/kakao/Bots/보마봇/';
-const kalingModule = require('kaling').Kakao();
+const kalingModule = require('kaling');//.Kakao();
 const Kakao = new kalingModule();
 let Logindata = FileStream.read(path + "Login.txt");
 let myName = FileStream.read(path + "Name.txt");
 Kakao.init(Logindata.split("ksec:")[1].split("/")[0], 'https://developers.kakao.com');
-Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0]);
+Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0], true);
+
 const guitarM = require('Guitar');
 const naverID = Logindata.split("nID:")[1].split("/")[0];
 const naverSecret = Logindata.split("nsec:")[1].split("/")[0];
@@ -20,7 +21,7 @@ Kakao.send(room,
                                     "profile" : dataCname
                                 }
             },
-             "custom");
+             "custom", true);
 */
 function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
       
@@ -151,7 +152,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "add9" : addn[9]
                                 }
             },
-             "custom");     
+             "custom", true);     
       }   
       else{
         replier.reply(eternalrep);
@@ -182,7 +183,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "add9" : addn[9]
                                 }
             },
-             "custom");     
+             "custom", true);     
       }   
       else{
         replier.reply(eternalrep);
@@ -248,7 +249,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                     "bossinfo" : binfo
                                 }
             },
-              "custom");      
+              "custom", true);      
         }
       }
     }
@@ -397,7 +398,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "link2" : helpweb
                             }
         },
-         "custom");
+         "custom", true);
     }
     if(msg.startsWith("!디데이")){
       var ddayrep = guitarM.getDday(msg);
@@ -424,7 +425,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "jobpcweb" : jobweb
                               }
         },
-           "custom");
+           "custom", true);
         }
 
     }
@@ -479,7 +480,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "desc" : rep
                               }
           },
-           "custom");
+           "custom", true);
       }
       else if(msg.split(" ")[1] > 0 && msg.split(" ")[1] <= 5000 && msg.split(" ")[1] % 1 === 0){
         var royalcnt = 0;
@@ -525,7 +526,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "imagelink" : mapcl
                               }
           },
-          "custom");
+          "custom", true);
       }
     }
     if(msg == "!명령어"){
@@ -586,7 +587,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                     "mutong" : mt[mesoind]
                                 }
             },
-              "custom");
+              "custom", true);
         }
       }
     }
@@ -713,7 +714,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                       "monsterimage" : mimage
                                   }
               },
-               "custom");
+               "custom", true);
           }
           else{
             if(dataC1.indexOf("검색결과 없음") != -1){
@@ -839,7 +840,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "skilldesc2" : MonEXP
                               }
           },
-           "custom");
+           "custom", true);
       }
       else{
         replier.reply(monrep);
@@ -919,7 +920,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                     "bossinfo" : binfo
                                 }
             },
-              "custom");
+              "custom", true);
         }
         else{
           replier.reply(re);
@@ -1000,7 +1001,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "sunlink" : sunlink
                             }
         },
-         "custom");
+         "custom", true);
       }
     }
     if(msg.startsWith("!스카우터")){
@@ -1092,7 +1093,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                         "skillimage2" : skillimage2
                                     }
                 },
-                 "custom");
+                 "custom", true);
                  if(skilldesc1 == "하단 참조"){
                    skilldesc3 = skillM.getJobskilldesc3(jobcode, skillcode);
                    replier.reply(skilldesc3);
@@ -1125,7 +1126,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "imagetitle" : sftitle
                               }
           },
-           "custom");
+           "custom", true);
       }
     }
     if(msg.startsWith("!시드링")){
@@ -1151,7 +1152,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                             "itemimage" : seedimage
                                         }
                     },
-                     "custom");
+                     "custom", true);
         replier.reply(seedeffect);
       }
     }
@@ -1184,7 +1185,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139017.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139333.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139330.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139327.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139325.png"
                             }
         },
-         "custom");
+         "custom", true);
       Kakao.send(room,
         {
           "link_ver" : "4.0",
@@ -1194,7 +1195,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
                             }
         },
-         "custom");
+         "custom", true);
     }
     if(msg.startsWith("!심볼")){
       const symbolM = require('Symbol');
@@ -1259,7 +1260,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                       "symbolimage" : symbolimage
                                   }
               },
-              "custom");
+              "custom", true);
           }
           else if(isNaN(symbollevel)){
             replier.reply(symbollevel + " >> 심볼 레벨이 숫자가 아닙니다.");
@@ -1387,7 +1388,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "eventimagelink" : eventlink
                             }
         },
-         "custom");
+         "custom", true);
     }
     if(msg.startsWith("!익성비")){
       var extremerep = guitarM.getExtreme(sender, msg);
@@ -1415,7 +1416,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                               "jobpcweb" : jobweb
                             }
         },
-          "custom");
+          "custom", true);
         }
       else{
         replier.reply("입력하신 옵션이 올바르지 않습니다. 확인 후 다시 입력해주세요.\n\n!직업추천 [옵션] : 메이플스토리에 존재하는 직업 중에 무작위로 추첨을 하여 보여줍니다. 옵션은 전사, 마법사, 궁수, 도적, 해적, 힘(STR), 인트(INT), 덱스(DEX), 럭(LUK), 특수 중에서 고를수 있습니다. 생략하면 전체 중에서 무작위로 추첨합니다.");
@@ -1462,7 +1463,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "image" : dataarr[6]
                               }
           },
-           "custom");
+           "custom", true);
         }
         replier.reply(informrep);
       }
@@ -1487,7 +1488,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                   "image" : dataarr[6]
                               }
           },
-           "custom");
+           "custom", true);
         }
       }
     }
@@ -1560,7 +1561,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                             "imagelink" : qzimage
                                         }
                     },
-                     "custom");                    
+                     "custom", true);                    
       }
       else{ replier.reply(qzrep); }
     }
@@ -1674,11 +1675,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "jobpcweb" : jobweb
                               }
         },
-           "custom");
+           "custom", true);
         }
         if(jobmention != "-"){
           //replier.reply(jobmention);
-          replier.reply("※현재 밸런스패치가 진행중이며 하단 내용은 패치이전을 설명하고 있습니다.\n\n" + jobmention);
+          replier.reply(jobmention);
         }
     }  
 }

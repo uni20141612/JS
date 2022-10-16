@@ -86,6 +86,7 @@ map.getMapcode = function(mapname){
             break;
         case "호텔 아르크스":
         case "호텔아르크스":
+        case "호텔":
         case "아르크스":
             ret = 14;
             break;

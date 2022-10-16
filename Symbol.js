@@ -234,6 +234,9 @@ sb.getSymbolmeso = function(sbind, level){
         case 7:
             meso = getarmeso(level);
             break;
+        case 8:
+            meso = getodimeso(level);
+            break;
     }
     return meso;
 };
@@ -259,6 +262,9 @@ sb.getSymbolcumulmeso = function(sbind, level){
             break;
         case 7:
             meso = getarcumulmeso(level);
+            break;
+        case 8:
+            meso = getodicumulmeso(level);
             break;
     }
     return meso;
@@ -440,7 +446,7 @@ function getarcumulmeso(lvl){
     return 6417500000 - cumulate(armeso, lvl-2);
 }
 function getodimeso(lvl){
-    return (224500000 + 0*lvl);
+    return (117400000 + 107100000*lvl);
 }
 function getodicumulmeso(lvl){
     var odimeso = [];
@@ -448,7 +454,7 @@ function getodicumulmeso(lvl){
         var tempodi = getodimeso(i);
         odimeso.push(tempodi);
     }
-    return 0 - cumulate(odimeso, lvl-2);
+    return 7064500000 - cumulate(odimeso, lvl-2);
 }
 function cumulate(arr, ind) {
     var ret = 0;
