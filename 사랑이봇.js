@@ -989,9 +989,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         dataSun = dataSun.toString();
         var dataSundate = dataSun.split("event_date\">")[1].split("</span>")[0];
         dataSundate = dataSundate.slice(2, dataSundate.length - 8).replace(/ 10시/g, "").replace(/ 00분/g, "").replace(/2022/g, "22");
-        dataSun = dataSun.split("<!-- 카피영역 -->")[1].split("src=\"")[1].split("\"")[0];
-
-        Kakao.send(room,
+        suninfo = dataSun.split("blind")[1].split("<h2>")[1].split("</div>")[0]
+        dataSun = dataSun.split("썬데이메이플")[0].split("new_board_con")[1].split("src=\"")[1].split("\" alt")[0];
+        suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "")
+        replier.reply(suninfo)
+        
+        /*Kakao.send(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59697,
@@ -1001,7 +1004,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                                 "sunlink" : sunlink
                             }
         },
-         "custom", true);
+         "custom", true);*/
       }
     }
     if(msg.startsWith("!스카우터")){
@@ -1308,6 +1311,11 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           }
         }
       }
+    }
+    if(msg.startsWith("!아이템")){
+      const itemM = require("Item");
+      var itemrep = itemM.getItem(msg);
+      replier.reply(itemrep);
     }
     if(msg.startsWith("!어빌") || msg.startsWith("!어빌리티")){
       const abilM = require("Ability");
