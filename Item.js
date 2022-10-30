@@ -33,19 +33,23 @@ item.getItem = function (msg){
                         else{
                             wpn = getWeaponName(wpcode);
                             if(wpcode2 == 1){
-                                wrep = getWeapon1(wpcode);
+                                wrep = getWeapon1(wpcode);                                
+                                wicon = getWeaponicon1(wpcode);
                                 wpn = "Lv. 150 " + wpn.split("1. ")[1].split("\n")[0];
                             }
                             else if(wpcode2 == 2){
                                 wrep = getWeapon2(wpcode);
+                                wicon = getWeaponicon2(wpcode);
                                 wpn = "Lv. 160 " + wpn.split("2. ")[1].split("\n")[0];
                             }
                             else if(wpcode2 == 3){
                                 wrep = getWeapon3(wpcode);
+                                wicon = getWeaponicon3(wpcode);
                                 wpn = "Lv. 200 " + wpn.split("3. ")[1].split("\n")[0];
                             }
                             else if(wpcode2 == 4){
                                 wrep = getWeapon4(wpcode);
+                                wicon = getWeaponicon4(wpcode);
                                 wpn = "Lv. 200 " + wpn.split("4. ")[1];
                             }
                             else{
@@ -57,6 +61,8 @@ item.getItem = function (msg){
                                 rep += wpn;
                                 rep += "☆";
                                 rep += wrep;
+                                rep += "☆";
+                                rep += wicon
                             }
                         }
                     }
@@ -65,7 +71,49 @@ item.getItem = function (msg){
 
         }
         else if(itemtype == 2){
+            var arjob = msg.split(" ")[2];
+            if(arjob == undefined){
+                rep = "방어구 직업이 입력되지 않았습니다.\n직업 종류(전사, 마법사, 궁수, 도적, 해적)\n직업만 입력하면 목록을 보여줍니다.";
+            }
+            else{
+                var arjobcode = getArmorjob(arjob);
+                if(arjobcode == -1){
+                    rep = "올바른 직업을 입력하지 않았습니다.\n직업 종류(전사, 마법사, 궁수, 도적, 해적)";
+                }
+                else{
+                    var arcode = msg.split(" ")[3];
+                    if(arcode == undefined){
+                        rep = getArmorname(arjobcode);
+                    }
+                    else{
+                        if(isNaN(arcode) || arcode % 1 != 0){
+                            rep = "방어구 번호는 정수로 입력하셔야 합니다.";
+                        }
+                        else{
+                            if(arjobcode == 0){
 
+                            }
+                            else if(arjobcode == 1){
+
+                            }
+                            else if(arjobcode == 2){
+
+                            }   
+                            else if(arjobcode == 3){
+
+                            }
+                            else if(arjobcode == 4){
+
+                            }
+
+                            if(rep == "-"){
+                                rep = "★";
+                                
+                            }
+                        }
+                    }
+                }
+            }
 
         }
         else if(itemtype == 3){
@@ -818,5 +866,903 @@ function getWeapon4(wpcode){
     }
     return wrep
 };
+
+function getWeaponicon1(wpcode){
+    wrep = "";
+    switch(wpcode){
+        case 0:
+            wrep = "https://i.imgur.com/QRjyiWz.png";
+            break;
+        case 1:
+            wrep = "https://i.imgur.com/OtGBOxv.png";
+            break;
+        case 2:
+            wrep = "https://i.imgur.com/IpNWqys.png";
+            break;
+        case 3:
+            wrep = "https://i.imgur.com/Zqtnhq0.png";
+            break;
+        case 4:
+            wrep = "https://i.imgur.com/IWCsYIg.png";
+            break;
+        case 5:
+            wrep = "https://i.imgur.com/1NjEN0O.png";
+            break;
+        case 6:
+            wrep = "https://i.imgur.com/Nzkqlpt.png";
+            break;
+        case 7:
+            wrep = "https://i.imgur.com/p6ixOvt.png";
+            break;
+        case 8:
+            wrep = "https://i.imgur.com/yeFB6Ha.png";
+            break;
+        case 9:
+            wrep = "https://i.imgur.com/R6Avb3B.png";
+            break;
+        case 10:
+            wrep = "https://i.imgur.com/mfBCDRr.png";
+            break;
+        case 11:
+            wrep = "https://i.imgur.com/493tzWP.png";
+            break;
+        case 12:
+            wrep = "https://i.imgur.com/IsUDfiB.png";
+            break;
+        case 13:
+            wrep = "https://i.imgur.com/W7nREC2.png";
+            break;
+        case 14:
+            wrep = "https://i.imgur.com/TM1Vfur.png";
+            break;
+        case 15:
+            wrep = "https://i.imgur.com/ngAIFdH.png";
+            break;
+        case 16:
+            wrep = "https://i.imgur.com/2Noh9pi.png";
+            break;
+        case 17:
+            wrep = "https://i.imgur.com/f6mzKeG.png";
+            break;
+        case 18:
+            wrep = "https://i.imgur.com/EfrKJ71.png";
+            break;
+        case 19:
+            wrep = "https://i.imgur.com/eVS8muq.png";
+            break;
+        case 20:
+            wrep = "https://i.imgur.com/KsUatde.png";
+            break;
+        case 21:
+            wrep = "https://i.imgur.com/DunHFuM.png";
+            break;
+        case 22:
+            wrep = "https://i.imgur.com/SIeznbT.png";
+            break;
+        case 23:
+            wrep = "https://i.imgur.com/jXY2z2K.png";
+            break;
+        case 24:
+            wrep = "https://i.imgur.com/rdeid3D.png";
+            break;
+        case 25:
+            wrep = "https://i.imgur.com/VzPr2F0.png";
+            break;
+        case 26:
+            wrep = "https://i.imgur.com/liwWbWn.png";
+            break;
+        case 27:
+            wrep = "https://i.imgur.com/MahbJVK.png";
+            break;
+        case 28:
+            wrep = "https://i.imgur.com/kWguRa5.png";
+            break;
+        case 29:
+            wrep = "https://i.imgur.com/zQYV2zK.png";
+            break;
+        case 30:
+            wrep = "https://i.imgur.com/FS85d42.png";
+            break;
+        case 31:
+            wrep = "https://i.imgur.com/bRMaQT9.png";
+            break;
+        case 32:
+            wrep = "https://i.imgur.com/rWdkkgp.png";
+            break;
+        case 33:
+            wrep = "https://i.imgur.com/z798b0E.png";
+            break;
+        case 34:
+            wrep = "https://i.imgur.com/8KLyRQL.png";
+            break;
+    }
+    return wrep;
+};
+
+function getWeaponicon2(wpcode){
+    wrep = "";
+    switch(wpcode){
+        case 0:
+            wrep = "https://i.imgur.com/znn8Pm6.png";
+            break;
+        case 1:
+            wrep = "https://i.imgur.com/Qe0Ml2V.png";
+            break;
+        case 2:
+            wrep = "https://i.imgur.com/ddogBDt.png";
+            break;
+        case 3:
+            wrep = "https://i.imgur.com/sHP0T2I.png";
+            break;
+        case 4:
+            wrep = "https://i.imgur.com/qcRtSu8.png";
+            break;
+        case 5:
+            wrep = "https://i.imgur.com/JQu44BB.png";
+            break;
+        case 6:
+            wrep = "https://i.imgur.com/LAle8vS.png";
+            break;
+        case 7:
+            wrep = "https://i.imgur.com/zYgkdoF.png";
+            break;
+        case 8:
+            wrep = "https://i.imgur.com/Hx7lHKk.png";
+            break;
+        case 9:
+            wrep = "https://i.imgur.com/sT0IzQF.png";
+            break;
+        case 10:
+            wrep = "https://i.imgur.com/xp7LkC0.png";
+            break;
+        case 11:
+            wrep = "https://i.imgur.com/HbyBn4m.png";
+            break;
+        case 12:
+            wrep = "https://i.imgur.com/B9lDqBQ.png";
+            break;
+        case 13:
+            wrep = "https://i.imgur.com/UMaJ9zX.png";
+            break;
+        case 14:
+            wrep = "https://i.imgur.com/n5ZFxwJ.png";
+            break;
+        case 15:
+            wrep = "https://i.imgur.com/mim8MpT.png";
+            break;
+        case 16:
+            wrep = "https://i.imgur.com/qHx3of9.png";
+            break;
+        case 17:
+            wrep = "https://i.imgur.com/doMsQkf.png";
+            break;
+        case 18:
+            wrep = "https://i.imgur.com/MpbwfTA.png";
+            break;
+        case 19:
+            wrep = "https://i.imgur.com/XWfKGm7.png";
+            break;
+        case 20:
+            wrep = "https://i.imgur.com/33y7Cco.png";
+            break;
+        case 21:
+            wrep = "https://i.imgur.com/FszDj6q.png";
+            break;
+        case 22:
+            wrep = "https://i.imgur.com/pXVoTbz.png";
+            break;
+        case 23:
+            wrep = "https://i.imgur.com/ES8QUSw.png";
+            break;
+        case 24:
+            wrep = "https://i.imgur.com/hpKuX7T.png";
+            break;
+        case 25:
+            wrep = "https://i.imgur.com/TQfFY2N.png";
+            break;
+        case 26:
+            wrep = "https://i.imgur.com/ndhiDeD.png";
+            break;
+        case 27:
+            wrep = "https://i.imgur.com/u98feOh.png";
+            break;
+        case 28:
+            wrep = "https://i.imgur.com/fS5m0XW.png";
+            break;
+        case 29:
+            wrep = "https://i.imgur.com/wzegeoh.png";
+            break;
+        case 30:
+            wrep = "https://i.imgur.com/meQfm8Q.png";
+            break;
+        case 31:
+            wrep = "https://i.imgur.com/tnaYqg9.png";
+            break;
+        case 32:
+            wrep = "https://i.imgur.com/RXcLVJ2.png";
+            break;
+        case 33:
+            wrep = "https://i.imgur.com/WMy7KE1.png";
+            break;
+        case 34:
+            wrep = "-";
+            break;
+    }
+    return wrep;
+};
+
+function getWeaponicon3(wpcode){
+    wrep = "";
+    switch(wpcode){
+        case 0:
+            wrep = "https://i.imgur.com/qyj9Zed.png";
+            break;
+        case 1:
+            wrep = "https://i.imgur.com/LUU9Hbn.png";
+            break;
+        case 2:
+            wrep = "https://i.imgur.com/8QYnUIs.png";
+            break;
+        case 3:
+            wrep = "https://i.imgur.com/05Rr8qL.png";
+            break;
+        case 4:
+            wrep = "https://i.imgur.com/81YPfXK.png";
+            break;
+        case 5:
+            wrep = "https://i.imgur.com/Ns4oU1y.png";
+            break;
+        case 6:
+            wrep = "https://i.imgur.com/anrQwXv.png";
+            break;
+        case 7:
+            wrep = "https://i.imgur.com/pSVp1Xk.png";
+            break;
+        case 8:
+            wrep = "https://i.imgur.com/Et1enRU.png";
+            break;
+        case 9:
+            wrep = "https://i.imgur.com/LIPnXQN.png";
+            break;
+        case 10:
+            wrep = "https://i.imgur.com/cNURbwi.png";
+            break;
+        case 11:
+            wrep = "https://i.imgur.com/QmzRw6E.png";
+            break;
+        case 12:
+            wrep = "https://i.imgur.com/WdxpdrD.png";
+            break;
+        case 13:
+            wrep = "https://i.imgur.com/Lt5H0po.png";
+            break;
+        case 14:
+            wrep = "https://i.imgur.com/sicEjPE.png";
+            break;
+        case 15:
+            wrep = "https://i.imgur.com/z0M7cCa.png";
+            break;
+        case 16:
+            wrep = "https://i.imgur.com/cir6Hkn.png";
+            break;
+        case 17:
+            wrep = "https://i.imgur.com/a9cZKqW.png";
+            break;
+        case 18:
+            wrep = "https://i.imgur.com/T2uva86.png";
+            break;
+        case 19:
+            wrep = "https://i.imgur.com/PpAEdMz.png";
+            break;
+        case 20:
+            wrep = "https://i.imgur.com/Du92myn.png";
+            break;
+        case 21:
+            wrep = "https://i.imgur.com/3VFCJ7P.png";
+            break;
+        case 22:
+            wrep = "https://i.imgur.com/vrfTTSk.png";
+            break;
+        case 23:
+            wrep = "https://i.imgur.com/sfnjdWA.png";
+            break;
+        case 24:
+            wrep = "https://i.imgur.com/fogpEiD.png";
+            break;
+        case 25:
+            wrep = "https://i.imgur.com/NkgpWvS.png";
+            break;
+        case 26:
+            wrep = "https://i.imgur.com/mzSEuMQ.png";
+            break;
+        case 27:
+            wrep = "https://i.imgur.com/5ZpOF7K.png";
+            break;
+        case 28:
+            wrep = "https://i.imgur.com/MRxRBVK.png";
+            break;
+        case 29:
+            wrep = "https://i.imgur.com/mwz1YHH.png";
+            break;
+        case 30:
+            wrep = "https://i.imgur.com/Eaelo1m.png";
+            break;
+        case 31:
+            wrep = "https://i.imgur.com/VZt0pSC.png";
+            break;
+        case 32:
+            wrep = "https://i.imgur.com/Z4XmPAa.png";
+            break;
+        case 33:
+            wrep = "https://i.imgur.com/aGKRnYi.png";
+            break;
+        case 34:
+            wrep = "-";
+            break;
+    }
+    return wrep;
+};
+
+function getWeaponicon4(wpcode){
+    wrep = "";
+    switch(wpcode){
+        case 0:
+            wrep = "https://i.imgur.com/0WTZOFQ.png";
+            break;
+        case 1:
+            wrep = "https://i.imgur.com/CWW3DqU.png";
+            break;
+        case 2:
+            wrep = "https://i.imgur.com/7jMPd2P.png";
+            break;
+        case 3:
+            wrep = "https://i.imgur.com/hycTu5h.png";
+            break;
+        case 4:
+            wrep = "https://i.imgur.com/Z95AnFx.png";
+            break;
+        case 5:
+            wrep = "https://i.imgur.com/ZmEL1sv.png";
+            break;
+        case 6:
+            wrep = "https://i.imgur.com/slCrAVs.png";
+            break;
+        case 7:
+            wrep = "-";
+            break;
+        case 8:
+            wrep = "https://i.imgur.com/NXU5AEq.png";
+            break;
+        case 9:
+            wrep = "https://i.imgur.com/CW2IwBV.png";
+            break;
+        case 10:
+            wrep = "https://i.imgur.com/DWNxT8D.png";
+            break;
+        case 11:
+            wrep = "https://i.imgur.com/dCCEEL7.png";
+            break;
+        case 12:
+            wrep = "https://i.imgur.com/GSYrvpK.png";
+            break;
+        case 13:
+            wrep = "https://i.imgur.com/KeDwYJu.png";
+            break;
+        case 14:
+            wrep = "https://i.imgur.com/3yRM0qm.png";
+            break;
+        case 15:
+            wrep = "https://i.imgur.com/rEuN8ce.png";
+            break;
+        case 16:
+            wrep = "https://i.imgur.com/QEGZ5RC.png";
+            break;
+        case 17:
+            wrep = "https://i.imgur.com/q72ApBY.png";
+            break;
+        case 18:
+            wrep = "https://i.imgur.com/IqedzZd.png";
+            break;
+        case 19:
+            wrep = "https://i.imgur.com/Zj8LNg1.png";
+            break;
+        case 20:
+            wrep = "https://i.imgur.com/Fs0lX8S.png";
+            break;
+        case 21:
+            wrep = "https://i.imgur.com/yTNczCn.png";
+            break;
+        case 22:
+            wrep = "https://i.imgur.com/YYvfyp8.png";
+            break;
+        case 23:
+            wrep = "https://i.imgur.com/tsW44Su.png";
+            break;
+        case 24:
+            wrep = "https://i.imgur.com/RZnVoqR.png";
+            break;
+        case 25:
+            wrep = "https://i.imgur.com/RuMhar0.png";
+            break;
+        case 26:
+            wrep = "https://i.imgur.com/fyJ43q9.png";
+            break;
+        case 27:
+            wrep = "https://i.imgur.com/2BTPwK6.png";
+            break;
+        case 28:
+            wrep = "https://i.imgur.com/7XGO92O.png";
+            break;
+        case 29:
+            wrep = "https://i.imgur.com/EkTCRpk.png";
+            break;
+        case 30:
+            wrep = "https://i.imgur.com/WmYFE1f.png";
+            break;
+        case 31:
+            wrep = "https://i.imgur.com/KAN3uXf.png";
+            break;
+        case 32:
+            wrep = "https://i.imgur.com/xmWQeiA.png";
+            break;
+        case 33:
+            wrep = "https://i.imgur.com/Gq4aoZ2.png";
+            break;
+        case 34:
+            wrep = "-";
+            break;
+    }
+    return wrep;
+};
+
+function getArmorjob(arname){
+    ret = -1;
+    switch(arname){
+        case "전사":
+            ret = 0;
+            break;
+        case "마법사":
+        case "법사":
+            ret = 1;
+            break;
+        case "궁수":
+            ret = 2;
+            break;
+        case "도적":
+            ret = 3;
+            break;
+        case "해적":
+            ret = 4;
+            break;
+    }
+    return ret;
+};
+
+function getArmorname(arcode){
+    var arname = "-";
+    switch(arcode){
+        case 0:
+            arname = "전사 방어구 목록\n\n루타비스 세트\n1. 하이네스 워리어헬름\n2. 이글아이 워리어아머\n3. 트릭스터 워리어팬츠\n\n앱솔랩스 세트\n4. 앱솔랩스 나이트헬름\n5. 앱솔랩스 나이트슈트\n6. 앱솔랩스 나이트슈즈\n7. 앱솔랩스 나이트글러브\n8. 앱솔랩스 나이트케이프\n9. 앱솔랩스 나이트숄더\n\n아케인셰이드 세트\n10. 아케인셰이드 나이트햇\n11. 아케인셰이드 나이트슈트\n12. 아케인셰이드 나이트슈즈\n13. 아케인셰이드 나이트글러브\n14. 아케인셰이드 나이트케이프\n15. 아케인셰이드 나이트숄더\n\n에테르넬 세트\n16. 에테르넬 나이트헬름\n17. 에테르넬 나이트아머\n18. 에테르넬 나이트팬츠";
+            break;
+        case 1:
+            arname = "마법사 방어구 목록\n\n루타비스 세트\n1. 하이네스 던위치햇\n2. 이글아이 던위치로브\n3. 트릭스터 던위치팬츠\n\n앱솔랩스 세트\n4. 앱솔랩스 메이지크라운\n5. 앱솔랩스 메이지슈트\n6. 앱솔랩스 메이지슈즈\n7. 앱솔랩스 메이지글러브\n8. 앱솔랩스 메이지케이프\n9. 앱솔랩스 메이지숄더\n\n아케인셰이드 세트\n10. 아케인셰이드 메이지햇\n11. 아케인셰이드 메이지슈트\n12. 아케인셰이드 메이지슈즈\n13. 아케인셰이드 메이지글러브\n14. 아케인셰이드 메이지케이프\n15. 아케인셰이드 메이지숄더\n\n에테르넬 세트\n16. 에테르넬 메이지햇\n17. 에테르넬 메이지로브\n18. 에테르넬 메이지팬츠";
+            break;
+        case 2:
+            arname = "궁수 방어구 목록\n\n루타비스 세트\n1. 하이네스 레인져베레\n2. 이글아이 레인져후드\n3. 트릭스터 레인져팬츠\n\n앱솔랩스 세트\n4. 앱솔랩스 아처후드\n5. 앱솔랩스 아처슈트\n6. 앱솔랩스 아처슈즈\n7. 앱솔랩스 아처글러브\n8. 앱솔랩스 아처케이프\n9. 앱솔랩스 아처숄더\n\n아케인셰이드 세트\n10. 아케인셰이드 아처햇\n11. 아케인셰이드 아처슈트\n12. 아케인셰이드 아처슈즈\n13. 아케인셰이드 아처글러브\n14. 아케인셰이드 아처케이프\n15. 아케인셰이드 아처숄더\n\n에테르넬 세트\n16. 에테르넬 아처햇\n17. 에테르넬 아처후드\n18. 에테르넬 아처팬츠";
+            break;
+        case 3:
+            arname = "도적 방어구 목록\n\n루타비스 세트\n1. 하이네스 어새신보닛\n2. 이글아이 어새신셔츠\n3. 트릭스터 어새신팬츠\n\n앱솔랩스 세트\n4. 앱솔랩스 시프캡\n5. 앱솔랩스 시프슈트\n6. 앱솔랩스 시프슈즈\n7. 앱솔랩스 시프글러브\n8. 앱솔랩스 시프케이프\n9. 앱솔랩스 시프숄더\n\n아케인셰이드 세트\n10. 아케인셰이드 시프햇\n11. 아케인셰이드 시프슈트\n12. 아케인셰이드 시프슈즈\n13. 아케인셰이드 시프글러브\n14. 아케인셰이드 시프케이프\n15. 아케인셰이드 시프숄더\n\n에테르넬 세트\n16. 에테르넬 시프반다나\n17. 에테르넬 시프셔츠\n18. 에테르넬 시프팬츠";
+            break;
+        case 4:
+            arname = "해적 방어구 목록\n\n루타비스 세트\n1. 하이네스 원더러햇\n2. 이글아이 원더러코트\n3. 트릭스터 원더러팬츠\n\n앱솔랩스 세트\n4. 앱솔랩스 파이렛페도라\n5. 앱솔랩스 파이렛슈트\n6. 앱솔랩스 파이렛슈즈\n7. 앱솔랩스 파이렛글러브\n8. 앱솔랩스 파이렛케이프\n9. 앱솔랩스 파이렛숄더\n\n아케인셰이드 세트\n10. 아케인셰이드 파이렛햇\n11. 아케인셰이드 파이렛슈트\n12. 아케인셰이드 파이렛슈즈\n13. 아케인셰이드 파이렛글러브\n14. 아케인셰이드 파이렛케이프\n15. 아케인셰이드 파이렛숄더\n\n에테르넬 세트\n16. 에테르넬 파이렛햇\n17. 에테르넬 파이렛코트\n18. 에테르넬 파이렛팬츠";
+            break;
+    }
+    return arname;
+};
+
+function getArmor1(arcode){
+    arep = "";
+    arname = getArmorname(0);
+    arn = "";
+    switch(arcode){
+        case 1:
+            arn = arname.split("1. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+장비분류 : 모자\n";
+            break;
+        case 2:
+            arn = arname.split("2. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+장비분류 : 상의\n";
+            break;
+        case 3:
+            arn = arname.split("3. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+장비분류 : 하의\n";
+            break;
+        case 4:
+            arn = arname.split("4. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 모자\n";
+            break;
+        case 5:
+            arn = arname.split("5. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 한벌옷\n";
+            break;
+        case 6:
+            arn = arname.split("6. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 신발\n";
+            break;
+        case 7:
+            arn = arname.split("7. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 장갑\n";
+            break;
+        case 8:
+            arn = arname.split("8. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 망토\n";
+            break;
+        case 9:
+            arn = arname.split("9. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+장비분류 : 어깨장식\n";
+            break;
+        case 10:
+            arn = arname.split("10. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 모자\n";
+            break;
+        case 11:
+            arn = arname.split("11. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 한벌옷\n";
+            break;
+        case 12:
+            arn = arname.split("12. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 신발\n";
+            break;
+        case 13:
+            arn = arname.split("13. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 장갑\n";
+            break;
+        case 14:
+            arn = arname.split("14. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 망토\n";
+            break;
+        case 15:
+            arn = arname.split("15. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+장비분류 : 어깨장식\n";
+            break;
+        case 16:
+            arn = arname.split("16. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+장비분류 : 모자\n";
+            break;
+        case 17:
+            arn = arname.split("17. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+장비분류 : 상의\n";
+            break;
+        case 18:
+            arn = arname.split("18. ")[1];
+            arep = "Lv. 250 " + arn + "+장비분류 : 하의\n";
+            break;
+    }
+    return arep;
+}
+
+function getArmor2(arcode){
+    arep = "";
+    arname = getArmorname(1);
+    arn = "";
+    switch(arcode){
+        case 1:
+            arn = arname.split("1. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 2:
+            arn = arname.split("2. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 3:
+            arn = arname.split("3. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 4:
+            arn = arname.split("4. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 5:
+            arn = arname.split("5. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 6:
+            arn = arname.split("6. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 7:
+            arn = arname.split("7. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 8:
+            arn = arname.split("8. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 9:
+            arn = arname.split("9. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 10:
+            arn = arname.split("10. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 11:
+            arn = arname.split("11. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 12:
+            arn = arname.split("12. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 13:
+            arn = arname.split("13. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 14:
+            arn = arname.split("14. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 15:
+            arn = arname.split("15. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 16:
+            arn = arname.split("16. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 17:
+            arn = arname.split("17. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 18:
+            arn = arname.split("18. ")[1];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+    }
+    return arep;
+}
+
+function getArmor3(arcode){
+    arep = "";
+    arname = getArmorname(2);
+    arn = "";
+    switch(arcode){
+        case 1:
+            arn = arname.split("1. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 2:
+            arn = arname.split("2. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 3:
+            arn = arname.split("3. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 4:
+            arn = arname.split("4. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 5:
+            arn = arname.split("5. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 6:
+            arn = arname.split("6. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 7:
+            arn = arname.split("7. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 8:
+            arn = arname.split("8. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 9:
+            arn = arname.split("9. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 10:
+            arn = arname.split("10. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 11:
+            arn = arname.split("11. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 12:
+            arn = arname.split("12. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 13:
+            arn = arname.split("13. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 14:
+            arn = arname.split("14. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 15:
+            arn = arname.split("15. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 16:
+            arn = arname.split("16. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 17:
+            arn = arname.split("17. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 18:
+            arn = arname.split("18. ")[1];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+    }
+    return arep;
+}
+
+function getArmor4(arcode){
+    arep = "";
+    arname = getArmorname(3);
+    arn = "";
+    switch(arcode){
+        case 1:
+            arn = arname.split("1. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 2:
+            arn = arname.split("2. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 3:
+            arn = arname.split("3. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 4:
+            arn = arname.split("4. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 5:
+            arn = arname.split("5. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 6:
+            arn = arname.split("6. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 7:
+            arn = arname.split("7. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 8:
+            arn = arname.split("8. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 9:
+            arn = arname.split("9. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 10:
+            arn = arname.split("10. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 11:
+            arn = arname.split("11. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 12:
+            arn = arname.split("12. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 13:
+            arn = arname.split("13. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 14:
+            arn = arname.split("14. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 15:
+            arn = arname.split("15. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 16:
+            arn = arname.split("16. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 17:
+            arn = arname.split("17. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 18:
+            arn = arname.split("18. ")[1];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+    }
+    return arep;
+}
+
+function getArmor5(arcode){
+    arep = "";
+    arname = getArmorname(4);
+    arn = "";
+    switch(arcode){
+        case 1:
+            arn = arname.split("1. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 2:
+            arn = arname.split("2. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 3:
+            arn = arname.split("3. ")[1].split("\n")[0];
+            arep = "Lv. 150 " + arn + "+";
+            break;
+        case 4:
+            arn = arname.split("4. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 5:
+            arn = arname.split("5. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 6:
+            arn = arname.split("6. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 7:
+            arn = arname.split("7. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 8:
+            arn = arname.split("8. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 9:
+            arn = arname.split("9. ")[1].split("\n")[0];
+            arep = "Lv. 160 " + arn + "+";
+            break;
+        case 10:
+            arn = arname.split("10. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 11:
+            arn = arname.split("11. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 12:
+            arn = arname.split("12. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 13:
+            arn = arname.split("13. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 14:
+            arn = arname.split("14. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 15:
+            arn = arname.split("15. ")[1].split("\n")[0];
+            arep = "Lv. 200 " + arn + "+";
+            break;
+        case 16:
+            arn = arname.split("16. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 17:
+            arn = arname.split("17. ")[1].split("\n")[0];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+        case 18:
+            arn = arname.split("18. ")[1];
+            arep = "Lv. 250 " + arn + "+";
+            break;
+    }
+    return arep;
+}
 
 module.exports = item;

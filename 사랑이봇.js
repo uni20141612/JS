@@ -1,11 +1,27 @@
 const scriptName = "보마봇";
 const path = 'sdcard/kakao/Bots/보마봇/';
-const kalingModule = require('kaling');//.Kakao();
-const Kakao = new kalingModule();
 let Logindata = FileStream.read(path + "Login.txt");
 let myName = FileStream.read(path + "Name.txt");
-Kakao.init(Logindata.split("ksec:")[1].split("/")[0], 'https://developers.kakao.com');
-Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0], true);
+//const kalingModule = require('kaling');//.Kakao();
+//const Kakao = new kalingModule();
+//Kakao.init(Logindata.split("ksec:")[1].split("/")[0], 'https://developers.kakao.com');
+//Kakao.login(Logindata.split("kID:")[1].split("/")[0], Logindata.split("kpw:")[1].split("/")[0], true);
+
+const { KakaoApiService, KakaoLinkClient } = require('kakaolink')
+const Kakao = new KakaoLinkClient();
+KakaoApiService.createService().login({
+  email: Logindata.split("kID:")[1].split("/")[0],
+  password: Logindata.split("kpw:")[1].split("/")[0],
+  keepLogin: true,
+}).then(e => {
+  Kakao.login(e, {
+      apiKey: Logindata.split("ksec:")[1].split("/")[0],
+      url: 'https://developers.kakao.com'
+  });
+}).catch(e => {
+  Log.e(e);
+});
+
 
 const guitarM = require('Guitar');
 const naverID = Logindata.split("nID:")[1].split("/")[0];
@@ -13,7 +29,7 @@ const naverSecret = Logindata.split("nsec:")[1].split("/")[0];
 const twitterAToken = Logindata.split("tActoken:")[1].split("/")[0]; const twitterATSecret = Logindata.split("tAcsec:")[1].split("/")[0]; const twitterAPIKey = Logindata.split("tAPIkey:")[1].split("/")[0]; const twitterAPISecret = Logindata.split("tAPIsec:")[1].split("/")[0]; const twitterBearerToken = Logindata.split("tBtoken:")[1].split("/")[0];
 //아이디어 : 코강/익몬
 /*
-Kakao.send(room,
+Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59430,
@@ -133,7 +149,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var eternalrep = guitarM.getStrong(msg, addtitle, addn);
       var addt = addtitle[0];
       if(eternalrep == "-"){
-          Kakao.send(room,
+          Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59451,
@@ -164,7 +180,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       var eternalrep = guitarM.getEternal(msg, addtitle, addn);
       var addt = addtitle[0];
       if(eternalrep == "-"){
-          Kakao.send(room,
+          Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59451,
@@ -237,7 +253,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           bimage = gbM.getBossimage(bossind);
           bimage2 = gbM.getBossimage2(bossind);
           bname2 = gbM.getBossname(bossind);
-          Kakao.send(room,
+          Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59498,
@@ -389,7 +405,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       replier.reply(help);*/
       var help = "redirect.html";
       var helpweb = "help.html";
-      Kakao.send(room,
+      Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 64077,
@@ -413,7 +429,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var jobdesc = jobM3.getJobdesc(chkjob);
         var jobimage = jobM3.getJobimage(chkjob);
         var jobweb = jobM3.getJobweb(chkjob);
-        Kakao.send(room,
+        Kakao.sendLink(room,
         {
             "link_ver" : "4.0",
             "template_id" : 59546,
@@ -472,7 +488,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       const royalM = require('Royal');
       if(msg.split(" ")[1] == undefined){
         rep = royalM.getoneroyal();
-        Kakao.send(room,
+        Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 59435,
@@ -516,7 +532,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var mapn = maprep.split("*")[1];
         var mapc = maprep.split("*")[2];
         var mapcl = mapc.split(".com/")[1];
-        Kakao.send(room,
+        Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 63410,
@@ -576,7 +592,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             mt.push(tempmeso);
           }
           var servericon = mesoM.getServericon(mesoind);
-          Kakao.send(room,
+          Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59953,
@@ -700,7 +716,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             if(mchp != "-"){mchpjari = jariM.Jari2(parseInt(mchp.replace(/,/g, ""))).replace(/ 0억/g, "").replace(/ 0만/g, "").replace(/ 0/g, "");}
             var minc = mrM.monsterhpincrease[stair];
             var mimage = mrM.monsterimage[stair];
-            Kakao.send(room,
+            Kakao.sendLink(room,
               {
                 "link_ver" : "4.0",
                 "template_id" : 60127,
@@ -828,7 +844,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var MonEXP = monrep.split("★")[3];
         var Monarea = monrep.split("★")[4];
 
-        Kakao.send(room,
+        Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 60491,
@@ -908,7 +924,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
           bname = BossM.getBossname(re);
           bHP = BossM.getBossHP(re);
           binfo = BossM.getBossinfo(re);
-          Kakao.send(room,
+          Kakao.sendLink(room,
             {
               "link_ver" : "4.0",
               "template_id" : 59498,
@@ -994,7 +1010,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "")
         replier.reply(suninfo)
         
-        /*Kakao.send(room,
+        /*Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59697,
@@ -1084,7 +1100,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
               var skilldesc3 = "-";
               var skillimage1 = skillM.getJobskillimage1(jobcode, skillcode);
               var skillimage2 = skillM.getJobskillimage2(jobcode, skillcode);           
-              Kakao.send(room,
+              Kakao.sendLink(room,
                 {
                   "link_ver" : "4.0",
                   "template_id" : 60491,
@@ -1119,7 +1135,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var sflink = sfrep.split("com/")[1];
         if(sfrep[0] == "a"){ sftitle = "스타포스 누적 수치 표"; }
         else{ sftitle = "놀장 누적 수치 표"; }
-        Kakao.send(room,
+        Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 63410,
@@ -1144,7 +1160,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var seeddesc2 = seedrep.split("★")[3];
         var seedeffect = seedrep.split("★")[4];
         var seedimage = seedrep.split("★")[5];
-        Kakao.send(room,
+        Kakao.sendLink(room,
                     {
                       "link_ver" : "4.0",
                       "template_id" : 61614,
@@ -1179,7 +1195,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         tempRT = dataRT.split("keyword\":\"")[i+1].split("\",\"")[0];
         dataRTarr.push(tempRT);
       }
-      Kakao.send(room,
+      Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59549,
@@ -1189,7 +1205,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                             }
         },
          "custom", true);
-      Kakao.send(room,
+      Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59549,
@@ -1252,7 +1268,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
             var symboldaily = symbolM.getSymboldaily(symbolind);
             var symbolspecial = symbolM.getSymbolspecial(symbolind);
             var symbolimage = symbolM.getSymbolimage(symbolind);
-            Kakao.send(room,
+            Kakao.sendLink(room,
               {
                 "link_ver" : "4.0",
                 "template_id" : 60920,
@@ -1319,14 +1335,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(itemrep[0] == "☆"){
         wpn = itemrep.split("☆")[1];
         wprep = itemrep.split("☆")[2];
-        Kakao.send(room,
+        wpicon = itemrep.split("☆")[3];
+        Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 61614,
             "template_args" : {
                                   "itemname" : wpn,
-                                  "itemdesc1" : "17성 : ",
-                                  "itemdesc2" : "22성 : "
+                                  "itemimage" : wpicon
                               }
           },
            "custom", true);
@@ -1405,7 +1421,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       dataE3 = dataE.split("tbl_col")[1];
       var eventimage = dataE3.split("img src=\"")[1].split("\"")[0];
       var eventlink = eventimage.split("http://help.nexon.com")[1];
-      Kakao.send(room,
+      Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59585,
@@ -1431,7 +1447,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var jobimage = jobM2.getJobimage(chkjob);
         var jobweb = jobM2.getJobweb(chkjob);
         jobmention = jobM2.mentions[chkjob];
-        Kakao.send(room,
+        Kakao.sendLink(room,
         {
           "link_ver" : "4.0",
           "template_id" : 59546,
@@ -1479,7 +1495,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
         var informrep = guitarM.getInform(dataarr, dataC1);
         if(informrep != "그런 캐릭터는 없습니다."){
-          Kakao.send(room,
+          Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 59430,
@@ -1507,7 +1523,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
         var informrep = guitarM.getInform(dataarr, dataC1);
         if(informrep != "그런 캐릭터는 없습니다."){
-          Kakao.send(room,
+          Kakao.sendLink(room,
           {
             "link_ver" : "4.0",
             "template_id" : 59430,
@@ -1578,7 +1594,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(qzrep[0] == "☆"){
         var qzimage = qzrep.split("☆")[1];
         var qznum = qzrep.split("☆")[2];
-        Kakao.send(room,
+        Kakao.sendLink(room,
                     {
                       "link_ver" : "4.0",
                       "template_id" : 63410,
@@ -1690,7 +1706,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var jobdesc = jobM.getJobdesc(chkjob);
         var jobimage = jobM.getJobimage(chkjob);
         var jobweb = jobM.getJobweb(chkjob);
-        Kakao.send(room,
+        Kakao.sendLink(room,
         {
             "link_ver" : "4.0",
             "template_id" : 59546,
