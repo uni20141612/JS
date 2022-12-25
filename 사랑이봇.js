@@ -947,8 +947,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       if(msg.startsWith("환영합니다! 유니스트 메이플스토리 톡방입니다~")){
         replier.reply("환영합니다~! 보마봇 많은 이용 부탁드려요!");
       }
-      if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차도 챙기라구!"); }
-      if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 눌러~"); }
+      /*if(msg.startsWith("몬파/데일리/마일리지/")){  replier.reply("황금마차도 챙기라구!"); }*/
+      /*if(msg.startsWith("우르스 두 배 15분 전")){ replier.reply("황금마차 얼른 눌러~"); }*/
     }
     if(msg == "!봇업데이트" || msg == "!봇업뎃"){
       const updateM = require('Update');
