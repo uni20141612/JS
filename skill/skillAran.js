@@ -407,7 +407,7 @@ skar.getskilldesc1Aran = function (skillcode){
             rep = "커맨드 입력 시 해당 스킬 데미지 5%p 증가";
             break;
         case 13:
-            rep = "스매쉬스윙 데미지 200%p/ 이후 12초간 스킬 최종뎀 10%";
+            rep = "스매쉬스윙 데미지 200%p";
             break;
         case 14:
             rep = "힘 30, 민첩성 30 증가";
@@ -440,7 +440,7 @@ skar.getskilldesc1Aran = function (skillcode){
             rep = "공40, 방215/ 넉백 필요 데미지 10%로 감소";
             break;
         case 24:
-            rep = "몬스터의 물리 방어율 40% 무시, 데미지 10% 증가";
+            rep = "몬스터의 물리 방어율 40% 무시, 데미지 30% 증가";
             break;
         case 25:
             rep = "하단 참조";
@@ -461,7 +461,7 @@ skar.getskilldesc1Aran = function (skillcode){
             rep = "커맨드를 입력하여 스킬 공격 시 해당 스킬 데미지 20%p 증가";
             break;
         case 31:
-            rep = "스매쉬스윙 데미지 250%p/ 이후 20초간 스킬 최종뎀 15%";
+            rep = "스매쉬스윙 데미지 250%p";
             break;
         case 32:
             rep = "즉시 아드레날린 부스트 상태가 된다.";

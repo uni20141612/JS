@@ -2,7 +2,7 @@ const sf = {};
 
 sf.isSFready = function (A, B, C, D, E, F){
     var chkSF = 0;
-    if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200){
+    if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200 && A != 250){
       chkSF = 1000;
     }
     else{
@@ -78,7 +78,7 @@ sf.isSFready = function (A, B, C, D, E, F){
 };
 sf.isSFready2 = function (A, B, C, D, E, F){
   var chkSF = 0;
-  if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200){
+  if(A != 99 && A != 100 && A != 110 && A != 120 && A != 130 && A != 135 && A != 140 && A != 145 && A != 150 && A != 160 && A != 200 && A != 250){
     chkSF = 1000;
   }
   else{
@@ -137,7 +137,7 @@ sf.isSFready2 = function (A, B, C, D, E, F){
 
 sf.simulation = function (A, B, C, D, E, F){
     var sfrep = "";
-    var sfmeso = 0, sfsuccessCnt = 0, sffailCnt = 0, sfdestroyCnt = 0, two100 = 0;
+    var sfmeso = 0, sfsuccessCnt = 0, sfkeepCnt = 0, sffailCnt = 0, sfdestroyCnt = 0, two100 = 0;
     var currentsf = B, destsf = C;
     var costarr = [], successarr= [], keeparr = [], downarr = [], destroyarr = [];
     var saveA = A;
@@ -197,15 +197,35 @@ sf.simulation = function (A, B, C, D, E, F){
     else {sfrep += "타일런트 벨트 " + currentsf + "성 부터 " + destsf + "성 까지의 스타포스 시뮬레이션 결과\n\n";}
 
     while(currentsf < destsf){        //sfrep += currentsf + "성에서 " + (currentsf+1) + "성 강화시도, 결과 : ";
-        if(E != 1 && E != 4){ sfmeso += costarr[currentsf];}
-        else { sfmeso += costarr[currentsf] * 0.7;} //30%할인
+        if(E != 1 && E != 4){ sfmeso += getCost(A, currentsf); }//sfmeso += costarr[currentsf];}
+        else { sfmeso += getCost(A, currentsf); }// sfmeso += costarr[currentsf] * 0.7;} //30%할인
         if((A != 99 && two100 == 2) || (A != 99 && (E == 2 || E == 4) && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
             sfsuccessCnt++;
             currentsf += 1; //sfrep += "찬스타임!\n";
             two100 = 0;
             continue;
         }
-        var starRate = [successarr[currentsf], keeparr[currentsf], downarr[currentsf], destroyarr[currentsf]];
+        //var starRate = [successarr[currentsf], keeparr[currentsf], downarr[currentsf], destroyarr[currentsf]];
+        var Srate = getSuccess(currentsf);
+        var Desrate = getDestroy(currentsf);
+        var Krate = 0, Dorate = 0;
+        if(currentsf < 16){
+          Krate = 10000 - Srate;
+          Dorate = 0;
+        }
+        else if(currentsf >= 16 && currentsf < 20){
+          Krate = 0;
+          Dorate = 10000 - Srate - Desrate;
+        }
+        else if(currentsf == 20){
+          Krate = 10000 - Srate - Desrate;
+          Dorate = 0;
+        }
+        else{
+          Krate = 0
+          Dorate = 10000 - Srate - Desrate;
+        }
+        var starRate = [Srate, Krate, Dorate, Desrate];
         var sfsf = -1;
         var sfrand = getRandomInt(0, 10000);
         for(var j = 0; j < 4; j++){
@@ -216,13 +236,15 @@ sf.simulation = function (A, B, C, D, E, F){
         }
         if(A != 99 && F == 1){  //12~17 파괴방지
             if(currentsf > 11 && currentsf < 17){
-                sfmeso += costarr[currentsf];
+                //sfmeso += costarr[currentsf];
+                sfmeso += getCost(A, currentsf);
                 if(sfsf == 3) {sfsf = 2;}
             }
         }
         else if(A != 99 && F == 2){ //15~17파괴방지
             if(currentsf > 14 && currentsf < 17){
-                sfmeso += costarr[currentsf];
+                //sfmeso += costarr[currentsf];
+                sfmeso += getCost(A, currentsf);
                 if(sfsf == 3) {sfsf = 2;}
             }
         }
@@ -235,6 +257,7 @@ sf.simulation = function (A, B, C, D, E, F){
             continue;
         }
         else if(sfsf == 1){            //sfrep += "유지\n";
+            sfkeepCnt += 1;
             continue;
         }
         else if(sfsf == 2){
@@ -258,9 +281,12 @@ sf.simulation = function (A, B, C, D, E, F){
     }
     const jari = require('Jari');
 
+    sfmeso = parseInt(sfmeso)
+    sfmeso = Math.round(sfmeso/100)*100;
     sfrep += "소모메소 : " + jari.Jari(sfmeso);
     sfrep += "메소\n성공횟수 : " + sfsuccessCnt;
     sfrep += "\n실패(하락)횟수 : " + sffailCnt;
+    sfrep += "\n유지횟수 : " + sfkeepCnt;
     sfrep += "\n파괴횟수 : " + sfdestroyCnt;
     if(D == 1){ sfrep += "\n*스타캐치 적용";}
     if(A != 99 && E == 1){ sfrep += "\n*30% 할인 이벤트 적용";}
@@ -344,15 +370,35 @@ sf.simulation2 = function (A, B, C, D, E, F){
   while(currentsf < maxsf && currentCnt < targetCnt){        //sfrep += currentsf + "성에서 " + (currentsf+1) + "성 강화시도, 결과 : ";
       currentCnt++;
       if(highsf < currentsf){highsf = currentsf; }
-      if(E != 1 && E != 4){ sfmeso += costarr[currentsf];}
-      else { sfmeso += costarr[currentsf] * 0.7;} //30%할인
+      if(E != 1 && E != 4){ sfmeso += getCost(A, currentsf); }//sfmeso += costarr[currentsf];}
+      else { sfmeso += getCost(A, currentsf); }//sfmeso += costarr[currentsf] * 0.7;} //30%할인
       if((A != 99 && two100 == 2) || (A != 99 && (E == 2 || E == 4) && (currentsf == 5 || currentsf == 10 || currentsf == 15))){  //찬스타임 //5,10,15 100%
           sfsuccessCnt++;
           currentsf += 1; //sfrep += "찬스타임!\n";
           two100 = 0;
           continue;
       }
-      var starRate = [successarr[currentsf], keeparr[currentsf], downarr[currentsf], destroyarr[currentsf]];
+      //var starRate = [successarr[currentsf], keeparr[currentsf], downarr[currentsf], destroyarr[currentsf]];
+      var Srate = getSuccess(currentsf);
+      var Desrate = getDestroy(currentsf);
+      var Krate = 0, Dorate = 0;
+      if(currentsf < 16){
+        Krate = 10000 - Srate;
+        Dorate = 0;
+      }
+      else if(currentsf >= 16 && currentsf < 20){
+        Krate = 0;
+        Dorate = 10000 - Srate - Desrate;
+      }
+      else if(currentsf == 20){
+        Krate = 10000 - Srate - Desrate;
+        Dorate = 0;
+      }
+      else{
+        Krate = 0
+        Dorate = 10000 - Srate - Desrate;
+      }
+      var starRate = [Srate, Krate, Dorate, Desrate];
       var sfsf = -1;
       var sfrand = getRandomInt(0, 10000);
       for(var j = 0; j < 4; j++){
@@ -363,13 +409,15 @@ sf.simulation2 = function (A, B, C, D, E, F){
       }
       if(A != 99 && F == 1){  //12~17 파괴방지
           if(currentsf > 11 && currentsf < 17){
-              sfmeso += costarr[currentsf];
+              //sfmeso += costarr[currentsf];
+              sfmeso += getCost(A, currentsf); 
               if(sfsf == 3) {sfsf = 2;}
           }
       }
       else if(A != 99 && F == 2){ //15~17파괴방지
           if(currentsf > 14 && currentsf < 17){
-              sfmeso += costarr[currentsf];
+              //sfmeso += costarr[currentsf];
+              sfmeso += getCost(A, currentsf); 
               if(sfsf == 3) {sfsf = 2;}
           }
       }
@@ -407,6 +455,8 @@ sf.simulation2 = function (A, B, C, D, E, F){
   }
   const jari2 = require('Jari');
 
+  sfmeso = parseInt(sfmeso)
+  sfmeso = Math.round(sfmeso/100)*100;
   sfrep += "시행횟수 : " + currentCnt + "\n";
   sfrep += "최종 결과 : " + currentsf + "성\n";
   if(currentCnt < targetCnt){highsf = currentsf; }
@@ -427,6 +477,151 @@ sf.simulation2 = function (A, B, C, D, E, F){
   else if(A != 99 && F == 2){ sfrep += "\n*15~17성 파괴방지 적용";}
   return sfrep;
 };
+
+function getCost(lvl, curstar){
+  var boonmo = 0, sPow = 0.0;
+  switch(curstar){
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      boonmo = 25;
+      sPow = 1.0;
+      break;
+    case 10:
+      boonmo = 400;
+      sPow = 2.7;
+      break;
+    case 11:
+      boonmo = 220;
+      sPow = 2.7;
+      break;
+    case 12:
+      boonmo = 150;
+      sPow = 2.7;
+      break;
+    case 13:
+      boonmo = 110;
+      sPow = 2.7;
+      break;
+    case 14:
+      boonmo = 75;
+      sPow = 2.7;
+      break;
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 22:
+    case 23:
+    case 24:
+      boonmo = 200;
+      sPow = 2.7;
+      break;
+  }
+
+  cost = 1000 + (Math.pow(lvl, 3) * Math.pow(curstar+1, sPow) / boonmo);
+  return cost;
+}
+
+function getSuccess(curstar){
+  var Sucrate = 0;
+  switch(curstar){    
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      Sucrate = 9500 - (500*curstar);
+      break;
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      Sucrate = 10000 - (500*curstar);
+      break;
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+      Sucrate = 3000;
+      break;
+    case 22:
+      Sucrate = 300;
+      break;
+    case 23:
+      Sucrate = 200;
+      break;
+    case 24:
+      Sucrate = 100;
+      break;
+  }
+  return Sucrate;
+}
+
+function getDestroy(curstar){
+  var Desrate = 0.0;
+  switch(curstar){
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      Desrate = 0.0;
+      break;
+    case 15:
+    case 16:
+    case 17:
+      Desrate = 210;
+      break;
+    case 18:
+    case 19:
+      Desrate = 280;
+      break;
+    case 20:
+    case 21:
+      Desrate = 700;
+      break;
+    case 22:
+      Desrate = 1940;
+      break;
+    case 23:
+      Desrate = 2940;
+      break;
+    case 24:
+      Desrate = 3960;
+      break;
+  }
+  return Desrate;
+}
 
 function arrcopy(arr1, arr2){
     for(var i = 0; i < arr2.length; ++i){

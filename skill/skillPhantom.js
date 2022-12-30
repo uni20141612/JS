@@ -388,7 +388,7 @@ skpt.getskilldesc1Phantom = function (skillcode){
             rep = "키다운 스킬/ 8명의 적을 400% 데미지로 3번 공격";
             break;
         case 22:
-            rep = "후방이동, 10명,450%,3번 공격/ 15초간 방무20% 디버프";
+            rep = "후방이동, 10명,450%,3번 공격/ 60초간 방무20% 디버프";
             break;
         case 23:
             rep = "하단 참조";

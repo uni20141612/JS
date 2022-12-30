@@ -405,7 +405,7 @@ skal.getskilldesc1All = function (skillcode){
             rep = "36초간 슈퍼스탠스, 내성80/ 피격시 데미지3%, 최대10번중첩";
             break;
         case 2:
-            rep = "공격스킬 사용시 MP 2% 추가사용, 최종데미지 11%증가/ 쿨30초";
+            rep = "공격스킬 사용시 MP 2% 추가사용, 최종데미지 8%증가/ 쿨30초";
             break;
         case 3:
             rep = "HP1000소비, 3초간 슈퍼스탠스, 피해대신 MP7300 or HP1600";
@@ -504,7 +504,7 @@ skal.getskilldesc2All = function (skillcode){
             rep = "쿨240초/ [패시브:힘30, HP1500]";
             break;
         case 2:
-            rep = "MP가 없는 직업군의 경우 최대 HP의 0.5%/ 온오프스킬";
+            rep = "MP가 없는 직업군의 경우 최대 HP의 0.3%/ 온오프스킬";
             break;
         case 3:
             rep = "쿨 60초";

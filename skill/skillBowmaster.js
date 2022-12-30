@@ -253,7 +253,7 @@ skbm.getskilldesc1Bowmaster = function (skillcode){
             rep = "하단 참조";
             break;
         case 13:
-            rep = "적방어율의 100%만큼 최종데미지(400%까지) 증가, 적방어율 50% 추가무시";
+            rep = "방어율 무시 40% 증가";
             break;
         case 14:
             rep = "30초동안 공격력 50증가, 보스몬스터 공격 시 데미지 20% 증가";
@@ -331,7 +331,7 @@ skbm.getskilldesc2Bowmaster = function (skillcode){
             rep = "[패시브 효과 : 최종 데미지 6% 증가]";
             break;
         case 13:
-            rep = "재발동 대기시간 9초, 직접 공격시 쿨타임 1초 감소, 최소 쿨타임 1초";
+            rep = "-";
             break;
         case 14:
             rep = "재사용 대기시간 90초.";

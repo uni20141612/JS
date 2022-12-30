@@ -703,7 +703,7 @@ ski.getskilldesc2Illium = function (skillcode){
             rep = "크리스탈이 소환된 상태에서만 사용할 수 있다.";
             break;
         case 17:
-            rep = "마법공격시 20% 확률로 최대 MP의 10% 흡수 / 보스는5%";
+            rep = "마법공격시 20% 확률로 최대 MP의 5% 흡수 / 보스 3%";
             break;
         case 18:
             rep = "리액션:도미네이션에 적용";

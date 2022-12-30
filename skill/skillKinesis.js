@@ -256,7 +256,10 @@ skk.getskillKinesis = function (skillname){
         case "싸오":
             kret = 41;
             break;
-        case "":
+        case "이계의 잔상":
+        case "이계의잔상":
+        case "잔상":
+        case "이잔":
             kret = 42;
             break;
     }
@@ -392,7 +395,7 @@ skk.getskillnameKinesis = function (skillcode){
             rep = "싸이킥 오버";
             break;
         case 42:
-            rep = "";
+            rep = "이계의 잔상";
             break;
         case 43:
             rep = "";
@@ -530,7 +533,7 @@ skk.getskilldesc1Kinesis = function (skillcode){
             rep = "26초 동안 싸이킥 포인트 소비량 절반 감소";
             break;
         case 42:
-            rep = "";
+            rep = "하단 참조";
             break;
         case 43:
             rep = "";
@@ -668,7 +671,7 @@ skk.getskilldesc2Kinesis = function (skillcode){
             rep = "싸이킥 포인트 지속적으로 증가/ 쿨 180초";
             break;
         case 42:
-            rep = "";
+            rep = "프렌즈 월드 직업군 공용 스킬";
             break;
         case 43:
             rep = "";
@@ -733,8 +736,8 @@ skk.getskilldesc3Kinesis = function (skillcode){
         case 40:
             rep = "적의 기억을 더듬어 거친 충격과 함께 가장 고통스러운 순간 속에 머물게 한다. 일정 시간 적을 행동 불가 상태로 만든다.\n공격을 받은 적은 90초 동안 행동 불가 상태 이상에 저항하여 싸이코 메트리 및 다른 스킬로 인한 행동 불가 상태 이상에 걸리지 않는다.\n\n최대 15명의 적에게 1800%의 데미지로 1번 공격. 공격 당한 적은 10초 간 행동 불가.\n싸이코 메트리로 적에게 준 데미지에 따라 행동 불가 지속시간 최대 100% 증가\n\n재사용 대기시간: 180초";
             break;
-        case 41:
-            rep = "";
+        case 42:
+            rep = "다른 세계의 모습을 비추는 포탈을 연다. 포탈에 비친 몬스터는 이계에서의 모습이 억지로 드러난다. 포탈은 최대 HP가 높은 보스 몬스터를 우선해서 비춘다.\n\nHP 5% 소비, 50초 동안 이계의 잔상 생성\n같은 맵 내에 이계의 잔상이 있을 때 AP를 직접 투자한 모든 능력치 18% 증가\n이계의 잔상이 생성된 몬스터 공격 시 10% 확률로 최대 HP의 3%, 최대 MP의 3% 회복\n\n재사용 대기시간 60초";
             break;
     }
     return rep;
@@ -869,7 +872,7 @@ skk.getskillimage1Kinesis = function (skillcode){
             rep = "https://i.imgur.com/QpXBxZs.png";
             break;
         case 42:
-            rep = "";
+            rep = "https://i.imgur.com/LgPB30O.png";
             break;
         case 43:
             rep = "";
@@ -1007,7 +1010,7 @@ skk.getskillimage2Kinesis = function (skillcode){
             rep = "https://i.imgur.com/rkKOKeo.png";
             break;
         case 42:
-            rep = "";
+            rep = "https://i.imgur.com/STfEYYZ.png";
             break;
         case 43:
             rep = "";

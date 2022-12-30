@@ -472,7 +472,7 @@ sklm.getskilldesc2Lumi = function (skillcode){
             rep = "피해를 무시하면 IGNORE라는 문구가 뜨며 캐릭터가 웃는다.";
             break;
         case 21:
-            rep = "일정 주기마다 HP와 MP를 회복한다.";
+            rep = "공격시 30%확률로 최대MP 5%흡수, 보스몬스터는 3% 흡수";
             break;
         case 22:
             rep = "마을에서만 스킬을 사용할 수 있다. / 쿨타임 6시간";

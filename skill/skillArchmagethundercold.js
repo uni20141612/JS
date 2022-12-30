@@ -289,7 +289,7 @@ sktc.getskilldesc1Archmagethundercold = function (skillcode){
             rep = "MP 16 소비, 240초 동안 파티원의 마력 30 증가";
             break;
         case 8:
-            rep = "마법 공격 시 20% 확률로 적의 최대 MP의 10% 흡수";
+            rep = "마법 공격 시 30% 확률로 적의 최대 MP의 5% 흡수";
             break;
         case 9:
             rep = "상태이상 방어시 30초간 모든 상태이상 막는 보호막 발동";
@@ -385,7 +385,7 @@ sktc.getskilldesc2Archmagethundercold = function (skillcode){
             rep = "마력을 증가시키는 액티브 파티 버프";
             break;
         case 8:
-            rep = "보스 몬스터에게는 최대 MP의 5% 흡수";
+            rep = "보스 몬스터에게는 최대 MP의 3% 흡수";
             break;
         case 9:
             rep = "보호막 발동 시 쿨240초 / [패시브: 모든속성, 상태이상내성 20% 증가]";
