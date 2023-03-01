@@ -344,10 +344,10 @@ gt.getEternal = function (msg, addtitle, addn){
   rep = "";
   var addLevel = msg.split(" ")[1];
   if(addLevel == undefined){
-    rep = ("레벨을 입력해주세요.\n\n!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.");
+    rep = ("레벨을 입력해주세요.\n\n!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200, 250제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.");
   }
-  else if(addLevel != 150 && addLevel != 160 && addLevel != 200){
-    rep = ("레벨은 150, 160, 200만 가능합니다.");
+  else if(addLevel != 150 && addLevel != 160 && addLevel != 200 && addLevel != 250){
+    rep = ("레벨은 150, 160, 200, 250만 가능합니다.");
   }
   else{
     const addM = require('Addop');
@@ -355,6 +355,7 @@ gt.getEternal = function (msg, addtitle, addn){
     if(addLevel == 150){ addResult += "150제 아이템 "; }
     else if(addLevel == 160){ addResult += "160제 아이템 "; }
     else if(addLevel == 200){ addResult += "200제 아이템 "; }
+    else if(addLevel == 250){ addResult += "250제 아이템 "; }
     addtitle[0] = addResult;
     if(msg.split(" ")[2] == undefined || msg.split(" ")[2] == 1){
       var addition = [];
@@ -501,7 +502,7 @@ gt.getEXP = function (nickname, dataC1){
     var dataHis3 = dataHis1.split("columns: [[")[1].split("exp")[0];
     var dataHisYear = [];
     for(i = 0; i < hiscnt; ++i){
-      dataHisYear[i] = "22";
+      dataHisYear[i] = "23";
     }
     var dataHisMonth = [];
     for(i = 0; i < hiscnt; ++i){
@@ -725,7 +726,7 @@ gt.getLevel = function (nickname, dataC1){
       hiscnt = dataLvHis.split("\\uc6d4").length - 1;
       var dataLvHisYear = [];
       for(i = 0; i < hiscnt; ++i){
-        dataLvHisYear[i] = "22";
+        dataLvHisYear[i] = "23";
       }
       var dataLvHisMonth = [];
       for(i = 0; i < hiscnt; ++i){
@@ -1115,7 +1116,7 @@ gt.getSeed = function (dataS1){
 gt.getStarforce = function (msg){
   rep = "";
   const sfM = require('Starforce');
-  var sfhelp = "!스타포스 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 스타포스 개수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
+  var sfhelp = "!스타포스 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~250 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 스타포스 개수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
   if(msg.split(" ")[1] == "비용"){
     var sfrep = "";
     var sfcost = [];
@@ -1221,7 +1222,7 @@ gt.getStarforce = function (msg){
 gt.getSFsimulation = function (msg){
   rep = "";
   const sfsM = require('Starforce');
-  sfhelp = "!스타시뮬 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~200 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 시행 횟수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
+  sfhelp = "!스타시뮬 A B C D E F\n";  sfhelp += "A : 아이템 레벨 제한(100~250 or 타일런트:99)\n";   sfhelp += "B : 시작 스타포스 개수\n";     sfhelp += "C : 목표 시행 횟수\n";     sfhelp += "D : 스타캐치 적용여부 (0 - 미적용, 1 - 적용)\n";      sfhelp += "E : 이벤트 적용여부 (0 - 미적용, 1 - 30% 할인, 2 - 5,10,15성 100%, 3 - 10성이하 1+1, 4 - 30% 할인 & 5,10,15성 100%)\n";       sfhelp += "F : 파괴방지 적용여부 (0 - 미적용, 1 - 12~17성 적용, 2 - 15~17성 적용)";
   
   if(msg.split(" ").length < 7){
     rep = ("시뮬레이터를 돌리기 위한 요소들이 부족합니다.\n\n" + sfhelp);
@@ -1258,10 +1259,10 @@ gt.getStrong = function (msg, addtitle, addn){
   rep = "";
   var addLevel = msg.split(" ")[1];
   if(addLevel == undefined){
-    rep = ("레벨을 입력해주세요.\n\n!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.");
+    rep = ("레벨을 입력해주세요.\n\n!강환/!강환불/!영환/!영환불 (렙제) (횟수) : \n 150, 160, 200, 250제 방어구, 장신구의 추가옵션을 횟수만큼 돌립니다. \n횟수는 5이하 숫자만 가능하며 생략시 1회만 돌립니다.");
   }
-  else if(addLevel != 150 && addLevel != 160 && addLevel != 200){
-    rep = ("레벨은 150, 160, 200만 가능합니다.");
+  else if(addLevel != 150 && addLevel != 160 && addLevel != 200 && addLevel != 250){
+    rep = ("레벨은 150, 160, 200, 250만 가능합니다.");
   }
   else{
     const addM = require('Addop');
@@ -1269,6 +1270,7 @@ gt.getStrong = function (msg, addtitle, addn){
     if(addLevel == 150){ addResult += "150제 아이템 "; }
     else if(addLevel == 160){ addResult += "160제 아이템 "; }
     else if(addLevel == 200){ addResult += "200제 아이템 "; }
+    else if(addLevel == 250){ addResult += "250제 아이템 "; }
     addtitle[0] = addResult;
     if(msg.split(" ")[2] == undefined || msg.split(" ")[2] == 1){
       var addition = [];

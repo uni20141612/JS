@@ -213,6 +213,76 @@ add.addgetResult = function (addition, addLevel, addList, addResult){
       }
     }
     }
+    else if(addLevel == 250){
+      for(i = 0; i < addList.length; ++i){
+        addList_one = addList[i];
+        switch(addList_one){
+          case 0:
+            addSTR += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 1:
+            addDEX += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 2:
+            addINT += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 3:
+            addLUK += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 4:
+            addSTR += add250[addition[i] + (5 * addList_one)];
+            addDEX += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 5:
+            addSTR += add250[addition[i] + (5 * addList_one)];
+            addINT += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 6:        
+            addSTR += add250[addition[i] + (5 * addList_one)];
+            addLUK += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 7:
+            addDEX += add250[addition[i] + (5 * addList_one)];
+            addINT += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 8:
+            addDEX += add250[addition[i] + (5 * addList_one)];
+            addLUK += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 9:        
+            addINT += add250[addition[i] + (5 * addList_one)];
+            addLUK += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 10:
+            addHP += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 11:
+            addMP += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 12:
+            addAll += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 13:
+            addATK += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 14:
+            addMagic += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 15:
+            addMove += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 16:
+            addJump += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 17:
+            addDEF += add250[addition[i] + (5 * addList_one)];
+            break;
+          case 18:
+            addDR += add250[addition[i] + (5 * addList_one)];
+            break;
+        }
+      }
+      }
   
     if(addSTR != 0){
       addResult += "STR : +";
@@ -375,6 +445,27 @@ var add200 = [
     3, 4, 5, 6, 7,  //Move 75-79
     3, 4, 5, 6, 7,  //Jump 80-84
     33, 44, 55, 66, 77, //DEF 85-89
+    -15, -20, -25, -30, -35 //Decrease Restrict 90-94
+];
+var add250 = [
+    36, 48, 60, 72, 84, //STR 0-4
+    36, 48, 60, 72, 84, //DEX 5-9
+    36, 48, 60, 72, 84, //INT 10-14
+    36, 48, 60, 72, 84, //LUK 15-19
+    21, 28, 35, 42, 49, //STR + DEX 20-24
+    21, 28, 35, 42, 49, //STR + INT 25-29
+    21, 28, 35, 42, 49, //STR + LUK 30-34
+    21, 28, 35, 42, 49, //DEX + INT 35-39
+    21, 28, 35, 42, 49, //DEX + LUK 40-44
+    21, 28, 35, 42, 49, //INT + LUK 45-49
+    2100, 2800, 3500, 4200, 4900, //HP 50-54
+    2100, 2800, 3500, 4200, 4900, //MP 55-59
+    3, 4, 5, 6, 7,  //ALLStat 60-64
+    3, 4, 5, 6, 7,  //ATK 65-69
+    3, 4, 5, 6, 7,  //Magic 70-74
+    3, 4, 5, 6, 7,  //Move 75-79
+    3, 4, 5, 6, 7,  //Jump 80-84
+    36, 48, 60, 72, 84, //DEF 85-89
     -15, -20, -25, -30, -35 //Decrease Restrict 90-94
 ];
 module.exports = add;

@@ -515,6 +515,12 @@ gB.getBoss = function (boss){
         case "빅풋":
           chkboss = 60;
           break;
+        case "카링":
+        case "칼링":
+        case "도원경":
+        case "오디움":
+          chkboss = 61;
+          break;
         default:
           rep = "그런 보스는 없습니다.";
           chkboss = -1;
@@ -650,6 +656,9 @@ gB.getBossimage = function (ind){
       case 60:
         rep = "https://i.imgur.com/tOvkioz.png";  //익스트림 빅풋
         break;
+      case 61:
+        rep = "https://i.imgur.com/xw8xx1B.png"; //카링
+        break;
     }
     return rep;
 };
@@ -780,6 +789,9 @@ gB.getBossimage2 = function (ind){
         break;
       case 60:
         rep = "https://i.imgur.com/AGEhxPJ.png";  //익스트림 빅풋
+        break;
+      case 61:
+        rep = "https://i.imgur.com/pOGIuTg.png"; //카링
         break;
     }
     return rep;
@@ -969,6 +981,9 @@ gB.getBossHP = function (ind){
         break;
       case 60:
         rep = "15조";  //익스트림 빅풋
+        break;
+      case 61:
+        rep = "?? / 350,000,000메소"; //카링
         break;
         
     }
@@ -1165,6 +1180,9 @@ gB.getBossinfo = function (ind){
         case 60:
           rep = "300%, 반감, 바인드 면역";  //익스트림 빅풋
           break;
+        case 61:
+          rep = "380%, 반감, 바인드 면역"; //카링
+          break;
     }
     return rep; 
   };
@@ -1231,6 +1249,7 @@ var bossList = [
     "아르카누스 Lv.101\n60억ㆍ150억ㆍ1500억ㆍ1.5조ㆍ10.5조ㆍ900조\n50%ㆍ100%ㆍ150%ㆍ200%ㆍ250%ㆍ300%, 반감", //58
     "마왕 발록 Lv.65\n478만, 25%, 비반감, 3분간 무적",//59
     "익스트림 빅풋 Lv.260\n15조, 300%, 반감, 바인드 면역",//60
+    "카링 Lv.285\n??, 380%, 반감, 바인드 면역",//61
 ];
 
 module.exports = gB;

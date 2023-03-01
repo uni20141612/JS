@@ -242,7 +242,10 @@ sk.getJobcode = function(job) {
         break;       
     case "공용":
         ret = 64;
-        break;          
+        break;     
+    case "칼리":
+        ret = 65;
+        break;
 	default:
 		ret = -1;
 		break;
@@ -447,6 +450,9 @@ sk.getJobname = function(ind) {
     case 64:
         rep = "공용";
         break;
+    case 65:
+        rep = "칼리";
+        break;
     }
     return rep;
 };
@@ -647,6 +653,9 @@ sk.getJobskillList = function(ind) {
         break;
     case 64:
         rep = "공용 (이름은 모험가 기준으로 작성되었습니다.)\n\n4차 : 메이플 용사, 용사의 의지, 영웅의 메아리\n5차 : 로프 커넥트, 블링크, 에르다 노바, 에르다의 의지, 에르다 샤워, 쓸만한 미스틱 도어, 쓸만한 샤프 아이즈, 쓸만한 하이퍼 바디, 쓸만한 컴뱃 오더스, 쓸만한 어드밴스드 블레스, 쓸만한 윈드 부스터, 쓸만한 홀리 심볼, 스파이더 인 미러, 크레스트 오브 더 솔라";
+        break;
+    case 65:
+        rep = "칼리\n\n0차 : 매직 서킷, 이네이트 기프트\n1차 : 아츠 : 크로스 컷, 스파크, 보이드 러쉬, 플레어, 패이션스\n2차 : 아츠 : 듀얼 엣지, 아츠 : 크레센텀, 인새니티 I, 임펄스\n3차 : 아츠 : 트리플 배쉬, 헥스 : 차크람 스윕, 서먼 차크리, 레조네이트, 인새니티 II, 보이드 인핸스, 디서빙 블레이드, 인투이션, 비질런스\n4차 : 아츠 : 플러리, 헥스 : 차크람 스플릿, 헥스 : 차크람 퓨리, 보이드 블리츠, 데저트 베일, 인새니티 III, 어센드, 리뎀션\n하이퍼 스킬 : 오블리비온, 데스 블로섬\n5차 : 헥스 : 판데모니움, 보이드 버스트, 아츠 : 아스트라, 레조네이트 : 얼티메이텀";
         break;
     }
     return rep;
@@ -916,6 +925,10 @@ sk.getJobskillcode = function(jobcode, skillname){
             jobM = require('skillPublic');
             ret = jobM.getskillPublic(skillname);
             break;
+        case 65:
+            jobM = require('skillKhali');
+            ret = jobM.getskillKhali(skillname);
+            break;
     }
     return ret;
 }
@@ -1182,6 +1195,10 @@ sk.getJobskillname = function(jobcode, skillcode){
         case 64:
             jobM = require('skillPublic');
             rep = jobM.getskillnamePublic(skillcode);
+            break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskillnameKhali(skillcode);
             break;
     }
     return rep;
@@ -1450,6 +1467,10 @@ sk.getJobskilldesc1 = function(jobcode, skillcode){
             jobM = require('skillPublic');
             rep = jobM.getskilldesc1Public(skillcode);
             break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskilldesc1Khali(skillcode);
+            break;
     }
     return rep;
 };
@@ -1717,6 +1738,10 @@ sk.getJobskilldesc2 = function(jobcode, skillcode){
             jobM = require('skillPublic');
             rep = jobM.getskilldesc2Public(skillcode);
             break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskilldesc2Khali(skillcode);
+            break;
     }
     return rep;
 };
@@ -1905,6 +1930,10 @@ sk.getJobskilldesc3 = function(jobcode, skillcode){
         case 61:
             jobM = require('skillAll');            
             rep = jobM.getskilldesc3All(skillcode);        
+            break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskilldesc3Khali(skillcode);
             break;
     }
     return rep;
@@ -2174,6 +2203,10 @@ sk.getJobskillimage1 = function(jobcode, skillcode){
             jobM = require('skillPublic');
             rep = jobM.getskillimage1Public(skillcode);
             break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskillimage1Khali(skillcode);
+            break;
     }
     return rep;
 };
@@ -2440,6 +2473,10 @@ sk.getJobskillimage2 = function(jobcode, skillcode){
         case 64:
             jobM = require('skillPublic');
             rep = jobM.getskillimage2Public(skillcode);
+            break;
+        case 65:
+            jobM = require('skillKhali');
+            rep = jobM.getskillimage2Khali(skillcode);
             break;
     }
     return rep;
