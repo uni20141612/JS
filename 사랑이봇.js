@@ -13,6 +13,7 @@ KakaoApiService.createService().login({
   email: Logindata.split("kID:")[1].split("/")[0],
   password: Logindata.split("kpw:")[1].split("/")[0],
   keepLogin: true,
+  twoFA: true
 }).then(e => {
   Kakao.login(e, {
       apiKey: Logindata.split("ksec:")[1].split("/")[0],
@@ -39,7 +40,7 @@ Kakao.sendLink(room,
             },
              "custom", true);
 */
-function response(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
+function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageName) {
       
     if(!getMinute()){ //분당 1회 동작 예상
       try{
@@ -1000,16 +1001,17 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       else{
         var sunlink = SundayMaple.split("썬데이 메이플")[0]//
         var suntemp = sunlink.split("<a href=\"").length; 
-        sunlink = sunlink.split("<a href=\"")[suntemp-1].split("\">")[0];
+        sunlink = sunlink.split("<a href=\"")[suntemp-1].split("\"")[0];
         var Sundayurl = "https://maplestory.nexon.com" + sunlink;
         var dataSun = org.jsoup.Jsoup.connect(Sundayurl).get();
         dataSun = dataSun.toString();
-        var dataSundate = dataSun.split("event_date\">")[1].split("</span>")[0];
-        dataSundate = dataSundate.slice(2, dataSundate.length - 8).replace(/ 10시/g, "").replace(/ 00분/g, "").replace(/2022/g, "22");
-        suninfo = dataSun.split("blind")[1].split("<h2>")[1].split("</div>")[0]
-        dataSun = dataSun.split("썬데이메이플")[0].split("new_board_con")[1].split("src=\"")[1].split("\" alt")[0];
-        suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "")
-        replier.reply(suninfo)
+        // replier.reply(Sundayurl)
+        // var dataSundate = dataSun.split("event_date\">")[1].split("</span>")[0];
+        // dataSundate = dataSundate.slice(2, dataSundate.length - 8).replace(/ 10시/g, "").replace(/ 00분/g, "").replace(/2022/g, "22");
+        suninfo = dataSun.split("blind")[1].split("<h2>")[1].split("</div>")[0];
+        //dataSun = dataSun.split("썬데이메이플")[0].split("new_board_con")[1].split("src=\"")[1].split("\" alt")[0];
+        suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "").replace(/         /g, "");
+        replier.reply(suninfo);
         
         /*Kakao.sendLink(room,
         {
@@ -1667,7 +1669,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
         var hourchk = FileStream.read(hourpath);
         if(chkday.getHours() != parseInt(hourchk)){
           FileStream.write(hourpath, chkday.getHours());
-          Api.reload(scriptName);
+          //Api.reload(scriptName);
         }
       }
       if(msg.indexOf("시!") != -1){
@@ -1675,7 +1677,7 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
       }
       if(msg == "와!" || msg == "!와" || msg == "와"){
       i = getRandomInt(0, 100);
-      if(i < 30){  replier.reply("샌즈!"); }
+      if(i < 30){  replier.reply("와!"); }
       }
       if(msg == "?"){
       i = getRandomInt(0, 100);
@@ -1948,6 +1950,48 @@ function getMinute(){
     return true;
   }
 }
+
+function onNotificationPosted(sbn, sm) {
+  var packageName = sbn.getPackageName();
+  if (!packageName.startsWith("com.kakao.tal")) return;
+  var actions = sbn.getNotification().actions;
+  if (actions == null) return;
+  var userId = sbn.getUser().hashCode();
+  for (var n = 0; n < actions.length; n++) {
+      var action = actions[n];
+      if (action.getRemoteInputs() == null) continue;
+      var bundle = sbn.getNotification().extras;
+
+      var msg = bundle.get("android.text").toString();
+      var sender = bundle.getString("android.title");
+      var room = bundle.getString("android.subText");
+      if (room == null) room = bundle.getString("android.summaryText");
+      var isGroupChat = room != null;
+      if (room == null) room = sender;
+      var replier = new com.xfl.msgbot.script.api.legacy.SessionCacheReplier(packageName, action, room, false, "");
+      var icon = bundle.getParcelableArray("android.messages")[0].get("sender_person").getIcon().getBitmap();
+      var image = bundle.getBundle("android.wearable.EXTENSIONS");
+      if (image != null) image = image.getParcelable("background");
+      var imageDB = new com.xfl.msgbot.script.api.legacy.ImageDB(icon, image);
+      com.xfl.msgbot.application.service.NotificationListener.Companion.setSession(packageName, room, action);
+      if (this.hasOwnProperty("responseFix")) {
+        KakaoApiService.createService().login({
+          email: Logindata.split("kID:")[1].split("/")[0],
+          password: Logindata.split("kpw:")[1].split("/")[0],
+          keepLogin: true,
+        }).then(e => {
+          Kakao.login(e, {
+              apiKey: Logindata.split("ksec:")[1].split("/")[0],
+              url: 'https://developers.kakao.com'
+          });
+        }).catch(e => {
+          Log.e(e);
+        });
+          responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageName, userId != 0);
+      }
+  }
+}
+
 var ppgLangcode = [ "ko", "en", "ja", "zh-CN", "zh-TW", "vi", "id", "th", "de", "ru", "es", "it", "fr"];
 var banList = [1534153999];
 
