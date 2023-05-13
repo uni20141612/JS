@@ -97,8 +97,8 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         DataBase.setDataBase("Userdata.txt", "유저 정보\n\n"); 
       }
       if(msg.startsWith("테스트")){
-        //replier.reply(room + "\n" + msg + "\n" + sender + "\n" + isGroupChat + "\n" + replier + "\n" + imageDB);
-             
+        dataT1 = org.jsoup.Jsoup.connect("https://maplestory.nexon.com/Guide/OtherProbability/cube/black#a").get();
+        replier.reply(dataT1);
       }  
       if(msg == "!후원목록"){
         moneyrep = "언제나 감사합니다. (^_^)\n\n";

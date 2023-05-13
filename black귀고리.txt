@@ -1,7 +1,7 @@
 <div class="cube_option">
 <ul>
 <li>잠재능력 등급<span id="searchGrade">레어</span></li>
-<li>장비 분류<span id="searchPartsType">하의</span></li>
+<li>장비 분류<span id="searchPartsType">귀고리</span></li>
 <li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
 </ul>
 </div>
@@ -288,7 +288,7 @@
 <div class="cube_option">
 <ul>
 <li>잠재능력 등급<span id="searchGrade">에픽</span></li>
-<li>장비 분류<span id="searchPartsType">하의</span></li>
+<li>장비 분류<span id="searchPartsType">귀고리</span></li>
 <li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
 </ul>
 </div>
@@ -555,8 +555,8 @@
 <div class="cube_option">
 <ul>
 <li>잠재능력 등급<span id="searchGrade">유니크</span></li>
-<li>장비 분류<span id="searchPartsType">하의</span></li>
-<li>장비 레벨<span id="searchReqLev">120~200</span></li>
+<li>장비 분류<span id="searchPartsType">귀고리</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
 </ul>
 </div>
 <table class="cube_data _1">
@@ -573,47 +573,39 @@
 <tbody>
 <tr>
 <td>STR : +9%</td>
-<td>9.6154%</td>
+<td>11.3636%</td>
 </tr>
 <tr>
 <td>DEX : +9%</td>
-<td>9.6154%</td>
+<td>11.3636%</td>
 </tr>
 <tr>
 <td>INT : +9%</td>
-<td>9.6154%</td>
+<td>11.3636%</td>
 </tr>
 <tr>
 <td>LUK : +9%</td>
-<td>9.6154%</td>
+<td>11.3636%</td>
 </tr>
 <tr>
 <td>최대 HP : +9%</td>
-<td>11.5385%</td>
+<td>13.6364%</td>
 </tr>
 <tr>
 <td>최대 MP : +9%</td>
-<td>11.5385%</td>
+<td>13.6364%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>올스탯 : +6%</td>
-<td>7.6923%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 20% 무시</td>
-<td>7.6923%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 40% 무시</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
-<td>7.6923%</td>
-</tr>
-<tr>
-<td>&lt;쓸만한 하이퍼 바디&gt; 스킬 사용 가능</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 </tbody>
 </table>
@@ -663,47 +655,39 @@
 </tr>
 <tr>
 <td>STR : +9%</td>
-<td>1.9231%</td>
+<td>2.2727%</td>
 </tr>
 <tr>
 <td>DEX : +9%</td>
-<td>1.9231%</td>
+<td>2.2727%</td>
 </tr>
 <tr>
 <td>INT : +9%</td>
-<td>1.9231%</td>
+<td>2.2727%</td>
 </tr>
 <tr>
 <td>LUK : +9%</td>
-<td>1.9231%</td>
+<td>2.2727%</td>
 </tr>
 <tr>
 <td>최대 HP : +9%</td>
-<td>2.3077%</td>
+<td>2.7273%</td>
 </tr>
 <tr>
 <td>최대 MP : +9%</td>
-<td>2.3077%</td>
+<td>2.7273%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>1.8182%</td>
 </tr>
 <tr>
 <td>올스탯 : +6%</td>
-<td>1.5385%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 20% 무시</td>
-<td>1.5385%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 40% 무시</td>
-<td>1.5385%</td>
+<td>1.8182%</td>
 </tr>
 <tr>
 <td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
-<td>1.5385%</td>
-</tr>
-<tr>
-<td>&lt;쓸만한 하이퍼 바디&gt; 스킬 사용 가능</td>
-<td>1.5385%</td>
+<td>1.8182%</td>
 </tr>
 </tbody>
 </table>
@@ -753,47 +737,39 @@
 </tr>
 <tr>
 <td>STR : +9%</td>
-<td>0.4808%</td>
+<td>0.5682%</td>
 </tr>
 <tr>
 <td>DEX : +9%</td>
-<td>0.4808%</td>
+<td>0.5682%</td>
 </tr>
 <tr>
 <td>INT : +9%</td>
-<td>0.4808%</td>
+<td>0.5682%</td>
 </tr>
 <tr>
 <td>LUK : +9%</td>
-<td>0.4808%</td>
+<td>0.5682%</td>
 </tr>
 <tr>
 <td>최대 HP : +9%</td>
-<td>0.5769%</td>
+<td>0.6818%</td>
 </tr>
 <tr>
 <td>최대 MP : +9%</td>
-<td>0.5769%</td>
+<td>0.6818%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>0.4545%</td>
 </tr>
 <tr>
 <td>올스탯 : +6%</td>
-<td>0.3846%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 20% 무시</td>
-<td>0.3846%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 40% 무시</td>
-<td>0.3846%</td>
+<td>0.4545%</td>
 </tr>
 <tr>
 <td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
-<td>0.3846%</td>
-</tr>
-<tr>
-<td>&lt;쓸만한 하이퍼 바디&gt; 스킬 사용 가능</td>
-<td>0.3846%</td>
+<td>0.4545%</td>
 </tr>
 </tbody>
 </table>
@@ -802,8 +778,8 @@
 <div class="cube_option">
 <ul>
 <li>잠재능력 등급<span id="searchGrade">레전드리</span></li>
-<li>장비 분류<span id="searchPartsType">하의</span></li>
-<li>장비 레벨<span id="searchReqLev">120~200</span></li>
+<li>장비 분류<span id="searchPartsType">귀고리</span></li>
+<li>장비 레벨<span id="searchReqLev">120레벨 이상</span></li>
 </ul>
 </div>
 <table class="cube_data _1">
@@ -820,39 +796,51 @@
 <tbody>
 <tr>
 <td>STR : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>DEX : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>INT : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>LUK : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>최대 HP : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>최대 MP : +12%</td>
-<td>12.1212%</td>
+<td>9.3023%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>9.3023%</td>
 </tr>
 <tr>
 <td>올스탯 : +9%</td>
-<td>9.0909%</td>
+<td>6.9767%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 20% 무시</td>
-<td>9.0909%</td>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>6.9767%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 40% 무시</td>
-<td>9.0909%</td>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>6.9767%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>6.9767%</td>
 </tr>
 </tbody>
 </table>
@@ -870,83 +858,87 @@
 <tbody>
 <tr>
 <td>STR : +9%</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>DEX : +9%</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>INT : +9%</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>LUK : +9%</td>
-<td>7.6923%</td>
+<td>9.0909%</td>
 </tr>
 <tr>
 <td>최대 HP : +9%</td>
-<td>9.2308%</td>
+<td>10.9091%</td>
 </tr>
 <tr>
 <td>최대 MP : +9%</td>
-<td>9.2308%</td>
+<td>10.9091%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>7.2727%</td>
 </tr>
 <tr>
 <td>올스탯 : +6%</td>
-<td>6.1538%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 20% 무시</td>
-<td>6.1538%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 40% 무시</td>
-<td>6.1538%</td>
+<td>7.2727%</td>
 </tr>
 <tr>
 <td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
-<td>6.1538%</td>
-</tr>
-<tr>
-<td>&lt;쓸만한 하이퍼 바디&gt; 스킬 사용 가능</td>
-<td>6.1538%</td>
+<td>7.2727%</td>
 </tr>
 <tr>
 <td>STR : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>DEX : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>INT : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>LUK : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>최대 HP : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>최대 MP : +12%</td>
-<td>2.4242%</td>
+<td>1.8605%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>1.8605%</td>
 </tr>
 <tr>
 <td>올스탯 : +9%</td>
-<td>1.8182%</td>
+<td>1.3953%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 20% 무시</td>
-<td>1.8182%</td>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>1.3953%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 40% 무시</td>
-<td>1.8182%</td>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>1.3953%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>1.3953%</td>
 </tr>
 </tbody>
 </table>
@@ -964,83 +956,87 @@
 <tbody>
 <tr>
 <td>STR : +9%</td>
-<td>9.1346%</td>
+<td>10.7955%</td>
 </tr>
 <tr>
 <td>DEX : +9%</td>
-<td>9.1346%</td>
+<td>10.7955%</td>
 </tr>
 <tr>
 <td>INT : +9%</td>
-<td>9.1346%</td>
+<td>10.7955%</td>
 </tr>
 <tr>
 <td>LUK : +9%</td>
-<td>9.1346%</td>
+<td>10.7955%</td>
 </tr>
 <tr>
 <td>최대 HP : +9%</td>
-<td>10.9615%</td>
+<td>12.9545%</td>
 </tr>
 <tr>
 <td>최대 MP : +9%</td>
-<td>10.9615%</td>
+<td>12.9545%</td>
+</tr>
+<tr>
+<td>방어력 : +9%</td>
+<td>8.6364%</td>
 </tr>
 <tr>
 <td>올스탯 : +6%</td>
-<td>7.3077%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 20% 무시</td>
-<td>7.3077%</td>
-</tr>
-<tr>
-<td>피격 시 5% 확률로 데미지의 40% 무시</td>
-<td>7.3077%</td>
+<td>8.6364%</td>
 </tr>
 <tr>
 <td>HP 회복 아이템 및 회복 스킬 효율 : +30%</td>
-<td>7.3077%</td>
-</tr>
-<tr>
-<td>&lt;쓸만한 하이퍼 바디&gt; 스킬 사용 가능</td>
-<td>7.3077%</td>
+<td>8.6364%</td>
 </tr>
 <tr>
 <td>STR : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>DEX : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>INT : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>LUK : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>최대 HP : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>최대 MP : +12%</td>
-<td>0.6061%</td>
+<td>0.4651%</td>
+</tr>
+<tr>
+<td>방어력 : +12%</td>
+<td>0.4651%</td>
 </tr>
 <tr>
 <td>올스탯 : +9%</td>
-<td>0.4545%</td>
+<td>0.3488%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 20% 무시</td>
-<td>0.4545%</td>
+<td>모든 스킬의 MP 소모 : -15%</td>
+<td>0.3488%</td>
 </tr>
 <tr>
-<td>피격 시 10% 확률로 데미지의 40% 무시</td>
-<td>0.4545%</td>
+<td>모든 스킬의 MP 소모 : -30%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>메소 획득량 : +20%</td>
+<td>0.3488%</td>
+</tr>
+<tr>
+<td>아이템 드롭률 : +20%</td>
+<td>0.3488%</td>
 </tr>
 </tbody>
 </table>

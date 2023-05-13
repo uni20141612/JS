@@ -3446,8 +3446,8 @@ function Jari(price){
 
 cb.web = "https://maplestory.nexon.com/Guide/OtherProbability/cube/";
 cb.upred = [6.0, 1.8, 0.3];
-cb.upblack = [15.0, 3.5, 1.2];
-cb.upaddi = [4.7619, 1.9608, 0.6];
+cb.upblack = [15.0, 3.5, 1.4];
+cb.upaddi = [4.7619, 1.9608, 0.7];
 cb.upstrange = [0.9901];
 cb.upmaster = [4.7619, 1.1858];
 cb.upartisan = [7.9994, 1.6959, 0.1996];
