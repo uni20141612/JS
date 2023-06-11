@@ -253,9 +253,13 @@ sb.getSymbolcumulmeso = function(sbind, level){
             meso = getsbcumulRHmeso(level);
             break;
         case 3:
+            meso = getsbcumulACmeso(level);
+            break;
         case 4:
+            meso = getsbcumulMRmeso(level);
+            break;
         case 5:
-            meso = getsbcumulmeso(level);
+            meso = getsbcumulEPmeso(level);
             break;
         case 6:
             meso = getsncumulmeso(level);
@@ -380,7 +384,11 @@ function getascumulexp2(lvlc){
     return cumulate(asexp, lvlc-1);
 }
 function getsbYRmeso(lvl){
-    return (3110000 + 3960000*lvl);    
+    ms = 0.1*(Math.pow(lvl,3)) + 8*(Math.pow(lvl,2)) + 1.1*lvl + 88;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (3110000 + 3960000*lvl);    
+    return msi;
 }
 function getsbcumulYRmeso(lvl){
     var sbmesoy = [];
@@ -388,10 +396,14 @@ function getsbcumulYRmeso(lvl){
         var tempmesoy = getsbYRmeso(i);
         sbmesoy.push(tempmesoy);
     }
-    return 811490000 - cumulate(sbmesoy, lvl-2);
+    return 252470000 - cumulate(sbmesoy, lvl-2);
 }
 function getsbCCmeso(lvl){
-    return (6220000 + 4620000*lvl);    
+    ms = 0.1*(Math.pow(lvl,3)) + 10*(Math.pow(lvl,2)) + 1.1*lvl + 110;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (6220000 + 4620000*lvl);    
+    return msi;
 }
 function getsbcumulCCmeso(lvl){
     var sbmesoc = [];
@@ -399,10 +411,14 @@ function getsbcumulCCmeso(lvl){
         var tempmesoc = getsbCCmeso(i);
         sbmesoc.push(tempmesoc);
     }
-    return 995980000 - cumulate(sbmesoc, lvl-2);
+    return 306050000 - cumulate(sbmesoc, lvl-2);
 }
 function getsbRHmeso(lvl){
-    return (9330000 + 5280000*lvl);    
+    ms = 0.1*(Math.pow(lvl,3)) + 12*(Math.pow(lvl,2)) + 1.1*lvl + 132;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (9330000 + 5280000*lvl);    
+    return msi;
 }
 function getsbcumulRHmeso(lvl){
     var sbmesor = [];
@@ -410,10 +426,59 @@ function getsbcumulRHmeso(lvl){
         var tempmesor = getsbRHmeso(i);
         sbmesor.push(tempmesor);
     }
-    return 1180470000 - cumulate(sbmesor, lvl-2);
+    return 359600000 - cumulate(sbmesor, lvl-2);
+}
+function getsbACmeso(lvl){
+    ms = 0.1*(Math.pow(lvl,3)) + 14*(Math.pow(lvl,2)) + 1.1*lvl + 154;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (9330000 + 5280000*lvl);    
+    return msi;
+}
+function getsbcumulACmeso(lvl){
+    var sbmesor = [];
+    for(var i = 1; i < lvl; ++i){
+        var tempmesor = getsbACmeso(i);
+        sbmesor.push(tempmesor);
+    }
+    return 413210000 - cumulate(sbmesor, lvl-2);
+}
+function getsbMRmeso(lvl){
+    ms = 0.1*(Math.pow(lvl,3)) + 16*(Math.pow(lvl,2)) + 1.1*lvl + 176;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (9330000 + 5280000*lvl);    
+    return msi;
+}
+function getsbcumulMRmeso(lvl){
+    var sbmesor = [];
+    for(var i = 1; i < lvl; ++i){
+        var tempmesor = getsbMRmeso(i);
+        sbmesor.push(tempmesor);
+    }
+    return 466790000 - cumulate(sbmesor, lvl-2);
+}
+function getsbEPmeso(lvl){
+    ms = 0.1*(Math.pow(lvl,3)) + 18*(Math.pow(lvl,2)) + 1.1*lvl + 198;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (9330000 + 5280000*lvl);    
+    return msi;
+}
+function getsbcumulEPmeso(lvl){
+    var sbmesor = [];
+    for(var i = 1; i < lvl; ++i){
+        var tempmesor = getsbEPmeso(i);
+        sbmesor.push(tempmesor);
+    }
+    return 520370000 - cumulate(sbmesor, lvl-2);
 }
 function getsbmeso(lvl){
-    return (11196000 + 5940000*lvl);
+    ms = 0.1*(Math.pow(lvl,3)) + 14*(Math.pow(lvl,2)) + 1.1*lvl + 154;
+    msi = parseInt(ms);
+    msi = msi * 10000;
+    // return (11196000 + 5940000*lvl);
+    return msi;
 }
 function getsbcumulmeso(lvl){
     var sbmeso = [];
@@ -421,10 +486,14 @@ function getsbcumulmeso(lvl){
         var tempmeso = getsbmeso(i);
         sbmeso.push(tempmeso);
     }
-    return 1341324000 - cumulate(sbmeso, lvl-2);
+    return 413210000 - cumulate(sbmeso, lvl-2);
 }
 function getsnmeso(lvl){
-    return (96900000 + 88500000*lvl);
+    ms = -5.4*(Math.pow(lvl,3)) + 106.8*(Math.pow(lvl,2)) + 264*lvl;
+    msi = parseInt(ms);
+    msi = msi * 100000;
+    // return (96900000 + 88500000*lvl);
+    return msi;
 }
 function getsncumulmeso(lvl){
     var snmeso = [];
@@ -432,10 +501,14 @@ function getsncumulmeso(lvl){
         var tempsn = getsnmeso(i);
         snmeso.push(tempsn);
     }
-    return 5836500000 - cumulate(snmeso, lvl-2);
+    return 3930100000 - cumulate(snmeso, lvl-2);
 }
 function getarmeso(lvl){
-    return (106600000 + 97300000*lvl);
+    ms = -5.4*(Math.pow(lvl,3)) + 123*(Math.pow(lvl,2)) + 300*lvl;
+    msi = parseInt(ms);
+    msi = msi * 100000;
+    // return (106600000 + 97300000*lvl);
+    return msi;
 }
 function getarcumulmeso(lvl){
     var armeso = [];
@@ -443,10 +516,14 @@ function getarcumulmeso(lvl){
         var tempar = getarmeso(i);
         armeso.push(tempar);
     }
-    return 6417500000 - cumulate(armeso, lvl-2);
+    return 4751600000 - cumulate(armeso, lvl-2);
 }
 function getodimeso(lvl){
-    return (117400000 + 107100000*lvl);
+    ms = -5.4*(Math.pow(lvl,3)) + 139.2*(Math.pow(lvl,2)) + 336*lvl;
+    msi = parseInt(ms);
+    msi = msi * 100000;
+    // return (117400000 + 107100000*lvl);
+    return msi;
 }
 function getodicumulmeso(lvl){
     var odimeso = [];
@@ -454,7 +531,7 @@ function getodicumulmeso(lvl){
         var tempodi = getodimeso(i);
         odimeso.push(tempodi);
     }
-    return 7064500000 - cumulate(odimeso, lvl-2);
+    return 5573300000 - cumulate(odimeso, lvl-2);
 }
 function cumulate(arr, ind) {
     var ret = 0;

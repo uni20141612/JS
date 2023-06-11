@@ -646,6 +646,7 @@ gt.getInform = function (dataarr, dataC1){
     var dataC4_nameandServer = dataC3.split(",")[iIndex]; iIndex++;
 
     var dataC4_mureung = dataC3.split(",")[iIndex];  if(dataC4_mureung == undefined){ dataC4_mureung = "-";}
+    if(dataC4_mureung.indexOf("최고무릉") == -1){ dataC4_mureung = "무릉:기록없음";}
     if(dataC4_mureung.slice(0,2) == "최고"){dataC4_mureung = dataC4_mureung.slice(2,dataC4_mureung.length); iIndex++;}
     else{dataC4_mureung = "무릉:기록없음";}
 

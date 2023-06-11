@@ -1571,19 +1571,19 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         dataC1 = dataC1.toString();
         var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
         var informrep = guitarM.getInform(dataarr, dataC1);
+        // Kakao.sendLink(room,
+        //   {
+        //     "link_ver" : "4.0",
+        //     "template_id" : 59430,
+        //     "template_args" : {
+        //       "profile" : dataarr[0] + " | " + dataarr[1],
+        //       "desc" : dataarr[2] + "\n" + dataarr[3] + "\n" + dataarr[4],
+        //       "server" : dataarr[5],
+        //       "image" : dataarr[6]
+        //     }
+        //   },
+        //   "custom", true);
         if(informrep != "그런 캐릭터는 없습니다."){
-          // Kakao.sendLink(room,
-          //   {
-          //     "link_ver" : "4.0",
-          //     "template_id" : 59430,
-          //     "template_args" : {
-          //       "profile" : dataarr[0] + " | " + dataarr[1],
-          //       "desc" : dataarr[2] + "\n" + dataarr[3] + "\n" + dataarr[4],
-          //       "server" : dataarr[5],
-          //       "image" : dataarr[6]
-          //     }
-          //   },
-          //   "custom", true);
           informrep2 = dataarr[3] + "\n" + dataarr[4];
           shortrep = shortenURL(dataarr[6]);
           java.lang.Thread.sleep(1000);
