@@ -9,6 +9,7 @@ map.getMap = function(msg){
         else{
             var mapC = this.getMapcode(mapN);
             if(mapC == -1){ rep = mapN + " >> 목록에 없는 맵입니다. 확인 후 다시 입력해주세요."; }
+            else if(mapC > -1 & mapC < 12){ rep = "*" + this.getMapname(mapC) + "*" + "-"}
             else{
                 rep = "*" + this.getMapname(mapC) + "*" + this.getMapMob(mapC);
             }
@@ -194,16 +195,16 @@ map.getMapMob = function(mapcode){
             rep = "https://i.imgur.com/k8zNnlV.png";
             break;
         case 12:
-            rep = "https://i.imgur.com/2GSPUPt.png";
+            rep = "암석1: 33\n암석2: 33\n암석3: 38\n암석4: 38\n\n서쪽성벽1: 33\n서쪽성벽2: 32\n서쪽성벽3: 38\n\n동쪽성벽1: 32\n동쪽성벽2: 33\n동쪽성벽3: 37\n\n도서관1: 33\n도서관2: 31\n도서관3: 37\n도서관4: 33\n도서관5: 32\n도서관6: 37";
             break;
         case 13:
-            rep = "https://i.imgur.com/4l04Xpi.png";
+            rep = "서쪽성벽1: 32\n서쪽성벽2: 32\n서쪽성벽3: 38\n서쪽성벽4: 37\n\n동쪽성벽1: 33\n동쪽성벽2: 32\n동쪽성벽3: 37\n동쪽성벽4: 33\n동쪽성벽5: 33\n동쪽성벽6: 37\n\n도서관1: 32\n도서관2: 33\n도서관3: 38\n도서관4: 33\n도서관5: 31\n도서관6: 38";
             break;
         case 14:
-            rep = "https://i.imgur.com/ztyr1el.png";
+            rep = "황야1: 33\n황야2: 31\n황야3: 37\n황야4: 38\n\n극장1: 33\n극장2: 30\n극장3: 37\n극장4: 33\n극장5: 32\n극장6: 38\n\n열차1: 33\n열차2: 30\n열차3: 35\n열차4: 33\n열차5: 27\n열차6: 32";
             break;
         case 15:
-            rep = "https://i.imgur.com/I1GuVRG.png";
+            rep = "성문1: 32\n성문2: 33\n성문3: 36\n성문4: 39\n\n골목1: 32\n골목2: 32\n골목3: 36\n골목4: 38\n\n실험실1: 32\n실험실2: 37\n실험실3: 39\n\n뒤실험실1: 32\n뒤실험실2: 36\n뒤실험실3: 39";
             break;
     }
     return rep;

@@ -406,16 +406,17 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
       replier.reply(help);*/
       var help = "redirect.html";
       var helpweb = "help.html";
-      Kakao.sendLink(room,
-        {
-          "link_ver" : "4.0",
-          "template_id" : 64077,
-          "template_args" : {
-                                "link" : help,
-                                "link2" : helpweb
-                            }
-        },
-         "custom", true);
+      // Kakao.sendLink(room,
+      //   {
+      //     "link_ver" : "4.0",
+      //     "template_id" : 64077,
+      //     "template_args" : {
+      //                           "link" : help,
+      //                           "link2" : helpweb
+      //                       }
+      //   },
+      //    "custom", true);
+      replier.reply("도움말 페이지 : " + "http://bomabot.dothome.co.kr/help.html");
     }
     if(msg.startsWith("!디데이")){
       var ddayrep = guitarM.getDday(msg);
@@ -532,18 +533,22 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
       else{
         var mapn = maprep.split("*")[1];
         var mapc = maprep.split("*")[2];
-        var mapcl = mapc.split(".com/")[1];
-        Kakao.sendLink(room,
-          {
-            "link_ver" : "4.0",
-            "template_id" : 63410,
-            "template_args" : {
-                                  "imagetitle" : mapn,
-                                  "image" : mapc,
-                                  "imagelink" : mapcl
-                              }
-          },
-          "custom", true);
+        maprep2 = "-"
+        if(mapc == '-'){ maprep2 = mapn + "\n\n" + "데이터 추가중"; }
+        else{ maprep2 = mapn + "\n\n" + mapc; }
+        // var mapcl = mapc.split(".com/")[1];
+        // Kakao.sendLink(room,
+        //   {
+        //     "link_ver" : "4.0",
+        //     "template_id" : 63410,
+        //     "template_args" : {
+        //                           "imagetitle" : mapn,
+        //                           "image" : mapc,
+        //                           "imagelink" : mapcl
+        //                       }
+        //   },
+        //   "custom", true);
+        replier.reply(maprep2);
       }
     }
     if(msg == "!명령어"){
@@ -846,19 +851,23 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         var MonEXP = monrep.split("★")[3];
         var Monarea = monrep.split("★")[4];
 
-        Kakao.sendLink(room,
-          {
-            "link_ver" : "4.0",
-            "template_id" : 60491,
-            "template_args" : {
-                                  "skillname" : Monname,
-                                  "skillimage1" : Monimage,
-                                  "skillimage2" : Monarea,
-                                  "skilldesc1" : MonHP,
-                                  "skilldesc2" : MonEXP
-                              }
-          },
-           "custom", true);
+        // Kakao.sendLink(room,
+        //   {
+        //     "link_ver" : "4.0",
+        //     "template_id" : 60491,
+        //     "template_args" : {
+        //                           "skillname" : Monname,
+        //                           "skillimage1" : Monimage,
+        //                           "skillimage2" : Monarea,
+        //                           "skilldesc1" : MonHP,
+        //                           "skilldesc2" : MonEXP
+        //                       }
+        //   },
+        //    "custom", true);
+        monrep2 = Monname;
+        monrep2 += "\n\n" + MonHP;
+        monrep2 += "\n" + MonEXP;
+        replier.reply(monrep2);
       }
       else{
         replier.reply(monrep);
@@ -926,19 +935,23 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
           bname = BossM.getBossname(re);
           bHP = BossM.getBossHP(re);
           binfo = BossM.getBossinfo(re);
-          Kakao.sendLink(room,
-            {
-              "link_ver" : "4.0",
-              "template_id" : 59498,
-              "template_args" : {
-                                    "bossimage" : bimage,
-                                    "bossimage2" : bimage2,
-                                    "bossname" : bname,
-                                    "bossHP" : bHP,
-                                    "bossinfo" : binfo
-                                }
-            },
-              "custom", true);
+          // Kakao.sendLink(room,
+          //   {
+          //     "link_ver" : "4.0",
+          //     "template_id" : 59498,
+          //     "template_args" : {
+          //                           "bossimage" : bimage,
+          //                           "bossimage2" : bimage2,
+          //                           "bossname" : bname,
+          //                           "bossHP" : bHP,
+          //                           "bossinfo" : binfo
+          //                       }
+          //   },
+          //     "custom", true);
+          var bossrep = bname;
+          bossrep += "\n\n" + bHP;
+          bossrep += "\n" + binfo;
+          replier.reply(bossrep);
         }
         else{
           replier.reply(re);
@@ -1005,13 +1018,10 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         var Sundayurl = "https://maplestory.nexon.com" + sunlink;
         var dataSun = org.jsoup.Jsoup.connect(Sundayurl).get();
         dataSun = dataSun.toString();
-        // replier.reply(Sundayurl)
-        // var dataSundate = dataSun.split("event_date\">")[1].split("</span>")[0];
-        // dataSundate = dataSundate.slice(2, dataSundate.length - 8).replace(/ 10시/g, "").replace(/ 00분/g, "").replace(/2022/g, "22");
-        suninfo = dataSun.split("blind")[1].split("<h2>")[1].split("</div>")[0];
-        //dataSun = dataSun.split("썬데이메이플")[0].split("new_board_con")[1].split("src=\"")[1].split("\" alt")[0];
-        suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "").replace(/         /g, "");
-        replier.reply(suninfo);
+        replier.reply(Sundayurl);
+        // suninfo = dataSun.split("blind")[1].split("<h2>")[1].split("</div>")[0];
+        // suninfo = suninfo.replace(/<\/h2>/g, "").replace(/<p>/g, "").replace(/<\/p>/g, "").replace(/         /g, "");
+        // replier.reply(suninfo);
         
         /*Kakao.sendLink(room,
         {
@@ -1103,20 +1113,24 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
               var skilldesc3 = "-";
               var skillimage1 = skillM.getJobskillimage1(jobcode, skillcode);
               var skillimage2 = skillM.getJobskillimage2(jobcode, skillcode);           
-              Kakao.sendLink(room,
-                {
-                  "link_ver" : "4.0",
-                  "template_id" : 60491,
-                  "template_args" : {
-                                        "skillname" : skillname,
-                                        "skilldesc1" : skilldesc1,
-                                        "skilldesc2" : skilldesc2,
-                                        "skillimage1" : skillimage1,
-                                        "skillimage2" : skillimage2
-                                    }
-                },
-                 "custom", true);
-                 java.lang.Thread.sleep(5000)
+              // Kakao.sendLink(room,
+              //   {
+              //     "link_ver" : "4.0",
+              //     "template_id" : 60491,
+              //     "template_args" : {
+              //                           "skillname" : skillname,
+              //                           "skilldesc1" : skilldesc1,
+              //                           "skilldesc2" : skilldesc2,
+              //                           "skillimage1" : skillimage1,
+              //                           "skillimage2" : skillimage2
+              //                       }
+              //   },
+              //    "custom", true);
+              var skillrep = skillM.getJobname(jobcode) + " : " + skillname;
+              skillrep += "\n\n" + skilldesc1;
+              skillrep += "\n" + skilldesc2;
+              replier.reply(skillrep);
+              java.lang.Thread.sleep(2000);
                  if(skilldesc1 == "하단 참조"){
                    skilldesc3 = skillM.getJobskilldesc3(jobcode, skillcode);
                    replier.reply(skilldesc3);
@@ -1164,18 +1178,23 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         var seeddesc2 = seedrep.split("★")[3];
         var seedeffect = seedrep.split("★")[4];
         var seedimage = seedrep.split("★")[5];
-        Kakao.sendLink(room,
-                    {
-                      "link_ver" : "4.0",
-                      "template_id" : 61614,
-                      "template_args" : {
-                                            "itemname" : seedname,
-                                            "itemdesc1" : seeddesc1,
-                                            "itemdesc2" : seeddesc2,
-                                            "itemimage" : seedimage
-                                        }
-                    },
-                     "custom", true);
+        // Kakao.sendLink(room,
+        //             {
+        //               "link_ver" : "4.0",
+        //               "template_id" : 61614,
+        //               "template_args" : {
+        //                                     "itemname" : seedname,
+        //                                     "itemdesc1" : seeddesc1,
+        //                                     "itemdesc2" : seeddesc2,
+        //                                     "itemimage" : seedimage
+        //                                 }
+        //             },
+        //              "custom", true);
+        var seedrep2 = seedname;
+        seedrep2 += "\n\n" + seeddesc1;
+        seedrep2 += "\n" + seeddesc2;
+        replier.reply(seedrep2);
+        java.lang.Thread.sleep(2000);
         replier.reply(seedeffect);
       }
     }
@@ -1199,26 +1218,38 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         tempRT = dataRT.split("keyword\":\"")[i+1].split("\",\"")[0];
         dataRTarr.push(tempRT);
       }
-      Kakao.sendLink(room,
-        {
-          "link_ver" : "4.0",
-          "template_id" : 59549,
-          "template_args" : {
-                               "title0" : dataRTarr[0], "title1" : dataRTarr[1], "title2" : dataRTarr[2], "title3" : dataRTarr[3], "title4" : dataRTarr[4], 
-                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139017.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139333.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139330.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139327.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139325.png"
-                            }
-        },
-         "custom", true);
-      Kakao.sendLink(room,
-        {
-          "link_ver" : "4.0",
-          "template_id" : 59549,
-          "template_args" : {
-                               "title0" : dataRTarr[5], "title1" : dataRTarr[6], "title2" : dataRTarr[7], "title3" : dataRTarr[8], "title4" : dataRTarr[9], 
-                               "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
-                            }
-        },
-         "custom", true);
+      // Kakao.sendLink(room,
+      //   {
+      //     "link_ver" : "4.0",
+      //     "template_id" : 59549,
+      //     "template_args" : {
+      //                          "title0" : dataRTarr[0], "title1" : dataRTarr[1], "title2" : dataRTarr[2], "title3" : dataRTarr[3], "title4" : dataRTarr[4], 
+      //                          "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139017.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139333.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139330.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139327.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139325.png"
+      //                       }
+      //   },
+      //    "custom", true);
+      // Kakao.sendLink(room,
+      //   {
+      //     "link_ver" : "4.0",
+      //     "template_id" : 59549,
+      //     "template_args" : {
+      //                          "title0" : dataRTarr[5], "title1" : dataRTarr[6], "title2" : dataRTarr[7], "title3" : dataRTarr[8], "title4" : dataRTarr[9], 
+      //                          "image0" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139321.png", "image1" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139318.png", "image2" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139315.png", "image3" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139312.png", "image4" : "https://cdn.icon-icons.com/icons2/2249/PNG/512/numeric_box_outline_icon_139337.png"
+      //                       }
+      //   },
+      //    "custom", true);
+      var RTrep = "실시간 검색어\n";
+      RTrep += "\n1. " + dataRTarr[0];
+      RTrep += "\n2. " + dataRTarr[1];
+      RTrep += "\n3. " + dataRTarr[2];
+      RTrep += "\n4. " + dataRTarr[3];
+      RTrep += "\n5. " + dataRTarr[4];
+      RTrep += "\n6. " + dataRTarr[5];
+      RTrep += "\n7. " + dataRTarr[6];
+      RTrep += "\n8. " + dataRTarr[7];
+      RTrep += "\n9. " + dataRTarr[8];
+      RTrep += "\n10. " + dataRTarr[9];
+      replier.reply(RTrep);
     }
     if(msg.startsWith("!심볼")){
       const symbolM = require('Symbol');
@@ -1460,17 +1491,20 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
       dataE3 = dataE.split("tbl_col")[1];
       var eventimage = dataE3.split("img src=\"")[1].split("\"")[0];
       var eventlink = eventimage.split("http://help.nexon.com")[1];
-      Kakao.sendLink(room,
-        {
-          "link_ver" : "4.0",
-          "template_id" : 59585,
-          "template_args" : {
-                                "eventtitle" : eventtitle,
-                                "eventimage" : eventimage,
-                                "eventimagelink" : eventlink
-                            }
-        },
-         "custom", true);
+      // Kakao.sendLink(room,
+      //   {
+      //     "link_ver" : "4.0",
+      //     "template_id" : 59585,
+      //     "template_args" : {
+      //                           "eventtitle" : eventtitle,
+      //                           "eventimage" : eventimage,
+      //                           "eventimagelink" : eventlink
+      //                       }
+      //   },
+      //    "custom", true);
+      var eventrep = eventtitle;
+      eventrep += "\n링크 : http://help.nexon.com" + eventlink;
+      replier.reply(eventrep);
     }
     if(msg.startsWith("!익성비")){
       var extremerep = guitarM.getExtreme(sender, msg);
@@ -1538,20 +1572,25 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
         var informrep = guitarM.getInform(dataarr, dataC1);
         if(informrep != "그런 캐릭터는 없습니다."){
-          Kakao.sendLink(room,
-            {
-              "link_ver" : "4.0",
-              "template_id" : 59430,
-              "template_args" : {
-                "profile" : dataarr[0] + " | " + dataarr[1],
-                "desc" : dataarr[2] + "\n" + dataarr[3] + "\n" + dataarr[4],
-                "server" : dataarr[5],
-                "image" : dataarr[6]
-              }
-            },
-            "custom", true);
+          // Kakao.sendLink(room,
+          //   {
+          //     "link_ver" : "4.0",
+          //     "template_id" : 59430,
+          //     "template_args" : {
+          //       "profile" : dataarr[0] + " | " + dataarr[1],
+          //       "desc" : dataarr[2] + "\n" + dataarr[3] + "\n" + dataarr[4],
+          //       "server" : dataarr[5],
+          //       "image" : dataarr[6]
+          //     }
+          //   },
+          //   "custom", true);
+          informrep2 = dataarr[3] + "\n" + dataarr[4];
+          shortrep = shortenURL(dataarr[6]);
+          java.lang.Thread.sleep(1000);
+          informrep2 += "\n캐릭터 이미지 : " + shortrep;
           }
-        java.lang.Thread.sleep(3000);
+        replier.reply(informrep2);
+        java.lang.Thread.sleep(2000);
         replier.reply(informrep);
       }
     }
@@ -1567,16 +1606,20 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
         var dataarr = ["-", "-", "-", "-", "-", "-", "-"];
         var informrep = guitarM.getInform(dataarr, dataC1);
         if(informrep != "그런 캐릭터는 없습니다."){
-          Kakao.sendLink(room,
-          {
-            "link_ver" : "4.0",
-            "template_id" : 59430,
-            "template_args" : {
-                                  "image" : dataarr[6]
-                              }
-          },
-           "custom", true);
+          // Kakao.sendLink(room,
+          // {
+          //   "link_ver" : "4.0",
+          //   "template_id" : 59430,
+          //   "template_args" : {
+          //                         "image" : dataarr[6]
+          //                     }
+          // },
+          //  "custom", true);
+          shortrep = shortenURL(dataarr[6]);
+          java.lang.Thread.sleep(1000);
+          informrep = "캐릭터 이미지 : " + shortrep;
         }
+        replier.reply(informrep);
       }
     }
     /*
@@ -1731,9 +1774,6 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
     if(msg == "!후원"){
       replier.reply("여러분의 후원은 보마봇에게 큰 힘이 됩니다.\n언제나 감사합니다.\n\nhttps://toss.me/bomabot");
       moneyrep = "언제나 감사합니다. (^_^)\n\n";
-      moneyrep += "스카윈브 님\n";
-      moneyrep += "레드비숍 님\n";
-      moneyrep += "나랑사귀자 님\n";
       replier.reply(moneyrep);
     }
     if(msg.startsWith("!")){
