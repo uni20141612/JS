@@ -1169,6 +1169,7 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
     if(msg.startsWith("!시드링")){
       const seedM = require('Seed');
       var seedrep = seedM.getSeed(msg);
+      // var seedrep = seedM.getSeedtest(msg);
       if(seedrep.slice(0, 1) != "★"){
         replier.reply(seedrep);
       }
@@ -1322,7 +1323,7 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
           else if(symbollevel < 1 || symbollevel > 19){
             replier.reply(symbollevel + " >> 심볼 레벨이 범위(1~19)를 초과하였습니다.");
           }
-          else if((symbolind == 6 || symbolind == 7 || symbolind == 8) && symbollevel > 10){
+          else if((symbolind == 6 || symbolind == 7 || symbolind == 8 || symbolind == 9) && symbollevel > 10){
             replier.reply(symbollevel + " >> 심볼 레벨이 범위(1~10)를 초과하였습니다.");
           }
           else if(symbolexp == undefined){
