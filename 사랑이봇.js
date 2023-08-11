@@ -113,34 +113,6 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
       }
     }
     if(sender == "니아봇"){      if(msg.indexOf("\u200B") != -1){        niamsg = msg.replace(/\u200B/g, "");   java.lang.Thread.sleep(20*1000);    replier.reply(niamsg);      }     }  
-    /*if(msg == "!대선" || msg == "!개표" || msg == "!투표"){
-      var elecrep = org.jsoup.Jsoup.connect("https://search.naver.com/search.naver?where=nexearch&sm=tab_etc&mra=bjFY&x_csa=%7B%22isMapTab%22%3Afalse%7D&pkid=7001&qvt=0&query=%EC%A0%9C20%EB%8C%80%20%EB%8C%80%ED%86%B5%EB%A0%B9%EC%84%A0%EA%B1%B0%20%EC%A0%84%EA%B5%AD%20%EA%B0%9C%ED%91%9C%ED%98%84%ED%99%A9").get().toString();
-      var elecrep2 = elecrep.split("number_area")[1].split("선거인수")[0];
-      var gaepyo = elecrep2.split("\">")[1].split("</span>")[0];
-      var etime = elecrep2.split("time_info\">")[1].split("</span>")[0];
-      var gaepyosum = elecrep2.split("count_num\">")[1].split("<span")[0];
-
-      var elecrep3 = "제 20대 대통령선거 개표현황\n";
-      elecrep3 += etime;
-      elecrep3 += "\n\n개표율 : " + gaepyo;
-      elecrep3 += "%\n개표수 : " + gaepyosum + "표";
-
-      var elec2 = elecrep.split("윤석열")[1].split("심상정")[0];
-      var duc1 = elec2.split("득표율</span>")[1].split("</span><span")[0];
-      var duc2 = elec2.split("득표율</span>")[2].split("</span><span")[0];
-      var duc11 = parseFloat(duc1);
-      var duc22 = parseFloat(duc2);
-      var duc0 = parseFloat(gaepyosum.replace(/,/g, ''));
-      var duc111 = Math.round(duc0 * duc11 / 100); 
-      var duc222 = Math.round(duc0 * duc22 / 100); 
-      
-      elecrep3 += "\n\n윤석열 후보 득표율 : " + duc1 + "%";
-      elecrep3 += "\n이재명 후보 득표율 : " + duc2 + "%";
-      elecrep3 += "\n표차 : " + (duc111 - duc222) + "표";
-      elecrep3 += "\n\n본 결과는 네이버에서 제공하는 결과로서 보마봇은 중립을 지킬것입니다.";
-      replier.reply(elecrep3);
-      //replier.reply(elec2);
-    }*/
     if(msg == "!족보"){
       replier.reply("https://qr96.github.io/Puzzle-Master/");
     }
@@ -723,21 +695,26 @@ function responseFix(room, msg, sender, isGroupChat, replier, imageDB, packageNa
             if(mchp != "-"){mchpjari = jariM.Jari2(parseInt(mchp.replace(/,/g, ""))).replace(/ 0억/g, "").replace(/ 0만/g, "").replace(/ 0/g, "");}
             var minc = mrM.monsterhpincrease[stair];
             var mimage = mrM.monsterimage[stair];
-            Kakao.sendLink(room,
-              {
-                "link_ver" : "4.0",
-                "template_id" : 60127,
-                "template_args" : {
-                                      "stair" : stair,
-                                      "monstername" : mname,
-                                      "monsterlevel" : mlevel,
-                                      "monsterhp" : mhpjari,
-                                      "monsterchp" : mchpjari,
-                                      "monsterinc" : minc,
-                                      "monsterimage" : mimage
-                                  }
-              },
-               "custom", true);
+            // Kakao.sendLink(room,
+            //   {
+            //     "link_ver" : "4.0",
+            //     "template_id" : 60127,
+            //     "template_args" : {
+            //                           "stair" : stair,
+            //                           "monstername" : mname,
+            //                           "monsterlevel" : mlevel,
+            //                           "monsterhp" : mhpjari,
+            //                           "monsterchp" : mchpjari,
+            //                           "monsterinc" : minc,
+            //                           "monsterimage" : mimage
+            //                       }
+            //   },
+            //    "custom", true);
+            var murep = stair + "층 : " + mname + " Lv." + mlevel;
+            murep += "\n체력 : " + mhpjari;
+            murep += "\n누적체력 : " + mchpjari;
+            murep += " (▲" + minc + ")";
+            replier.reply(murep);
           }
           else{
             if(dataC1.indexOf("검색결과 없음") != -1){
