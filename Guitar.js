@@ -670,8 +670,8 @@ gt.getInform = function (dataarr, dataC1){
       var achieverep = guitarM.getAchieve(dataA1);
       dataC4_achievement = dataC4_achievement + ", " + achieverep.split(", ")[1];
     }
-    dataarr[2] = dataC1.split("<li class=\"user-summary-item\">")[1].split("</li>")[0];
-    dataarr[1] = dataC1.split("<li class=\"user-summary-item\">")[2].split("</li>")[0];
+    dataarr[1] = dataC1.split("<li class=\"user-summary-item\">")[3].split("</li>")[0];
+    dataarr[2] = dataC1.split("<li class=\"user-summary-item\">")[2].split("</li>")[0];
 
     dataarr[0] = dataC4_nameandServer.split("@")[0];
     dataarr[5] = dataC2.split("<div class=\"col-lg-8\">")[1];
@@ -691,6 +691,7 @@ gt.getInform = function (dataarr, dataC1){
     dataarr[3] = dataGuild;
     dataarr[4] = dataRank;
     rep = (dataC4_nameandServer + "\n" + dataarr[2] + " " + dataarr[1] + "\n" + dataC4_mureung + "\n" + dataC4_seed + "\n" + dataC4_union + "\n" + dataC4_achievement);
+    // rep = dataarr[0] + "\n" + dataarr[1] + "\n" + dataarr[2] + "\n" + dataarr[3] + "\n" + dataarr[4] + "\n" + dataarr[5] + "\n" + dataarr[6] + "\n";
   }
   return rep;
 };
@@ -857,9 +858,9 @@ gt.getMedicine = function (msg){
 
   var whatmed = msg.split(" ")[1];
   if(whatmed == undefined){
-    rep = "비약의 종류를 입력하지 않으셨습니다.\n\n!비약 (비약종류) (레벨) : 성장의 비약을 사용하였을 때 해당 레벨 0%에서 경험치가 얼마나 오르는지 알 수 있습니다. 레벨은 200이상의 숫자로 입력해주세요.\n1 : 극한 성장의 비약(200~249)\n2 : 태풍 성장의 비약(200~239)\n3 : 성장의 비약 3(200~229)\n4 : 성장의 비약 2(200~219)\n5 : 성장의 비약 1(200~209)\n6 : 익스트림 성장의 비약(141 ~ 199)";
+    rep = "비약의 종류를 입력하지 않으셨습니다.\n\n!비약 (비약종류) (레벨) : 성장의 비약을 사용하였을 때 해당 레벨 0%에서 경험치가 얼마나 오르는지 알 수 있습니다. 레벨은 200이상의 숫자로 입력해주세요.\n0 : 초월 성장의 비약(200~269)\n1 : 극한 성장의 비약(200~249)\n2 : 태풍 성장의 비약(200~239)\n3 : 성장의 비약 3(200~229)\n4 : 성장의 비약 2(200~219)\n5 : 성장의 비약 1(200~209)\n6 : 익스트림 성장의 비약(141 ~ 199)";
   }
-  else if(whatmed != 1 && whatmed != 2 && whatmed != 3 && whatmed != 4 && whatmed != 5 && whatmed != 6){
+  else if(whatmed != 0 && whatmed != 1 && whatmed != 2 && whatmed != 3 && whatmed != 4 && whatmed != 5 && whatmed != 6){
     rep = "(비약종류)에 1~5의 숫자 중 하나를 골라 입력하여주세요.\n\n!비약 (비약종류) (레벨) : 성장의 비약을 사용하였을 때 해당 레벨 0%에서 경험치가 얼마나 오르는지 알 수 있습니다. 레벨은 200이상의 숫자로 입력해주세요.\n1 : 극한 성장의 비약(200~249)\n2 : 태풍 성장의 비약(200~239)\n3 : 성장의 비약 3(200~229)\n4 : 성장의 비약 2(200~219)\n5 : 성장의 비약 1(200~209)\n6 : 익스트림 성장의 비약(141 ~ 199)";
   }
   else{
@@ -880,9 +881,20 @@ gt.getMedicine = function (msg){
       var med3 = exps[228];
       var med4 = exps[238];
       var med5 = exps[248];
+      var med6 = exps[268];
       var medres = 0;
 
-      if(whatmed == 1){//극성비
+      if(whatmed == 0){//초성비
+        rep = medlvl + "레벨에서 초월 성장의 비약 사용 결과 : ";
+        if(medlvl < 270){
+          rep += (parseInt(medlvl) + 1) + "레벨 0%";
+        }
+        else{
+          medres = ((med6 / exps[medlvl-1]) * 100).toFixed(3);
+          rep += medlvl + "레벨 " + medres + "%";
+        }
+      }
+      else if(whatmed == 1){//극성비
         rep = medlvl + "레벨에서 극한 성장의 비약 사용 결과 : ";
         if(medlvl < 250){
           rep += (parseInt(medlvl) + 1) + "레벨 0%";

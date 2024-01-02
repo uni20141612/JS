@@ -70,13 +70,23 @@ sb.getSymbol = function(sbname){
             break;
         case "카탈리스트":
         case "카탈":
-        case "11":
+        case "13":
             ret = 9;
             break;
         case "죄인들의낙원도원경":
         case "도원경":
         case "10":
             ret = 10;
+            break;
+        case "아르테리아":
+        case "아르테":
+        case "11":
+            ret = 11;
+            break;
+        case "카르시온":
+        case "카르":
+        case "12":
+            ret = 12;
             break;
         default:
             ret = -1;
@@ -117,6 +127,12 @@ sb.getSymbolname = function(sbind){
         case 10:
             rep = "어센틱심볼 : 도원경";
             break;
+        case 11:
+            rep = "어센틱심볼 : 아르테리아";
+            break;
+        case 12:
+            rep = "어센틱심볼 : 카르시온";
+            break;
     }
     return rep;
 };
@@ -124,22 +140,22 @@ sb.getSymboldaily = function(sbind){
     var rep = "";
     switch(sbind){
         case 0:
-            rep = "NPC 로나: 일일 퀘스트(5개)로 일일 최대 8/16개(리버스)";
+            rep = "NPC 로나: 일일 퀘스트로 일일 최대 10/20개(리버스)";
             break;
         case 1:
-            rep = "NPC 마스터 핥: 일일 퀘스트(3개)로 일일 최대 4/8개(얌얌)";
+            rep = "NPC 마스터 핥: 일일 퀘스트로 일일 최대 10/20개(얌얌)";
             break;
         case 2:
-            rep = "NPC 영감님: 일일 퀘스트(3개)로 일일 최대 8개";
+            rep = "NPC 영감님: 일일 퀘스트로 일일 최대 20개";
             break;
         case 3:
-            rep = "NPC 나무의 정령들: 일일 퀘스트(3개)로 일일 최대 8개";
+            rep = "NPC 나무의 정령들: 일일 퀘스트로 일일 최대 20개";
             break;
         case 4:
-            rep = "NPC 쟝: 일일 퀘스트(3개)로 일일 최대 8개";
+            rep = "NPC 쟝: 일일 퀘스트로 일일 최대 20개";
             break;
         case 5:
-            rep = "NPC 올리: 일일 퀘스트(3개)로 일일 최대 8개";
+            rep = "NPC 올리: 일일 퀘스트로 일일 최대 20개";
             break;
         case 6:
             rep = "세르니움 조사로 일일 최대 20개";
@@ -152,6 +168,12 @@ sb.getSymboldaily = function(sbind){
             break;
         case 10:
             rep = "도원경 오염 정화로 일일 최대 10개";
+            break;
+        case 11:
+            rep = "아르테리아 잔당 처치로 일일 최대 10개";
+            break;
+        case 12:
+            rep = "카르시온 복구 지원으로 일일 최대 10개";
             break;
     }
     return rep;
@@ -187,6 +209,12 @@ sb.getSymbolspecial = function(sbind){
             rep = "부가퀘스트 미출시";
             break;
         case 10:
+            rep = "부가퀘스트 미출시";
+            break;
+        case 11:
+            rep = "부가퀘스트 미출시";
+            break;
+        case 12:
             rep = "부가퀘스트 미출시";
             break;
     }
@@ -254,6 +282,12 @@ sb.getSymbolmeso = function(sbind, level){
         case 10:
             meso = getdomeso(level);
             break;
+        case 11:
+            meso = getartmeso(level);
+            break;
+        case 12:
+            meso = getkarmeso(level);
+            break;
     }
     return meso;
 };
@@ -290,6 +324,12 @@ sb.getSymbolcumulmeso = function(sbind, level){
         case 10:
             meso = getdocumulmeso(level);
             break;
+        case 11:
+            meso = getartcumulmeso(level);
+            break;
+        case 12:
+            meso = getkarcumulmeso(level);
+            break;
     }
     return meso;
 };
@@ -308,6 +348,8 @@ sb.getSymbolexp = function(sbind, level){
         case 7:
         case 8:
         case 10:
+        case 11:
+        case 12:
             exp = getascumulexp2(level) - getascumulexp(level);
             break;
     }
@@ -328,6 +370,8 @@ sb.getSymbolfinalexp = function(sbind, level){
         case 7:
         case 8:
         case 10:
+        case 11:
+        case 12:
             exp = 4565 - getascumulexp(level);
     }
     return exp;
@@ -556,7 +600,7 @@ function getodicumulmeso(lvl){
     return 5573300000 - cumulate(odimeso, lvl-2);
 }
 function getdomeso(lvl){
-    ms = -5.4*(Math.pow(lvl,3)) + 139.2*(Math.pow(lvl,2)) + 336*lvl;
+    ms = -5.4*(Math.pow(lvl,3)) + 155.4*(Math.pow(lvl,2)) + 372*lvl;
     msi = parseInt(ms);
     msi = msi * 100000;
     // return (117400000 + 107100000*lvl);
@@ -568,7 +612,37 @@ function getdocumulmeso(lvl){
         var tempodi = getodimeso(i);
         domeso.push(tempodi);
     }
-    return 5573300000 - cumulate(domeso, lvl-2);
+    return 6395000000 - cumulate(domeso, lvl-2);
+}
+function getartmeso(lvl){
+    ms = -5.4*(Math.pow(lvl,3)) + 171.6*(Math.pow(lvl,2)) + 408*lvl;
+    msi = parseInt(ms);
+    msi = msi * 100000;
+    // return (117400000 + 107100000*lvl);
+    return msi;
+}
+function getartcumulmeso(lvl){
+    var domeso = [];
+    for(i = 1; i < lvl; ++i){
+        var tempodi = getodimeso(i);
+        domeso.push(tempodi);
+    }
+    return 7216900000 - cumulate(domeso, lvl-2);
+}
+function getkarmeso(lvl){
+    ms = -5.4*(Math.pow(lvl,3)) + 187.8*(Math.pow(lvl,2)) + 444*lvl;
+    msi = parseInt(ms);
+    msi = msi * 100000;
+    // return (117400000 + 107100000*lvl);
+    return msi;
+}
+function getkarcumulmeso(lvl){
+    var domeso = [];
+    for(i = 1; i < lvl; ++i){
+        var tempodi = getodimeso(i);
+        domeso.push(tempodi);
+    }
+    return 8038600000 - cumulate(domeso, lvl-2);
 }
 function cumulate(arr, ind) {
     var ret = 0;
